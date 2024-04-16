@@ -9,7 +9,7 @@ library(ggspatial)
 library(terra)
 
 #base Extrapolation index image from TNC shapefile
-eco = vect('./data/terr-ecoregions-TNC/tnc_terr_ecoregions.shp')
+eco = vect('./data/input data/terr-ecoregions-TNC/tnc_terr_ecoregions.shp')
 
 #subset to rock and ice and tundra and boreal
 eco = subset(eco,eco$WWF_MHTNAM == 'Rock and Ice' | 
@@ -37,7 +37,7 @@ names(clim) = c('MeanTemp','WarmestQuarter','ColdestQuarter',
 
 clim = rast(clim)
 clim2 = crop(x = clim,y = eco)
-clim2 = mask(x = clim2,mask = eco)
+#clim2 = mask(x = clim2,mask = eco)
 
 #subset to the files used in the rep analysis
 #clim = dropLayer(x = clim,i = c(5,6,10,11,13,15:18))

@@ -27,6 +27,7 @@ for (i in 1:46) {
   ndvi[[i]] = raster(t(ndviar),xmn=min(lon), xmx=max(lon), ymn=min(lat), ymx=max(lat), crs=CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs+ towgs84=0,0,0"))
   ndvi[[i]] = crop(x = ndvi[[i]],y = extent(c(-179.9583,179.9583,45,85)))
 }
+ndvi
 
 #NDWI ################################
 ndwi = nc_open(filename = './data/input data/ei inputs/NDWI.MCD43B4.006.v4_201905.2020.nc')

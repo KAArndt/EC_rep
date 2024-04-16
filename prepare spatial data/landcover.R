@@ -11,6 +11,7 @@ base = raster('./summean_v5_base.tif')
 
 #landcover from MODIS################################
 lcn = nc_open(filename = './data/input data/ei inputs/MCD12Q1plusC4_fraction.GLOBAL01KM.2001001.LC.10KM.nc')
+lcn
 
 lon <- ncvar_get(lcn, "lon")
 lat <- ncvar_get(lcn, "lat", verbose = F)
