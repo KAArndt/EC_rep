@@ -1,4 +1,5 @@
 rm(list = ls())
+setwd('C:/Users/karndt.WHRC/Desktop/site.selection/')
 
 library(raster)
 library(svMisc)
@@ -7,9 +8,16 @@ library(ggplot2)
 library(ggspatial)
 library(terra)
 
-#base Extrapolation index image from martijn, use as domain mask
-base = rast('./base_3_towersnew.tif')
-base
+#base Extrapolation index image from TNC shapefile
+eco = vect('./data/terr-ecoregions-TNC/tnc_terr_ecoregions.shp')
+
+#subset to rock and ice and tundra and boreal
+eco = subset(eco,eco$WWF_MHTNAM == 'Rock and Ice' | 
+               eco$WWF_MHTNAM == 'Tundra' |
+               eco$WWF_MHTNAM == 'Boreal Forests/Taiga')
+
+#crop to the northern regions
+eco = crop(x = eco,y = c(-180, 180, 43, 83.6236))
 
 #climate files
 c.files = list.files('./data/input data/climate/wc2.1_30s_bio/',full.names = T)
@@ -27,24 +35,23 @@ names(clim) = c('MeanTemp','WarmestQuarter','ColdestQuarter',
                 'MaxTempWarmestMonth','MinTempColdestMonth','TempAnnualRange',
                 'MeanTempWettestQuarter','MeanTempDriestQuarter')
 
-clim2 = crop(x = clim,y = extent(c(-180,180,45,80)))
+clim = rast(clim)
+clim2 = crop(x = clim,y = eco)
+clim2 = mask(x = clim2,mask = eco)
 
 #subset to the files used in the rep analysis
 #clim = dropLayer(x = clim,i = c(5,6,10,11,13,15:18))
 
-clim2 = rast(clim2)
+writeRaster(x = clim2,filename = './data/input data/climate.tif',overwrite=T)
 
-cl = resample(x = clim2,y = base)
-
-writeRaster(x = cl,filename = './data/input data/climate/climate_resample.tif',overwrite=T)
 
 # add elevation data
-elev = rast('./data/input data/climate/wc2.1_30s_elev/wc2.1_30s_elev.tif')
-slope = terrain(x = elev,v = 'slope')
-slope = project(x = slope,y = cl)
-
-elev = stack(elev)
-plot(elev,ylim=c(45,80),zlim = c(0,1000))
-
-slope = stack(slope)
-plot(slope,ylim=c(45,80),zlim=c(0,15))
+# elev = rast('./data/input data/climate/wc2.1_30s_elev/wc2.1_30s_elev.tif')
+# slope = terrain(x = elev,v = 'slope')
+# slope = project(x = slope,y = cl)
+# 
+# elev = stack(elev)
+# plot(elev,ylim=c(45,80),zlim = c(0,1000))
+# 
+# slope = stack(slope)
+# plot(slope,ylim=c(45,80),zlim=c(0,15))
