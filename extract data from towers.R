@@ -13,24 +13,6 @@ library(plyr)
 
 setwd('C:/Users/karndt.WHRC/Desktop/site.selection/')
 
-#load in the stack created in the other files
-clim = rast('./data/input data/climate.tif')
-#sat  = rast('./data/input data/sat_data.tif')
-soil = rast('./data/input data/soils.tif')
-#perm = rast('./data/input data/permafrost.tif')
-
-
-#combine into one cohesive file
-r = c(clim,soil)
-
-#check out the layers included
-names(r)
-
-#remove any unwanted layers
-#r = subset(x = r,subset = c(1:4,12:17,20:30))
-
-#r[r$ndwimin > 0.1] = NA
-
 #load in sites
 towers = fread(file = './data/towers_sites_ABZ.csv')
 ext    = fread(file = './data/extension_sites.csv')
@@ -40,64 +22,99 @@ ext    = subset(ext,ext$use == 'yes')
 towers = subset(towers,towers$use == 'yes')
 
 #reduce the existing sites and add class names for later sparsing
-towers = towers[,c('Site_Name','Country','LON','LAT','Activity','CH4','Annual_cover','Supported')]
+towers = towers[,c('Site_Name','Country','LON','LAT','Activity','CH4','Annual_cover')]
 towers.and.ext    = rbind.fill(towers,ext)
+names(towers.and.ext)[1] = 'site'
 
 #set just the coordinates for the extract
 xy.tower = towers.and.ext[,c(3,4)]
-r
 
-plot(r$MeanTemp)
-extract(x = r,y = xy.tower,cells = T,xy = T)
+#climate #########################################################################
+#load in the stack created in the other files
+clim = rast('./data/input data/climate.tif')
 
-towerdata = extract(x = r,y = xy.tower,small=T,buffer = 10^20,na.rm = T)
+#extract data
+climdat = extract(x = clim,y = xy.tower,cells=T,xy=T)
+nas = climdat[is.na(climdat$MeanTemp),] #extract where nas
+climr = stack(clim) #make a raster version
 
-r = raster(r$MeanTemp)
+#find coordinates
+na.cor = as.data.frame(nearestLand(points = nas[,c('x','y')],raster = climr,max_distance = 1000))
 
-orig = Sys.time()
-sampled = apply(X = xy.tower, MARGIN = 1, FUN = function(xy.tower) r@data@values[which.min(replace(distanceFromPoints(r, xy.tower), is.na(r), NA))])
-Sys.time() - orig
+#place in original dataframe
+climdat[nas$ID,] = extract(x = clim,y = na.cor,cells=T,xy=T)
+climdat$site = towers.and.ext$Site_Name
 
+#soil grids #########################################################################
+#load in the stack created in the other files
+soil = rast('./data/input data/soils.tif')
+sg = subset(x = soil,subset = 1:6)
 
+#extract data
+soildat = extract(x = sg,y = xy.tower,cells=T,xy=T)
+nas = soildat[is.na(soildat$bd_100_agg),] #extract where nas
+soilr = stack(sg) #make a raster version
 
+#find coordinates
+na.cor = as.data.frame(nearestLand(points = nas[,c('x','y')],raster = soilr,max_distance = 1000))
+na.cor
 
-
-
-### Method 3 (nearestLand) #####################################################
-for (i in 1:dim(r)[3]) {
- 
-  rdat = extract(x = r[[i]],y = xy.tower,df = T,cells = T,xy = T)
-  NAs  = rdat[is.na(rdat[,2]),]
-  
-  if (nrow(NAs) > 0) {
-    # find coordinates of nearest non-NA cell
-    co = nearestLand(NAs[,c(4,5)], raster(r[[i]]), max_distance = 200000)
-    
-    # extract values of nearest non-NA cell with coordinates co
-    NAVals = raster::extract(r[[i]], co, method='simple')
-    
-    # Add data to raster
-    r[[i]][NAs[,'cell']] <- NAVals
-  }
-  progress(i,dim(r)[3])
-}
-
+#place in original dataframe
+soildat[nas$ID,] = extract(x = sg,y = na.cor,cells=T,xy=T)
+summary(soildat)
+soildat$site = towers.and.ext$Site_Name
 
 
+#permafrost #########################################################################
+#load in the stack created in the other files
+soil = rast('./data/input data/soils.tif')
+perm = subset(x = soil,subset = 7)
 
-?extract
+#extract data
+permdat = extract(x = perm,y = xy.tower,cells=T,xy=T)
+summary(permdat$UiO_PEX_PERPROB_5.0_20181128_2000_2016_NH)
+nas = permdat[is.na(permdat$UiO_PEX_PERPROB_5.0_20181128_2000_2016_NH),] #extract where nas
+permr = stack(perm) #make a raster version
 
-tower.data = extract(x = r,y = xy.tower,df = T,cells = T,xy = T)
-tower.data$sitename = towers.and.ext$Site_Name
-tower.data$country = towers.and.ext$Country
+#find coordinates
+na.cor = as.data.frame(nearestLand(points = nas[,c('x','y')],raster = permr,max_distance = 1000))
 
-tower.data$ch4 = towers.and.ext$CH4
-tower.data$annual = towers.and.ext$Annual_cover
-tower.data$active = towers.and.ext$Activity
-tower.data$support = towers.and.ext$Supported
+#place in original dataframe
+permdat[nas$ID,] = extract(x = perm,y = na.cor,cells=T,xy=T)
+summary(permdat)
+permdat$site = towers.and.ext$Site_Name
 
-tower.data = tower.data[complete.cases(tower.data$MeanTemp),]  
-summary(tower.data)
+#modis #########################################################################
+#load in the stack created in the other files
+modis = rast('./data/input data/modis.tif')
+names(modis) = c('ndvimax','ndvisum','evimax')
+
+#extract data
+modisdat = extract(x = modis,y = xy.tower,xy=T,cell=T)
+summary(modisdat)
+nas = modisdat[is.na(modisdat$ndvimax),] #extract where nas
+modisr = stack(modis) #make a raster version
+
+#find coordinates
+na.cor = as.data.frame(nearestLand(points = nas[,c('x','y')],raster = modisr,max_distance = 1000))
+
+#place in original dataframe
+modisdat[nas$ID,] = extract(x = modis,y = na.cor,cells=T,xy=T)
+summary(modisdat)
+modisdat$site = towers.and.ext$site
+
+#combine all
+modisdat[,c('cell','ID','x','y')] = list(NULL)
+climdat[,c('cell','ID','x','y')] = list(NULL)
+permdat[,c('cell','ID','x','y')] = list(NULL)
+soildat[,c('cell','ID','x','y')] = list(NULL)
+
+modisclim = merge(modisdat,climdat,by = 'site')
+permsoil = merge(permdat,soildat,by = 'site')
+alldata = merge(modisclim,permsoil,by = 'site')
+
+towerdata = merge(towers.and.ext,alldata,by = 'site')
+
 
 #add the class back in
-write.csv(x = tower.data,file = './data/extracted_tower_data.csv',row.names = F)
+write.csv(x = towerdata,file = './data/extracted_tower_data_new.csv',row.names = F)

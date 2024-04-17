@@ -20,8 +20,13 @@ eco = subset(eco,eco$WWF_MHTNAM == 'Rock and Ice' |
 #crop to the northern regions
 eco = crop(x = eco,y = c(-180, 180, 43, 83.6236))
 
+ec = union(eco)
+plot(ec)
+plot(eco)pleconomicsot(eco)
+
 ############################################################
-#Newer soil files from soil grids https://soilgrids.org/ ############################################################
+#Newer soil files from soil grids https://soilgrids.org/
+############################################################
 
 #bd
 bd00  = rast('./data/input data/soil grids 2017/bd/BLDFIE_M_sl1_1km_ll.tif')
