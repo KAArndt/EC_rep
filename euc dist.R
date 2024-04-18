@@ -3,6 +3,7 @@
 #  created by K Arndt July 2022
 ##################################################################################
 rm(list = ls())
+setwd('C:/Users/karndt.WHRC/Desktop/site.selection/')
 
 library(raster)
 library(svMisc)
@@ -18,29 +19,35 @@ library(ggthemes)
 library(sf)
 
 #load in the stack created in the other file
-clim = rast('./data/input data/climate.tif')
-modis = rast('./data/input data/modis.tif')
-soil = rast('./data/input data/soils.tif')
-
-r = c
-clim
-modis
-soil
-names(sat) = c('gdd','fdd','ndvisum','ndwimin','band7')
-
-r = c(clim,modis,soil)
-r$
-r = subset(x = r,subset = c(1:4,12:17,20:30))
-
-r[is.na(base)] = NA
-
-#remove the above that we don't need anymore to save memory needed in later steps
-rm(clim,soil,sat)
+r = rast('./data/input data/spatial.tif')
 
 #load in extracted site data from extraction codes
-tower.data = fread(file = './data/extracted_tower_data.csv')
+tower.data = fread(file = './data/extracted_tower_data_new.csv')
 
 #cut down raster data to remove NAs
+pca = princomp(r,use = 'masked.complete',maxcell = 10000) #takes hours to run so far, need more pc power
+
+sr = spatSample(x = r,size = 1000000,method = "regular",na.rm = T,exhaustive = T)
+sr = sr[complete.cases(sr$MeanTemp),]
+summary(sr)
+pca3 = prcomp(sr,center = T,scale = T)
+p3 <- predict(r, pca3)
+
+
+plot(pca$)
+
+pca.r = predict(r,pca)
+
+plot(pca.r$Comp.1)
+plot(pca.r$Comp.2)
+plot(pca.r$Comp.3)
+plot(pca.r$Comp.4)
+
+?princomp
+p = predict(r, pca, index=1:4)
+
+sr = spatSample(r, 100000, "regular")
+?spatSample
 df = as.data.frame(r,xy = T,na.rm=T)
 
 #run a PCA on the full data set

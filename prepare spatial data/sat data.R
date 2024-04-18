@@ -66,12 +66,24 @@ for (i in 2:length(mir)) {
   mirs = c(mirs,mir[[i]])
 }
 
+#calculate NDWI using the bands above
+ ndwis1 = (nirs[[1]] - mirs[[1]])/(nirs[[1]] + mirs[[1]])
+ ndwis2 = (nirs[[2]] - mirs[[2]])/(nirs[[2]] + mirs[[2]])
+ ndwis3 = (nirs[[3]] - mirs[[3]])/(nirs[[3]] + mirs[[3]])
+ ndwis4 = (nirs[[4]] - mirs[[4]])/(nirs[[4]] + mirs[[4]])
+ ndwis5 = (nirs[[5]] - mirs[[5]])/(nirs[[5]] + mirs[[5]])
+ ndwis6 = (nirs[[6]] - mirs[[6]])/(nirs[[6]] + mirs[[6]])
+ ndwis7 = (nirs[[7]] - mirs[[7]])/(nirs[[7]] + mirs[[7]])
+ ndwis8 = (nirs[[8]] - mirs[[8]])/(nirs[[8]] + mirs[[8]])
+ ndwis9 = (nirs[[9]] - mirs[[9]])/(nirs[[9]] + mirs[[9]])
+ ndwis10 = (nirs[[10]] - mirs[[10]])/(nirs[[10]] + mirs[[10]])
+ ndwis11 = (nirs[[11]] - mirs[[11]])/(nirs[[11]] + mirs[[11]])
+ ndwis12 = (nirs[[12]] - mirs[[12]])/(nirs[[12]] + mirs[[12]])
 
-
+ ndwis = c(ndwis1,ndwis2,ndwis3,ndwis4,
+           ndwis5,ndwis6,ndwis7,ndwis8,
+           ndwis9,ndwis10,ndwis11,ndwis12)
 #break down and calculate what we want
-evis #right resolution
-ndvis #right resolution
-
 ndvimax = app(x = ndvis,fun = max,na.rm=T)
 #plot(ndvimax)
 
@@ -81,12 +93,20 @@ ndvisum = app(x = ndvis,fun = sum,na.rm=T)
 evimax = app(x = evis,fun = max,na.rm=T)
 #plot(evimax)
 
+ndwimin = app(x = ndwis,fun = min,na.rm=T)
+ndwimin[ndwimin > 1] = NA
+ndwimin[ndwimin < -1] = NA
+#plot(ndwimin)
 
-modis = c(ndvimax,ndvisum,evimax)
-names(modis) = c('ndvimax','ndvisum','evimax')
+mirsaug = mirs[[8]]
+hist(mirsaug)
+mirsaug[mirsaug > 0.5] = NA
+plot(mirsaug)
+
+modis = c(ndvimax,ndvisum,evimax,ndwimin,mirsaug)
+names(modis) = c('ndvimax','ndvisum','evimax','ndwimin','mirsaug')
 #resize to the area and size of the base image
 modis = crop(x = modis,y = eco)
 #bd = mask(x = bd,mask = eco)
-
 
 writeRaster(x = modis,filename = './data/input data/modis.tif',overwrite=T)

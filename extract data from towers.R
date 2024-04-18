@@ -43,7 +43,7 @@ na.cor = as.data.frame(nearestLand(points = nas[,c('x','y')],raster = climr,max_
 
 #place in original dataframe
 climdat[nas$ID,] = extract(x = clim,y = na.cor,cells=T,xy=T)
-climdat$site = towers.and.ext$Site_Name
+climdat$site = towers.and.ext$site
 
 #soil grids #########################################################################
 #load in the stack created in the other files
@@ -57,13 +57,11 @@ soilr = stack(sg) #make a raster version
 
 #find coordinates
 na.cor = as.data.frame(nearestLand(points = nas[,c('x','y')],raster = soilr,max_distance = 1000))
-na.cor
 
 #place in original dataframe
 soildat[nas$ID,] = extract(x = sg,y = na.cor,cells=T,xy=T)
 summary(soildat)
-soildat$site = towers.and.ext$Site_Name
-
+soildat$site = towers.and.ext$site
 
 #permafrost #########################################################################
 #load in the stack created in the other files
@@ -82,12 +80,11 @@ na.cor = as.data.frame(nearestLand(points = nas[,c('x','y')],raster = permr,max_
 #place in original dataframe
 permdat[nas$ID,] = extract(x = perm,y = na.cor,cells=T,xy=T)
 summary(permdat)
-permdat$site = towers.and.ext$Site_Name
+permdat$site = towers.and.ext$site
 
 #modis #########################################################################
 #load in the stack created in the other files
 modis = rast('./data/input data/modis.tif')
-names(modis) = c('ndvimax','ndvisum','evimax')
 
 #extract data
 modisdat = extract(x = modis,y = xy.tower,xy=T,cell=T)
@@ -114,7 +111,6 @@ permsoil = merge(permdat,soildat,by = 'site')
 alldata = merge(modisclim,permsoil,by = 'site')
 
 towerdata = merge(towers.and.ext,alldata,by = 'site')
-
 
 #add the class back in
 write.csv(x = towerdata,file = './data/extracted_tower_data_new.csv',row.names = F)
