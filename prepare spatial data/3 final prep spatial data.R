@@ -42,9 +42,9 @@ r2[is.na(r2$UiO_PEX_PERPROB_5.0_20181128_2000_2016_NH)] = NA #permafrost
 r2[is.na(r2$OCSTHA_M_100cm_1km_ll)] = NA #soil grids
 r2[is.na(r2$MeanTemp)] = NA #worldclim
 r2[is.na(r2$ndwimin)] = NA #MODIS
+r2[is.na(r2$mirsaug)] = NA #MODIS
 
 summary(r2)
 
-plot(r2$UiO_PEX_PERPROB_5.0_20181128_2000_2016_NH)
 
 writeRaster(x = r2,filename = './data/input data/spatial.tif',overwrite = T)

@@ -23,18 +23,80 @@ r = rast('./data/input data/spatial.tif')
 
 #load in extracted site data from extraction codes
 tower.data = fread(file = './data/extracted_tower_data_new.csv')
-
+names(sr)
 #cut down raster data to remove NAs
-pca = princomp(r,use = 'masked.complete',maxcell = 10000) #takes hours to run so far, need more pc power
-
-sr = spatSample(x = r,size = 1000000,method = "regular",na.rm = T,exhaustive = T)
+sr = spatSample(x = r,size = 200000,method = "regular")
 sr = sr[complete.cases(sr$MeanTemp),]
-summary(sr)
-pca3 = prcomp(sr,center = T,scale = T)
-p3 <- predict(r, pca3)
+sr[,c("WarmestQuarter",                                 
+           "ColdestQuarter",                                   
+           "WettestMonth",                 
+           "DriestMonth",                         
+           "WettestQuarter",                            
+           "DriestQuarter",                          
+           "PrecipWarmestQuarter",                          
+           "PrecipColdestQuarter",                                  
+           "MaxTempWarmestMonth",                                  
+           "MinTempColdestMonth",                                   
+           "MeanTempWettestQuarter",                                  
+           "MeanTempDriestQuarter")] = NULL
+
+tower.data[,c("WarmestQuarter",                                 
+      "ColdestQuarter",                                   
+      "WettestMonth",                 
+      "DriestMonth",                         
+      "WettestQuarter",                            
+      "DriestQuarter",                          
+      "PrecipWarmestQuarter",                          
+      "PrecipColdestQuarter",                                  
+      "MaxTempWarmestMonth",                                  
+      "MinTempColdestMonth",                                   
+      "MeanTempWettestQuarter",                                  
+      "MeanTempDriestQuarter")] = NULL
+
+srt = rbind.fill(sr,tower.data)
+
+pca3 = prcomp(srt[,c(1:19)],center = T,scale = T)
+
+library(ggfortify)
 
 
-plot(pca$)
+srt$pc1 = pca3$x[,1]
+srt$pc2 = pca3$x[,2]
+srt$pc3 = pca3$x[,3]
+srt$pc4 = pca3$x[,4]
+srt$pc5 = pca3$x[,5]
+
+
+pca.r = subset(srt,is.na(srt$site))
+pca.t = subset(srt,complete.cases(srt$site))
+pca.ta = subset(pca.t,pca.t$Activity == 'active')
+pca.ex = subset(pca.t,pca.t$Activity != 'active' | is.na(pca.t$Activity))
+
+
+ggplot()+
+  geom_hex(data = pca.r,aes(x = pc1,y = pc2),bins = 100)+
+  geom_point(data = pca.ta,aes(x = pc1,y = pc2,col='Active Site'))+
+  geom_point(data = pca.ex,aes(x = pc1,y = pc2,col='Extension Site'))+
+  scale_fill_viridis_c()+
+  scale_color_manual(values = c('red','green'))
+  
+ggplot()+
+  geom_hex(data = pca.r,aes(x = pc3,y = pc4),bins = 100)+
+  geom_point(data = pca.ta,aes(x = pc3,y = pc4,col='Active Site'))+
+  geom_point(data = pca.ex,aes(x = pc3,y = pc4,col='Extension Site'))+
+  scale_fill_viridis_c()+
+  scale_color_manual(values = c('red','green'))
+
+summary(pca3)
+0.3485  + 0.2058  + 0.1027  + 0.08455  + 0.05612 
+
+p3 = predict(r, pca3,index = 1:5)
+
+plot(p3$PC1)
+plot(p3$PC2)
+plot(p3$PC3)
+plot(p3$PC4)
+plot(p3$PC5)
 
 pca.r = predict(r,pca)
 
@@ -43,12 +105,6 @@ plot(pca.r$Comp.2)
 plot(pca.r$Comp.3)
 plot(pca.r$Comp.4)
 
-?princomp
-p = predict(r, pca, index=1:4)
-
-sr = spatSample(r, 100000, "regular")
-?spatSample
-df = as.data.frame(r,xy = T,na.rm=T)
 
 #run a PCA on the full data set
 #add the tower sites to the main data from the raster
