@@ -21,9 +21,10 @@ library(sf)
 #load in the stack created in the other file
 r = rast('./data/input data/pca.tif')
 
-r = terra::aggregate(x = r,fact = 10,fun = 'mean',cores=10,na.rm=T)
+r = terra::aggregate(x = r,fact = 2,fun = 'mean',cores=10,na.rm=T)
 r
 
+plot(r)
 #load in extracted site data from extraction codes
 tower.data = fread(file = './data/pca.towers.csv')
 
@@ -42,13 +43,11 @@ pca.towers = data.table(tower.data[,c('pc1','pc2','pc3','pc4','pc5')])
 rm(r)
 rm(df)
 
-euci = matrix(nrow = nrow(pca.dt),ncol = nrow(pca.towers))
-
 library(foreach)
 library(doParallel)
 library(doSNOW)
 
-#intialize the euclid
+#initialize the euclid
 euclid = vector(length = nrow(pca.dt))
 
 #setup parallel backend to use many processors
@@ -69,22 +68,9 @@ euci = foreach (j = 1:nrow(pca.towers),.verbose = T,.combine = cbind) %dopar% {
 stopCluster(cl) #stop the clusters
 Sys.time() - orig} #stop the clock
 
-#sandbox one
-#setup parallel backend to use many processors this works but isnt very fast
-{orig = Sys.time()
-  cl = makeCluster(18) #two less than total cores
-  registerDoSNOW(cl)
-  
-  euci =  foreach (i = 1:nrow(pca.dt),j = 1:2) %dopar% {
-        sqrt((pca.dt$PC1[i]-pca.towers$pc1[j])^2 + 
-             (pca.dt$PC2[i]-pca.towers$pc2[j])^2 + 
-             (pca.dt$PC3[i]-pca.towers$pc3[j])^2 +
-             (pca.dt$PC4[i]-pca.towers$pc4[j])^2 +
-             (pca.dt$PC5[i]-pca.towers$pc5[j])^2)}
-  
-  stopCluster(cl)
-  Sys.time() - orig}
+colnames(euci) = tower.data$site
 
+write.table(x = euci,file = './euci_new.csv',row.names = F)
 
 #setup parallel backend to use many processors this works but isnt very fast
 {orig = Sys.time()
