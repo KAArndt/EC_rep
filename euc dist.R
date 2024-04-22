@@ -19,157 +19,106 @@ library(ggthemes)
 library(sf)
 
 #load in the stack created in the other file
-r = rast('./data/input data/spatial.tif')
+r = rast('./data/input data/pca.tif')
+
+r = terra::aggregate(x = r,fact = 10,fun = 'mean',cores=10,na.rm=T)
+r
 
 #load in extracted site data from extraction codes
-tower.data = fread(file = './data/extracted_tower_data_new.csv')
-names(sr)
-#cut down raster data to remove NAs
-sr = spatSample(x = r,size = 200000,method = "regular")
-sr = sr[complete.cases(sr$MeanTemp),]
-sr[,c("WarmestQuarter",                                 
-           "ColdestQuarter",                                   
-           "WettestMonth",                 
-           "DriestMonth",                         
-           "WettestQuarter",                            
-           "DriestQuarter",                          
-           "PrecipWarmestQuarter",                          
-           "PrecipColdestQuarter",                                  
-           "MaxTempWarmestMonth",                                  
-           "MinTempColdestMonth",                                   
-           "MeanTempWettestQuarter",                                  
-           "MeanTempDriestQuarter")] = NULL
+tower.data = fread(file = './data/pca.towers.csv')
 
-tower.data[,c("WarmestQuarter",                                 
-      "ColdestQuarter",                                   
-      "WettestMonth",                 
-      "DriestMonth",                         
-      "WettestQuarter",                            
-      "DriestQuarter",                          
-      "PrecipWarmestQuarter",                          
-      "PrecipColdestQuarter",                                  
-      "MaxTempWarmestMonth",                                  
-      "MinTempColdestMonth",                                   
-      "MeanTempWettestQuarter",                                  
-      "MeanTempDriestQuarter")] = NULL
-
-srt = rbind.fill(sr,tower.data)
-
-pca3 = prcomp(srt[,c(1:19)],center = T,scale = T)
-
-library(ggfortify)
-
-
-srt$pc1 = pca3$x[,1]
-srt$pc2 = pca3$x[,2]
-srt$pc3 = pca3$x[,3]
-srt$pc4 = pca3$x[,4]
-srt$pc5 = pca3$x[,5]
-
-
-pca.r = subset(srt,is.na(srt$site))
-pca.t = subset(srt,complete.cases(srt$site))
-pca.ta = subset(pca.t,pca.t$Activity == 'active')
-pca.ex = subset(pca.t,pca.t$Activity != 'active' | is.na(pca.t$Activity))
-
-
-ggplot()+
-  geom_hex(data = pca.r,aes(x = pc1,y = pc2),bins = 100)+
-  geom_point(data = pca.ta,aes(x = pc1,y = pc2,col='Active Site'))+
-  geom_point(data = pca.ex,aes(x = pc1,y = pc2,col='Extension Site'))+
-  scale_fill_viridis_c()+
-  scale_color_manual(values = c('red','green'))
-  
-ggplot()+
-  geom_hex(data = pca.r,aes(x = pc3,y = pc4),bins = 100)+
-  geom_point(data = pca.ta,aes(x = pc3,y = pc4,col='Active Site'))+
-  geom_point(data = pca.ex,aes(x = pc3,y = pc4,col='Extension Site'))+
-  scale_fill_viridis_c()+
-  scale_color_manual(values = c('red','green'))
-
-summary(pca3)
-0.3485  + 0.2058  + 0.1027  + 0.08455  + 0.05612 
-
-p3 = predict(r, pca3,index = 1:5)
-
-plot(p3$PC1)
-plot(p3$PC2)
-plot(p3$PC3)
-plot(p3$PC4)
-plot(p3$PC5)
-
-pca.r = predict(r,pca)
-
-plot(pca.r$Comp.1)
-plot(pca.r$Comp.2)
-plot(pca.r$Comp.3)
-plot(pca.r$Comp.4)
-
-
-#run a PCA on the full data set
-#add the tower sites to the main data from the raster
-pca.input = rbind.fill(df,tower.data)
-
-#run the PCA
-pca = prcomp(x = pca.input[,c(3:23)],center = T,scale. = T)
-summary(pca)
-pcadf = data.frame(pca$x[,c(1:4)])
-
-pca.input$pc1 = pcadf$PC1
-pca.input$pc2 = pcadf$PC2
-pca.input$pc3 = pcadf$PC3
-pca.input$pc4 = pcadf$PC4
-
-#td = merge(tower.data,df2,by = 'cells',all.x = T)
-pca.towers   = subset(pca.input,complete.cases(pca.input$sitename))
-#pca.ext    = subset(pca.input,pca.input$type == 'ext')
-pca.pixels = subset(pca.input,is.na(pca.input$sitename))
-
-
-sub = subset(x = pca.towers,pca.towers$active == 'active')
-ina = subset(x = pca.towers,pca.towers$active != 'active' | is.na(pca.towers$active))
-comp = subset(pca.towers,pca.towers$annual != 'yes' & pca.towers$active == 'active')
-int = subset(pca.towers,pca.towers$sitename == 'Radisson Ecological Research Station' |
-               pca.towers$sitename == 'CEF cluster' | pca.towers$sitename == 'Schefferville' | pca.towers$sitename == "Quebec 2")
-
-
-pca.towers$sitename
-ggplot()+theme_bw()+
-  geom_hex(data = pca.pixels,aes(pc1,pc2),bins=150)+
-  scale_fill_viridis_c()+
-  #geom_point(data = sub,aes(pc1,pc2),col='red')
-  geom_label(data = sub,aes(pc1,pc2,label = sitename),
-             size=3.5,fill='transparent',col='red',label.size = NA)+
-  geom_label(data = int,aes(pc1,pc2,label = sitename),
-             size=3.5,fill='transparent',col='green',label.size = NA)
-
-#use this to check out drivers of the PCA
-#library(ggfortify)
-#autoplot(pca,loadings = T,loadings.label = T)
-
-#remove some unnecessary data again
-rm(pca)
+#create data frame from PCAs
+df = as.data.frame(x = r,xy = T,na.rm = T)
+xy = df[,c(1,2)]
+df = df[,-c(1,2)]
 
 #################################################################################
 #calculate the euclidean distance for the whole data set 
 #convert data.frames to data.tables which process faster in loops
-pca.dt     = data.table(pca.pixels)
-pca.towers = data.table(pca.towers)
+pca.dt     = data.table(df)
+pca.towers = data.table(tower.data[,c('pc1','pc2','pc3','pc4','pc5')])
 
 #pre-populating the whole matrix makes computation time much faster *DO NOT USE A DATAFRAME
+rm(r)
+rm(df)
+
 euci = matrix(nrow = nrow(pca.dt),ncol = nrow(pca.towers))
 
-orig = Sys.time()
+library(foreach)
+library(doParallel)
+library(doSNOW)
+
+#intialize the euclid
+euclid = vector(length = nrow(pca.dt))
+
+#setup parallel backend to use many processors
+{orig = Sys.time() #start the clock for timing the process
+cores = detectCores()        #detect the number of cores
+cl = makeCluster(cores[1]-2) #assign X less than total cores to leave some processing for other tasks
+registerDoSNOW(cl) #register the cores
+
+#run the ED calculations in parrallel
+euci = foreach (j = 1:nrow(pca.towers),.verbose = T,.combine = cbind) %dopar% {
+   for (i in 1:nrow(pca.dt))  {
+      euclid[i] = sqrt((pca.dt$PC1[i]-pca.towers$pc1[j])^2 + 
+                       (pca.dt$PC2[i]-pca.towers$pc2[j])^2 + 
+                       (pca.dt$PC3[i]-pca.towers$pc3[j])^2 +
+                       (pca.dt$PC4[i]-pca.towers$pc4[j])^2 +
+                       (pca.dt$PC5[i]-pca.towers$pc5[j])^2)}
+  euclid} #report out the loops above to be included
+stopCluster(cl) #stop the clusters
+Sys.time() - orig} #stop the clock
+
+#sandbox one
+#setup parallel backend to use many processors this works but isnt very fast
+{orig = Sys.time()
+  cl = makeCluster(18) #two less than total cores
+  registerDoSNOW(cl)
+  
+  euci =  foreach (i = 1:nrow(pca.dt),j = 1:2) %dopar% {
+        sqrt((pca.dt$PC1[i]-pca.towers$pc1[j])^2 + 
+             (pca.dt$PC2[i]-pca.towers$pc2[j])^2 + 
+             (pca.dt$PC3[i]-pca.towers$pc3[j])^2 +
+             (pca.dt$PC4[i]-pca.towers$pc4[j])^2 +
+             (pca.dt$PC5[i]-pca.towers$pc5[j])^2)}
+  
+  stopCluster(cl)
+  Sys.time() - orig}
+
+
+#setup parallel backend to use many processors this works but isnt very fast
+{orig = Sys.time()
+  cores = detectCores()
+  cl = makeCluster(cores[1]-2) #two less than total cores
+  registerDoSNOW(cl)
+
+opts <- list(chunkSize=2)
+  
+  euci =  foreach (j = 1:nrow(pca.towers),.combine = cbind,.options.nws=opts) %:% 
+    foreach (i = 1:nrow(pca.dt),.combine = c) %dopar% {
+      sqrt((pca.dt$PC1[i]-pca.towers$pc1[j])^2 + 
+             (pca.dt$PC2[i]-pca.towers$pc2[j])^2 + 
+             (pca.dt$PC3[i]-pca.towers$pc3[j])^2 +
+             (pca.dt$PC4[i]-pca.towers$pc4[j])^2 +
+             (pca.dt$PC5[i]-pca.towers$pc5[j])^2)}
+  
+  stopCluster(cl)
+  Sys.time() - orig}
+
+euci
+
+{orig = Sys.time()
 for (j in 1:nrow(pca.towers)) {  #j is the tower data frame
   for (i in 1:nrow(pca.dt)) { #i is the full data frame
-euci[i,j] = sqrt((pca.dt$pc1[i]-pca.towers$pc1[j])^2 + 
-                 (pca.dt$pc2[i]-pca.towers$pc2[j])^2 + 
-                 (pca.dt$pc3[i]-pca.towers$pc3[j])^2 +
-                 (pca.dt$pc4[i]-pca.towers$pc4[j])^2)
+euci[i,j] = sqrt((pca.dt$PC1[i]-pca.towers$pc1[j])^2 + 
+                 (pca.dt$PC2[i]-pca.towers$pc2[j])^2 + 
+                 (pca.dt$PC3[i]-pca.towers$pc3[j])^2 +
+                 (pca.dt$PC4[i]-pca.towers$pc4[j])^2 +
+                 (pca.dt$PC5[i]-pca.towers$pc5[j])^2)
   }
  progress(j,nrow(pca.towers))
-}
-Sys.time() - orig
+ }
+Sys.time() - orig}
 
 #save off
 #colnames(euci) = pca.towers$sitename
