@@ -22,7 +22,7 @@ library(viridis)
 tower.data = fread(file = './data/pca.towers.csv')
 
 #load back in euclidean distance matrix
-euci = fread('./euci_new.csv')
+euci = fread('./data/euci_new.csv')
 euci = as.matrix(euci)
 
 #################################################################

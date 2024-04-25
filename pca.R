@@ -21,7 +21,7 @@ library(sf)
 library(ggfortify)
 
 #load in the stack created in the other file
-r = rast('./data/input data/spatial.tif')
+r = rast('./data/input data/spatial_repro.tif')
 
 #load in extracted site data from extraction codes
 tower.data = fread(file = './data/extracted_tower_data_new.csv')
@@ -30,18 +30,6 @@ tower.data = fread(file = './data/extracted_tower_data_new.csv')
 sr = spatSample(x = r,size = 500000,method = "regular")
 
 sr = sr[complete.cases(sr$MeanTemp),]
-sr[,c("WarmestQuarter",                                 
-           "ColdestQuarter",                                   
-           "WettestMonth",                 
-           "DriestMonth",                         
-           "WettestQuarter",                            
-           "DriestQuarter",                          
-           "PrecipWarmestQuarter",                          
-           "PrecipColdestQuarter",                                  
-           "MaxTempWarmestMonth",                                  
-           "MinTempColdestMonth",                                   
-           "MeanTempWettestQuarter",                                  
-           "MeanTempDriestQuarter")] = NULL
 
 tower.data[,c("WarmestQuarter",                                 
       "ColdestQuarter",                                   
@@ -58,14 +46,9 @@ tower.data[,c("WarmestQuarter",
 
 srt = rbind.fill(sr,tower.data)
 names(srt)
-names(srt)[1:19] = c("MeanTemp","Precip","PrecipSeasonality","MeanDiurnalRange",
-               "Isothermality","TempSeasonality","TempAnnualRange",
-               "NDVImax","NDVIsum","EVImax","NDWImin","SWIRaug",
-               "BulkDens","pH","CStock","Sand","Silt","Clay",                             
-               "Permafrost")
 
-pca = prcomp(srt[,c(1:19)],center = T,scale = T)
 
+pca = prcomp(srt[,c(1:20)],center = T,scale = T)
 
 srt$pc1 = pca$x[,1]
 srt$pc2 = pca$x[,2]
@@ -73,7 +56,6 @@ srt$pc3 = pca$x[,3]
 srt$pc4 = pca$x[,4]
 srt$pc5 = pca$x[,5]
 srt$pc6 = pca$x[,6]
-
 
 pca.r = subset(srt,is.na(srt$site))
 pca.t = subset(srt,complete.cases(srt$site))
@@ -84,6 +66,12 @@ PCAloadings = data.frame(Variables = rownames(pca$rotation), pca$rotation)
 summary(pca)
 pca$rotation
 
+#change these for plotting
+names(srt)[1:20] = c("MeanTemp","Precip","PrecipSeasonality","MeanDiurnalRange",
+                     "Isothermality","TempSeasonality","TempAnnualRange",
+                     "NDVImax","NDVIsum","EVImax","NDWImin","SWIRaug",
+                     "BulkDens","pH","CStock",'CDensity',"Sand","Silt","Clay",                             
+                     "Permafrost")
 #PC 1 & 2
 ggplot()+theme_bw()+
   geom_hex(data = pca.r,aes(x = pc1,y = pc2),bins = 150)+
@@ -157,13 +145,18 @@ ggplot()+theme_bw()+
                arrow = arrow(length = unit(1/2, "picas")),color = "red")+
   geom_label(data = PCAloadings,aes(PC5*16,PC6*16,label=Variables))+
   scale_x_continuous('PC5 (10.26%)')+
-  scale_y_continuous("PC4 (8.46%)")
+  scale_y_continuous("PC6 (8.46%)")
+
+#names for raster to match
+names(r) = c("MeanTemp","Precip","PrecipSeasonality","MeanDiurnalRange",
+             "Isothermality","TempSeasonality","TempAnnualRange",
+             "NDVImax","NDVIsum","EVImax","NDWImin","SWIRaug",
+             "BulkDens","pH","CStock",'CDensity',"Sand","Silt","Clay",                             
+             "Permafrost")
 
 p = predict(r, pca,index = 1:6)
-
 plot(p)
-
 p = subset(p,subset = 1:5)
 
-writeRaster(x = p,filename = './data/input data/pca.tif')
+writeRaster(x = p,filename = './data/input data/pca.tif',overwrite = T)
 write.csv(x = pca.t,file = './data/pca.towers.csv',row.names = F)

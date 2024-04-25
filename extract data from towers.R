@@ -48,25 +48,24 @@ climdat$site = towers.and.ext$site
 #soil grids #########################################################################
 #load in the stack created in the other files
 soil = rast('./data/input data/soils.tif')
-sg = subset(x = soil,subset = 1:6)
 
 #extract data
-soildat = extract(x = sg,y = xy.tower,cells=T,xy=T)
+soildat = extract(x = soil,y = xy.tower,cells=T,xy=T)
 nas = soildat[is.na(soildat$bd_100_agg),] #extract where nas
-soilr = stack(sg) #make a raster version
+soilr = stack(soil) #make a raster version
 
 #find coordinates
 na.cor = as.data.frame(nearestLand(points = nas[,c('x','y')],raster = soilr,max_distance = 1000))
 
 #place in original dataframe
-soildat[nas$ID,] = extract(x = sg,y = na.cor,cells=T,xy=T)
+soildat[nas$ID,] = extract(x = soil,y = na.cor,cells=T,xy=T)
 summary(soildat)
 soildat$site = towers.and.ext$site
 
 #permafrost #########################################################################
 #load in the stack created in the other files
-soil = rast('./data/input data/soils.tif')
-perm = subset(x = soil,subset = 7)
+pp = rast('./data/input data/pfrost/UiO_PEX_PERPROB_5.0_20181128_2000_2016_NH/UiO_PEX_PERPROB_5.0_20181128_2000_2016_NH.tif')
+perm = project(x = pp,y = clim)
 
 #extract data
 permdat = extract(x = perm,y = xy.tower,cells=T,xy=T)
@@ -111,6 +110,14 @@ permsoil = merge(permdat,soildat,by = 'site')
 alldata = merge(modisclim,permsoil,by = 'site')
 
 towerdata = merge(towers.and.ext,alldata,by = 'site')
+
+#Add variables for projected coordinates
+td = vect(geom = c("LON","LAT"),x = towerdata,crs = crs(clim))
+td = project(x = td,y = crs(pp))
+crd = data.frame(crds(td))
+
+towerdata$x = crd$x
+towerdata$y = crd$y
 
 #add the class back in
 write.csv(x = towerdata,file = './data/extracted_tower_data_new.csv',row.names = F)

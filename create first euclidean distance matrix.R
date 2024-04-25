@@ -5,16 +5,8 @@
 rm(list = ls())
 setwd('C:/Users/karndt.WHRC/Desktop/site.selection/')
 
-#library(raster)
-#library(svMisc)
-#library(MASS)
-#library(plotrix)
 library(terra)
-#library(plyr)
 library(data.table)
-#library(kit)
-#library(ggthemes)
-#library(sf)
 library(foreach)
 library(doParallel)
 library(doSNOW)
@@ -23,7 +15,7 @@ library(doSNOW)
 r = rast('./data/input data/pca.tif')
 
 #aggregate the raster to save dataspace
-r = terra::aggregate(x = r,fact = 2,fun = 'mean',cores=10,na.rm=T)
+#r = terra::aggregate(x = r,fact = 2,fun = 'mean',cores=10,na.rm=T)
 
 #load in extracted site data from extraction codes
 tower.data = fread(file = './data/pca.towers.csv')
@@ -52,7 +44,7 @@ cores = detectCores()        #detect the number of cores
 cl = makeCluster(cores[1]-2) #assign X less than total cores to leave some processing for other tasks
 registerDoSNOW(cl) #register the cores
 
-#run the ED calculations in parrallel
+#run the ED calculations in parallel
 euci = foreach (j = 1:nrow(pca.towers),.verbose = T,.combine = cbind) %dopar% {
    for (i in 1:nrow(pca.dt))  {
       euclid[i] = sqrt((pca.dt$PC1[i]-pca.towers$pc1[j])^2 +
