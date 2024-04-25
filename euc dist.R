@@ -24,7 +24,6 @@ r = rast('./data/input data/pca.tif')
 r = terra::aggregate(x = r,fact = 2,fun = 'mean',cores=10,na.rm=T)
 r
 
-plot(r)
 #load in extracted site data from extraction codes
 tower.data = fread(file = './data/pca.towers.csv')
 
@@ -48,112 +47,46 @@ library(doParallel)
 library(doSNOW)
 
 #initialize the euclid
-euclid = vector(length = nrow(pca.dt))
+#euclid = vector(length = nrow(pca.dt))
 
 #setup parallel backend to use many processors
-{orig = Sys.time() #start the clock for timing the process
-cores = detectCores()        #detect the number of cores
-cl = makeCluster(cores[1]-2) #assign X less than total cores to leave some processing for other tasks
-registerDoSNOW(cl) #register the cores
+# {orig = Sys.time() #start the clock for timing the process
+# cores = detectCores()        #detect the number of cores
+# cl = makeCluster(cores[1]-2) #assign X less than total cores to leave some processing for other tasks
+# registerDoSNOW(cl) #register the cores
+# 
+# #run the ED calculations in parrallel
+# euci = foreach (j = 1:nrow(pca.towers),.verbose = T,.combine = cbind) %dopar% {
+#    for (i in 1:nrow(pca.dt))  {
+#       euclid[i] = sqrt((pca.dt$PC1[i]-pca.towers$pc1[j])^2 + 
+#                        (pca.dt$PC2[i]-pca.towers$pc2[j])^2 + 
+#                        (pca.dt$PC3[i]-pca.towers$pc3[j])^2 +
+#                        (pca.dt$PC4[i]-pca.towers$pc4[j])^2 +
+#                        (pca.dt$PC5[i]-pca.towers$pc5[j])^2)}
+#   euclid} #report out the loops above to be included
+# stopCluster(cl) #stop the clusters
+# Sys.time() - orig} #stop the clock
 
-#run the ED calculations in parrallel
-euci = foreach (j = 1:nrow(pca.towers),.verbose = T,.combine = cbind) %dopar% {
-   for (i in 1:nrow(pca.dt))  {
-      euclid[i] = sqrt((pca.dt$PC1[i]-pca.towers$pc1[j])^2 + 
-                       (pca.dt$PC2[i]-pca.towers$pc2[j])^2 + 
-                       (pca.dt$PC3[i]-pca.towers$pc3[j])^2 +
-                       (pca.dt$PC4[i]-pca.towers$pc4[j])^2 +
-                       (pca.dt$PC5[i]-pca.towers$pc5[j])^2)}
-  euclid} #report out the loops above to be included
-stopCluster(cl) #stop the clusters
-Sys.time() - orig} #stop the clock
+#save the euclidean distance
+#colnames(euci) = tower.data$site
+#fwrite(x = euci,file = './euci_new.csv',row.names = F)
 
-colnames(euci) = tower.data$site
 
-write.table(x = euci,file = './euci_new.csv',row.names = F)
-
-#setup parallel backend to use many processors this works but isnt very fast
-{orig = Sys.time()
-  cores = detectCores()
-  cl = makeCluster(cores[1]-2) #two less than total cores
-  registerDoSNOW(cl)
-
-opts <- list(chunkSize=2)
-  
-  euci =  foreach (j = 1:nrow(pca.towers),.combine = cbind,.options.nws=opts) %:% 
-    foreach (i = 1:nrow(pca.dt),.combine = c) %dopar% {
-      sqrt((pca.dt$PC1[i]-pca.towers$pc1[j])^2 + 
-             (pca.dt$PC2[i]-pca.towers$pc2[j])^2 + 
-             (pca.dt$PC3[i]-pca.towers$pc3[j])^2 +
-             (pca.dt$PC4[i]-pca.towers$pc4[j])^2 +
-             (pca.dt$PC5[i]-pca.towers$pc5[j])^2)}
-  
-  stopCluster(cl)
-  Sys.time() - orig}
-
-euci
-
-{orig = Sys.time()
-for (j in 1:nrow(pca.towers)) {  #j is the tower data frame
-  for (i in 1:nrow(pca.dt)) { #i is the full data frame
-euci[i,j] = sqrt((pca.dt$PC1[i]-pca.towers$pc1[j])^2 + 
-                 (pca.dt$PC2[i]-pca.towers$pc2[j])^2 + 
-                 (pca.dt$PC3[i]-pca.towers$pc3[j])^2 +
-                 (pca.dt$PC4[i]-pca.towers$pc4[j])^2 +
-                 (pca.dt$PC5[i]-pca.towers$pc5[j])^2)
-  }
- progress(j,nrow(pca.towers))
- }
-Sys.time() - orig}
-
-#save off
-#colnames(euci) = pca.towers$sitename
-#fwrite(x = euci,file = './data/euci.csv',row.names = F)
+######################################################################
 
 #load back in
-euci = fread('./data/euci.csv')
+euci = fread('./euci_new.csv')
 euci = as.matrix(euci)
 
-#things needed for all the plots
-library(viridis)
-pal = viridis(n = 8,direction = -1,option = 'A')
-proj = crs("+proj=stere +lat_0=90 +lat_ts=70 +lon_0=0 +k=1 +x_0=0 +y_0=0 +a=6378273 +b=6356889.449 +units=m +no_defs")
-
-#world map at a coarse resolution, spatial polygons dataframe
-#this is broken, need a new version of base map ###############################
-#library(rworldmap)
-#library(cleangeo)
-#worldmap = getMap(resolution = 'coarse')
-#worldmap = clgeo_Clean(worldmap)
-
-#wm = crop(x = worldmap,y = extent(-180,180,45,90))
-#wm = spTransform(x = wm,CRSobj = proj)
-#wm = crop(x = wm,y = extent(c(-4780235,4580235,-3880235,4580235)))
-
-
-map = map_data('world')
-wm = SpatialPointsDataFrame(coords = map[,c(1,2)],data = map,proj4string = crs(base))
-plot(wm)
-wm = spTransform(x = wm,CRSobj = proj)
-plot(wm)
-
 #################################################################
-####     first go to base image #######################################
+#### first go to base image #####################################
 #################################################################
-pca.towers1 = pca.towers
-pca.towers1[,c('sitename','active')]
-
-pca.towers1$active = ifelse(
-#  pca.towers1$sitename == 'Churchill Fen' |
-#  pca.towers1$sitename == 'Iqaluit' |
-#  pca.towers1$sitename == 'Scotty Creek Landscape' |
-#  pca.towers1$sitename == 'Council (NGEE Arctic)' |
-  pca.towers1$sitename == 'Quebec - 1975 Harvested Black Spruce (HBS75)',
-                            'inactive',pca.towers1$active)
+pca.towers1 = tower.data
+pca.towers1[,c('site','Activity')]
 
 #find columns which are active sites
-net = which(pca.towers1$active == 'active')
-ext = which(pca.towers1$active != 'active' | is.na(pca.towers1$active))
+net = which(pca.towers1$Activity == 'active')
+ext = which(pca.towers1$Activity != 'active' | is.na(pca.towers1$Activity))
 
 #create some subsets of the euclidean distance tables for easier calculations
 euci.net = euci[,c(net)]
@@ -204,6 +137,17 @@ ex.towers.st = as.data.frame(ex.towers)
 base.ster = projectRaster(from = base,crs = proj)
 
 #load in base map
+#things needed for all the plots
+library(viridis)
+pal = viridis(n = 8,direction = -1,option = 'A')
+proj = crs("+proj=stere +lat_0=90 +lat_ts=70 +lon_0=0 +k=1 +x_0=0 +y_0=0 +a=6378273 +b=6356889.449 +units=m +no_defs")
+
+#background world map for plotting
+map = map_data('world')
+wm = SpatialPointsDataFrame(coords = map[,c(1,2)],data = map,proj4string = crs(r))
+plot(wm)
+wm = spTransform(x = wm,CRSobj = proj)
+plot(wm)
 sf_use_s2(FALSE)
 countries = rnaturalearth::ne_countries(returnclass = "sf") %>%
   st_crop(y = st_bbox(c(xmin = -180, ymin = 45, xmax = 180, ymax = 90))) %>%
