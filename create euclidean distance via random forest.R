@@ -10,6 +10,7 @@ library(data.table)
 library(foreach)
 library(doParallel)
 library(doSNOW)
+library(kit)
 
 #load in the stack created in the other file
 r = rast('./data/input data/pca.tif')
@@ -21,19 +22,14 @@ r = rast('./data/input data/pca.tif')
 tower.data = fread(file = './data/pca.towers.csv')
 
 #create data frame from PCAs
-df = as.data.frame(x = r,xy = T,na.rm = T)
-#xy = df[,c(1,2)]
-#df = df[,-c(1,2)]
+sr = spatSample(x = r,size = 1000000,method = "regular",xy = T)
+sr = sr[complete.cases(sr$PC1),]
 
 #################################################################################
 #calculate the euclidean distance for the whole data set 
 #convert data.frames to data.tables which process faster in loops
-pca.dt     = data.table(df)
+pca.dt     = data.table(sr)
 pca.towers = data.table(tower.data[,c('pc1','pc2','pc3','pc4','pc5')])
-
-#pre-populating the whole matrix makes computation time much faster *DO NOT USE A DATAFRAME
-rm(r)
-rm(df)
 
 #initialize the euclid
 euclid = vector(length = nrow(pca.dt))
@@ -56,8 +52,41 @@ euci = foreach (j = 1:nrow(pca.towers),.verbose = T,.combine = cbind) %dopar% {
 stopCluster(cl) #stop the clusters
 Sys.time() - orig} #stop the clock
 
-#save the euclidean distance
-colnames(euci) = tower.data$site
+#################################################################
+#### first go to base image #####################################
+#################################################################
+pca.towers1 = tower.data
+pca.towers1[,c('site','Activity')]
 
-#save the file, rds saves alot of space
-saveRDS(object = euci,file = './data/euci.rds')
+#find columns which are active sites
+net = which(pca.towers1$Activity == 'active')
+
+#create some subsets of the euclidean distance tables for easier calculations
+euci.net = euci[,c(net)]
+#rm(euci)
+
+#calculate based on the mean of the x lowest + site of interest
+num = 2 #how many closest towers you want
+
+#calculate the base network
+base.dist = numeric(length = nrow(euci.net))
+for (i in 1:nrow(euci.net)) {
+  base.dist[i]    = mean(euci.net[i,topn(vec = euci.net[i,],n = num,decreasing = F,hasna = F)])
+}
+
+pca.dt$base = base.dist
+sample = sample(c(TRUE, FALSE), nrow(pca.dt), replace=TRUE, prob=c(0.1,0.9))
+train  = pca.dt[sample, ]
+
+#create random forest model
+library(randomForest)
+#train a random forest model, Keep forest is needed for predict, 
+#reformulate needed to tell it what the response variable is in predict
+rf = randomForest(reformulate(response = 'base',names(train)[3:7]),ntree = 100,keep.forest = T,data = train)
+
+eucdist = predict(object = r,model = rf)
+
+plot(eucdist$lyr1,range = c(0,3))
+
+#save the euclidean distance map
+writeRaster(x = eucdist,file = './out/base.tif')

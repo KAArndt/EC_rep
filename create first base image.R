@@ -17,13 +17,14 @@ library(foreach)
 library(doParallel)
 library(doSNOW)
 library(viridis)
+library(readr)
 
 #load in extracted site data from extraction codes
 tower.data = fread(file = './data/pca.towers.csv')
 
 #load back in euclidean distance matrix
-euci = fread('./data/euci_new.csv')
-euci = as.matrix(euci)
+euci = read_rds('./data/euci_new.csv')
+#euci = as.matrix(euci)
 
 #################################################################
 #### first go to base image #####################################
@@ -55,8 +56,7 @@ num = 2 #how many closest towers you want
 #calculate the base network
 base.dist = numeric(length = nrow(euci.net))
 for (i in 1:nrow(euci.net)) {
-  base.dist[i]    = mean(euci.net[i,topn(vec = euci.net[i,],n = num,decreasing = F,hasna = F)])
-}
+  base.dist[i] = mean(euci.net[i,topn(vec = euci.net[i,],n = num,decreasing = F,hasna = F)])}
 
 #create base image
 #load in the stack created in the other file
