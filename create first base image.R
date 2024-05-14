@@ -23,7 +23,7 @@ library(readr)
 tower.data = fread(file = './data/pca.towers.csv')
 
 #load back in euclidean distance matrix
-euci = read_rds('./data/euci_new.csv')
+euci = read_rds('./data/euci.rds')
 #euci = as.matrix(euci)
 
 #################################################################
