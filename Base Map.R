@@ -5,7 +5,7 @@
 rm(list = ls())
 setwd('C:/Users/karndt.WHRC/Desktop/site.selection/')
 
-library(raster)
+#library(raster)
 library(svMisc)
 library(ggplot2)
 library(ggspatial)
