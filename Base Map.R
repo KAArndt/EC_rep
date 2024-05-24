@@ -23,7 +23,7 @@ library(readr)
 tower.data = fread(file = './data/pca.towers.csv')
 
 #load back in euclidean distance matrix
-euci = read_rds('./data/euci.rds')
+#euci = read_rds('./data/euci.rds')
 #euci = as.matrix(euci)
 
 #################################################################
@@ -90,7 +90,6 @@ pal = viridis(n = 8,direction = -1,option = 'A')
 
 #background world map for plotting
 map = map_data('world')
-plot(map)
 wm = vect(x = map,geom = c('long','lat'),crs = crs(base))
 
 wm = SpatialPointsDataFrame(coords = map[,c(1,2)],data = map,proj4string = CRS(r))
