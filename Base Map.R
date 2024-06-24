@@ -5,6 +5,8 @@
 rm(list = ls())
 setwd('C:/Users/karndt.WHRC/Desktop/site.selection/')
 
+#i made a new note
+
 #library(raster)
 library(svMisc)
 library(ggplot2)
