@@ -11,6 +11,9 @@ library(terra)
 library(seegSDM)
 library(plyr)
 
+
+gh_install_packages("SEEG-Oxford/seegSDM")
+
 setwd('C:/Users/karndt.WHRC/Desktop/site.selection/')
 
 #load in sites
@@ -18,8 +21,8 @@ towers = fread(file = './data/towers_sites_ABZ.csv')
 ext    = fread(file = './data/extension_sites.csv')
 
 #sub to interested sites
-ext    = subset(ext,ext$use == 'yes')
-towers = subset(towers,towers$use == 'yes')
+ext    = subset(ext,ext$remove == 'no')
+#towers = subset(towers,towers$use == 'yes')
 
 #reduce the existing sites and add class names for later sparsing
 towers = towers[,c('Site_Name','Country','LON','LAT','Activity','CH4','Annual_cover')]
@@ -32,6 +35,7 @@ xy.tower = towers.and.ext[,c(3,4)]
 #climate #########################################################################
 #load in the stack created in the other files
 clim = rast('./data/input data/climate.tif')
+
 
 #extract data
 climdat = extract(x = clim,y = xy.tower,cells=T,xy=T)
