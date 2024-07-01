@@ -5,20 +5,22 @@
 rm(list = ls())
 setwd('C:/Users/karndt.WHRC/Desktop/site.selection/')
 
-library(raster)
-library(svMisc)
-library(MASS)
+#library(raster)
+#library(svMisc)
+#library(MASS)
 library(ggplot2)
 library(ggnewscale)
-library(ggspatial)
-library(plotrix)
+#library(ggspatial)
+#library(plotrix)
 library(terra)
 library(plyr)
 library(data.table)
-library(kit)
-library(ggthemes)
-library(sf)
-library(ggfortify)
+#library(kit)
+#library(ggthemes)
+#library(sf)
+#library(ggfortify)
+
+setwd('~')
 
 #load in the stack created in the other file
 r = rast('./data/input data/spatial_repro.tif')
@@ -61,8 +63,6 @@ srt$pc1 = pca$x[,1]
 srt$pc2 = pca$x[,2]
 srt$pc3 = pca$x[,3]
 srt$pc4 = pca$x[,4]
-srt$pc5 = pca$x[,5]
-srt$pc6 = pca$x[,6]
 
 pca.r = subset(srt,is.na(srt$site))
 pca.t = subset(srt,complete.cases(srt$site))

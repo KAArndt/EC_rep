@@ -5,6 +5,7 @@
 rm(list = ls())
 gc()
 #setwd('C:/Users/karndt.WHRC/Desktop/site.selection/')
+setwd('~')
 
 library(svMisc)
 library(maps)
@@ -14,6 +15,7 @@ library(terra)
 #library(kit)
 library(sf)
 library(viridis)
+library(data.table)
 #library(readr)
 
 #load in extracted site data from extraction codes
@@ -68,6 +70,8 @@ points(towers)
 writeRaster(x = base,filename = './output/base_2km.tif',overwrite = T)
 
 #######################################################################################
+base = rast('./output/base_2km.tif')
+
 #load in base map
 #things needed for all the plots
 pal = viridis(n = 8,direction = -1,option = 'A')
@@ -83,7 +87,6 @@ countries = rnaturalearth::ne_countries(returnclass = "sf") %>%
 
 #create an aggregate for the plot
 base.ag = aggregate(x = base,fact = 4,fun = mean,na.rm = T)
-
 
 #plot the figure
 png(filename = './figures/base.png',width = 6,height = 6,units = 'in',res = 1000)

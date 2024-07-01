@@ -3,6 +3,8 @@ gc()
 
 library(readr)
 library(terra)
+library(kit)
+library(svMisc)
 
 #load back in
 euci = read_rds('./data/euci_2km.rds')
@@ -51,6 +53,12 @@ for (j in 1:ncol(euci.ext)) {
 }
 Sys.time() - orig}
 
+# #manually add pond inlet which was missed
+# pi = cbind(euci.net,euci[,179])
+# pi.dist = vector(length = nrow(df))
+# for (i in 1:nrow(df)) {
+#   pi.dist[i]    = mean(pi[i,topn(vec = pi[i,],n = num,decreasing = F,hasna = F)])
+# }
 
 #create rasters
 dist.rasts = list()
@@ -62,6 +70,9 @@ for (i in 1:ncol(eucis)) {
   progress(i,ncol(eucis))
 }
 
+# pidf = cbind(df[,c(1,2)],pi.dist)
+# pi.rasts = rast(x = pidf,type = 'xyz',crs = crs(r))
+
 #create a path of file names
 path = paste('./output/ext/',pca.towers1$site[ext],'.tif',sep = '')
 #save off rasters
@@ -69,6 +80,9 @@ for (i in 1:length(dist.rasts)) {
   writeRaster(x = dist.rasts[[i]],filename = path[i],overwrite=T)
   progress(i,length(dist.rasts))
 }
+
+ # path = './output/ext/Pond Inlet.tif'
+ # writeRaster(x = pi.rasts,filename = path,overwrite=T)
 
 #calculate differences
 extpath = list.files(path = './output/ext',pattern = '*.tif',full.names = T)
@@ -82,11 +96,9 @@ for (i in 1:length(dist.rasts)) {
   difs[[i]] = dist.rasts[[i]] - base$base.dist
   progress(i,length(dist.rasts))
 }
-extpath
+
 #save off difference maps
 path = paste('./output/difs/',pca.towers1$site[ext],'_dif.tif',sep = '')
-path = paste('./output/difs/',substr(extpath,start = 14,100),'_dif.tif',sep = '')
-
 #save off rasters
 for (i in 1:length(difs)) {
   writeRaster(x = difs[[i]],filename = path[i],overwrite=T)
@@ -104,7 +116,6 @@ for (i in 1:length(difs)) {
 meansv = numeric(length = length(difs))
 for (i in 1:length(difs)) {
   meansv[i] = c(means[[i]])
-  progress(value = i,max.value = length(difs))
 }
 
 #add other parts of the dataframe back in
@@ -116,11 +127,11 @@ pca.towers1$type = paste(pca.towers1$Activity,pca.towers1$CH4,pca.towers1$Annual
 bars$type = pca.towers1$type[ext]
 names(bars)[1] = 'sitename'
 
+
 #top = subset(bars,bars$means < median(bars$means))
 upper.limit = -1*min(bars$means)+0.005
 
-#png(filename = './output/feb/barplot_reduction.png',width = 10,height = 4,units = 'in',res = 2000)
-ggplot(data = bars)+theme_bw()+ggtitle('Top 50 Percentile Improvements')+
+ggplot(data = bars)+theme_bw()+ggtitle('Mean Improvements')+
   geom_bar(aes(reorder(sitename, -means*-1),means*-1,fill=country),stat = 'identity')+
   scale_y_continuous(expand = c(0,0),limits = c(0,upper.limit),'Mean ED Reduction')+
   scale_x_discrete('Site')+
@@ -128,7 +139,24 @@ ggplot(data = bars)+theme_bw()+ggtitle('Top 50 Percentile Improvements')+
   theme(axis.text.x = element_text(angle = 60,hjust = 1,size = 7),
         legend.position = c(0.5,0.9),
         legend.direction = 'horizontal')
-#dev.off()
-
 
 write.csv(x = bars,file = './output/meanreduction.csv',row.names = F)
+
+
+########################################################################################################
+bars = fread('./output/meanreduction.csv')
+top = subset(bars,bars$means < mean(bars$means))
+
+png(filename = './figures/barplot_reduction.png',width = 6,height = 3,units = 'in',res = 2000)
+ggplot(data = bars)+theme_bw()+ggtitle('Mean Improvements')+
+  geom_bar(aes(reorder(sitename, -means*-1),means*-1,fill=country),stat = 'identity')+
+  scale_y_continuous(expand = c(0,0),limits = c(0,upper.limit),'Mean ED Reduction')+
+  scale_x_discrete('')+
+  scale_fill_brewer(palette = "Spectral")+
+  theme(axis.text.x = element_blank(),
+        legend.key.size = unit(0.01,units = 'in'),
+        legend.text = element_text(size = 6),
+        legend.title = element_text(size = 6),
+        legend.position = c(0.6,0.6),
+        legend.direction = 'horizontal')
+dev.off()

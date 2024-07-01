@@ -36,6 +36,7 @@ pca.towers = data.table(tower.data[,c('pc1','pc2','pc3','pc4')])
 #pre-populating the whole matrix makes computation time much faster *DO NOT USE A DATAFRAME
 rm(r)
 rm(df)
+gc()
 
 #initialize the euclid
 euclid = vector(length = nrow(pca.dt))
