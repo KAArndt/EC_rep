@@ -3,6 +3,7 @@
 #  created by K Arndt July 2022
 ##################################################################################
 rm(list = ls())
+gc()
 #setwd('C:/Users/karndt.WHRC/Desktop/site.selection/')
 
 library(svMisc)
@@ -24,6 +25,9 @@ euci = read_rds('./data/euci_2km.rds')
 pca.towers1 = tower.data
 pca.towers1[,c('site','Activity')]
 
+#add churchill and iqaluit to inactive towers
+pca.towers1$Activity = ifelse(pca.towers1$site == 'Churchill Fen' | pca.towers1$site == 'Iqaluit',
+                              'inactive',pca.towers1$Activity)
 net = which(pca.towers1$Activity == 'active')
 
 euci.net = euci[,c(net)]
@@ -33,7 +37,6 @@ gc()
 
 #calculate based on the mean of the x lowest + site of interest
 num = 2 #how many closest towers you want
-
 
 #calculate the base network, parallel processing is much slower here
 base.dist = numeric(length = nrow(euci.net))
@@ -57,7 +60,8 @@ base = rast(x = basedf,type = 'xyz',crs = crs(r))
 base.towers = tower.data[net,]
 towers = vect(x = base.towers,geom=c("x", "y"), crs=crs(r))
 
-plot(base)
+hist(base)
+plot(base,range=c(0,4.5))
 points(towers)
 
 #save the base here
@@ -72,7 +76,7 @@ pal = viridis(n = 8,direction = -1,option = 'A')
 #world map for plotting
 sf_use_s2(FALSE) #need to run this before next line
 countries = rnaturalearth::ne_countries(returnclass = "sf") %>%
-  st_crop(y = st_bbox(c(xmin = -180, ymin = 40, xmax = 180, ymax = 90))) %>%
+  st_crop(y = st_bbox(c(xmin = -180, ymin = 35, xmax = 180, ymax = 90))) %>%
   smoothr::densify(max_distance = 1) %>%
   st_transform(crs(base))
 
@@ -86,7 +90,7 @@ png(filename = './figures/base.png',width = 6,height = 6,units = 'in',res = 1000
 ggplot()+theme_bw()+ggtitle('All Active Sites')+
   geom_sf(data = countries,fill='gray',col='gray40')+
   layer_spatial(base.ag)+
-  geom_point(data = base.towers,aes(x,y),col='black',fill='green',pch=25,size=2)+
+  geom_point(data = base.towers,aes(x,y),col='black',fill='green',pch=23,size=2)+
   scale_fill_gradientn('ED',
                        na.value = 'transparent',
                        colours = pal,
@@ -99,7 +103,8 @@ ggplot()+theme_bw()+ggtitle('All Active Sites')+
         legend.text = element_text(size = 8),
         title = element_text(size = 10),
         axis.title = element_text(size = 8),
-        legend.key.width = unit(x = 0.1,units = 'in'))
+        legend.key.width = unit(x = 0.1,units = 'in'),
+        panel.background = element_rect(fill = 'lightblue3'))
 dev.off()
 
 

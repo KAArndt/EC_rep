@@ -17,6 +17,8 @@ tower.data = fread(file = './data/pca.towers.csv')
 pca.towers1 = tower.data
 
 #find columns which are active sites
+pca.towers1$Activity = ifelse(pca.towers1$site == 'Churchill Fen' | pca.towers1$site == 'Iqaluit',
+                              'inactive',pca.towers1$Activity)
 net = which(pca.towers1$Activity == 'active')
 ext = which(pca.towers1$Activity != 'active' | is.na(pca.towers1$Activity))
 
@@ -69,6 +71,9 @@ for (i in 1:length(dist.rasts)) {
 }
 
 #calculate differences
+extpath = list.files(path = './output/ext',pattern = '*.tif',full.names = T)
+dist.rasts = lapply(X = extpath,FUN = rast)
+
 #load in the base
 base = rast('./output/base_2km.tif')
 
@@ -77,9 +82,11 @@ for (i in 1:length(dist.rasts)) {
   difs[[i]] = dist.rasts[[i]] - base$base.dist
   progress(i,length(dist.rasts))
 }
-
+extpath
 #save off difference maps
 path = paste('./output/difs/',pca.towers1$site[ext],'_dif.tif',sep = '')
+path = paste('./output/difs/',substr(extpath,start = 14,100),'_dif.tif',sep = '')
+
 #save off rasters
 for (i in 1:length(difs)) {
   writeRaster(x = difs[[i]],filename = path[i],overwrite=T)

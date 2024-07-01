@@ -159,7 +159,6 @@ names(r) = c("MeanTemp","Precip","PrecipSeasonality","MeanDiurnalRange",
 
 p = predict(r, pca,index = 1:4)
 plot(p)
-p = subset(p,subset = 1:5)
 
 writeRaster(x = p,filename = './data/input data/pca.tif',overwrite = T)
 write.csv(x = pca.t,file = './data/pca.towers.csv',row.names = F)

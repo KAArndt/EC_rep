@@ -13,6 +13,7 @@ library(doSNOW)
 
 #load in the stack created in the other file
 r = rast('./data/input data/pca.tif')
+r
 
 #aggregate the raster to save dataspace
 r = terra::aggregate(x = r,fact = 2,fun = 'mean',cores=10,na.rm=T)
