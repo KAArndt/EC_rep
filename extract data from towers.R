@@ -22,8 +22,7 @@ ext    = fread(file = './data/extension_sites.csv')
 
 #sub to interested sites
 ext    = subset(ext,ext$remove == 'no')
-#towers = subset(towers,towers$use == 'yes')
-
+towers = subset(towers,towers$use == 'yes')
 
 #reduce the existing sites and add class names for later sparsing
 towers = towers[,c('Site_Name','Country','LON','LAT','Activity','CH4','Annual_cover')]
