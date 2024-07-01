@@ -12,7 +12,7 @@ library(seegSDM)
 library(plyr)
 
 
-gh_install_packages("SEEG-Oxford/seegSDM")
+#gh_install_packages("SEEG-Oxford/seegSDM")
 
 setwd('C:/Users/karndt.WHRC/Desktop/site.selection/')
 
@@ -23,6 +23,7 @@ ext    = fread(file = './data/extension_sites.csv')
 #sub to interested sites
 ext    = subset(ext,ext$remove == 'no')
 #towers = subset(towers,towers$use == 'yes')
+
 
 #reduce the existing sites and add class names for later sparsing
 towers = towers[,c('Site_Name','Country','LON','LAT','Activity','CH4','Annual_cover')]
@@ -35,7 +36,6 @@ xy.tower = towers.and.ext[,c(3,4)]
 #climate #########################################################################
 #load in the stack created in the other files
 clim = rast('./data/input data/climate.tif')
-
 
 #extract data
 climdat = extract(x = clim,y = xy.tower,cells=T,xy=T)
@@ -96,7 +96,7 @@ nas = modisdat[is.na(modisdat$ndvimax),] #extract where nas
 modisr = stack(modis) #make a raster version
 
 #find coordinates
-na.cor = as.data.frame(nearestLand(points = nas[,c('x','y')],raster = modisr,max_distance = 1000))
+na.cor = as.data.frame(nearestLand(points = nas[,c('x','y')],raster = modisr,max_distance = 2000))
 
 #place in original dataframe
 modisdat[nas$ID,] = extract(x = modis,y = na.cor,cells=T,xy=T)
@@ -122,6 +122,8 @@ crd = data.frame(crds(td))
 
 towerdata$x = crd$x
 towerdata$y = crd$y
+
+towerdata = towerdata[complete.cases(towerdata$mirsaug),]
 
 #add the class back in
 write.csv(x = towerdata,file = './data/extracted_tower_data_new.csv',row.names = F)
