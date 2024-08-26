@@ -73,15 +73,16 @@ writeRaster(x = improve,filename = './output/improvement_2km.tif',overwrite = T)
 #caluclate difference
 #load in the base
 base = rast('./output/base_2km.tif')
+summary(base)
+1.9
+improve = rast('./output/improvement_2km.tif')
 
 
 #calulate difference
 dif = base - improve
 
-
 #things needed for all the plots
 pal = viridis(n = 8,direction = -1,option = 'A')
-
 
 #world map for plotting
 sf_use_s2(FALSE) #need to run this before next line
@@ -96,20 +97,30 @@ base.ag = aggregate(x = base,fact = 4,fun = mean,na.rm = T)
 impr.ag = aggregate(x = improve,fact = 4,fun = mean,na.rm = T)
 dif.ag  = aggregate(x = dif,fact = 4,fun = mean,na.rm = T)
 
+#Create Column for added sites
+new.towers1 = subset(new.towers,new.towers$site   == 'Churchill Fen' | 
+                          new.towers$site == 'Iqaluit' |
+                          new.towers$site == 'Resolute' |
+                          new.towers$site == 'Pond Inlet' |
+                          new.towers$site == 'Kangiqsualujjuaq' |
+                          new.towers$site == 'CEF cluster' |
+                          new.towers$site == 'Council (NGEE Arctic)')
+
 #plot the figure
 png(filename = './figures/improvement.png',width = 6,height = 6,units = 'in',res = 1000)
 ggplot()+theme_bw()+ggtitle('Improvement')+
   geom_sf(data = countries,fill='gray',col='gray40')+
   layer_spatial(impr.ag)+
   geom_point(data = new.towers,aes(x,y),col='black',fill='green',pch=23,size=2)+
+  geom_point(data = new.towers1,aes(x,y),col='black',fill='white',pch=23,size=2)+
   scale_fill_gradientn('ED',
                        na.value = 'transparent',
                        colours = pal,
                        #trans = 'log',
                        limits = c(0,4),
                        oob = scales::squish)+
-  scale_x_continuous(limits = c(-5093909,4542996))+
-  scale_y_continuous(limits = c(-3687122,4374170))+
+  scale_x_continuous(limits = c(-5093909,4542996),'')+
+  scale_y_continuous(limits = c(-3687122,4374170),'')+
   theme(text = element_text(size = 8),
         legend.text = element_text(size = 8),
         title = element_text(size = 10),
@@ -118,7 +129,7 @@ ggplot()+theme_bw()+ggtitle('Improvement')+
         panel.background = element_rect(fill = 'lightblue3'))
 dev.off()
 
-pal = viridis(n = 8,direction = -1,option = 'A')
+pal = viridis(n = 8,direction = 1,option = 'A')
 hist(dif)
 
 ggplot()+theme_bw()+ggtitle('All Active Sites')+
@@ -143,3 +154,128 @@ ggplot()+theme_bw()+ggtitle('All Active Sites')+
 
 terra::summary(improve)
 terra::summary(base)
+summary(df.base)
+
+df.base = as.data.frame(x = base,na.rm=T)
+df.improve = as.data.frame(x = improve,na.rm=T)
+
+summary(df.base)
+
+ggplot()+
+  geom_histogram(data = df.base,aes(x = base.dist),fill='gray',bins=200)+
+  geom_histogram(data = df.improve,aes(x = base.dist),fill='red',bins=200)
+
+
+#things needed for all the plots
+pal = viridis(n = 11,direction = -1,option = 'A')
+pal = brewer.pal(n = 11,name = 'PRGn')
+pal = c(pal[11],pal[10],pal[9],pal[8],pal[7],pal[6],pal[5],pal[4],pal[3],pal[2],pal[1])
+col = c(pal[7],pal[8],pal[9],pal[10],pal[11],'black',pal[1],pal[2],pal[3],pal[4],pal[5])
+
+
+library(RColorBrewer)
+
+
+#plot the figure
+#png(filename = './figures/improvement.png',width = 6,height = 6,units = 'in',res = 1000)
+ggplot()+theme_bw()+ggtitle('Improvement')+
+  geom_sf(data = countries,fill='gray',col='gray40')+
+  layer_spatial(base.ag)+
+  geom_point(data = new.towers,aes(x,y),col='black',fill='green',pch=23,size=2)+
+  scale_fill_gradientn('ED',
+                       na.value = 'transparent',
+                        colours = col,
+                       #trans = 'log',
+                       limits = c(0,1.89919  *2),
+                       labels = c('good','cutoff','poor'),
+                       breaks = c(0,1.89919  ,1.89919  *2),
+                       oob = scales::squish)+
+  scale_x_continuous(limits = c(-5093909,4542996),'')+
+  scale_y_continuous(limits = c(-3687122,4374170),'')+
+  theme(text = element_text(size = 8),
+        legend.text = element_text(size = 8),
+        title = element_text(size = 10),
+        axis.title = element_text(size = 8),
+        legend.key.width = unit(x = 0.1,units = 'in'),
+        panel.background = element_rect(fill = 'lightblue3'))
+#dev.off()
+
+ggplot()+theme_bw()+ggtitle('Improvement')+
+  geom_sf(data = countries,fill='gray',col='gray40')+
+  layer_spatial(impr.ag)+
+  geom_point(data = new.towers,aes(x,y),col='black',fill='green',pch=23,size=2)+
+  geom_point(data = new.towers1,aes(x,y),col='black',fill='white',pch=23,size=2)+
+  scale_fill_gradientn('ED',
+                       na.value = 'transparent',
+                       colours = col,
+                       #trans = 'log',
+                       limits = c(0,1.89919  *2),
+                       labels = c('good','cutoff','poor'),
+                       breaks = c(0,1.89919  ,1.89919  *2),
+                       oob = scales::squish)+
+  scale_x_continuous(limits = c(-5093909,4542996),'')+
+  scale_y_continuous(limits = c(-3687122,4374170),'')+
+  theme(text = element_text(size = 8),
+        legend.text = element_text(size = 8),
+        title = element_text(size = 10),
+        axis.title = element_text(size = 8),
+        legend.key.width = unit(x = 0.1,units = 'in'),
+        panel.background = element_rect(fill = 'lightblue3'))
+
+pal = viridis(n = 8,direction = 1,option = 'A')
+hist(dif)
+
+ggplot()+theme_bw()+ggtitle('All Active Sites')+
+  geom_sf(data = countries,fill='gray',col='gray40')+
+  layer_spatial(dif.ag)+
+  geom_point(data = new.towers,aes(x,y),col='black',fill='green',pch=23,size=2)+
+  scale_fill_gradientn('ED',
+                       na.value = 'transparent',
+                       colours = pal,
+                       #trans = 'log',
+                       limits = c(0,2),
+                       oob = scales::squish)+
+  scale_x_continuous(limits = c(-5093909,4542996))+
+  scale_y_continuous(limits = c(-3687122,4374170))+
+  theme(text = element_text(size = 8),
+        legend.text = element_text(size = 8),
+        title = element_text(size = 10),
+        axis.title = element_text(size = 8),
+        legend.key.width = unit(x = 0.1,units = 'in'),
+        panel.background = element_rect(fill = 'lightblue3'))
+
+
+terra::summary(improve)
+terra::summary(base)
+
+df.base = as.data.frame(x = base,na.rm=T)
+df.improve = as.data.frame(x = improve,na.rm=T)
+
+ggplot()+
+  geom_histogram(data = df.base,aes(x = base.dist),fill='gray',bins=200)+
+  geom_histogram(data = df.improve,aes(x = base.dist),fill='red',bins=200)
+
+b = summary(df.base$base.dist)
+i = summary(df.improve$base.dist)
+
+i[1] - b[1]/b[5]
+(b[5] - i[5])/b[5]
+
+(sum(df.base$base.dist) - sum(df.improve$base.dist))/sum(df.base$base.dist)
+
+dif.df = as.data.frame(x = dif,na.rm=T)
+sub = subset(dif.df,dif.df$base.dist > 0)
+
+length(sub$base.dist)/length(df.base$base.dist)
+
+sub = subset(df.improve,sqrt(df.improve$base.dist) > 1.2155)
+length(sub$base.dist)/length(df.improve$base.dist)
+
+sub = subset(df.base,sqrt(df.base$base.dist) > 1.2155)
+
+length(sub$base.dist)/length(df.improve$base.dist)
+
+length(df.base$base.dist)*2*.05
+
+hist(sqrt(df.base$base.dist))
+summary(sqrt(df.base$base.dist))
