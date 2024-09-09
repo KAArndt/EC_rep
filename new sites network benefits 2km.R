@@ -31,7 +31,7 @@ pca.towers1$Activity = ifelse(pca.towers1$site == 'Churchill Fen' |
                               pca.towers1$site == 'Resolute' |
                               pca.towers1$site == 'Pond Inlet' |
                               pca.towers1$site == 'Kangiqsualujjuaq' |
-                              pca.towers1$site == 'CEF cluster' |
+                       #       pca.towers1$site == 'CEF cluster' |
                               pca.towers1$site == 'Council (NGEE Arctic)',
                               'active',pca.towers1$Activity)
 
@@ -68,14 +68,14 @@ plot(improve,range=c(0,3))
 points(towers,col='red')
 
 #save the base here
-writeRaster(x = improve,filename = './output/improvement_2km_2024.tif',overwrite = T)
+#writeRaster(x = improve,filename = './output/improvement_2km_2024.tif',overwrite = T)
 
 #caluclate difference
 #load in the base
 base = rast('./output/base_2km.tif')
 summary(base)
-1.9
-improve = rast('./output/improvement_2km.tif')
+
+#improve = rast('./output/improvement_2km.tif')
 
 
 #calulate difference
@@ -94,8 +94,11 @@ countries = rnaturalearth::ne_countries(returnclass = "sf") %>%
 
 #create an aggregate for the plot
 base.ag = aggregate(x = base,fact = 4,fun = mean,na.rm = T)
-impr.ag = aggregate(x = improve,fact = 4,fun = mean,na.rm = T)
+impr.ag = aggregate(x = improve,fact = 2,fun = mean,na.rm = T)
 dif.ag  = aggregate(x = dif,fact = 4,fun = mean,na.rm = T)
+
+impr.ag
+writeRaster(x = impr.ag,filename = './output/improvement_3.7km_2024.tif',overwrite = T)
 
 #Create Column for added sites
 new.towers1 = subset(new.towers,new.towers$site   == 'Churchill Fen' | 
