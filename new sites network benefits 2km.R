@@ -64,11 +64,11 @@ towers = vect(x = new.towers,geom=c("x", "y"), crs=crs(r))
 
 hist(improve)
 
-plot(improve,range=c(0,5))
-points(towers)
+plot(improve,range=c(0,3))
+points(towers,col='red')
 
 #save the base here
-writeRaster(x = improve,filename = './output/improvement_2km.tif',overwrite = T)
+writeRaster(x = improve,filename = './output/improvement_2km_2024.tif',overwrite = T)
 
 #caluclate difference
 #load in the base
