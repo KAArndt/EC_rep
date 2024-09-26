@@ -31,7 +31,7 @@ pca.towers1$Activity = ifelse(pca.towers1$site == 'Churchill Fen' |
                               pca.towers1$site == 'Resolute' |
                               pca.towers1$site == 'Pond Inlet' |
                               pca.towers1$site == 'Kangiqsualujjuaq' |
-                       #       pca.towers1$site == 'CEF cluster' |
+                              pca.towers1$site == 'CEF cluster' |
                               pca.towers1$site == 'Council (NGEE Arctic)',
                               'active',pca.towers1$Activity)
 
@@ -64,7 +64,7 @@ towers = vect(x = new.towers,geom=c("x", "y"), crs=crs(r))
 
 hist(improve)
 
-plot(improve,range=c(0,3))
+plot(improve,range=c(0,4.5))
 points(towers,col='red')
 
 #save the base here
