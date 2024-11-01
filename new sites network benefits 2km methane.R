@@ -35,8 +35,26 @@ pca.towers1$Activity = ifelse(pca.towers1$site == 'Churchill Fen' |
                               pca.towers1$site == 'Council (NGEE Arctic)',
                               'active',pca.towers1$Activity)
 
-net = which(pca.towers1$Activity == 'active')
+pca.towers1$CH4 = ifelse(pca.towers1$site == 'Churchill Fen' | 
+                                pca.towers1$site == 'Iqaluit' |
+                                pca.towers1$site == 'Resolute' |
+                                pca.towers1$site == 'Pond Inlet' |
+                                pca.towers1$site == 'Kangiqsualujjuaq' |
+                                pca.towers1$site == 'CEF cluster' |
+                                pca.towers1$site == 'Council (NGEE Arctic)',
+                              'CH4',pca.towers1$CH4)
 
+pca.towers1$Annual_cover = ifelse(pca.towers1$site == 'Churchill Fen' | 
+                           pca.towers1$site == 'Iqaluit' |
+                           pca.towers1$site == 'Resolute' |
+                           pca.towers1$site == 'Pond Inlet' |
+                           pca.towers1$site == 'Kangiqsualujjuaq' |
+                           pca.towers1$site == 'CEF cluster' |
+                           pca.towers1$site == 'Council (NGEE Arctic)',
+                         'annual',pca.towers1$Annual_cover)
+
+net = which(pca.towers1$Activity == 'active' & pca.towers1$CH4 == 'CH4')
+pca.towers1[,c(net)]
 #create some subsets of the euclidean distance tables for easier calculations
 euci.net = euci[,c(net)]
 
@@ -68,14 +86,14 @@ plot(improve,range=c(0,4.5))
 points(towers,col='red')
 
 #save the base here
-#writeRaster(x = improve,filename = './output/improvement_2km_2024.tif',overwrite = T)
+#writeRaster(x = improve,filename = './output/improvement_ch4_2km.tif',overwrite = T)
 
 #caluclate difference
 #load in the base
-base = rast('./output/base_2km.tif')
+base = rast('./output/ch4_2km.tif')
 summary(base)
 
-improve = rast('./output/improvement_2km.tif')
+improve = rast('./output/improvement_ch4_2km.tif')
 
 #calulate difference
 dif = base - improve
@@ -129,23 +147,26 @@ ch4towers       = subset(pca.towers1,pca.towers1$Activity == 'active' &
 annualch4towers = subset(pca.towers1,pca.towers1$Activity == 'active' & 
                            pca.towers1$CH4 == 'CH4' & 
                            pca.towers1$Annual_cover == 'annual')
+annual = subset(pca.towers1,pca.towers1$Activity == 'active' & 
+                           pca.towers1$Annual_cover == 'annual')
 
 #things needed for all the plots
 pal = viridis(n = 8,direction = -1,option = 'A')
 
 #plot the figure
-png(filename = './figures/improvement.png',width = 6,height = 6,units = 'in',res = 1000)
-ggplot()+theme_bw()+ggtitle('Improvement')+
+png(filename = './figures/improvement_ch4.png',width = 6,height = 6,units = 'in',res = 1000)
+ggplot()+theme_bw()+ggtitle('Improvement Methane')+
   geom_sf(data = countries,fill='gray',col='gray40')+
   layer_spatial(impr.ag)+
-  geom_point(data = active,aes(x,y),col='black',fill='red',pch=23,size=2)+
-  geom_point(data = ch4towers,aes(x,y),col='black',fill='yellow',pch=23,size=2)+
-  geom_point(data = annualch4towers,aes(x,y),col='black',fill='green',pch=23,size=2)+
+  geom_point(data = active,aes(x,y),col='black',fill='transparent',pch=23,size=4)+
+  geom_point(data = annual,aes(x,y),col='black',fill='blue',pch=23,size=5)+
+  geom_point(data = annualch4towers,aes(x,y),col='black',fill='red',pch=23,size=2)+
+  geom_point(data = new.towers1,aes(x,y),col='black',fill='yellow',pch=23,size=5)+
   scale_fill_gradientn('ED',
                        na.value = 'transparent',
                        colours = pal,
                        #trans = 'log',
-                       limits = c(0,3.25),
+                       limits = c(0,6),
                        oob = scales::squish)+
   scale_x_continuous(limits = c(-5093909,4542996),'')+
   scale_y_continuous(limits = c(-3687122,4374170),'')+
@@ -158,18 +179,18 @@ ggplot()+theme_bw()+ggtitle('Improvement')+
 dev.off()
 
 
-png(filename = './figures/base.png',width = 6,height = 6,units = 'in',res = 1000)
-ggplot()+theme_bw()+ggtitle('Base')+
+pal = viridis(n = 8,direction = 1,option = 'A')
+hist(dif.ag)
+png(filename = './figures/ch4 diff.png',width = 6,height = 6,units = 'in',res = 1000)
+ggplot()+theme_bw()+ggtitle('Methane Improvement')+
   geom_sf(data = countries,fill='gray',col='gray40')+
-  layer_spatial(base.ag)+
-  geom_point(data = active,aes(x,y),col='black',fill='red',pch=23,size=2)+
-  geom_point(data = ch4towers,aes(x,y),col='black',fill='yellow',pch=23,size=2)+
-  geom_point(data = annualch4towers,aes(x,y),col='black',fill='green',pch=23,size=2)+
+  layer_spatial(dif.ag)+
+  geom_point(data = new.towers1,aes(x,y),col='black',fill='cyan',pch=23,size=2)+
   scale_fill_gradientn('ED',
                        na.value = 'transparent',
                        colours = pal,
                        #trans = 'log',
-                       limits = c(0,3.25),
+                       limits = c(0,1.5),
                        oob = scales::squish)+
   scale_x_continuous(limits = c(-5093909,4542996),'')+
   scale_y_continuous(limits = c(-3687122,4374170),'')+
