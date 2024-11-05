@@ -1,19 +1,14 @@
 rm(list = ls())
 
-#library(raster)
-#library(svMisc)
-#library(MASS)
-#library(ggplot2)
-#library(ggspatial)
+library(ggplot2)
+library(ggspatial)
 library(terra)
-#library(plyr)
-#library(data.table)
-#library(kit)
-#library(ggthemes)
-#library(plotrix)
 library(foreach)
 library(doParallel)
 library(doSNOW)
+library(cowplot)
+library(viridis)
+library(Polychrome)
 
 #load in the pca image
 r = rast('./data/input data/pca.tif')
@@ -31,11 +26,11 @@ df = df[,-c(1,2)]
 
 #run kmeans clustering in parallel, determine what is the best by running several size clusters
 set.seed(100) #set seed so the kmeans always starts in the same spot, makes the results more similar if ran again
-cents = c(2,3) #set how many clusters we want in the different iterations
+cents = c(5,10,20,30,40,50,60,70,80,90,100,200,300,400,500) #set how many clusters we want in the different iterations
 
 #setup parallel back end to use many processors
   cores = detectCores() #detect the number of cores
-  cl = makeCluster(2) #set the clusters to the number of kmeans to be run, or 1 less than total cores
+  cl = makeCluster(length(cents)) #set the clusters to the number of kmeans to be run, or 1 less than total cores
   {orig = Sys.time() #start the clock for timing the process
   registerDoSNOW(cl) #register the cores
   
@@ -44,53 +39,338 @@ cents = c(2,3) #set how many clusters we want in the different iterations
     kmeans(x = df,centers = i,iter.max = 500,nstart = 10,algorithm = 'Lloyd')}
   stopCluster(cl) #stop the clusters
   Sys.time() - orig} #stop the clock
-
-km[[1]]$tot.withinss
+  
+#saveRDS(object = km,file = './output/clusters.rds')
+  
+km = readRDS(file = './output/clusters.rds')
 
 #error calculations for deciding appropriate amount of clusters
-error  = c(km[[1]]$tot.withinss,km[[2]]$tot.withinss)
+error  = km[[1]]$tot.withinss
+for (i in 2:length(km)) {
+  error = c(error,km[[i]]$tot.withinss)
+}
 
-
-plot(cents,error,type='b')
-
+#error kmeans plot
+png(filename = './figures/kmeans_error.png',width = 4,height = 2.5,units = 'in',res = 2000)
+ggplot()+theme_bw()+
+  geom_line(aes(cents,error))+
+  scale_x_continuous('Clusters',limits = c(0,500),expand = c(0,0))+
+  scale_y_continuous('Within-Cluster Sum of Squares Error')+
+  theme(text = element_text(size = 8))
+dev.off()
 
 #rasterize the clusters
-cor$km2 = km[[1]]$cluster #add to the coordinates
-cor$km3 = km[[2]]$cluster #add to the coordinates
-cor$km12 = km12$cluster #add to the coordinates
-cor$km6 = km6$cluster #add to the coordinates
+cor$km5  = km[[1]]$cluster #add to the coordinates
+cor$km10 = km[[2]]$cluster #add to the coordinates
+cor$km20 = km[[3]]$cluster #add to the coordinates
+cor$km30 = km[[4]]$cluster #add to the coordinates
+cor$km40 = km[[5]]$cluster #add to the coordinates
+cor$km50 = km[[6]]$cluster #add to the coordinates
+cor$km60 = km[[7]]$cluster #add to the coordinates
+cor$km70 = km[[8]]$cluster #add to the coordinates
+cor$km80 = km[[9]]$cluster #add to the coordinates
+cor$km90 = km[[10]]$cluster #add to the coordinates
+cor$km100 = km[[11]]$cluster #add to the coordinates
+cor$km200 = km[[12]]$cluster #add to the coordinates
+cor$km300 = km[[13]]$cluster #add to the coordinates
+cor$km400 = km[[14]]$cluster #add to the coordinates
+cor$km500 = km[[15]]$cluster #add to the coordinates
 
-
+#create rasters from the cluster files
 kms = rast(x = cor,type = 'xyz',crs = crs(r))
 
-
+#check it out
 plot(kms)
 
-#project to the rest of the images
-kms = projectRaster(from = kms,to = r)
-
 #save off so it can just be reloaded again
-writeRaster(x = kms,filename = 'C:/site.selection/euc dist/kms.tif',overwrite = T)
+writeRaster(x = kms,filename = './output/clusts.tif',overwrite = T)
 
-kms = stack(x = 'C:/site.selection/euc dist/kms.tif') 
-
-#add to the datastack
-r2 = stack(r,kms)
-
-
+# already run ######################################
+kms = rast(x = './output/clusts.tif') 
+kms
 #just for plotting of k means ##############################################################
-#steridean projection
-proj = crs("+proj=stere +lat_0=90 +lat_ts=70 +lon_0=0 +k=1 +x_0=0 +y_0=0 +a=6378273 +b=6356889.449 +units=m +no_defs")
+#aggregate for better plotting
+kmag = terra::aggregate(x = kms, fact = 3,fun = 'modal',na.rm=T)
 
-#project to the steridean projection
-r2 = projectRaster(from = kms,crs = proj)
+#world map for plotting
+sf_use_s2(FALSE) #need to run this before next line
+countries = rnaturalearth::ne_countries(returnclass = "sf") %>%
+  st_crop(y = st_bbox(c(xmin = -180, ymin = 35, xmax = 180, ymax = 90))) %>%
+  smoothr::densify(max_distance = 1) %>%
+  st_transform(crs(kms))
 
-library(cowplot)
-library(viridis)
+kmdf = as.data.frame(kmag,xy=T)
+pal = Polychrome::alphabet.colors(n = 20)
 
+pal_function = colorRampPalette(colors = pal)
+
+kmdf$group = as.factor(kmdf$km20)
+num_colors = nlevels(kmdf$group)
+diamond_color_colors = pal_function(num_colors)
+
+png(filename = './figures/cluster_map.png',width = 4,height = 3.2,units = 'in',res = 2000)
 ggplot()+theme_map()+
-  layer_spatial(r2$km6)+
-  scale_fill_viridis_c(na.value = NA,'cluster')+
-  scale_x_continuous(limits = c(-4580235,4580235))+
-  scale_y_continuous(limits = c(-4580235,4580235))
+  geom_sf(data = countries,fill='gray',col='gray40')+
+#  layer_spatial(kmag$km20)+
+#  scale_fill_gradientn(na.value = NA,'Cluster',colors = pal)+
+  geom_raster(data = kmdf,aes(x,y,fill=factor(km20)))+
+  scale_fill_manual('Cluster',values = diamond_color_colors)+
+  scale_x_continuous(limits = c(-5093909,4539289))+
+  scale_y_continuous(limits = c(-3523458,4375097))+
+  theme(legend.text = element_text(size = 8),
+        legend.title = element_text(size = 8),
+        legend.key.size = unit(x = 0.05,units = 'in'))
+dev.off()
 
+p1 = ggplot()+theme_map()+
+  geom_sf(data = countries,fill='gray',col='gray40')+
+  layer_spatial(kmag$km20)+
+  scale_fill_gradientn(na.value = NA,'',colors = pal[1],limits = c(1,1))+
+  scale_x_continuous(limits = c(-5093909,4539289))+
+  scale_y_continuous(limits = c(-3523458,4375097))+
+  theme(legend.position = c(0.1,0.9),
+        legend.direction = 'horizontal',
+        legend.text = element_text(size = 8),
+        legend.key.height = unit(x = 0.02,units = 'in'),
+        legend.key.width = unit(x = 0.03,units = 'in'))
+
+p2 = ggplot()+theme_map()+
+  geom_sf(data = countries,fill='gray',col='gray40')+
+  layer_spatial(kmag$km20)+
+  scale_fill_gradientn(na.value = NA,'',colors = pal[2],limits = c(2,2))+
+  scale_x_continuous(limits = c(-5093909,4539289))+
+  scale_y_continuous(limits = c(-3523458,4375097))+
+  theme(legend.position = c(0.1,0.9),
+        legend.direction = 'horizontal',
+        legend.text = element_text(size = 8),
+        legend.key.height = unit(x = 0.02,units = 'in'),
+        legend.key.width = unit(x = 0.03,units = 'in'))
+
+p3 = ggplot()+theme_map()+
+  geom_sf(data = countries,fill='gray',col='gray40')+
+  layer_spatial(kmag$km20)+
+  scale_fill_gradientn(na.value = NA,'',colors = pal[3],limits = c(3,3))+
+  scale_x_continuous(limits = c(-5093909,4539289))+
+  scale_y_continuous(limits = c(-3523458,4375097))+
+  theme(legend.position = c(0.1,0.9),
+        legend.direction = 'horizontal',
+        legend.text = element_text(size = 8),
+        legend.key.height = unit(x = 0.02,units = 'in'),
+        legend.key.width = unit(x = 0.03,units = 'in'))
+
+p4 = ggplot()+theme_map()+
+  geom_sf(data = countries,fill='gray',col='gray40')+
+  layer_spatial(kmag$km20)+
+  scale_fill_gradientn(na.value = NA,'',colors = pal[4],limits = c(4,4))+
+  scale_x_continuous(limits = c(-5093909,4539289))+
+  scale_y_continuous(limits = c(-3523458,4375097))+
+  theme(legend.position = c(0.1,0.9),
+        legend.direction = 'horizontal',
+        legend.text = element_text(size = 8),
+        legend.key.height = unit(x = 0.02,units = 'in'),
+        legend.key.width = unit(x = 0.03,units = 'in'))
+
+p5 = ggplot()+theme_map()+
+  geom_sf(data = countries,fill='gray',col='gray40')+
+  layer_spatial(kmag$km20)+
+  scale_fill_gradientn(na.value = NA,'',colors = pal[5],limits = c(5,5))+
+  scale_x_continuous(limits = c(-5093909,4539289))+
+  scale_y_continuous(limits = c(-3523458,4375097))+
+  theme(legend.position = c(0.1,0.9),
+        legend.direction = 'horizontal',
+        legend.text = element_text(size = 8),
+        legend.key.height = unit(x = 0.02,units = 'in'),
+        legend.key.width = unit(x = 0.03,units = 'in'))
+
+p6 = ggplot()+theme_map()+
+  geom_sf(data = countries,fill='gray',col='gray40')+
+  layer_spatial(kmag$km20)+
+  scale_fill_gradientn(na.value = NA,'',colors = pal[6],limits = c(6,6))+
+  scale_x_continuous(limits = c(-5093909,4539289))+
+  scale_y_continuous(limits = c(-3523458,4375097))+
+  theme(legend.position = c(0.1,0.9),
+        legend.direction = 'horizontal',
+        legend.text = element_text(size = 8),
+        legend.key.height = unit(x = 0.02,units = 'in'),
+        legend.key.width = unit(x = 0.03,units = 'in'))
+
+p7 = ggplot()+theme_map()+
+  geom_sf(data = countries,fill='gray',col='gray40')+
+  layer_spatial(kmag$km20)+
+  scale_fill_gradientn(na.value = NA,'',colors = pal[7],limits = c(7,7))+
+  scale_x_continuous(limits = c(-5093909,4539289))+
+  scale_y_continuous(limits = c(-3523458,4375097))+
+  theme(legend.position = c(0.1,0.9),
+        legend.direction = 'horizontal',
+        legend.text = element_text(size = 8),
+        legend.key.height = unit(x = 0.02,units = 'in'),
+        legend.key.width = unit(x = 0.03,units = 'in'))
+
+
+p8 = ggplot()+theme_map()+
+  geom_sf(data = countries,fill='gray',col='gray40')+
+  layer_spatial(kmag$km20)+
+  scale_fill_gradientn(na.value = NA,'',colors = pal[8],limits = c(8,8))+
+  scale_x_continuous(limits = c(-5093909,4539289))+
+  scale_y_continuous(limits = c(-3523458,4375097))+
+  theme(legend.position = c(0.1,0.9),
+        legend.direction = 'horizontal',
+        legend.text = element_text(size = 8),
+        legend.key.height = unit(x = 0.02,units = 'in'),
+        legend.key.width = unit(x = 0.03,units = 'in'))
+
+
+p9 = ggplot()+theme_map()+
+  geom_sf(data = countries,fill='gray',col='gray40')+
+  layer_spatial(kmag$km20)+
+  scale_fill_gradientn(na.value = NA,'',colors = pal[9],limits = c(9,9))+
+  scale_x_continuous(limits = c(-5093909,4539289))+
+  scale_y_continuous(limits = c(-3523458,4375097))+
+  theme(legend.position = c(0.1,0.9),
+        legend.direction = 'horizontal',
+        legend.text = element_text(size = 8),
+        legend.key.height = unit(x = 0.02,units = 'in'),
+        legend.key.width = unit(x = 0.03,units = 'in'))
+
+
+p10 = ggplot()+theme_map()+
+  geom_sf(data = countries,fill='gray',col='gray40')+
+  layer_spatial(kmag$km20)+
+  scale_fill_gradientn(na.value = NA,'',colors = pal[10],limits = c(10,10))+
+  scale_x_continuous(limits = c(-5093909,4539289))+
+  scale_y_continuous(limits = c(-3523458,4375097))+
+  theme(legend.position = c(0.1,0.9),
+        legend.direction = 'horizontal',
+        legend.text = element_text(size = 8),
+        legend.key.height = unit(x = 0.02,units = 'in'),
+        legend.key.width = unit(x = 0.03,units = 'in'))
+
+
+p11 = ggplot()+theme_map()+
+  geom_sf(data = countries,fill='gray',col='gray40')+
+  layer_spatial(kmag$km20)+
+  scale_fill_gradientn(na.value = NA,'',colors = pal[11],limits = c(11,11))+
+  scale_x_continuous(limits = c(-5093909,4539289))+
+  scale_y_continuous(limits = c(-3523458,4375097))+
+  theme(legend.position = c(0.1,0.9),
+        legend.direction = 'horizontal',
+        legend.text = element_text(size = 8),
+        legend.key.height = unit(x = 0.02,units = 'in'),
+        legend.key.width = unit(x = 0.03,units = 'in'))
+
+
+p12 = ggplot()+theme_map()+
+  geom_sf(data = countries,fill='gray',col='gray40')+
+  layer_spatial(kmag$km20)+
+  scale_fill_gradientn(na.value = NA,'',colors = pal[12],limits = c(12,12))+
+  scale_x_continuous(limits = c(-5093909,4539289))+
+  scale_y_continuous(limits = c(-3523458,4375097))+
+  theme(legend.position = c(0.1,0.9),
+        legend.direction = 'horizontal',
+        legend.text = element_text(size = 8),
+        legend.key.height = unit(x = 0.02,units = 'in'),
+        legend.key.width = unit(x = 0.03,units = 'in'))
+
+
+p13 = ggplot()+theme_map()+
+  geom_sf(data = countries,fill='gray',col='gray40')+
+  layer_spatial(kmag$km20)+
+  scale_fill_gradientn(na.value = NA,'',colors = pal[13],limits = c(13,13))+
+  scale_x_continuous(limits = c(-5093909,4539289))+
+  scale_y_continuous(limits = c(-3523458,4375097))+
+  theme(legend.position = c(0.1,0.9),
+        legend.direction = 'horizontal',
+        legend.text = element_text(size = 8),
+        legend.key.height = unit(x = 0.02,units = 'in'),
+        legend.key.width = unit(x = 0.03,units = 'in'))
+
+
+p14 = ggplot()+theme_map()+
+  geom_sf(data = countries,fill='gray',col='gray40')+
+  layer_spatial(kmag$km20)+
+  scale_fill_gradientn(na.value = NA,'',colors = pal[14],limits = c(14,14))+
+  scale_x_continuous(limits = c(-5093909,4539289))+
+  scale_y_continuous(limits = c(-3523458,4375097))+
+  theme(legend.position = c(0.1,0.9),
+        legend.direction = 'horizontal',
+        legend.text = element_text(size = 8),
+        legend.key.height = unit(x = 0.02,units = 'in'),
+        legend.key.width = unit(x = 0.03,units = 'in'))
+
+
+p15 = ggplot()+theme_map()+
+  geom_sf(data = countries,fill='gray',col='gray40')+
+  layer_spatial(kmag$km20)+
+  scale_fill_gradientn(na.value = NA,'',colors = pal[15],limits = c(15,15))+
+  scale_x_continuous(limits = c(-5093909,4539289))+
+  scale_y_continuous(limits = c(-3523458,4375097))+
+  theme(legend.position = c(0.1,0.9),
+        legend.direction = 'horizontal',
+        legend.text = element_text(size = 8),
+        legend.key.height = unit(x = 0.02,units = 'in'),
+        legend.key.width = unit(x = 0.03,units = 'in'))
+
+p16 = ggplot()+theme_map()+
+  geom_sf(data = countries,fill='gray',col='gray40')+
+  layer_spatial(kmag$km20)+
+  scale_fill_gradientn(na.value = NA,'',colors = pal[16],limits = c(16,16))+
+  scale_x_continuous(limits = c(-5093909,4539289))+
+  scale_y_continuous(limits = c(-3523458,4375097))+
+  theme(legend.position = c(0.1,0.9),
+        legend.direction = 'horizontal',
+        legend.text = element_text(size = 8),
+        legend.key.height = unit(x = 0.02,units = 'in'),
+        legend.key.width = unit(x = 0.03,units = 'in'))
+
+p17 = ggplot()+theme_map()+
+  geom_sf(data = countries,fill='gray',col='gray40')+
+  layer_spatial(kmag$km20)+
+  scale_fill_gradientn(na.value = NA,'',colors = pal[17],limits = c(17,17))+
+  scale_x_continuous(limits = c(-5093909,4539289))+
+  scale_y_continuous(limits = c(-3523458,4375097))+
+  theme(legend.position = c(0.1,0.9),
+        legend.direction = 'horizontal',
+        legend.text = element_text(size = 8),
+        legend.key.height = unit(x = 0.02,units = 'in'),
+        legend.key.width = unit(x = 0.03,units = 'in'))
+
+p18 = ggplot()+theme_map()+
+  geom_sf(data = countries,fill='gray',col='gray40')+
+  layer_spatial(kmag$km20)+
+  scale_fill_gradientn(na.value = NA,'',colors = pal[18],limits = c(18,18))+
+  scale_x_continuous(limits = c(-5093909,4539289))+
+  scale_y_continuous(limits = c(-3523458,4375097))+
+  theme(legend.position = c(0.1,0.9),
+        legend.direction = 'horizontal',
+        legend.text = element_text(size = 8),
+        legend.key.height = unit(x = 0.02,units = 'in'),
+        legend.key.width = unit(x = 0.03,units = 'in'))
+
+p19 = ggplot()+theme_map()+
+  geom_sf(data = countries,fill='gray',col='gray40')+
+  layer_spatial(kmag$km20)+
+  scale_fill_gradientn(na.value = NA,'',colors = pal[19],limits = c(19,19))+
+  scale_x_continuous(limits = c(-5093909,4539289))+
+  scale_y_continuous(limits = c(-3523458,4375097))+
+  theme(legend.position = c(0.1,0.9),
+        legend.direction = 'horizontal',
+        legend.text = element_text(size = 8),
+        legend.key.height = unit(x = 0.02,units = 'in'),
+        legend.key.width = unit(x = 0.03,units = 'in'))
+
+p20 = ggplot()+theme_map()+
+  geom_sf(data = countries,fill='gray',col='gray40')+
+  layer_spatial(kmag$km20)+
+  scale_fill_gradientn(na.value = NA,'',colors = pal[20],limits = c(20,20))+
+  scale_x_continuous(limits = c(-5093909,4539289))+
+  scale_y_continuous(limits = c(-3523458,4375097))+
+  theme(legend.position = c(0.1,0.9),
+        legend.direction = 'horizontal',
+        legend.text = element_text(size = 8),
+        legend.key.height = unit(x = 0.02,units = 'in'),
+        legend.key.width = unit(x = 0.03,units = 'in'))
+
+plot_grid(p1,p2,p3,p4,p5,
+          p6,p7,p8,p9,p10,
+          p11,p12,p13,p14,p15,
+          p16,p17,p18,p19,p20)

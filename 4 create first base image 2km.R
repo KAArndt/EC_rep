@@ -71,7 +71,10 @@ writeRaster(x = base,filename = './output/base_2km.tif',overwrite = T)
 
 #######################################################################################
 base = rast('./output/base_2km.tif')
+base = base/minmax(base)[2]
 
+base
+plot(base)
 #load in base map
 #things needed for all the plots
 pal = viridis(n = 8,direction = -1,option = 'A')
