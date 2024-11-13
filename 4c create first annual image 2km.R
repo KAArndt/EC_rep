@@ -25,12 +25,11 @@ tower.data = fread(file = './data/pca.towers.csv')
 euci = read_rds('./data/euci_2km.rds')
 
 pca.towers1 = tower.data
-pca.towers1[,c('site','Activity')]
 
 #add churchill and iqaluit to inactive towers
 pca.towers1$Activity = ifelse(pca.towers1$site == 'Churchill Fen' | pca.towers1$site == 'Iqaluit',
                               'inactive',pca.towers1$Activity)
-net = which(pca.towers1$Activity == 'active')
+net = which(pca.towers1$Activity == 'active' & pca.towers1$Annual_cover == 'annual')
 
 euci.net = euci[,c(net)]
 
@@ -63,27 +62,23 @@ base.towers = tower.data[net,]
 towers = vect(x = base.towers,geom=c("x", "y"), crs=crs(r))
 
 hist(base)
-plot(base,range=c(0,4.5))
+plot(base,range=c(0,4))
 points(towers)
 
 #save the base here
-writeRaster(x = base,filename = './output/base_2km.tif',overwrite = T)
+writeRaster(x = base,filename = './output/annual_2km.tif',overwrite = T)
 
 #######################################################################################
-base = rast('./output/base_2km.tif')
-base = base/minmax(base)[2]
+base = rast('./output/annual_2km.tif')
 
-base
-plot(base)
 #load in base map
 #things needed for all the plots
 pal = viridis(n = 8,direction = -1,option = 'A')
 
-
 #world map for plotting
 sf_use_s2(FALSE) #need to run this before next line
 countries = rnaturalearth::ne_countries(returnclass = "sf") %>%
-  st_crop(y = st_bbox(c(xmin = -180, ymin = 35, xmax = 180, ymax = 90))) %>%
+  st_crop(y = st_bbox(c(xmin = -180, ymin = 44, xmax = 180, ymax = 90))) %>%
   smoothr::densify(max_distance = 1) %>%
   st_transform(crs(base))
 
@@ -91,15 +86,17 @@ countries = rnaturalearth::ne_countries(returnclass = "sf") %>%
 #create an aggregate for the plot
 base.ag = aggregate(x = base,fact = 4,fun = mean,na.rm = T)
 
+active = subset(pca.towers1,pca.towers1$Activity == 'active')
 ch4 = subset(base.towers,base.towers$CH4 == 'CH4')
 annualch4 = subset(base.towers,base.towers$CH4 == 'CH4' & base.towers$Annual_cover == 'annual')
 
 #plot the figure
-png(filename = './figures/base.png',width = 6,height = 6,units = 'in',res = 1000)
-ggplot()+theme_bw()+ggtitle('All Active Sites')+
+#png(filename = './figures/annual.png',width = 6,height = 6,units = 'in',res = 1000)
+ggplot()+theme_bw()+ggtitle('All Active Annual Sites')+
   geom_sf(data = countries,fill='gray',col='gray40')+
   layer_spatial(base.ag)+
-  geom_point(data = base.towers,aes(x,y),col='black',fill='red',pch=23,size=2)+
+#  geom_point(data = pca.towers1,aes(x,y),col='black',fill='cyan',pch=23,size=2)+
+  geom_point(data = active,aes(x,y),col='black',fill='red',pch=23,size=2)+
   geom_point(data = ch4,aes(x,y),col='black',fill='yellow',pch=23,size=2)+
   geom_point(data = annualch4,aes(x,y),col='black',fill='green',pch=23,size=2)+
   scale_fill_gradientn('ED',
@@ -116,6 +113,4 @@ ggplot()+theme_bw()+ggtitle('All Active Sites')+
         axis.title = element_text(size = 8),
         legend.key.width = unit(x = 0.1,units = 'in'),
         panel.background = element_rect(fill = 'lightblue3'))
-dev.off()
-
-
+#dev.off()
