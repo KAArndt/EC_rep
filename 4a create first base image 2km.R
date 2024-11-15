@@ -34,7 +34,7 @@ net = which(pca.towers1$Activity == 'active')
 
 euci.net = euci[,c(net)]
 
-rm(euci)
+#rm(euci)
 gc()
 
 #calculate based on the mean of the x lowest + site of interest
@@ -44,7 +44,8 @@ num = 2 #how many closest towers you want
 base.dist = numeric(length = nrow(euci.net))
 {orig = Sys.time() #start the clock for timing the process
 for (i in 1:nrow(euci.net)) {
-  base.dist[i] = mean(euci.net[i,topn(vec = euci.net[i,],n = num,decreasing = F,hasna = F)])
+#  base.dist[i] = mean(euci.net[i,topn(vec = euci.net[i,],n = num,decreasing = F,hasna = F)])
+  base.dist[i] = min(euci.net[i,])
   }
 Sys.time() - orig} #stop the clock
 
@@ -56,22 +57,24 @@ df = as.data.frame(x = r,xy = T,na.rm = T)
 
 #make the base image
 basedf = data.frame(df$x,df$y,base.dist)
+
 base = rast(x = basedf,type = 'xyz',crs = crs(r))
 
-#project the towers database
+#project the towers d#project the towers d#project the towers database
 base.towers = tower.data[net,]
 towers = vect(x = base.towers,geom=c("x", "y"), crs=crs(r))
 
 hist(base)
 plot(base,range=c(0,4.5))
-points(towers)
+points(towers,col='red')
+summary(base)
 
 #save the base here
 writeRaster(x = base,filename = './output/base_2km.tif',overwrite = T)
 
 #######################################################################################
 base = rast('./output/base_2km.tif')
-#base = base/minmax(base)[2]
+#base = base/minmax(base)[2] #use this to rescale from 0-1
 
 hist(base)
 summary(base)
