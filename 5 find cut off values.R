@@ -11,9 +11,8 @@ library(terra)
 library(seegSDM)
 library(plyr)
 
-??gh_install_packages
-gh_install_packages("SEEG-Oxford/seegSDM")
-devtools::install_github('SEEG-Oxford/seegSDM')
+#gh_install_packages("SEEG-Oxford/seegSDM")
+#devtools::install_github('SEEG-Oxford/seegSDM')
 
 #load in sites
 tower.data = fread(file = './data/pca.towers.csv')
@@ -24,96 +23,60 @@ xy.tower = tower.data[,c(32,33)]
 #clusters #########################################################################
 #load in the stack created in the other files
 clust = rast('./output/clusts.tif')
-clust = clust$km30
+#reproject to lat lon so it works right
+
+clust = clust$km20
 plot(clust)
 
 #extract data
 clustdat = extract(x = clust,y = xy.tower,cells=T,xy=T)
-nas = clustdat[is.na(clustdat$km30),] #extract where nas
+nas = clustdat[is.na(clustdat$km20),] #extract where nas
 clustr = stack(clust) #make a raster version
-
+na.cor
 #find coordinates
-na.cor = as.data.frame(nearestLand(points = nas[,c('x','y')],raster = clustr,max_distance = 1000))
+na.cor = as.data.frame(nearestLand(points = nas[,c(4,5)],raster = clustr,max_distance = 100000000))
 
-#place in original dataframe
+#place in original data frame
 clustdat[nas$ID,] = extract(x = clust,y = na.cor,cells=T,xy=T)
-clustdat$site = towers.and.ext$site
+clustdat$site = tower.data$site
+tower.data$cluster = clustdat$km20
 
-#soil grids #########################################################################
-#load in the stack created in the other files
-soil = rast('./data/input data/soils.tif')
+active = subset(tower.data,tower.data$Activity == 'active')
+active$CH4 = ifelse(active$CH4=='','no',active$CH4)
+active$status = paste(active$CH4,active$Annual_cover,sep = '_')
 
-#extract data
-soildat = extract(x = soil,y = xy.tower,cells=T,xy=T)
-nas = soildat[is.na(soildat$bd_100_agg),] #extract where nas
-soilr = stack(soil) #make a raster version
+ggplot(data = active)+theme_bw()+
+  geom_bar(aes(cluster,fill = status))+
+  scale_y_continuous(expand = c(0,0),limits = c(0,30),'Number of Tower Sites')+
+  scale_x_continuous(expand = c(0,0),"Cluster")
 
-#find coordinates
-na.cor = as.data.frame(nearestLand(points = nas[,c('x','y')],raster = soilr,max_distance = 1000))
+active$one = 1
 
-#place in original dataframe
-soildat[nas$ID,] = extract(x = soil,y = na.cor,cells=T,xy=T)
-summary(soildat)
-soildat$site = towers.and.ext$site
+dfs = active %>%
+  group_by(cluster) %>%
+  summarise(count = sum(one))
 
-#permafrost #########################################################################
-#load in the stack created in the other files
-pp = rast('./data/input data/pfrost/UiO_PEX_PERPROB_5.0_20181128_2000_2016_NH/UiO_PEX_PERPROB_5.0_20181128_2000_2016_NH.tif')
-perm = project(x = pp,y = clim)
+dfs
 
-#extract data
-permdat = extract(x = perm,y = xy.tower,cells=T,xy=T)
-summary(permdat$UiO_PEX_PERPROB_5.0_20181128_2000_2016_NH)
-nas = permdat[is.na(permdat$UiO_PEX_PERPROB_5.0_20181128_2000_2016_NH),] #extract where nas
-permr = stack(perm) #make a raster version
+#load in base image
+base = rast('./output/base_2km.tif')
 
-#find coordinates
-na.cor = as.data.frame(nearestLand(points = nas[,c('x','y')],raster = permr,max_distance = 1000))
+all = c(base,clust)
 
-#place in original dataframe
-permdat[nas$ID,] = extract(x = perm,y = na.cor,cells=T,xy=T)
-summary(permdat)
-permdat$site = towers.and.ext$site
+all$base.filt1 = all$base.dist
+all$base.filt4 = all$base.dist
 
-#modis #########################################################################
-#load in the stack created in the other files
-modis = rast('./data/input data/modis.tif')
+all$base.filt1[all$km20 == 3 | all$km20 == 7] = NA
+all$base.filt4[all$km20 == 3 | all$km20 == 7 | all$km20 == 12 | all$km20 == 16 | all$km20 == 19] = NA
 
-#extract data
-modisdat = extract(x = modis,y = xy.tower,xy=T,cell=T)
-summary(modisdat)
-nas = modisdat[is.na(modisdat$ndvimax),] #extract where nas
-modisr = stack(modis) #make a raster version
+plot(all$base.filt1)
+plot(all$base.filt4)
 
-#find coordinates
-na.cor = as.data.frame(nearestLand(points = nas[,c('x','y')],raster = modisr,max_distance = 2000))
+hist(all$base.filt1)
+hist(all$base.filt4)
 
-#place in original dataframe
-modisdat[nas$ID,] = extract(x = modis,y = na.cor,cells=T,xy=T)
-summary(modisdat)
-modisdat$site = towers.and.ext$site
+summary(all$base.filt1)
+summary(all$base.filt4)
 
-#combine all
-modisdat[,c('cell','ID','x','y')] = list(NULL)
-climdat[,c('cell','ID','x','y')] = list(NULL)
-permdat[,c('cell','ID','x','y')] = list(NULL)
-soildat[,c('cell','ID','x','y')] = list(NULL)
+#the final cut offs are 1.77 and 1.71 for ER1 and ER4
 
-modisclim = merge(modisdat,climdat,by = 'site')
-permsoil = merge(permdat,soildat,by = 'site')
-alldata = merge(modisclim,permsoil,by = 'site')
-
-towerdata = merge(towers.and.ext,alldata,by = 'site')
-
-#Add variables for projected coordinates
-td = vect(geom = c("LON","LAT"),x = towerdata,crs = crs(clim))
-td = project(x = td,y = crs(pp))
-crd = data.frame(crds(td))
-
-towerdata$x = crd$x
-towerdata$y = crd$y
-
-towerdata = towerdata[complete.cases(towerdata$mirsaug),]
-
-#add the class back in
-write.csv(x = towerdata,file = './data/extracted_tower_data_new.csv',row.names = F)

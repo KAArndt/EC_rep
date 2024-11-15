@@ -1,5 +1,6 @@
 rm(list = ls())
 
+library(dplyr)
 library(ggplot2)
 library(ggspatial)
 library(terra)
@@ -7,6 +8,7 @@ library(foreach)
 library(doParallel)
 library(doSNOW)
 library(cowplot)
+library(sf)
 library(viridis)
 library(Polychrome)
 
@@ -101,7 +103,7 @@ countries = rnaturalearth::ne_countries(returnclass = "sf") %>%
 
 kmdf = as.data.frame(kmag,xy=T)
 pal = Polychrome::alphabet.colors(n = 20)
-
+pal = c(pal,'gray10','gray30','gray60','gray80')
 pal_function = colorRampPalette(colors = pal)
 
 kmdf$group = as.factor(kmdf$km20)
@@ -370,7 +372,9 @@ p20 = ggplot()+theme_map()+
         legend.key.height = unit(x = 0.02,units = 'in'),
         legend.key.width = unit(x = 0.03,units = 'in'))
 
+png('./output/separate_clusters.png',width = 6,height=6,res = 2000,units = 'in')
 plot_grid(p1,p2,p3,p4,p5,
           p6,p7,p8,p9,p10,
           p11,p12,p13,p14,p15,
           p16,p17,p18,p19,p20)
+dev.off()
