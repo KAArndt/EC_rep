@@ -32,7 +32,7 @@ plot(clust)
 clustdat = extract(x = clust,y = xy.tower,cells=T,xy=T)
 nas = clustdat[is.na(clustdat$km20),] #extract where nas
 clustr = stack(clust) #make a raster version
-na.cor
+
 #find coordinates
 na.cor = as.data.frame(nearestLand(points = nas[,c(4,5)],raster = clustr,max_distance = 100000000))
 
