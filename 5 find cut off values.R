@@ -28,7 +28,7 @@ xy.tower = active[,c(32,33)]
 #load in the stack created in the other files
 clust = rast('./output/clusts.tif')
 
-clust = clust$km80
+clust = clust$km40
 plot(clust)
 names(clust) = 'cluster'
 
@@ -81,4 +81,4 @@ er4 = er4[complete.cases(er4$count),]
 summary(er4$base.dist)[5]
 hist(er4$base.dist)
 
-#the final cut offs are 1.47 and 1.22 for ER1 and ER4
+#the final cut offs are 1.64 and 1.51 for ER1 and ER4
