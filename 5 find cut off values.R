@@ -10,44 +10,50 @@ library(plotrix)
 library(terra)
 library(seegSDM)
 library(plyr)
+library(dplyr)
 
 #gh_install_packages("SEEG-Oxford/seegSDM")
 #devtools::install_github('SEEG-Oxford/seegSDM')
 
 #load in sites
 tower.data = fread(file = './data/pca.towers.csv')
+tower.data$Activity = ifelse(tower.data$site == 'Churchill Fen' | tower.data$site == 'Iqaluit',
+                             'inactive',tower.data$Activity)
+active = subset(tower.data,tower.data$Activity == 'active')
 
 #set just the coordinates for the extract
-xy.tower = tower.data[,c(32,33)]
+xy.tower = active[,c(32,33)]
 
 #clusters #########################################################################
 #load in the stack created in the other files
 clust = rast('./output/clusts.tif')
 #reproject to lat lon so it works right
 
-clust = clust$km20
+clust = clust$km100
 plot(clust)
+names(clust) = 'cluster'
 
 #extract data
 clustdat = extract(x = clust,y = xy.tower,cells=T,xy=T)
-nas = clustdat[is.na(clustdat$km20),] #extract where nas
+nas = clustdat[is.na(clustdat$km),] #extract where nas
 clustr = stack(clust) #make a raster version
 
 #find coordinates
-na.cor = as.data.frame(nearestLand(points = nas[,c(4,5)],raster = clustr,max_distance = 100000000))
+na.cor = as.data.frame(nearestLand(points = nas[,c(4,5)],raster = clustr,max_distance = 10000000))
+summary(na.cor)
 
 #place in original data frame
 clustdat[nas$ID,] = extract(x = clust,y = na.cor,cells=T,xy=T)
-clustdat$site = tower.data$site
-tower.data$cluster = clustdat$km20
+clustdat$site = active$site
+active$cluster = clustdat$km
 
-active = subset(tower.data,tower.data$Activity == 'active')
+
 active$CH4 = ifelse(active$CH4=='','no',active$CH4)
 active$status = paste(active$CH4,active$Annual_cover,sep = '_')
 
 ggplot(data = active)+theme_bw()+
   geom_bar(aes(cluster,fill = status))+
-  scale_y_continuous(expand = c(0,0),limits = c(0,30),'Number of Tower Sites')+
+  scale_y_continuous(expand = c(0,0),limits = c(0,12),'Number of Tower Sites')+
   scale_x_continuous(expand = c(0,0),"Cluster")
 
 active$one = 1
@@ -56,27 +62,24 @@ dfs = active %>%
   group_by(cluster) %>%
   summarise(count = sum(one))
 
-dfs
-
 #load in base image
 base = rast('./output/base_2km.tif')
-
 all = c(base,clust)
+alldf = as.data.frame(x = all)
 
-all$base.filt1 = all$base.dist
-all$base.filt4 = all$base.dist
 
-all$base.filt1[all$km20 == 3 | all$km20 == 7] = NA
-all$base.filt4[all$km20 == 3 | all$km20 == 7 | all$km20 == 12 | all$km20 == 16 | all$km20 == 19] = NA
+dfs4 = subset(dfs,dfs$count >= 4)
 
-plot(all$base.filt1)
-plot(all$base.filt4)
+er1 = merge(dfs,alldf,by = 'cluster',all = T)
+er1 = er1[complete.cases(er1$count),]
 
-hist(all$base.filt1)
-hist(all$base.filt4)
+summary(er1$base.dist)[5]
+hist(er1$base.dist)
 
-summary(all$base.filt1)
-summary(all$base.filt4)
+er4 = merge(dfs4,alldf,by = 'cluster',all = T)
+er4 = er4[complete.cases(er4$count),]
 
-#the final cut offs are 1.77 and 1.71 for ER1 and ER4
+summary(er4$base.dist)[5]
+hist(er4$base.dist)
 
+#the final cut offs are 1.47 and 1.22 for ER1 and ER4
