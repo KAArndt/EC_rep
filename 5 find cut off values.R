@@ -27,25 +27,24 @@ xy.tower = active[,c(32,33)]
 #clusters #########################################################################
 #load in the stack created in the other files
 clust = rast('./output/clusts.tif')
-#reproject to lat lon so it works right
 
-clust = clust$km100
+clust = clust$km80
 plot(clust)
 names(clust) = 'cluster'
 
 #extract data
 clustdat = extract(x = clust,y = xy.tower,cells=T,xy=T)
-nas = clustdat[is.na(clustdat$km),] #extract where nas
+nas = clustdat[is.na(clustdat$cluster),] #extract where nas
 clustr = stack(clust) #make a raster version
 
 #find coordinates
-na.cor = as.data.frame(nearestLand(points = nas[,c(4,5)],raster = clustr,max_distance = 10000000))
+na.cor = as.data.frame(nearestLand(points = nas[,c(4,5)],raster = clustr,max_distance = 1000000))
 summary(na.cor)
 
 #place in original data frame
 clustdat[nas$ID,] = extract(x = clust,y = na.cor,cells=T,xy=T)
 clustdat$site = active$site
-active$cluster = clustdat$km
+active$cluster = clustdat$cluster
 
 
 active$CH4 = ifelse(active$CH4=='','no',active$CH4)
@@ -53,7 +52,7 @@ active$status = paste(active$CH4,active$Annual_cover,sep = '_')
 
 ggplot(data = active)+theme_bw()+
   geom_bar(aes(cluster,fill = status))+
-  scale_y_continuous(expand = c(0,0),limits = c(0,12),'Number of Tower Sites')+
+  scale_y_continuous(expand = c(0,0),limits = c(0,20),'Number of Tower Sites')+
   scale_x_continuous(expand = c(0,0),"Cluster")
 
 active$one = 1
