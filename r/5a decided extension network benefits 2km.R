@@ -60,8 +60,8 @@ temp.euci = matrix(nrow = nrow(df),ncol = ncol(euci.net)+1)
 improve.dist = numeric(length = nrow(euci.net))
 {orig = Sys.time() #start the clock for timing the process
   for (i in 1:nrow(euci.net)) {
-#    improve.dist[i] = mean(euci.net[i,topn(vec = euci.net[i,],n = num,decreasing = F,hasna = F)])
-    improve.dist[i] = min(euci.net[i,])
+    improve.dist[i] = mean(euci.net[i,topn(vec = euci.net[i,],n = num,decreasing = F,hasna = F)])
+#    improve.dist[i] = min(euci.net[i,])
   }
   Sys.time() - orig} #stop the clock
 

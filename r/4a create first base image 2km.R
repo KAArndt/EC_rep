@@ -44,8 +44,8 @@ num = 2 #how many closest towers you want
 base.dist = numeric(length = nrow(euci.net))
 {orig = Sys.time() #start the clock for timing the process
 for (i in 1:nrow(euci.net)) {
-#  base.dist[i] = mean(euci.net[i,topn(vec = euci.net[i,],n = num,decreasing = F,hasna = F)])
-  base.dist[i] = min(euci.net[i,])
+  base.dist[i] = mean(euci.net[i,topn(vec = euci.net[i,],n = num,decreasing = F,hasna = F)])
+#  base.dist[i] = min(euci.net[i,])
   }
 Sys.time() - orig} #stop the clock
 
