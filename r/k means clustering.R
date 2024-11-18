@@ -52,13 +52,21 @@ for (i in 2:length(km)) {
   error = c(error,km[[i]]$tot.withinss)
 }
 
+slope = vector(length = length(error)-1)
+for (i in 1:length(error)-1) {
+  slope[i] = (error[i]-error[i+1])/(cents[i]-cents[i+1])
+}
+slope = (error[1]-error[2])
+plot(slope)
 #error kmeans plot
 png(filename = './figures/kmeans_error.png',width = 4,height = 2.5,units = 'in',res = 2000)
 ggplot()+theme_bw()+
   geom_line(aes(cents,error))+
-  scale_x_continuous('Clusters',limits = c(0,500),expand = c(0,0))+
+  geom_point(aes(cents,error))+
+  scale_x_continuous('Clusters',limits = c(0,500),expand = c(0,0),breaks = cents)+
   scale_y_continuous('Within-Cluster Sum of Squares Error')+
-  theme(text = element_text(size = 8))
+  theme(text = element_text(size = 8),
+        panel.grid.minor.x = element_blank())
 dev.off()
 
 #rasterize the clusters
