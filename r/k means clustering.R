@@ -56,16 +56,20 @@ slope = vector(length = length(error)-1)
 for (i in 1:length(error)-1) {
   slope[i] = (error[i]-error[i+1])/(cents[i]-cents[i+1])
 }
-slope = (error[1]-error[2])
+
 plot(slope)
+
+
 #error kmeans plot
-png(filename = './figures/kmeans_error.png',width = 4,height = 2.5,units = 'in',res = 2000)
+png(filename = './figures/kmeans_error.png',width = 5,height = 2.5,units = 'in',res = 2000)
 ggplot()+theme_bw()+
   geom_line(aes(cents,error))+
   geom_point(aes(cents,error))+
-  scale_x_continuous('Clusters',limits = c(0,500),expand = c(0,0),breaks = cents)+
+  scale_x_continuous('Clusters',limits = c(0,510),expand = c(0,0),breaks = cents,
+                     labels = c('5','','20','','40','','60','','80','','100','200','300','400','500'))+
   scale_y_continuous('Within-Cluster Sum of Squares Error')+
-  theme(text = element_text(size = 8),
+  theme(axis.text = element_text(size = 6),
+        axis.title = element_text(size = 6),
         panel.grid.minor.x = element_blank())
 dev.off()
 
