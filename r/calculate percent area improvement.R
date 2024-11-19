@@ -14,8 +14,9 @@ all = c(base,improve,clust)
 
 df = as.data.frame(x = all)
 summary(df$base.dist)
-er1 = 1.9
-er4 = 1.44
+
+er1 = 1.64
+er4 = 1.51
 
 df$base.er1 = ifelse(df$base.dist <= er1,1,0)
 df$base.er4 = ifelse(df$base.dist <= er4,1,0)
