@@ -3,7 +3,6 @@
 #  created by K Arndt July 2022
 ##################################################################################
 rm(list = ls())
-setwd('C:/Users/karndt.WHRC/Desktop/site.selection/')
 
 #library(raster)
 #library(svMisc)
@@ -19,8 +18,6 @@ library(data.table)
 #library(ggthemes)
 #library(sf)
 #library(ggfortify)
-
-setwd('~')
 
 #load in the stack created in the other file
 r = rast('./data/input data/spatial_repro.tif')
