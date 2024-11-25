@@ -3,7 +3,6 @@
 #  created by K Arndt July 2022
 ##################################################################################
 rm(list = ls())
-setwd('C:/Users/karndt.WHRC/Desktop/site.selection/')
 
 library(terra)
 library(data.table)

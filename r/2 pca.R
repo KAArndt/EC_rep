@@ -23,7 +23,7 @@ library(data.table)
 r = rast('./data/input data/spatial_repro.tif')
 
 #load in extracted site data from extraction codes
-tower.data = fread(file = './data/extracted_tower_data_new.csv')
+tower.data = fread(file = './data/extracted_tower_data.csv')
 
 #cut down raster data to remove NAs
 sr = spatSample(x = r,size = 500000,method = "regular")
@@ -158,4 +158,4 @@ p = predict(r, pca,index = 1:4)
 plot(p)
 
 writeRaster(x = p,filename = './data/input data/pca.tif',overwrite = T)
-write.csv(x = pca.t,file = './data/pca.towers.csv',row.names = F)
+write.csv(x = pca.t,file = './data/pca.towersv2.csv',row.names = F)
