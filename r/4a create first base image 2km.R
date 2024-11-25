@@ -4,8 +4,6 @@
 ##################################################################################
 rm(list = ls())
 gc()
-#setwd('C:/Users/karndt.WHRC/Desktop/site.selection/')
-setwd('~')
 
 library(svMisc)
 library(maps)
@@ -19,18 +17,20 @@ library(data.table)
 #library(readr)
 
 #load in extracted site data from extraction codes
-tower.data = fread(file = './data/pca.towers.csv')
+tower.data = fread(file = './data/pca.towersv2.csv')
 
 #load back in euclidean distance matrix
-euci = read_rds('./data/euci_2km.rds')
+euci = read_rds('./data/euci_2kmv2.rds')
 
-pca.towers1 = tower.data
-pca.towers1[,c('site','Activity')]
+pca.towers = tower.data
+pca.towers[,c('site','active')]
 
-#add churchill and iqaluit to inactive towers
-pca.towers1$Activity = ifelse(pca.towers1$site == 'Churchill Fen' | pca.towers1$site == 'Iqaluit',
-                              'inactive',pca.towers1$Activity)
-net = which(pca.towers1$Activity == 'active')
+active = subset(pca.towers,pca.towers$active == 'active')
+
+#add new sites to inactive towers
+pca.towers$active = ifelse(pca.towers$site == 'Churchill Fen' | pca.towers$site == 'Iqaluit',
+                              'inactive',pca.towers$active)
+net = which(pca.towers$Activity == 'active')
 
 euci.net = euci[,c(net)]
 
@@ -68,10 +68,10 @@ plot(base,range=c(0,3.5))
 points(towers,col='red')
 
 #save the base here
-writeRaster(x = base,filename = './output/base_2km.tif',overwrite = T)
+writeRaster(x = base,filename = './output/base_2kmv2.tif',overwrite = T)
 
 #######################################################################################
-base = rast('./output/base_2km.tif')
+base = rast('./output/base_2kmv2.tif')
 #base = base/minmax(base)[2] #use this to rescale from 0-1
 
 #world map for plotting

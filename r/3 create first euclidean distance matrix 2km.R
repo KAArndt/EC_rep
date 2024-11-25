@@ -12,14 +12,12 @@ library(doSNOW)
 
 #load in the stack created in the other file
 r = rast('./data/input data/pca.tif')
-r
 
 #aggregate the raster to save dataspace
 r = terra::aggregate(x = r,fact = 2,fun = 'mean',cores=10,na.rm=T)
-r
 
 #load in extracted site data from extraction codes
-tower.data = fread(file = './data/pca.towers.csv')
+tower.data = fread(file = './data/pca.towersv2.csv')
 
 #create data frame from PCAs
 df = as.data.frame(x = r,xy = T,na.rm = T)
@@ -41,9 +39,9 @@ gc()
 euclid = vector(length = nrow(pca.dt))
 
 #setup parallel backend to use many processors
-{orig = Sys.time() #start the clock for timing the process
 cores = detectCores()        #detect the number of cores
 cl = makeCluster(cores[1]-1) #assign X less than total cores to leave some processing for other tasks
+{orig = Sys.time() #start the clock for timing the process
 registerDoSNOW(cl) #register the cores
 
 #run the ED calculations in parallel (~3 minutes with 18 cores)
@@ -61,4 +59,4 @@ Sys.time() - orig} #stop the clock
 colnames(euci) = tower.data$site
 
 #save the file, rds saves alot of space
-saveRDS(object = euci,file = './data/euci_2km.rds')
+saveRDS(object = euci,file = './data/euci_2kmv2.rds')

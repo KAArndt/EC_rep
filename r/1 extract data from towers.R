@@ -28,13 +28,13 @@ towers$methane = ifelse(towers$GHG == 'CO2,CH4' |
                        'methane','nonmethane')
 
 #reduce the existing sites and add class names
-towers = towers[,c('Site_Name','Country','Longitude','Latitude','active','methane','Season_Activity')]
+#towers = towers[,c('Site_Name','Country','Longitude','Latitude','active','methane','Season_Activity')]
 towers.and.ext    = rbind.fill(towers,ext)
-names(towers.and.ext)[1] = 'site'
+names(towers.and.ext)[4] = 'site'
 towers.and.ext = towers.and.ext[!duplicated(towers.and.ext$site),]
 
 #set just the coordinates for the extract
-xy.tower = towers.and.ext[,c(3,4)]
+xy.tower = towers.and.ext[,c(8,9)]
 
 #climate #########################################################################
 #load in the stack created in the other files
