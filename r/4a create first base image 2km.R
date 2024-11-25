@@ -14,7 +14,7 @@ library(terra)
 library(sf)
 library(viridis)
 library(data.table)
-#library(readr)
+library(readr)
 
 #load in extracted site data from extraction codes
 tower.data = fread(file = './data/pca.towersv2.csv')

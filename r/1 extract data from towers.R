@@ -34,7 +34,7 @@ names(towers.and.ext)[4] = 'site'
 towers.and.ext = towers.and.ext[!duplicated(towers.and.ext$site),]
 
 #set just the coordinates for the extract
-xy.tower = towers.and.ext[,c(8,9)]
+xy.tower = towers.and.ext[,c(9,8)]
 
 #climate #########################################################################
 #load in the stack created in the other files

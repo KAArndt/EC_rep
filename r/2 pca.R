@@ -63,8 +63,8 @@ srt$pc4 = pca$x[,4]
 
 pca.r = subset(srt,is.na(srt$site))
 pca.t = subset(srt,complete.cases(srt$site))
-pca.ta = subset(pca.t,pca.t$Activity == 'active')
-pca.ex = subset(pca.t,pca.t$Activity != 'active' | is.na(pca.t$Activity))
+pca.ta = subset(pca.t,pca.t$active == 'active')
+pca.ex = subset(pca.t,pca.t$active != 'active' | is.na(pca.t$active))
 
 PCAloadings = data.frame(Variables = rownames(pca$rotation), pca$rotation)
 summary(pca)
