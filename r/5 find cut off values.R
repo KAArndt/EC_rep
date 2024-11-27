@@ -16,13 +16,11 @@ library(dplyr)
 #devtools::install_github('SEEG-Oxford/seegSDM')
 
 #load in sites
-tower.data = fread(file = './data/pca.towers.csv')
-tower.data$Activity = ifelse(tower.data$site == 'Churchill Fen' | tower.data$site == 'Iqaluit',
-                             'inactive',tower.data$Activity)
-active = subset(tower.data,tower.data$Activity == 'active')
+tower.data = fread(file = './data/pca.towersv2.csv')
+active = subset(tower.data,complete.cases(tower.data$`2022 list`) & tower.data$active == 'active' & tower.data$Start_CO2 < 2022)
 
 #set just the coordinates for the extract
-xy.tower = active[,c(32,33)]
+xy.tower = active[,c(58,59)]
 
 #clusters #########################################################################
 #load in the stack created in the other files
@@ -46,9 +44,7 @@ clustdat[nas$ID,] = extract(x = clust,y = na.cor,cells=T,xy=T)
 clustdat$site = active$site
 active$cluster = clustdat$cluster
 
-
-active$CH4 = ifelse(active$CH4=='','no',active$CH4)
-active$status = paste(active$CH4,active$Annual_cover,sep = '_')
+active$status = paste(active$methane,active$Season_Activity,sep = '_')
 
 ggplot(data = active)+theme_bw()+
   geom_bar(aes(cluster,fill = status))+
@@ -62,10 +58,9 @@ dfs = active %>%
   summarise(count = sum(one))
 
 #load in base image
-base = rast('./output/base_2km.tif')
+base = rast('./output/base_2kmv2.tif')
 all = c(base,clust)
 alldf = as.data.frame(x = all)
-
 
 dfs4 = subset(dfs,dfs$count >= 4)
 
@@ -81,4 +76,4 @@ er4 = er4[complete.cases(er4$count),]
 summary(er4$base.dist)[5]
 hist(er4$base.dist)
 
-#the final cut offs are 1.64 and 1.51 for ER1 and ER4
+#the final cut offs are 1.67 and 1.56 for ER1 and ER4
