@@ -26,11 +26,10 @@ pca.towers = tower.data
 pca.towers[,c('site','active')]
 
 active = subset(pca.towers,pca.towers$active == 'active')
+old    = subset(pca.towers,complete.cases(pca.towers$`2022 list`))
 
 #add new sites to inactive towers
-pca.towers$active = ifelse(pca.towers$site == 'Churchill Fen' | pca.towers$site == 'Iqaluit',
-                              'inactive',pca.towers$active)
-net = which(pca.towers$Activity == 'active')
+net = which(complete.cases(pca.towers$`2022 list`) & pca.towers$active == 'active' & pca.towers$Start_CO2 < 2022)
 
 euci.net = euci[,c(net)]
 
@@ -64,6 +63,7 @@ base = rast(x = basedf,type = 'xyz',crs = crs(r))
 base.towers = tower.data[net,]
 towers = vect(x = base.towers,geom=c("x", "y"), crs=crs(r))
 
+hist(base)
 plot(base,range=c(0,3.5))
 points(towers,col='red')
 
@@ -95,9 +95,7 @@ pal = c('#FEEDB9','#E88D7A','#72509A','#8AABD6','#F2F7FB')
 #   scale_y_continuous(expand = c(0,0),limits = c(0,1))+
 #   theme(text = element_text(size = 8))
 
-
-active = subset(pca.towers1,pca.towers1$Activity == 'active')
-active$CH4 = ifelse(active$CH4=='','no',active$CH4)
+towers  = subset(pca.towers,complete.cases(pca.towers$`2022 list`) & pca.towers$active == 'active' & pca.towers$Start_CO2 < 2022)
 
 #png(filename = './figures/base.png',width = 6,height = 6,units = 'in',res = 1000)
 ggplot()+theme_map()+
@@ -111,7 +109,7 @@ ggplot()+theme_map()+
                        labels = c('Good','Cutoff','Poor'),
                        oob = scales::squish)+  
   new_scale("fill") +
-  geom_point(data = active,aes(x,y,fill=CH4,pch=Annual_cover,col=CH4),col='black',show.legend = F)+
+  geom_point(data = towers,aes(x,y,fill=methane,pch=Season_Activity,col=methane),col='black',show.legend = F)+
   scale_shape_manual(values = c(21,24),'Annual Cover',labels = c('Annual','Not Annual'))+
   scale_fill_manual(values = c('cyan','green'))+
   scale_x_continuous(limits = c(-5093909,4542996))+
