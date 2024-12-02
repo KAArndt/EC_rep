@@ -7,7 +7,7 @@ library(kit)
 library(svMisc)
 
 #load back in
-euci = read_rds('./data/euci_2km.rds')
+euci = read_rds('./data/euci_2kmv2.rds')
 
 #load in the stack created in the other file
 r = rast('./data/input data/pca.tif')

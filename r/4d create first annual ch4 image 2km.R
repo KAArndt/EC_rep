@@ -4,8 +4,6 @@
 ##################################################################################
 rm(list = ls())
 gc()
-#setwd('C:/Users/karndt.WHRC/Desktop/site.selection/')
-setwd('~')
 
 library(svMisc)
 library(maps)
@@ -16,25 +14,23 @@ library(terra)
 library(sf)
 library(viridis)
 library(data.table)
-#library(readr)
+library(readr)
 
 #load in extracted site data from extraction codes
-tower.data = fread(file = './data/pca.towers.csv')
+tower.data = fread(file = './data/pca.towersv2.csv')
 
 #load back in euclidean distance matrix
-euci = read_rds('./data/euci_2km.rds')
+euci = read_rds('./data/euci_2kmv2.rds')
 
-pca.towers1 = tower.data
+pca.towers = tower.data
 
-#add churchill and iqaluit to inactive towers
-pca.towers1$Activity = ifelse(pca.towers1$site == 'Churchill Fen' | pca.towers1$site == 'Iqaluit',
-                              'inactive',pca.towers1$Activity)
-net = which(pca.towers1$Activity == 'active' & pca.towers1$Annual_cover == 'annual' & pca.towers1$CH4 == 'CH4')
+#add new sites to inactive towers
+net = which(complete.cases(pca.towers$`2022 list`) & pca.towers$active == 'active' & pca.towers$Start_CO2 < 2022 & pca.towers$Season_Activity == 'All year' & pca.towers$methane == 'methane')
 
 euci.net = euci[,c(net)]
 
-rm(euci)
-gc()
+#rm(euci)
+#gc()
 
 #calculate based on the mean of the x lowest + site of interest
 num = 2 #how many closest towers you want
@@ -44,6 +40,7 @@ base.dist = numeric(length = nrow(euci.net))
 {orig = Sys.time() #start the clock for timing the process
 for (i in 1:nrow(euci.net)) {
   base.dist[i] = mean(euci.net[i,topn(vec = euci.net[i,],n = num,decreasing = F,hasna = F)])
+#  base.dist[i] = min(euci.net[i,])
   }
 Sys.time() - orig} #stop the clock
 
@@ -55,25 +52,23 @@ df = as.data.frame(x = r,xy = T,na.rm = T)
 
 #make the base image
 basedf = data.frame(df$x,df$y,base.dist)
+
 base = rast(x = basedf,type = 'xyz',crs = crs(r))
 
-#project the towers database
+#project the towers d#project the towers d#project the towers database
 base.towers = tower.data[net,]
 towers = vect(x = base.towers,geom=c("x", "y"), crs=crs(r))
 
 hist(base)
-plot(base,range=c(0,4))
-points(towers)
+plot(base,range=c(0,3.5))
+points(towers,col='red')
 
 #save the base here
-writeRaster(x = base,filename = './output/annualch4_2km.tif',overwrite = T)
+writeRaster(x = base,filename = './output/annual_methane_2kmv2.tif',overwrite = T)
 
 #######################################################################################
-base = rast('./output/annualch4_2km.tif')
-
-#load in base map
-#things needed for all the plots
-pal = viridis(n = 8,direction = -1,option = 'A')
+base = rast('./output/annual_methane_2kmv2.tif')
+#base = base/minmax(base)[2] #use this to rescale from 0-1
 
 #world map for plotting
 sf_use_s2(FALSE) #need to run this before next line
@@ -82,35 +77,47 @@ countries = rnaturalearth::ne_countries(returnclass = "sf") %>%
   smoothr::densify(max_distance = 1) %>%
   st_transform(crs(base))
 
-
 #create an aggregate for the plot
 base.ag = aggregate(x = base,fact = 4,fun = mean,na.rm = T)
 
-active = subset(pca.towers1,pca.towers1$Activity == 'active')
-ch4 = subset(base.towers,base.towers$CH4 == 'CH4')
-annualch4 = subset(base.towers,base.towers$CH4 == 'CH4' & base.towers$Annual_cover == 'annual')
-
 #plot the figure
-#png(filename = './figures/annual.png',width = 6,height = 6,units = 'in',res = 1000)
-ggplot()+theme_bw()+ggtitle('All Active Annual Sites')+
+pal = c('#FEEDB9','#E88D7A','#72509A','#8AABD6','#F2F7FB')
+
+#create a scatter to show data spread
+# base.df = as.data.frame(base)
+# ggplot()+theme_classic()+
+#   geom_density(aes(base.df$base.dist),fill='gray',alpha=0.5)+
+#   scale_x_continuous(expand = c(0,0),'Euc. Dist.')+
+#   scale_y_continuous(expand = c(0,0),limits = c(0,1))+
+#   theme(text = element_text(size = 8))
+
+towers  = subset(pca.towers,complete.cases(pca.towers$`2022 list`) & pca.towers$active == 'active' & pca.towers$Start_CO2 < 2022 & pca.towers$Season_Activity == 'All year')
+
+png(filename = './figures/annual_methanev2.png',width = 6,height = 6,units = 'in',res = 1000)
+ggplot()+theme_map()+
   geom_sf(data = countries,fill='gray',col='gray40')+
-  layer_spatial(base.ag)+
-#  geom_point(data = pca.towers1,aes(x,y),col='black',fill='cyan',pch=23,size=2)+
-  geom_point(data = active,aes(x,y),col='black',fill='red',pch=23,size=2)+
-  geom_point(data = ch4,aes(x,y),col='black',fill='yellow',pch=23,size=2)+
-  geom_point(data = annualch4,aes(x,y),col='black',fill='green',pch=23,size=2)+
-  scale_fill_gradientn('ED',
+  layer_spatial(base.ag$base.dist)+
+  scale_fill_gradientn('Representativeness',
                        na.value = 'transparent',
                        colours = pal,
-                       #trans = 'log',
-                       limits = c(0,3.25),
-                       oob = scales::squish)+
+                       limits = c(0,1.67*2),
+                       breaks = c(0,1.67,1.67*2),
+                       labels = c('Good','Cutoff','Poor'),
+                       oob = scales::squish)+  
+  new_scale("fill") +
+  geom_point(data = towers,aes(x,y,fill=methane,pch=Season_Activity,col=methane),col='black',show.legend = F)+
+  scale_shape_manual(values = c(21,24),'Annual Cover',labels = c('Annual','Not Annual'))+
+  scale_fill_manual(values = c('cyan','green'))+
   scale_x_continuous(limits = c(-5093909,4542996))+
   scale_y_continuous(limits = c(-3687122,4374170))+
   theme(text = element_text(size = 8),
         legend.text = element_text(size = 8),
-        title = element_text(size = 10),
-        axis.title = element_text(size = 8),
-        legend.key.width = unit(x = 0.1,units = 'in'),
-        panel.background = element_rect(fill = 'lightblue3'))
-#dev.off()
+        axis.title = element_blank(),
+        legend.key.height = unit(x = 0.1,units = 'in'),
+        legend.key.width = unit(x = 0.3,units = 'in'),
+        legend.direction = 'horizontal',
+        legend.position = c(0.1,0.05),
+        legend.title.position = 'top')
+dev.off()
+
+

@@ -97,15 +97,15 @@ pal = c('#FEEDB9','#E88D7A','#72509A','#8AABD6','#F2F7FB')
 
 towers  = subset(pca.towers,complete.cases(pca.towers$`2022 list`) & pca.towers$active == 'active' & pca.towers$Start_CO2 < 2022)
 
-#png(filename = './figures/base.png',width = 6,height = 6,units = 'in',res = 1000)
+png(filename = './figures/basev2.png',width = 6,height = 6,units = 'in',res = 1000)
 ggplot()+theme_map()+
   geom_sf(data = countries,fill='gray',col='gray40')+
   layer_spatial(base.ag$base.dist)+
   scale_fill_gradientn('Representativeness',
                        na.value = 'transparent',
                        colours = pal,
-                       limits = c(0,3.54),
-                       breaks = c(0,1.75,3.5),
+                       limits = c(0,1.67*2),
+                       breaks = c(0,1.67,1.67*2),
                        labels = c('Good','Cutoff','Poor'),
                        oob = scales::squish)+  
   new_scale("fill") +
@@ -122,5 +122,6 @@ ggplot()+theme_map()+
         legend.direction = 'horizontal',
         legend.position = c(0.1,0.05),
         legend.title.position = 'top')
-#dev.off()
+dev.off()
+
 
