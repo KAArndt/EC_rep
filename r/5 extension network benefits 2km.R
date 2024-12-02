@@ -15,20 +15,18 @@ r = terra::aggregate(x = r,fact = 2,fun = 'mean',cores=12,na.rm=T)
 df = as.data.frame(x = r,na.rm = T,xy = T)
 
 #load in extracted site data from extraction codes
-tower.data = fread(file = './data/pca.towers.csv')
-pca.towers1 = tower.data
+tower.data = fread(file = './data/pca.towersv2.csv')
+pca.towers = tower.data
 
 #find columns which are active sites
-pca.towers1$Activity = ifelse(pca.towers1$site == 'Churchill Fen' | pca.towers1$site == 'Iqaluit',
-                              'inactive',pca.towers1$Activity)
-net = which(pca.towers1$Activity == 'active')
-ext = which(pca.towers1$Activity != 'active' | is.na(pca.towers1$Activity))
+net = which(complete.cases(pca.towers$`2022 list`) & pca.towers$active == 'active' & pca.towers$Start_CO2 < 2022)
+ext = which(pca.towers$active == 'inactive' | is.na(pca.towers$`2022 list`) | pca.towers$Start_CO2 >=2022)
 
 #create some subsets of the euclidean distance tables for easier calculations
 euci.net = euci[,c(net)]
 euci.ext = euci[,c(ext)]
 
-rm(euci)
+#rm(euci)
 gc()
 
 #calculate based on the mean of the x lowest + site of interest
@@ -53,12 +51,6 @@ for (j in 1:ncol(euci.ext)) {
 }
 Sys.time() - orig}
 
-# #manually add pond inlet which was missed
-# pi = cbind(euci.net,euci[,179])
-# pi.dist = vector(length = nrow(df))
-# for (i in 1:nrow(df)) {
-#   pi.dist[i]    = mean(pi[i,topn(vec = pi[i,],n = num,decreasing = F,hasna = F)])
-# }
 
 #create rasters
 dist.rasts = list()
