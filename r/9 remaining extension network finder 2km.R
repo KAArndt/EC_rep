@@ -18,9 +18,23 @@ df = as.data.frame(x = r,na.rm = T,xy = T)
 tower.data = fread(file = './data/pca.towersv2.csv')
 pca.towers = tower.data
 
+#ranking of sites
+ranks = read.csv(file = './output/meanreduction.csv')
+ranks$rank = rank(x = ranks$means)
+names(ranks)[1] = 'site'
+
+plot(ranks$rank,ranks$means)
+?rank
+pca.towers = merge(pca.towers,ranks,by = 'site',all=T)
+summary(pca.towers$rank)
+236/2
+pca.towers$active = ifelse(is.na(pca.towers$active),'inactive',pca.towers$active)
+
 #find columns which are active sites
-net = which(complete.cases(pca.towers$`2022 list`) & pca.towers$active == 'active' & pca.towers$Start_CO2 < 2022)
-ext = which(pca.towers$active == 'inactive' | is.na(pca.towers$`2022 list`) | pca.towers$Start_CO2 >=2022)
+net = which(pca.towers$active == 'active')
+ext = which(pca.towers$active == 'inactive' & pca.towers$rank < 236/3)
+pca.towers$site[ext]
+
 
 #create some subsets of the euclidean distance tables for easier calculations
 euci.net = euci[,c(net)]
@@ -52,6 +66,10 @@ for (j in 1:ncol(euci.ext)) {
 Sys.time() - orig}
 
 
+#save off this file for later use ############################################################
+#saveRDS(object = eucis,file = './data/remaining_ext_eucis_2km.rds')
+eucis = read_rds(file = './data/remaining_ext_eucis_2km.rds')
+
 #create rasters
 dist.rasts = list()
 tempdf = data.table()
@@ -62,26 +80,20 @@ for (i in 1:ncol(eucis)) {
   progress(i,ncol(eucis))
 }
 
-# pidf = cbind(df[,c(1,2)],pi.dist)
-# pi.rasts = rast(x = pidf,type = 'xyz',crs = crs(r))
-
 #create a path of file names
-path = paste('./output/ext/',pca.towers1$site[ext],'.tif',sep = '')
+path = paste('./output/remaining_ext/',pca.towers$site[ext],'.tif',sep = '')
 #save off rasters
 for (i in 1:length(dist.rasts)) {
   writeRaster(x = dist.rasts[[i]],filename = path[i],overwrite=T)
   progress(i,length(dist.rasts))
 }
 
- # path = './output/ext/Pond Inlet.tif'
- # writeRaster(x = pi.rasts,filename = path,overwrite=T)
-
-#calculate differences
-extpath = list.files(path = './output/ext',pattern = '*.tif',full.names = T)
+#load back in if not already here #####################################################
+extpath = list.files(path = './output/remaining_ext',pattern = '*.tif',full.names = T)
 dist.rasts = lapply(X = extpath,FUN = rast)
 
 #load in the base
-base = rast('./output/base_2km.tif')
+base = rast('./output/base_2kmv2.tif')
 
 difs = list()
 for (i in 1:length(dist.rasts)) {
@@ -90,7 +102,7 @@ for (i in 1:length(dist.rasts)) {
 }
 
 #save off difference maps
-path = paste('./output/difs/',pca.towers1$site[ext],'_dif.tif',sep = '')
+path = paste('./output/remaining_difs/',pca.towers$site[ext],'_dif.tif',sep = '')
 #save off rasters
 for (i in 1:length(difs)) {
   writeRaster(x = difs[[i]],filename = path[i],overwrite=T)
@@ -111,16 +123,15 @@ for (i in 1:length(difs)) {
 }
 
 #add other parts of the dataframe back in
-bars = data.frame(pca.towers1$site[ext])
+bars = data.frame(pca.towers$site[ext])
 bars$means = meansv
-bars$country = pca.towers1$Country[ext]
+bars$country = pca.towers$Country[ext]
 
-pca.towers1$type = paste(pca.towers1$Activity,pca.towers1$CH4,pca.towers1$Annual_cover,sep = '_')
-bars$type = pca.towers1$type[ext]
+pca.towers$type = paste(pca.towers$active,pca.towers$methane,pca.towers$Season_Activity,sep = '_')
+bars$type = pca.towers$type[ext]
 names(bars)[1] = 'sitename'
 
-
-#top = subset(bars,bars$means < median(bars$means))
+top = subset(bars,bars$means < median(bars$means))
 upper.limit = -1*min(bars$means)+0.005
 
 ggplot(data = bars)+theme_bw()+ggtitle('Mean Improvements')+
@@ -128,21 +139,20 @@ ggplot(data = bars)+theme_bw()+ggtitle('Mean Improvements')+
   scale_y_continuous(expand = c(0,0),limits = c(0,upper.limit),'Mean ED Reduction')+
   scale_x_discrete('Site')+
   scale_fill_brewer(palette = "Spectral")+
-  theme(axis.text.x = element_text(angle = 60,hjust = 1,size = 7),
+  theme(axis.text.x = element_text(angle = 80,hjust = 1,size = 7),
         legend.position = c(0.5,0.9),
         legend.direction = 'horizontal')
 
-write.csv(x = bars,file = './output/meanreduction.csv',row.names = F)
-
+write.csv(x = bars,file = './output/meanreduction_remaining.csv',row.names = F)
 
 ########################################################################################################
-bars = fread('./output/meanreduction.csv')
+bars = fread('./output/remaining/meanreduction.csv')
 top = subset(bars,bars$means < mean(bars$means))
 
-png(filename = './figures/barplot_reduction.png',width = 6,height = 3,units = 'in',res = 2000)
+png(filename = './figures/barplot_reduction_remaining.png',width = 6,height = 3,units = 'in',res = 2000)
 ggplot(data = bars)+theme_bw()+ggtitle('Mean Improvements')+
   geom_bar(aes(reorder(sitename, -means*-1),means*-1,fill=country),stat = 'identity')+
-  scale_y_continuous(expand = c(0,0),limits = c(0,upper.limit),'Mean ED Reduction')+
+  scale_y_continuous(expand = c(0,0),limits = c(0,upper.limit),'Mean Rep. Improvement')+
   scale_x_discrete('')+
   scale_fill_brewer(palette = "Spectral")+
   theme(axis.text.x = element_blank(),
