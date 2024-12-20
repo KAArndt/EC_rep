@@ -77,4 +77,6 @@ er4 = er4[complete.cases(er4$count),]
 summary(er4$base.dist)[5]
 hist(er4$base.dist)
 
-#the final cut offs are 1.67 and 1.56 for ER1 and ER4
+#the final cut offs are 1.67 and 1.56 for ER1 and ER4 2 mean
+
+#the final cut offs are 1.51 and 1.43 for ER1 and ER4 minimum
