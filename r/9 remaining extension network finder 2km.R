@@ -23,16 +23,12 @@ ranks = read.csv(file = './output/meanreduction.csv')
 ranks$rank = rank(x = ranks$means)
 names(ranks)[1] = 'site'
 
-plot(ranks$rank,ranks$means)
-?rank
 pca.towers = merge(pca.towers,ranks,by = 'site',all=T)
-summary(pca.towers$rank)
-236/2
 pca.towers$active = ifelse(is.na(pca.towers$active),'inactive',pca.towers$active)
 
 #find columns which are active sites
 net = which(pca.towers$active == 'active')
-ext = which(pca.towers$active == 'inactive' & pca.towers$rank < 236/3)
+ext = which(pca.towers$active == 'inactive' & pca.towers$rank < 236/4)
 pca.towers$site[ext]
 
 
@@ -89,15 +85,15 @@ for (i in 1:length(dist.rasts)) {
 }
 
 #load back in if not already here #####################################################
-extpath = list.files(path = './output/remaining_ext',pattern = '*.tif',full.names = T)
-dist.rasts = lapply(X = extpath,FUN = rast)
+# extpath = list.files(path = './output/remaining_ext',pattern = '*.tif',full.names = T)
+# dist.rasts = lapply(X = extpath,FUN = rast)
 
 #load in the base
-base = rast('./output/base_2kmv2.tif')
+base = rast('./output/improve_2kmv2.tif')
 
 difs = list()
 for (i in 1:length(dist.rasts)) {
-  difs[[i]] = dist.rasts[[i]] - base$base.dist
+  difs[[i]] = dist.rasts[[i]] - base$improve.dist
   progress(i,length(dist.rasts))
 }
 
@@ -132,11 +128,23 @@ bars$type = pca.towers$type[ext]
 names(bars)[1] = 'sitename'
 
 top = subset(bars,bars$means < median(bars$means))
-upper.limit = -1*min(bars$means)+0.005
+upper.limit = -1*min(bars$means)+0.01
 
+bars = subset(bars,bars$sitename != "Pond Inlet" &
+                bars$sitename != "Cape Bounty" &
+                bars$sitename != 'Resolute' &
+                bars$sitename != 'Iqaluit' &
+                bars$sitename != 'Rylekaerene Zackenberg' &
+                bars$sitename != 'Fosheim Peninsula' &
+                bars$sitename != "Laka Hazen, meadow wetland" &
+                bars$sitename != "Lake Hazen, Ellesmere Island"  &
+                bars$sitename != "Lake Hazen, meadow wetland" &
+                bars$sitename != "Lake Hazen, polar semidesert")
+
+bars$sitename
 ggplot(data = bars)+theme_bw()+ggtitle('Mean Improvements')+
   geom_bar(aes(reorder(sitename, -means*-1),means*-1,fill=country),stat = 'identity')+
-  scale_y_continuous(expand = c(0,0),limits = c(0,upper.limit),'Mean ED Reduction')+
+  scale_y_continuous(expand = c(0,0),limits = c(0,0.06),'Mean ED Reduction')+
   scale_x_discrete('Site')+
   scale_fill_brewer(palette = "Spectral")+
   theme(axis.text.x = element_text(angle = 80,hjust = 1,size = 7),
@@ -146,13 +154,14 @@ ggplot(data = bars)+theme_bw()+ggtitle('Mean Improvements')+
 write.csv(x = bars,file = './output/meanreduction_remaining.csv',row.names = F)
 
 ########################################################################################################
-bars = fread('./output/remaining/meanreduction.csv')
-top = subset(bars,bars$means < mean(bars$means))
+bars = fread('./output/meanreduction2.csv')
+top = subset(bars,bars$means < -0.01)
+
 
 png(filename = './figures/barplot_reduction_remaining.png',width = 6,height = 3,units = 'in',res = 2000)
-ggplot(data = bars)+theme_bw()+ggtitle('Mean Improvements')+
+ggplot(data = top)+theme_bw()+ggtitle('Mean Improvements')+
   geom_bar(aes(reorder(sitename, -means*-1),means*-1,fill=country),stat = 'identity')+
-  scale_y_continuous(expand = c(0,0),limits = c(0,upper.limit),'Mean Rep. Improvement')+
+  scale_y_continuous(expand = c(0,0),limits = c(0,0.06),'Mean Rep. Improvement')+
   scale_x_discrete('')+
   scale_fill_brewer(palette = "Spectral")+
   theme(axis.text.x = element_blank(),

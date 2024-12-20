@@ -52,7 +52,7 @@ hist(ykd.ag)
 ggplot()+theme_map()+
   geom_sf(data = countries,fill='gray',col='gray40')+
   layer_spatial(ykd.ag$ykdb)+
-  scale_fill_gradientn('Euc. Dist.',
+  scale_fill_gradientn('Representation',
                        na.value = 'transparent',
                        colours = pal,
                        limits = c(0,6),
@@ -60,7 +60,7 @@ ggplot()+theme_map()+
                        labels = c('Good','Moderate','Poor'),
                        oob = scales::squish)+  
   new_scale("fill") +
-  geom_point(data = ykdt,aes(x,y),col='red')+
+  geom_point(data = ykdt,aes(x,y),fill='red',col='black',pch=21,size=3)+
   geom_label(data = ykdt,aes(x+500000,y+500000,label=Site_ID),col='red',size=6)+
   scale_x_continuous(limits = c(-5093909,4542996))+
   scale_y_continuous(limits = c(-3687122,4374170))+
@@ -86,36 +86,40 @@ year.ag = aggregate(x = year,fact = 4,fun = mean,na.rm = T)
 ach4.ag = aggregate(x = ach4,fact = 4,fun = mean,na.rm = T)
 
 #tower categories
-active  = subset(tower.data,complete.cases(tower.data$`2022 list`) & tower.data$active == 'active' & tower.data$Start_CO2 < 2022)
-methane = subset(tower.data,complete.cases(tower.data$`2022 list`) & tower.data$active == 'active' & tower.data$Start_CO2 < 2022 & tower.data$methane == 'methane')
-annual  = subset(tower.data,complete.cases(tower.data$`2022 list`) & tower.data$active == 'active' & tower.data$Start_CO2 < 2022 & tower.data$Season_Activity == 'All year')
-annual_methane = subset(tower.data,complete.cases(tower.data$`2022 list`) & tower.data$active == 'active' & tower.data$Start_CO2 < 2022 & tower.data$methane == 'methane' & tower.data$Season_Activity == 'All year')
+active  = subset(tower.data,tower.data$active == 'active' & tower.data$Start_CO2 < 2022)
+methane = subset(tower.data,tower.data$active == 'active' & tower.data$Start_CO2 < 2022 & tower.data$methane == 'methane')
+annual  = subset(tower.data,tower.data$active == 'active' & tower.data$Start_CO2 < 2022 & tower.data$Season_Activity == 'All year')
+annual_methane = subset(tower.data,tower.data$active == 'active' & tower.data$Start_CO2 < 2022 & tower.data$methane == 'methane' & tower.data$Season_Activity == 'All year')
 
 #plot the figure
-p1 = ggplot()+theme_map()+ggtitle('Summer CO2')+
+p1 = ggplot()+theme_map()+
+  annotate(geom = 'text',x = -5093909+2000000,4375097-400000,
+           label = expression(bold(Summer~CO[2])))+
   geom_sf(data = countries,fill='gray',col='gray40')+
   layer_spatial(base.ag)+
-  scale_fill_gradientn('Euc. Dist.',
+  scale_fill_gradientn('Representation',
                        na.value = 'transparent',
                        colours = pal,
                        limits = c(0,1.67*2),
                        breaks = c(0,1.67,1.67*2),
-                       labels = c('Good','Cutoff','Poor'),
+                       labels = c('Good','Mod.','Poor'),
                        oob = scales::squish)+
   new_scale("fill") +
-  geom_point(data = active,aes(x,y),col='black',size=2,show.legend = F)+
+  geom_point(data = active,aes(x,y),col='black',size=2,pch=21,fill='red')+
   scale_x_continuous(limits = c(-5093909,4542996))+
   scale_y_continuous(limits = c(-3687122,4374170))+
   theme(text = element_text(size = 12),
         legend.text = element_text(size = 12),
         axis.title = element_blank(),
         legend.key.height = unit(x = 0.1,units = 'in'),
-        legend.key.width = unit(x = 0.3,units = 'in'),
+        legend.key.width = unit(x = 0.25,units = 'in'),
         legend.direction = 'horizontal',
-        legend.position = c(0.1,0.05),
+        legend.position = c(0.05,0.05),
         legend.title.position = 'top')
 
-p2 = ggplot()+theme_map()+ggtitle('Summer CO2 & CH4')+
+p2 = ggplot()+theme_map()+
+  annotate(geom = 'text',x = -5093909+2000000,4375097-400000,
+           label = expression(bold(Summer~CH[4])))+
   geom_sf(data = countries,fill='gray',col='gray40')+
   layer_spatial(ch4.ag)+
   scale_fill_gradientn('Euc. Dist.',
@@ -126,19 +130,16 @@ p2 = ggplot()+theme_map()+ggtitle('Summer CO2 & CH4')+
                        labels = c('Good','Cutoff','Poor'),
                        oob = scales::squish)+
   new_scale("fill") +
-  geom_point(data = methane,aes(x,y),col='black',size=2,show.legend = F)+
+  geom_point(data = methane,aes(x,y),col='black',size=2,pch=21,fill='red')+
   scale_x_continuous(limits = c(-5093909,4542996))+
   scale_y_continuous(limits = c(-3687122,4374170))+
   theme(text = element_text(size = 12),
-        legend.text = element_text(size = 12),
         axis.title = element_blank(),
-        legend.key.height = unit(x = 0.1,units = 'in'),
-        legend.key.width = unit(x = 0.3,units = 'in'),
-        legend.direction = 'horizontal',
-        legend.position = c(0.1,0.05),
-        legend.title.position = 'top')
+        legend.position = 'none')
 
-p3 = ggplot()+theme_map()+ggtitle('Annual CO2')+
+p3 = ggplot()+theme_map()+
+  annotate(geom = 'text',x = -5093909+2000000,4375097-400000,
+           label = expression(bold(Annual~CO[2])))+
   geom_sf(data = countries,fill='gray',col='gray40')+
   layer_spatial(year.ag)+
   scale_fill_gradientn('Euc. Dist.',
@@ -149,19 +150,16 @@ p3 = ggplot()+theme_map()+ggtitle('Annual CO2')+
                        labels = c('Good','Cutoff','Poor'),
                        oob = scales::squish)+
   new_scale("fill") +
-  geom_point(data = annual,aes(x,y),col='black',size=2,show.legend = F)+
+  geom_point(data = annual,aes(x,y),col='black',size=2,pch=21,fill='red')+
   scale_x_continuous(limits = c(-5093909,4542996))+
   scale_y_continuous(limits = c(-3687122,4374170))+
   theme(text = element_text(size = 12),
-        legend.text = element_text(size = 12),
         axis.title = element_blank(),
-        legend.key.height = unit(x = 0.1,units = 'in'),
-        legend.key.width = unit(x = 0.3,units = 'in'),
-        legend.direction = 'horizontal',
-        legend.position = c(0.1,0.05),
-        legend.title.position = 'top')
+        legend.position = 'none')
 
-p4 = ggplot()+theme_map()+ggtitle('Annual CO2 & CH4')+
+p4 = ggplot()+theme_map()+
+  annotate(geom = 'text',x = -5093909+2000000,4375097-400000,
+           label = expression(bold(Annual~CH[4])))+
   geom_sf(data = countries,fill='gray',col='gray40')+
   layer_spatial(ach4.ag)+
   scale_fill_gradientn('Euc. Dist.',
@@ -172,19 +170,12 @@ p4 = ggplot()+theme_map()+ggtitle('Annual CO2 & CH4')+
                        labels = c('Good','Cutoff','Poor'),
                        oob = scales::squish)+
   new_scale("fill") +
-  geom_point(data = annual_methane,aes(x,y),col='black',size=2,show.legend = F)+
-  scale_shape_manual(values = c(21,24),'Annual Cover',labels = c('Annual','Not Annual'))+
-  scale_fill_manual(values = c('cyan','green'))+
+  geom_point(data = annual_methane,aes(x,y),col='black',size=2,pch=21,fill='red')+
   scale_x_continuous(limits = c(-5093909,4542996))+
   scale_y_continuous(limits = c(-3687122,4374170))+
   theme(text = element_text(size = 12),
-        legend.text = element_text(size = 12),
         axis.title = element_blank(),
-        legend.key.height = unit(x = 0.1,units = 'in'),
-        legend.key.width = unit(x = 0.3,units = 'in'),
-        legend.direction = 'horizontal',
-        legend.position = c(0.1,0.05),
-        legend.title.position = 'top')
+        legend.position = 'none')
 
 plot_grid(p1,p2,p3,p4)
 
@@ -197,25 +188,90 @@ rest = subset(tower.data,tower.data$site == 'Pond Inlet (PP)')
 ggplot()+theme_map()+
   geom_sf(data = countries,fill='gray',col='gray40')+
   layer_spatial(res.ag)+
-  scale_fill_gradientn('Dist. Reduction',
+  scale_fill_gradientn('Improvement',
                        na.value = 'transparent',
                        colours = pal,
                        limits = c(-1.5,0),
+                       breaks = c(-1.5,-1.5/2,0),
+                       labels = c('High','Med.','Low'),
                        oob = scales::squish)+
   new_scale("fill") +
-  geom_point(data = rest,aes(x,y),col='red',size=2,show.legend = F)+
-  geom_label(data = rest,aes(x+500000,y-500000,label=Site_ID),col='red',size=3)+
+  geom_point(data = rest,aes(x,y),col='black',fill='red',size=3,pch=21)+
+  geom_label(data = rest,aes(x+500000,y-500000,label=Site_ID),col='red',size=4)+
   scale_x_continuous(limits = c(-5093909,4542996))+
   scale_y_continuous(limits = c(-3687122,4374170))+
-  theme(text = element_text(size = 12),
-        legend.text = element_text(size = 12),
+  theme(text = element_text(size = 14),
+        legend.text = element_text(size = 14),
         axis.title = element_blank(),
         legend.key.height = unit(x = 0.1,units = 'in'),
-        legend.key.width = unit(x = 0.3,units = 'in'),
+        legend.key.width = unit(x = 0.4,units = 'in'),
         legend.direction = 'horizontal',
         legend.position = c(0.1,0.05),
         legend.title.position = 'top')
 
+#############################################################################################
+# mean improvements chart
+bars = fread('./output/meanreduction.csv')
+top = subset(bars,bars$means < mean(bars$means))
+
+png(filename = './figures/initial_bar_AGU.png',width = 8,height = 4,units = 'in',res = 2000)
+ggplot(data = bars)+theme_bw()+
+  geom_bar(aes(reorder(sitename, -means*-1),means*-1,fill=country),stat = 'identity')+
+  scale_y_continuous(expand = c(0,0),limits = c(0,0.07),'Mean Rep. Improvement')+
+  scale_x_discrete('')+
+  scale_fill_brewer(palette = "Spectral")+
+  theme(axis.text.x = element_blank(),
+        legend.key.size = unit(0.01,units = 'in'),
+        legend.text = element_text(size = 14),
+        axis.title.y = element_text(size = 14),
+        axis.text.y =  element_text(size = 14),
+        legend.title = element_blank(),
+        legend.position = c(0.6,0.6),
+        panel.grid.major.x = element_blank(),
+        legend.direction = 'horizontal')
+dev.off()
+
+
+ggplot(data = bars)+theme_bw()+
+  geom_bar(aes(reorder(sitename, -means*-1),means*-1,fill=country),stat = 'identity')+
+  scale_y_continuous(expand = c(0,0),limits = c(0,0.07),'Mean Rep. Improvement')+
+  scale_x_discrete('')+
+  scale_fill_brewer(palette = "Spectral")+
+  theme(axis.text.x = element_text(angle = 80,hjust = 1,size = 7),
+        legend.key.size = unit(0.01,units = 'in'),
+        legend.text = element_text(size = 14),
+        axis.title.y = element_text(size = 14),
+        axis.text.y =  element_text(size = 14),
+        legend.title = element_blank(),
+        legend.position = c(0.6,0.6),
+        panel.grid.major.x = element_blank(),
+        legend.direction = 'horizontal')
+
+#######################################################################################
+#smaller bar plot
+bars = fread('./output/meanreduction2.csv')
+top = subset(bars,bars$means < mean(bars$means))
+
+png(filename = './figures/final_bar_AGU.png',width = 8,height = 4,units = 'in',res = 2000)
+ggplot(data = top)+theme_bw()+
+  geom_bar(aes(reorder(sitename, -means*-1),means*-1,fill=country),stat = 'identity')+
+  scale_y_continuous(expand = c(0,0),limits = c(0,0.07),'Mean Rep. Improvement')+
+  scale_x_discrete('')+
+  scale_fill_brewer(palette = "Spectral")+
+  theme(axis.text.x = element_blank(),
+        legend.key.size = unit(0.01,units = 'in'),
+        legend.text = element_text(size = 14),
+        axis.title.y = element_text(size = 14),
+        axis.text.y =  element_text(size = 14),
+        legend.title = element_blank(),
+        legend.position = c(0.6,0.6),
+        panel.grid.major.x = element_blank(),
+        legend.direction = 'horizontal')
+dev.off()
+
+
+
+#############################################################################################
 # base with new sites
 base = rast('./output/base_2kmv2.tif')
 base.ag = aggregate(x = base,fact = 4,fun = mean,na.rm = T)
@@ -227,16 +283,16 @@ new = subset(tower.data,
              tower.data$site == 'Iqaluit (PP)' |
              tower.data$site == 'Kangiqsuallujjuaq' |
              tower.data$site == 'Scotty Creek Landscape' |
-            tower.data$site == 'Scotty Creek Bog' |
-             tower.data$site == 'Council (Permafrost Pathways)' |
-             tower.data$site == 'Lutose' |
-             tower.data$site == 'Steen River' |
-             tower.data$site == 'Cambridge Bay, Victoria Island, mesic' |
-             tower.data$site == 'Cambridge Bay, Victoria Island, wetland' |
-             tower.data$site == 'Smith Creek' |
-             tower.data$site == 'Steen River' |
-             tower.data$site == 'Yukon-Kuskokwim Delta, Izaviknek-Kingaglia uplands, Burned 2015' |
-             tower.data$site == 'Yukon-Kuskokwim Delta, Izaviknek-Kingaglia uplands, Unburned')
+       #      tower.data$site == 'Scotty Creek Bog' |
+             tower.data$site == 'Council (Permafrost Pathways)')
+        #     tower.data$site == 'Lutose' |
+        #     tower.data$site == 'Steen River' |
+       #      tower.data$site == 'Cambridge Bay, Victoria Island, mesic' |
+       #      tower.data$site == 'Cambridge Bay, Victoria Island, wetland')
+         #    tower.data$site == 'Smith Creek' |
+        #     tower.data$site == 'Steen River' |
+         #    tower.data$site == 'Yukon-Kuskokwim Delta, Izaviknek-Kingaglia uplands, Burned 2015' |
+          #   tower.data$site == 'Yukon-Kuskokwim Delta, Izaviknek-Kingaglia uplands, Unburned')
 
 ggplot()+theme_map()+
   geom_sf(data = countries,fill='gray',col='gray40')+
@@ -246,7 +302,7 @@ ggplot()+theme_map()+
                        colours = pal,
                        limits = c(0,1.67*2),
                        breaks = c(0,1.67,1.67*2),
-                       labels = c('Good','Cutoff','Poor'),
+                       labels = c('Good','Mod.','Poor'),
                        oob = scales::squish)+  
   new_scale("fill") +
   geom_point(data = new,aes(x,y),col='black',pch=21,fill='red',size=3)+
@@ -320,10 +376,10 @@ annu.i.ag = aggregate(x = annu.i,fact = 4,fun = mean,na.rm = T)
 anme.i.ag = aggregate(x = anme.i,fact = 4,fun = mean,na.rm = T)
 
 #tower categories
-active  = subset(tower.data,complete.cases(tower.data$`2022 list`) & tower.data$active == 'active' & tower.data$Start_CO2 < 2022)
-methane = subset(tower.data,complete.cases(tower.data$`2022 list`) & tower.data$active == 'active' & tower.data$Start_CO2 < 2022 & tower.data$methane == 'methane')
-annual  = subset(tower.data,complete.cases(tower.data$`2022 list`) & tower.data$active == 'active' & tower.data$Start_CO2 < 2022 & tower.data$Season_Activity == 'All year')
-annual_methane = subset(tower.data,complete.cases(tower.data$`2022 list`) & tower.data$active == 'active' & tower.data$Start_CO2 < 2022 & tower.data$methane == 'methane' & tower.data$Season_Activity == 'All year')
+active  = subset(tower.data,tower.data$active == 'active' & tower.data$Start_CO2 < 2022)
+methane = subset(tower.data,tower.data$active == 'active' & tower.data$Start_CO2 < 2022 & tower.data$methane == 'methane')
+annual  = subset(tower.data,tower.data$active == 'active' & tower.data$Start_CO2 < 2022 & tower.data$Season_Activity == 'All year')
+annual_methane = subset(tower.data,tower.data$active == 'active' & tower.data$Start_CO2 < 2022 & tower.data$methane == 'methane' & tower.data$Season_Activity == 'All year')
 
 active.i  = subset(tower.data,tower.data$active == 'active')
 methane.i = subset(tower.data,tower.data$active == 'active' & tower.data$methane == 'methane')
@@ -340,10 +396,9 @@ hist(dif.meth)
 hist(dif.annu)
 hist(dif.anme)
 
-
 #plot the figure
 p1 = ggplot()+theme_map()+
-  annotate(geom = 'text',x = -5093909+2000000,4375097-400000,label = 'bold("Summer CO2")',parse=T)+
+  annotate(geom = 'text',x = -5093909+2000000,4375097-400000,label = expression(bold(Summer~CO[2])))+
   geom_sf(data = countries,fill='gray',col='gray40')+
   layer_spatial(dif.base)+
   scale_fill_gradientn('Improvement',
@@ -369,7 +424,7 @@ p1 = ggplot()+theme_map()+
 
 
 p2 = ggplot()+theme_map()+
-  annotate(geom = 'text',x = -5093909+2000000,4375097-400000,label = 'bold("Summer CO2 & CH4")',parse=T)+
+  annotate(geom = 'text',x = -5093909+2000000,4375097-400000,label = expression(bold(Summer~CH[4])))+
   geom_sf(data = countries,fill='gray',col='gray40')+
   layer_spatial(dif.meth)+
   scale_fill_gradientn('Improvement',
@@ -391,7 +446,7 @@ p2 = ggplot()+theme_map()+
 
 
 p3 = ggplot()+theme_map()+
-  annotate(geom = 'text',x = -5093909+2000000,4375097-400000,label = 'bold("Annual CO2")',parse=T)+
+  annotate(geom = 'text',x = -5093909+2000000,4375097-400000,label = expression(bold(Annual~CO[2])))+
   geom_sf(data = countries,fill='gray',col='gray40')+
   layer_spatial(dif.annu)+
   scale_fill_gradientn('Improvement',
@@ -413,7 +468,7 @@ p3 = ggplot()+theme_map()+
 
 
 p4 = ggplot()+theme_map()+
-  annotate(geom = 'text',x = -5093909+2000000,4375097-400000,label = 'bold("Annual CO2 & CH4")',parse=T)+
+  annotate(geom = 'text',x = -5093909+2000000,4375097-400000,label = expression(bold(Annual~CH[4])))+
   geom_sf(data = countries,fill='gray',col='gray40')+
   layer_spatial(dif.anme)+
   scale_fill_gradientn('Improvement',
@@ -426,8 +481,6 @@ p4 = ggplot()+theme_map()+
   new_scale("fill") +
   geom_point(data = annual_methane.i,aes(x,y),col='black',fill='cyan',size=2,pch=21)+
   geom_point(data = annual_methane,aes(x,y),col='black',fill='red',size=2,pch=21)+
-  scale_shape_manual(values = c(21,24),'Annual Cover',labels = c('Annual','Not Annual'))+
-  scale_fill_manual(values = c('cyan','green'))+
   scale_x_continuous(limits = c(-5093909,4542996))+
   scale_y_continuous(limits = c(-3687122,4374170))+
   theme(text = element_text(size = 12),
@@ -437,3 +490,107 @@ p4 = ggplot()+theme_map()+
 
 plot_grid(p1,p2,p3,p4)
 
+
+#final figure network ########################################################
+base.i = rast('./output/improve_2kmv2.tif')
+meth.i = rast('./output/impch4_2kmv2.tif')
+annu.i = rast('./output/impanu_2kmv2.tif')
+anme.i = rast('./output/imp_an_methane_2kmv2.tif')
+
+#create an aggregate for the plot
+base.i.ag = aggregate(x = base.i,fact = 4,fun = mean,na.rm = T)
+meth.i.ag  = aggregate(x = meth.i,fact = 4,fun = mean,na.rm = T)
+annu.i.ag = aggregate(x = annu.i,fact = 4,fun = mean,na.rm = T)
+anme.i.ag = aggregate(x = anme.i,fact = 4,fun = mean,na.rm = T)
+
+#tower categories
+active.i  = subset(tower.data,tower.data$active == 'active')
+methane.i = subset(tower.data,tower.data$active == 'active' & tower.data$methane == 'methane')
+annual.i  = subset(tower.data,tower.data$active == 'active' & tower.data$Season_Activity == 'All year')
+annual_methane.i = subset(tower.data,tower.data$active == 'active' & tower.data$methane == 'methane' & tower.data$Season_Activity == 'All year')
+
+
+#plot the figure
+p1 = ggplot()+theme_map()+
+  annotate(geom = 'text',x = -5093909+2000000,4375097-400000,label = expression(bold(Summer~CO[2])))+
+  geom_sf(data = countries,fill='gray',col='gray40')+
+  layer_spatial(base.i.ag)+
+  scale_fill_gradientn('Representation',
+                       na.value = 'transparent',
+                       colours = pal,
+                       limits = c(0,1.67*2),
+                       breaks = c(0,1.67,1.67*2),
+                       labels = c('Good','Mod.','Poor'),
+                       oob = scales::squish)+
+  new_scale("fill") +
+  geom_point(data = active.i,aes(x,y),col='black',size=2,pch=21,fill='red')+
+  scale_x_continuous(limits = c(-5093909,4542996))+
+  scale_y_continuous(limits = c(-3687122,4374170))+
+  theme(text = element_text(size = 12),
+        legend.text = element_text(size = 12),
+        axis.title = element_blank(),
+        legend.key.height = unit(x = 0.1,units = 'in'),
+        legend.key.width = unit(x = 0.25,units = 'in'),
+        legend.direction = 'horizontal',
+        legend.position = c(0.05,0.05),
+        legend.title.position = 'top')
+
+p1
+p2 = ggplot()+theme_map()+
+  annotate(geom = 'text',x = -5093909+2000000,4375097-400000,label = expression(bold(Summer~CH[4])))+
+  geom_sf(data = countries,fill='gray',col='gray40')+
+  layer_spatial(meth.i.ag)+
+  scale_fill_gradientn('Euc. Dist.',
+                       na.value = 'transparent',
+                       colours = pal,
+                       limits = c(0,1.67*2),
+                       breaks = c(0,1.67,1.67*2),
+                       labels = c('Good','Cutoff','Poor'),
+                       oob = scales::squish)+
+  new_scale("fill") +
+  geom_point(data = methane.i,aes(x,y),col='black',size=2,pch=21,fill='red')+
+  scale_x_continuous(limits = c(-5093909,4542996))+
+  scale_y_continuous(limits = c(-3687122,4374170))+
+  theme(text = element_text(size = 12),
+        axis.title = element_blank(),
+        legend.position = 'none')
+
+p3 = ggplot()+theme_map()+
+  annotate(geom = 'text',x = -5093909+2000000,4375097-400000,label = expression(bold(Annual~CO[2])))+
+  geom_sf(data = countries,fill='gray',col='gray40')+
+  layer_spatial(annu.i.ag)+
+  scale_fill_gradientn('Euc. Dist.',
+                       na.value = 'transparent',
+                       colours = pal,
+                       limits = c(0,1.67*2),
+                       breaks = c(0,1.67,1.67*2),
+                       labels = c('Good','Cutoff','Poor'),
+                       oob = scales::squish)+
+  new_scale("fill") +
+  geom_point(data = annual.i,aes(x,y),col='black',size=2,pch=21,fill='red')+
+  scale_x_continuous(limits = c(-5093909,4542996))+
+  scale_y_continuous(limits = c(-3687122,4374170))+
+  theme(text = element_text(size = 12),
+        axis.title = element_blank(),
+        legend.position = 'none')
+
+p4 = ggplot()+theme_map()+
+  annotate(geom = 'text',x = -5093909+2000000,4375097-400000,label = expression(bold(Annual~CH[4])))+
+  geom_sf(data = countries,fill='gray',col='gray40')+
+  layer_spatial(anme.i.ag)+
+  scale_fill_gradientn('Euc. Dist.',
+                       na.value = 'transparent',
+                       colours = pal,
+                       limits = c(0,1.67*2),
+                       breaks = c(0,1.67,1.67*2),
+                       labels = c('Good','Cutoff','Poor'),
+                       oob = scales::squish)+
+  new_scale("fill") +
+  geom_point(data = annual_methane.i,aes(x,y),col='black',size=2,pch=21,fill='red')+
+  scale_x_continuous(limits = c(-5093909,4542996))+
+  scale_y_continuous(limits = c(-3687122,4374170))+
+  theme(text = element_text(size = 12),
+        axis.title = element_blank(),
+        legend.position = 'none')
+
+plot_grid(p1,p2,p3,p4)
