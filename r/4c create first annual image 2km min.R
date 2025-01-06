@@ -23,10 +23,9 @@ tower.data = fread(file = './data/pca.towersv2.csv')
 euci = read_rds('./data/euci_2kmv2.rds')
 
 pca.towers = tower.data
-pca.towers[,c('site','active')]
 
 #add new sites to inactive towers
-net = which(pca.towers$active == 'active' & pca.towers$Start_CO2 < 2022)
+net = which(pca.towers$active == 'active' & pca.towers$Start_CO2 < 2022 & pca.towers$Season_Activity == 'All year')
 
 euci.net = euci[,c(net)]
 
@@ -57,14 +56,14 @@ base.towers = tower.data[net,]
 towers = vect(x = base.towers,geom=c("x", "y"), crs=crs(r))
 
 hist(base)
-plot(base,range=c(0,4.5))
+plot(base,range=c(0,3.5))
 points(towers,col='red')
 
 #save the base here
-writeRaster(x = base,filename = './output/base_2kmv2_min.tif',overwrite = T)
+writeRaster(x = base,filename = './output/annual_2kmv2_min.tif',overwrite = T)
 
 #######################################################################################
-base = rast('./output/base_2kmv2_min.tif')
+base = rast('./output/annual_2kmv2_min.tif')
 #base = base/minmax(base)[2] #use this to rescale from 0-1
 
 #world map for plotting
@@ -90,7 +89,7 @@ pal = c('#FEEDB9','#E88D7A','#72509A','#8AABD6','#F2F7FB')
 
 towers  = subset(pca.towers,pca.towers$active == 'active' & pca.towers$Start_CO2 < 2022)
 
-png(filename = './figures/basev2_min.png',width = 6,height = 6,units = 'in',res = 1000)
+png(filename = './figures/annualv2.png',width = 6,height = 6,units = 'in',res = 1000)
 ggplot()+theme_map()+
   geom_sf(data = countries,fill='gray',col='gray40')+
   layer_spatial(base.ag$base.dist)+
@@ -104,7 +103,7 @@ ggplot()+theme_map()+
   new_scale("fill") +
   geom_point(data = towers,aes(x,y,fill=methane,pch=Season_Activity,col=methane),col='black',show.legend = F)+
   scale_shape_manual(values = c(21,24),'Annual Cover',labels = c('Annual','Not Annual'))+
-  scale_fill_manual(values = c('cyan','green'))+
+  scale_fill_manual(values = c('cyan','red'))+
   scale_x_continuous(limits = c(-5093909,4542996))+
   scale_y_continuous(limits = c(-3687122,4374170))+
   theme(text = element_text(size = 8),

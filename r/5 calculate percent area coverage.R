@@ -3,10 +3,18 @@ rm(list = ls())
 library(terra)
 library(dplyr)
 
-base    = rast('./output/base_2kmv2.tif')
-methane = rast('./output/methane_2kmv2.tif')
-annual  = rast('./output/annual_2kmv2.tif')
-anmeth  = rast('./output/annual_methane_2kmv2.tif')
+
+# mean of 2
+# base    = rast('./output/base_2kmv2.tif')
+# methane = rast('./output/methane_2kmv2.tif')
+# annual  = rast('./output/annual_2kmv2.tif')
+# anmeth  = rast('./output/annual_methane_2kmv2.tif')
+
+#minimum
+base    = rast('./output/base_2kmv2_min.tif')
+methane = rast('./output/methane_2kmv2_min.tif')
+annual  = rast('./output/annual_2kmv2_min.tif')
+anmeth  = rast('./output/annual_methane_2kmv2_min.tif')
 
 clust = rast('./output/clusts.tif')
 clust = clust$km40
@@ -20,8 +28,13 @@ all = c(base,methane,annual,anmeth,clust)
 df = as.data.frame(x = all)
 summary(df)
 
-er1 = 1.67
-er4 = 1.54
+# #mean of 2 values
+# er1 = 1.67
+# er4 = 1.54
+
+#minimum values
+er1 = 1.51
+er4 = 1.43
 
 df$base.er1 = ifelse(df$base.dist <= er1,1,0)
 df$base.er4 = ifelse(df$base.dist <= er4,1,0)
@@ -46,6 +59,3 @@ summary = df %>%
             annual.er4 = sum(annual.er4)/sum(all),
             anmeth.er1 = sum(anmeth.er1)/sum(all),
             anmeth.er4 = sum(anmeth.er4)/sum(all))
-
-
-

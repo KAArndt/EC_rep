@@ -26,12 +26,15 @@ pca.towers = tower.data
 pca.towers[,c('site','active')]
 
 #add new sites to inactive towers
-net = which(pca.towers$active == 'active' & pca.towers$Start_CO2 < 2022)
+net = which(pca.towers$active == 'active' & pca.towers$Start_CO2 < 2022 & pca.towers$methane == 'methane')
 
 euci.net = euci[,c(net)]
 
 #rm(euci)
 #gc()
+
+#calculate based on the mean of the x lowest + site of interest
+num = 2 #how many closest towers you want
 
 #calculate the base network, parallel processing is much slower here
 base.dist = numeric(length = nrow(euci.net))
@@ -57,14 +60,14 @@ base.towers = tower.data[net,]
 towers = vect(x = base.towers,geom=c("x", "y"), crs=crs(r))
 
 hist(base)
-plot(base,range=c(0,4.5))
+plot(base,range=c(0,3.5))
 points(towers,col='red')
 
 #save the base here
-writeRaster(x = base,filename = './output/base_2kmv2_min.tif',overwrite = T)
+writeRaster(x = base,filename = './output/methane_2kmv2_min.tif',overwrite = T)
 
 #######################################################################################
-base = rast('./output/base_2kmv2_min.tif')
+base = rast('./output/methane_2kmv2_min.tif')
 #base = base/minmax(base)[2] #use this to rescale from 0-1
 
 #world map for plotting
@@ -88,9 +91,10 @@ pal = c('#FEEDB9','#E88D7A','#72509A','#8AABD6','#F2F7FB')
 #   scale_y_continuous(expand = c(0,0),limits = c(0,1))+
 #   theme(text = element_text(size = 8))
 
-towers  = subset(pca.towers,pca.towers$active == 'active' & pca.towers$Start_CO2 < 2022)
+active = subset(pca.towers,pca.towers$active == 'active' & pca.towers$Start_CO2 < 2022)
+towers  = subset(pca.towers,pca.towers$active == 'active' & pca.towers$Start_CO2 < 2022 & pca.towers$methane == 'methane')
 
-png(filename = './figures/basev2_min.png',width = 6,height = 6,units = 'in',res = 1000)
+png(filename = './figures/methanev2_min.png',width = 6,height = 6,units = 'in',res = 1000)
 ggplot()+theme_map()+
   geom_sf(data = countries,fill='gray',col='gray40')+
   layer_spatial(base.ag$base.dist)+
@@ -102,9 +106,9 @@ ggplot()+theme_map()+
                        labels = c('Good','Cutoff','Poor'),
                        oob = scales::squish)+  
   new_scale("fill") +
-  geom_point(data = towers,aes(x,y,fill=methane,pch=Season_Activity,col=methane),col='black',show.legend = F)+
+  geom_point(data = active,aes(x,y,fill=methane,pch=Season_Activity,col=methane),col='black',show.legend = F)+
   scale_shape_manual(values = c(21,24),'Annual Cover',labels = c('Annual','Not Annual'))+
-  scale_fill_manual(values = c('cyan','green'))+
+  scale_fill_manual(values = c('cyan','red'))+
   scale_x_continuous(limits = c(-5093909,4542996))+
   scale_y_continuous(limits = c(-3687122,4374170))+
   theme(text = element_text(size = 8),
