@@ -103,8 +103,9 @@ new.sites = subset(tower.data,tower.data$site == 'Churchill Fen' |
                      tower.data$site == 'Iqaluit')
 
 new = subset(pca.towers,pca.towers$active == 'active')
-old = subset(pca.towers,complete.cases(pca.towers$`2022 list`) & pca.towers$active == 'active' & pca.towers$Start_CO2 < 2022)
+old = subset(pca.towers,pca.towers$active == 'active' & pca.towers$Start_CO2 < 2022)
 
+pca.towers$Season_Activity
 #improved plot
 #png(filename = './figures/improved.png',width = 6,height = 6,units = 'in',res = 1000)
 ggplot()+theme_map()+
@@ -118,8 +119,8 @@ ggplot()+theme_map()+
                        labels = c('Good','Cutoff','Poor'),
                        oob = scales::squish)+  
   new_scale("fill") +
-  geom_point(data = active,aes(x,y,fill=CH4,pch=Annual_cover,col=CH4),col='black',show.legend = F)+
-  geom_point(data = new.sites,aes(x,y),col='black',fill = 'red',pch = 21,show.legend = F)+
+  geom_point(data = new,aes(x,y,fill=methane,pch=Season_Activity,col=methane),col='black',show.legend = F)+
+  geom_point(data = old,aes(x,y),col='black',fill = 'red',pch = 21,show.legend = F)+
   scale_shape_manual(values = c(21,24),'Annual Cover',labels = c('Annual','Not Annual'))+
   scale_fill_manual(values = c('cyan','green'))+
   scale_x_continuous(limits = c(-5093909,4542996))+

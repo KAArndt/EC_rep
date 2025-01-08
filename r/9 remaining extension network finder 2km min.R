@@ -23,13 +23,23 @@ ranks = read.csv(file = './output/meanreduction.csv')
 ranks$rank = rank(x = ranks$means)
 names(ranks)[1] = 'site'
 
+ggplot(data = ranks)+theme_bw()+ggtitle('Mean Improvements')+
+  geom_bar(aes(reorder(site, -means*-1),means*-1,fill=country),stat = 'identity')+
+  scale_y_continuous(expand = c(0,0),limits = c(0,0.075),'Mean ED Reduction')+
+  scale_x_discrete('Site')+
+  scale_fill_brewer(palette = "Spectral")+
+  theme(axis.text.x = element_text(angle = 80,hjust = 1,size = 7),
+        legend.position = c(0.5,0.9),
+        legend.direction = 'horizontal')
+
 pca.towers = merge(pca.towers,ranks,by = 'site',all=T)
 pca.towers$active = ifelse(is.na(pca.towers$active),'inactive',pca.towers$active)
 
 #find columns which are active sites
 net = which(pca.towers$active == 'active')
-ext = which(pca.towers$active == 'inactive' & pca.towers$rank < 236/4)
+ext = which(pca.towers$active == 'inactive' & pca.towers$rank < 236)
 
+pca.towers$country[ext]
 
 #create some subsets of the euclidean distance tables for easier calculations
 euci.net = euci[,c(net)]
