@@ -18,6 +18,7 @@ r = terra::aggregate(x = r,fact = 2,fun = 'mean',cores=10,na.rm=T)
 
 #load in extracted site data from extraction codes
 tower.data = fread(file = './data/pca.towersv2.csv')
+tower.data = subset(tower.data,tower.data$remove == 'no' | is.na(tower.data$remove))
 
 #create data frame from PCAs
 df = as.data.frame(x = r,xy = T,na.rm = T)
@@ -44,7 +45,7 @@ cl = makeCluster(cores[1]-1) #assign X less than total cores to leave some proce
 {orig = Sys.time() #start the clock for timing the process
 registerDoSNOW(cl) #register the cores
 
-#run the ED calculations in parallel (~3 minutes with 18 cores)
+#run the ED calculations in parallel (~54 minutes with 15 cores)
 euci = foreach (j = 1:nrow(pca.towers),.verbose = T,.combine = cbind) %dopar% {
    for (i in 1:nrow(pca.dt))  {
       euclid[i] = sqrt((pca.dt$PC1[i]-pca.towers$pc1[j])^2 +

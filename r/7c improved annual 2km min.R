@@ -20,26 +20,42 @@ tower.data = subset(tower.data,tower.data$remove == 'no' | is.na(tower.data$remo
 
 pca.towers = tower.data
 
-
 #turn off Lutose and NGEE Council
-#pca.towers$active = ifelse(pca.towers$site == 'Council (NGEE Arctic)','inactive',pca.towers$active)
+pca.towers$active = ifelse(pca.towers$site == 'Council (NGEE Arctic)' ,
+        #                   pca.towers$site == 'Lutose',
+                           'inactive',
+                           pca.towers$active)
+
+pca.towers$Season_Activity = ifelse(pca.towers$site == 'Scotty Creek Bog' |
+                                      pca.towers$site == 'Resolute Bay',
+                                    'All year',
+                                    pca.towers$Season_Activity)
 
 #find columns which are active sites
-net = which(pca.towers$active == 'active')
+net = which(pca.towers$active == 'active' & pca.towers$Season_Activity == 'All year')
+
 
 #create some subsets of the euclidean distance tables for easier calculations
 euci.net = euci[,c(net)]
 
+# rm(euci)
+# gc()
+
+#again premaking vectors and matrices of the right length greatly speeds up comp time
+dist = numeric(length = nrow(df)) 
+#eucis = matrix(nrow = nrow(df),ncol = ncol(euci.ext))
+temp.euci = matrix(nrow = nrow(df),ncol = ncol(euci.net)+1)
+
 #calculate the base network, parallel processing is much slower here
-improve.dist = numeric(length = nrow(euci.net))
+impanu.dist = numeric(length = nrow(euci.net))
 {orig = Sys.time() #start the clock for timing the process
   for (i in 1:nrow(euci.net)) {
-    improve.dist[i] = min(euci.net[i,])
+    impanu.dist[i] = min(euci.net[i,])
   }
   Sys.time() - orig} #stop the clock
 
 #make the base image
-impdf = data.frame(df$x,df$y,improve.dist)
+impdf = data.frame(df$x,df$y,impanu.dist)
 imp = rast(x = impdf,type = 'xyz',crs = crs(r))
 
 #project the towers dataimp
@@ -50,11 +66,11 @@ plot(imp,range=c(0,4.5))
 points(towers)
 
 #save the imp here
-writeRaster(x = imp,filename = './output/improve_2kmv2_min.tif',overwrite = T)
+writeRaster(x = imp,filename = './output/impanu_2kmv2_min.tif',overwrite = T)
 
 #######################################################################################
-imp = rast('./output/improve_2kmv2_min.tif')
-base = rast('./output/base_2kmv2_min.tif')
+imp = rast('./output/impanu_2kmv2_min.tif')
+base = rast('./output/annual_2kmv2_min.tif')
 
 #imp = imp/minmax(imp)[2]
 
@@ -64,7 +80,6 @@ countries = rnaturalearth::ne_countries(returnclass = "sf") %>%
   st_crop(y = st_bbox(c(xmin = -180, ymin = 44, xmax = 180, ymax = 90))) %>%
   smoothr::densify(max_distance = 1) %>%
   st_transform(crs(imp))
-
 
 #create an aggregate for the plot
 imp.ag = aggregate(x = imp,fact = 4,fun = mean,na.rm = T)
@@ -92,14 +107,14 @@ new.sites = subset(tower.data,tower.data$site == 'Churchill Fen' |
                      tower.data$site == 'Smith Creek' |
                      tower.data$site == 'Iqaluit')
 
-new = subset(pca.towers,pca.towers$active == 'active')
-old = subset(pca.towers,pca.towers$active == 'active' & pca.towers$Start_CO2 < 2022)
+new = subset(pca.towers,pca.towers$active == 'active' & pca.towers$Season_Activity == 'All year')
+old = subset(pca.towers,pca.towers$active == 'active' & pca.towers$Season_Activity == 'All year' & pca.towers$Start_CO2 < 2022)
 
 #improved plot
-png(filename = './figures/improved_min.png',width = 6,height = 6,units = 'in',res = 1000)
+#png(filename = './figures/improved.png',width = 6,height = 6,units = 'in',res = 1000)
 ggplot()+theme_map()+
   geom_sf(data = countries,fill='gray',col='gray40')+
-  layer_spatial(imp.ag$improve.dist)+
+  layer_spatial(imp.ag)+
   scale_fill_gradientn('Representativeness',
                        na.value = 'transparent',
                        colours = pal,
@@ -108,10 +123,8 @@ ggplot()+theme_map()+
                        labels = c('Good','Cutoff','Poor'),
                        oob = scales::squish)+  
   new_scale("fill") +
-  geom_point(data = new,aes(x,y),col='black',fill = 'red',pch = 21,show.legend = F)+
-  geom_point(data = old,aes(x,y,fill=methane,pch=Season_Activity,col=methane),col='black',show.legend = F)+
-  scale_shape_manual(values = c(21,24),'Annual Cover',labels = c('Annual','Not Annual'))+
-  scale_fill_manual(values = c('cyan','green'))+
+  geom_point(data = new,aes(x,y),col='black',pch = 21,fill = 'cyan')+
+  geom_point(data = old,aes(x,y),col='black',fill = 'red',pch = 21)+
   scale_x_continuous(limits = c(-5093909,4542996))+
   scale_y_continuous(limits = c(-3687122,4374170))+
   theme(text = element_text(size = 8),
@@ -125,39 +138,7 @@ ggplot()+theme_map()+
 #  annotate(geom = 'text',label='Improved',x = -4093909,y = 3075097)
 #dev.off()
 
-
-#improved plot
-#png(filename = './figures/improved.png',width = 6,height = 6,units = 'in',res = 1000)
-ggplot()+theme_map()+
-  geom_sf(data = countries,fill='gray',col='gray40')+
-  layer_spatial(imp.ag$improve.dist)+
-  scale_fill_gradientn('Representativeness',
-                       na.value = 'transparent',
-                       colours = pal,
-                       limits = c(0,3.5),
-                       breaks = c(0,1.75,3.5),
-                       labels = c('Good','Cutoff','Poor'),
-                       oob = scales::squish)+  
-  new_scale("fill") +
-  geom_point(data = new,aes(x,y),col='black',fill = 'cyan',pch = 21,show.legend = F)+
-  geom_point(data = old,aes(x,y),col='black',fill = 'red',pch = 21,show.legend = F)+
-  scale_shape_manual(values = c(21,24),'Annual Cover',labels = c('Annual','Not Annual'))+
-  scale_fill_manual(values = c('cyan','green'))+
-  scale_x_continuous(limits = c(-5093909,4542996))+
-  scale_y_continuous(limits = c(-3687122,4374170))+
-  theme(text = element_text(size = 8),
-        legend.text = element_text(size = 8),
-        axis.title = element_blank(),
-        legend.key.height = unit(x = 0.1,units = 'in'),
-        legend.key.width = unit(x = 0.3,units = 'in'),
-        legend.direction = 'horizontal',
-        legend.position = c(0.1,0.05),
-        legend.title.position = 'top')
-#  annotate(geom = 'text',label='Improved',x = -4093909,y = 3075097)
-#dev.off()
-
-
-dif = imp.ag$improve.dist - base.ag$base.dist
+dif = imp.ag - base.ag
 hist(dif)
 
 #improved plot
@@ -168,7 +149,7 @@ ggplot()+theme_map()+
   scale_fill_gradientn('Representativeness',
                        na.value = 'transparent',
                        colours = pal,
-                       limits = c(-0.5,0),
+                       limits = c(-2,0),
                        #breaks = c(0,1.75,3.5),
                      #  labels = c('Good','Cutoff','Poor'),
                        oob = scales::squish)+  

@@ -17,6 +17,8 @@ library(dplyr)
 
 #load in sites
 tower.data = fread(file = './data/pca.towersv2.csv')
+tower.data = subset(tower.data,tower.data$remove == 'no' | is.na(tower.data$remove))
+
 active = subset(tower.data,tower.data$active == 'active' & tower.data$Start_CO2 < 2022)
 
 #set just the coordinates for the extract

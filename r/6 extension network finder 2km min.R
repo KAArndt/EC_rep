@@ -20,36 +20,16 @@ tower.data = subset(tower.data,tower.data$remove == 'no' | is.na(tower.data$remo
 
 pca.towers = tower.data
 
-#ranking of sites
-ranks = read.csv(file = './output/meanreduction.csv')
-ranks$rank = rank(x = ranks$means)
-names(ranks)[1] = 'site'
-
-ggplot(data = ranks)+theme_bw()+ggtitle('Mean Improvements')+
-  geom_bar(aes(reorder(site, -means*-1),means*-1,fill=country),stat = 'identity')+
-  scale_y_continuous(expand = c(0,0),limits = c(0,0.075),'Mean ED Reduction')+
-  scale_x_discrete('Site')+
-  scale_fill_brewer(palette = "Spectral")+
-  theme(axis.text.x = element_text(angle = 80,hjust = 1,size = 7),
-        legend.position = c(0.5,0.9),
-        legend.direction = 'horizontal')
-
-pca.towers = merge(pca.towers,ranks,by = 'site',all=T)
-pca.towers$active = ifelse(is.na(pca.towers$active),'inactive',pca.towers$active)
-
 #find columns which are active sites
-net = which(pca.towers$active == 'active')
-ext = which(pca.towers$active == 'inactive' & pca.towers$rank < 236)
-
-pca.towers$site[net]
-pca.towers$site[ext]
+net = which(pca.towers$active == 'active' & pca.towers$Start_CO2 < 2022)
+ext = which(pca.towers$active == 'inactive' | pca.towers$Start_CO2 >=2022)
 
 #create some subsets of the euclidean distance tables for easier calculations
 euci.net = euci[,c(net)]
 euci.ext = euci[,c(ext)]
 
-rm(euci)
-gc()
+#rm(euci)
+#gc()
 
 #again premaking vectors and matrices of the right length greatly speeds up comp time
 dist = numeric(length = nrow(df)) 
@@ -62,7 +42,7 @@ for (j in 1:ncol(euci.ext)) {
   #create a temp matrix with the base distances and the site of interest
   temp.euci = cbind(euci.net[,1:ncol(euci.net)],euci.ext[,j]) 
   for (i in 1:nrow(df)) {
-   dist[i] = min(temp.euci[i,])
+     dist[i] = min(temp.euci[i,])
   }
   eucis[,j] = dist
   progress(j,ncol(euci.ext))
@@ -71,8 +51,8 @@ Sys.time() - orig}
 
 
 #save off this file for later use ############################################################
-saveRDS(object = eucis,file = './data/remaining_ext_eucis_2km_min.rds')
-#eucis = read_rds(file = './data/remaining_ext_eucis_2km_min.rds')
+saveRDS(object = eucis,file = './data/ext_eucis_2km_min.rds')
+#eucis = read_rds(file = './data/ext_eucis_2km_min.rds')
 
 #create rasters
 dist.rasts = list()
@@ -85,7 +65,7 @@ for (i in 1:ncol(eucis)) {
 }
 
 #create a path of file names
-path = paste('./output/remaining_ext/',pca.towers$site[ext],'.tif',sep = '')
+path = paste('./output/ext/',pca.towers$site[ext],'.tif',sep = '')
 #save off rasters
 for (i in 1:length(dist.rasts)) {
   writeRaster(x = dist.rasts[[i]],filename = path[i],overwrite=T)
@@ -93,20 +73,20 @@ for (i in 1:length(dist.rasts)) {
 }
 
 #load back in if not already here #####################################################
-# extpath = list.files(path = './output/remaining_ext',pattern = '*.tif',full.names = T)
-# dist.rasts = lapply(X = extpath,FUN = rast)
+extpath = list.files(path = './output/ext',pattern = '*.tif',full.names = T)
+dist.rasts = lapply(X = extpath,FUN = rast)
 
 #load in the base
-base = rast('./output/improve_2kmv2_min.tif')
+base = rast('./output/base_2kmv2.tif')
 
 difs = list()
 for (i in 1:length(dist.rasts)) {
-  difs[[i]] = dist.rasts[[i]] - base$improve.dist
+  difs[[i]] = dist.rasts[[i]] - base$base.dist
   progress(i,length(dist.rasts))
 }
 
 #save off difference maps
-path = paste('./output/remaining_difs/',pca.towers$site[ext],'_dif_min.tif',sep = '')
+path = paste('./output/difs/',pca.towers$site[ext],'_dif.tif',sep = '')
 #save off rasters
 for (i in 1:length(difs)) {
   writeRaster(x = difs[[i]],filename = path[i],overwrite=T)
@@ -136,41 +116,27 @@ bars$type = pca.towers$type[ext]
 names(bars)[1] = 'sitename'
 
 top = subset(bars,bars$means < median(bars$means))
-upper.limit = -1*min(bars$means)+0.01
+upper.limit = -1*min(bars$means)+0.005
 
-bars = subset(bars,bars$sitename != "Pond Inlet" &
-                bars$sitename != "Cape Bounty" &
-                bars$sitename != 'Resolute' &
-                bars$sitename != 'Iqaluit' &
-                bars$sitename != 'Rylekaerene Zackenberg' &
-                bars$sitename != 'Fosheim Peninsula' &
-                bars$sitename != "Laka Hazen, meadow wetland" &
-                bars$sitename != "Lake Hazen, Ellesmere Island"  &
-                bars$sitename != "Lake Hazen, meadow wetland" &
-                bars$sitename != "Lake Hazen, polar semidesert")
-
-bars$sitename
-
-ggplot(data = bars)+theme_bw()+ggtitle('Mean Improvements')+
-  geom_bar(aes(reorder(sitename, -means*1),means*1,fill=country),stat = 'identity')+
-  scale_y_continuous(expand = c(0,0),limits = c(0,.2),'Mean ED Reduction')+
+ggplot(data = top)+theme_bw()+ggtitle('Mean Improvements')+
+  geom_bar(aes(reorder(sitename, -means*-1),means*-1,fill=country),stat = 'identity')+
+  scale_y_continuous(expand = c(0,0),limits = c(0,upper.limit),'Mean ED Reduction')+
   scale_x_discrete('Site')+
   scale_fill_brewer(palette = "Spectral")+
   theme(axis.text.x = element_text(angle = 80,hjust = 1,size = 7),
         legend.position = c(0.5,0.9),
         legend.direction = 'horizontal')
 
-write.csv(x = bars,file = './output/meanreduction_remaining.csv',row.names = F)
+write.csv(x = bars,file = './output/meanreduction.csv',row.names = F)
 
 ########################################################################################################
-bars = fread('./output/meanreduction2.csv')
-top = subset(bars,bars$means < -0.01)
+bars = fread('./output/meanreduction.csv')
+top = subset(bars,bars$means < mean(bars$means))
 
-
-png(filename = './figures/barplot_reduction_remaining.png',width = 6,height = 3,units = 'in',res = 2000)
-ggplot(data = top)+theme_bw()+ggtitle('Mean Improvements')+
+png(filename = './figures/barplot_reduction.png',width = 6,height = 3,units = 'in',res = 2000)
+ggplot(data = bars)+theme_bw()+ggtitle('Mean Improvements')+
   geom_bar(aes(reorder(sitename, -means*-1),means*-1,fill=country),stat = 'identity')+
-  scale_y_continuous(expand = c(0,0),limits = c(0,0.06),'Mean Rep. Improvement')+
+  scale_y_continuous(expand = c(0,0),limits = c(0,upper.limit),'Mean Rep. Improvement')+
   scale_x_discrete('')+
   scale_fill_brewer(palette = "Spectral")+
   theme(axis.text.x = element_blank(),

@@ -28,11 +28,11 @@ all = c(base,methane,annual,anmeth,clust)
 df = as.data.frame(x = all)
 summary(df)
 
-# #mean of 2 values
+# #mean of 2 values (from "4 find cut off values" code)
 # er1 = 1.67
 # er4 = 1.54
 
-#minimum values
+#minimum values (from "4 find cut off values" code)
 er1 = 1.51
 er4 = 1.43
 
@@ -59,3 +59,5 @@ summary = df %>%
             annual.er4 = sum(annual.er4)/sum(all),
             anmeth.er1 = sum(anmeth.er1)/sum(all),
             anmeth.er4 = sum(anmeth.er4)/sum(all))
+
+summary
