@@ -3,7 +3,6 @@ rm(list = ls())
 library(terra)
 library(dplyr)
 
-
 # mean of 2
 # base    = rast('./output/base_2kmv2.tif')
 # methane = rast('./output/methane_2kmv2.tif')

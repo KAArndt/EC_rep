@@ -20,16 +20,15 @@ tower.data = subset(tower.data,tower.data$remove == 'no' | is.na(tower.data$remo
 
 pca.towers = tower.data
 
+pca.towers$active = ifelse(is.na(pca.towers$active),'extension',pca.towers$active)
+
 #find columns which are active sites
 net = which(pca.towers$active == 'active' & pca.towers$Start_CO2 < 2022)
-ext = which(pca.towers$active == 'inactive' | pca.towers$Start_CO2 >=2022)
+ext = which(pca.towers$active == 'inactive' | pca.towers$active == 'extension' | pca.towers$Start_CO2 >=2022)
 
 #create some subsets of the euclidean distance tables for easier calculations
 euci.net = euci[,c(net)]
 euci.ext = euci[,c(ext)]
-
-#rm(euci)
-#gc()
 
 #again premaking vectors and matrices of the right length greatly speeds up comp time
 dist = numeric(length = nrow(df)) 
@@ -48,7 +47,6 @@ for (j in 1:ncol(euci.ext)) {
   progress(j,ncol(euci.ext))
 }
 Sys.time() - orig}
-
 
 #save off this file for later use ############################################################
 saveRDS(object = eucis,file = './data/ext_eucis_2km_min.rds')
