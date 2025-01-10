@@ -75,8 +75,8 @@ base.plot = ggplot()+theme_map()+
   scale_fill_gradientn('Representativeness',
                        na.value = 'transparent',
                        colours = pal,
-                       limits = c(0,1.51*2),
-                       breaks = c(0,1.51,1.51*2),
+                       limits = c(0,1.53*2),
+                       breaks = c(0,1.53,1.53*2),
                        labels = c('Good','Cutoff','Poor'),
                        oob = scales::squish)+  
   new_scale("fill") +
@@ -103,8 +103,8 @@ methane.plot = ggplot()+theme_map()+
   scale_fill_gradientn('Representativeness',
                        na.value = 'transparent',
                        colours = pal,
-                       limits = c(0,1.51*2),
-                       breaks = c(0,1.51,1.51*2),
+                       limits = c(0,1.53*2),
+                       breaks = c(0,1.53,1.53*2),
                        labels = c('Good','Cutoff','Poor'),
                        oob = scales::squish)+  
   new_scale("fill") +
@@ -131,8 +131,8 @@ annual.plot = ggplot()+theme_map()+
   scale_fill_gradientn('Representativeness',
                        na.value = 'transparent',
                        colours = pal,
-                       limits = c(0,1.51*2),
-                       breaks = c(0,1.51,1.51*2),
+                       limits = c(0,1.53*2),
+                       breaks = c(0,1.53,1.53*2),
                        labels = c('Good','Cutoff','Poor'),
                        oob = scales::squish)+  
   new_scale("fill") +
@@ -159,8 +159,8 @@ annual.methane.plot = ggplot()+theme_map()+
   scale_fill_gradientn('Representativeness',
                        na.value = 'transparent',
                        colours = pal,
-                       limits = c(0,1.51*2),
-                       breaks = c(0,1.51,1.51*2),
+                       limits = c(0,1.53*2),
+                       breaks = c(0,1.53,1.53*2),
                        labels = c('Good','Cutoff','Poor'),
                        oob = scales::squish)+  
   new_scale("fill") +
@@ -184,22 +184,24 @@ annual.methane.plot = ggplot()+theme_map()+
 #save plots
 #individual
 
-#png(filename = './figures/base.v2_min.png',width = 6,height = 6,units = 'in',res = 1000)
-#base.plot
-#dev.off()
-
-#png(filename = './figures/base.methane.v2_min.png',width = 6,height = 6,units = 'in',res = 1000)
-#methane.plot
-#dev.off()
-
-#png(filename = './figures/base.annual.v2_min.png',width = 6,height = 6,units = 'in',res = 1000)
-#annual.plot
-#dev.off()
-
-#png(filename = './figures/base.annual.methane.v2_min.png',width = 6,height = 6,units = 'in',res = 1000)
-#annual.methane.plot
-#dev.off()
+# png(filename = './figures/base.v2_min.png',width = 6,height = 6,units = 'in',res = 1000)
+# base.plot
+# dev.off()
+# 
+# png(filename = './figures/base.methane.v2_min.png',width = 6,height = 6,units = 'in',res = 1000)
+# methane.plot
+# dev.off()
+# 
+# png(filename = './figures/base.annual.v2_min.png',width = 6,height = 6,units = 'in',res = 1000)
+# annual.plot
+# dev.off()
+# 
+# png(filename = './figures/base.annual.methane.v2_min.png',width = 6,height = 6,units = 'in',res = 1000)
+# annual.methane.plot
+# dev.off()
 
 
 #plot all 4 together
+#png(filename = './figures/base.all.4.scenarios.v2_min.png',width = 12,height = 12,units = 'in',res = 1000)
 plot_grid(base.plot,methane.plot,annual.plot,annual.methane.plot)
+#dev.off()

@@ -7,24 +7,20 @@ library(kit)
 library(svMisc)
 
 #load back in
-euci = read_rds('./data/euci_2kmv2.rds')
+euci = read_rds('./euclidean_distance_matrix/euci_2kmv2.rds')
 
 #load in the stack created in the other file
-r = rast('./data/input data/pca.tif')
+r = rast('./spatial_data/pca.tif')
 r = terra::aggregate(x = r,fact = 2,fun = 'mean',cores=12,na.rm=T)
 df = as.data.frame(x = r,na.rm = T,xy = T)
 
 #load in extracted site data from extraction codes
 tower.data = fread(file = './data/pca.towersv2.csv')
-tower.data = subset(tower.data,tower.data$remove == 'no' | is.na(tower.data$remove))
-
-pca.towers = tower.data
-
-pca.towers$active = ifelse(is.na(pca.towers$active),'extension',pca.towers$active)
+tower.data$active = ifelse(is.na(tower.data$active),'extension',tower.data$active)
 
 #find columns which are active sites
-net = which(pca.towers$active == 'active' & pca.towers$Start_CO2 < 2022)
-ext = which(pca.towers$active == 'inactive' | pca.towers$active == 'extension' | pca.towers$Start_CO2 >=2022)
+net = which(tower.data$active == 'active' & tower.data$Start_CO2 < 2022)
+ext = which(tower.data$active == 'inactive' | tower.data$active == 'extension' | tower.data$Start_CO2 >=2022)
 
 #create some subsets of the euclidean distance tables for easier calculations
 euci.net = euci[,c(net)]
@@ -49,7 +45,7 @@ for (j in 1:ncol(euci.ext)) {
 Sys.time() - orig}
 
 #save off this file for later use ############################################################
-saveRDS(object = eucis,file = './data/ext_eucis_2km_min.rds')
+saveRDS(object = eucis,file = './euclidean_distance_matrix/ext_eucis_2km_min.rds')
 #eucis = read_rds(file = './data/ext_eucis_2km_min.rds')
 
 #create rasters
@@ -63,7 +59,7 @@ for (i in 1:ncol(eucis)) {
 }
 
 #create a path of file names
-path = paste('./output/ext/',pca.towers$site[ext],'.tif',sep = '')
+path = paste('./output/ext/',tower.data$site[ext],'.tif',sep = '')
 #save off rasters
 for (i in 1:length(dist.rasts)) {
   writeRaster(x = dist.rasts[[i]],filename = path[i],overwrite=T)
@@ -84,7 +80,7 @@ for (i in 1:length(dist.rasts)) {
 }
 
 #save off difference maps
-path = paste('./output/difs/',pca.towers$site[ext],'_dif.tif',sep = '')
+path = paste('./output/difs/',tower.data$site[ext],'_dif.tif',sep = '')
 #save off rasters
 for (i in 1:length(difs)) {
   writeRaster(x = difs[[i]],filename = path[i],overwrite=T)
@@ -105,12 +101,12 @@ for (i in 1:length(difs)) {
 }
 
 #add other parts of the dataframe back in
-bars = data.frame(pca.towers$site[ext])
+bars = data.frame(tower.data$site[ext])
 bars$means = meansv
-bars$country = pca.towers$Country[ext]
+bars$country = tower.data$Country[ext]
 
-pca.towers$type = paste(pca.towers$active,pca.towers$methane,pca.towers$Season_Activity,sep = '_')
-bars$type = pca.towers$type[ext]
+tower.data$type = paste(tower.data$active,tower.data$methane,tower.data$Season_Activity,sep = '_')
+bars$type = tower.data$type[ext]
 names(bars)[1] = 'sitename'
 
 top = subset(bars,bars$means < median(bars$means))

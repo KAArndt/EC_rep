@@ -32,7 +32,7 @@ summary(df)
 # er4 = 1.54
 
 #minimum values (from "4 find cut off values" code)
-er1 = 1.51
+er1 = 1.53
 er4 = 1.43
 
 df$base.er1 = ifelse(df$base.dist <= er1,1,0)
