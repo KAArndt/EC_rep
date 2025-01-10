@@ -2,6 +2,7 @@
 spatial_data/
 euclidean_distance_matrix/
 data/archive/
+figures/
 output/
 
 # History files

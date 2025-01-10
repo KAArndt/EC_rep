@@ -17,12 +17,10 @@ library(dplyr)
 
 #load in sites
 tower.data = fread(file = './data/pca.towersv2.csv')
-tower.data = subset(tower.data,tower.data$remove == 'no' | is.na(tower.data$remove))
-
 active = subset(tower.data,tower.data$active == 'active' & tower.data$Start_CO2 < 2022)
 
 #set just the coordinates for the extract
-xy.tower = active[,c(58,59)]
+xy.tower = active[,c(56,57)]
 
 #clusters #########################################################################
 #load in the stack created in the other files
@@ -58,6 +56,7 @@ active$one = 1
 dfs = active %>%
   group_by(cluster) %>%
   summarise(count = sum(one))
+dfs
 
 #load in base image
 #base = rast('./output/base_2kmv2.tif')
@@ -79,6 +78,8 @@ er4 = er4[complete.cases(er4$count),]
 summary(er4$base.dist)[5]
 hist(er4$base.dist)
 
-#the final cut offs are 1.67 and 1.56 for ER1 and ER4 2 mean
+#mean
+#the final cut offs are 1.xx and 1.xx for ER1 and ER4 2 mean WOULD NEED TO RE-DO
 
-#the final cut offs are 1.51 and 1.43 for ER1 and ER4 minimum
+#minimum
+#the final cut offs are 1.54 and 1.43 for ER1 and ER4 minimum
