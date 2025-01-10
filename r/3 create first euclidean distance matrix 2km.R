@@ -44,7 +44,7 @@ cl = makeCluster(cores[1]-1) #assign X less than total cores to leave some proce
 {orig = Sys.time() #start the clock for timing the process
 registerDoSNOW(cl) #register the cores
 
-#run the ED calculations in parallel (~54 minutes with 15 cores)
+#run the ED calculations in parallel (~31 minutes with 19 cores on physical cpu)
 euci = foreach (j = 1:nrow(pca.towers),.verbose = T,.combine = cbind) %dopar% {
    for (i in 1:nrow(pca.dt))  {
       euclid[i] = sqrt((pca.dt$PC1[i]-pca.towers$pc1[j])^2 +

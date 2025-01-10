@@ -1,5 +1,7 @@
-# data folder
+# data folders
 data/input data/
+data/euclidean_distance_matrix/
+data/archive/
 output/
 
 # History files

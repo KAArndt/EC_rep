@@ -1,185 +1,144 @@
-Site_Name,Country,region,Latitude,Longitude,remove,reason,use
-Chisasibi,Canada,Quebec,53.98067,-75.966599,no,,yes
-Quebec New Site,Canada,Quebec,52.728367,-75.966599,no,,no
-Adventdalen,Norway,Svalbard,78.186601,15.967014,yes,in old towers list,
-Agapa,Russia,Taymyr,71.45037905,89.24999386,no,,
-Alberta Western Peatland Poor Fen Sphagnum moss,Canada,Alberta,55.5375,-112.3343,yes,in old towers list,
-Alberta Western Peatland Rich Fen Carex,Canada,Alberta,54.47,-113.32,yes,in old towers list,
-Alert,Canada,,82.50451667,-62.33826667,yes,"too far north, not feasible",
-Allakaket,USA,Alaska,66.56548342,-152.6454995,no,,
-Ambler,USA,Alaska,67.08648521,-157.8514091,no,,
-Archangel,Russia,Arkhangel'sk,64.57495892,40.5450081,no,,
-Arviat,Canada,,61.10503,-94.175921,no,,
-"Athabasca, poor fen",Canada,,55.5375,-112.335,yes,in old towers list,
-"Athabasca, rich fen",Canada,,54.47,-113.32,yes,in old towers list,
-Baker lake,Canada,Nunavut,64.331665,-96.010433,no,,yes
-Batagai,Russia,Sakha (Yakutia),67.65598533,134.6350272,no,,yes
-Bergen,Norway,Hordaland,60.39100242,5.324522256,no,,
-Beringovskiy,Russia,Chukchi Autonomous Okrug,63.0654645,179.3066674,no,,
-Bethel,USA,Alaska,60.79330345,-161.7557962,no,,
-Blanc Sablon,Canada,Quebec,51.47122222,-57.19701667,no,,
-Boniface River Field Station,Canada,,57.749709,-76.166667,yes,"not feasible, remote",
-Boyarka,Russia,Taymyr,70.76698407,97.50003292,no,,
-Bugrino,Russia,Nenets,68.80787884,49.30416337,no,,
-Cape Dorset,Canada,Nunavut,64.31251972,-76.53857863,no,,
-CEF cluster,Canada,Quebec,53.98067,-72.01071,no,,yes
-Chelyuskin,Russia,Taymyr,77.71697329,104.2500085,yes,"not feasible, remote",
-Chernyshevskii,Russia,Sakha (Yakutia),63.01275454,112.4714188,no,,
-Chesterfield Inlet,Canada,Nunavut,63.33829022,-90.70008163,no,,
-Chulman,Russia,,56.817923,124.955189,no,,yes
-Clearwater Lake Station,Canada,,56.414125,-74.195789,no,,
-Dikson,Russia,Taymyr,73.50697186,80.54509884,no,,
-Eagle,USA,Alaska,64.78799502,-141.1999966,no,,
-Egvekinot,Russia,Chukchi Autonomous Okrug,66.32213166,-179.1837225,no,,
-Eldikan,Russia,Sakha (Yakutia),60.80002138,135.1833142,no,,
-Emmonak,USA,Alaska,62.77698081,-164.5229916,no,,
-Enontekio,Norway,,68.833026,23.913137,no,,
-Enurmino,Russia,Chukchi Autonomous Okrug,66.95000775,-171.8166032,no,,
-Fort Good Hope,Canada,Northwest Territories,66.26661277,-128.6333218,no,,
-Fosheim Peninsula,Canada,,79.98222,-84.39861,yes,"in old towers list, not feasible",
-Galena,USA,Alaska,64.73329551,-156.9269953,no,,
-Gillam Reservoir,Canada,Manitoba,56.29893333,-95.33698611,no,,
-Gjovik,Norway,Oppland,60.80002138,10.7000081,no,,
-Gyda,Russia,Yamal-Nenets,70.88142153,78.46610429,no,,
-HJP02 Jack Pine,Canada,,53.15,-104.1,yes,in old towers list,
-HJP75 Jack Pine,Canada,,53.15,-104.1,yes,in old towers list,
-HJP94 Jack Pine,Canada,,53.15,-104.116667,yes,in old towers list,
-Hooper Bay,USA,Alaska,61.53108787,-166.0965648,no,,
-Igarka,Russia,Krasnoyarsk,67.46710797,86.58333492,yes,in old towers list,
-Illisarvik,Canada,McKenzie River Delta,69.480229,-134.587274,yes,in old towers list,
-Ilulissat,Greenland,Qaasuitsup Kommunia,69.21666526,-51.09996647,no,,
-Ittoqqortoormiit,Greenland,Kommuneqarfik Sermersooq,70.48335797,-21.9666543,no,,
-Ivugivik,Canada,Quebec,62.41664105,-77.89998438,no,,
-Joensuu,Finland,North Karelia,62.59998903,29.76664791,no,,
-Kangersuatsiaq,Greenland,NaN,72.37963955,-55.54911893,no,,
-Kangiqsuallujjuaq,Canada,Quebec,58.721456,-65.949649,no,,yes
-Kangirsuk,Canada,Quebec,60.02482322,-69.99909713,no,,
-Karamken,Russia,Maga Buryatdan,60.20041974,151.166628,no,,
-Khatanga,Russia,Taymyr,72.04114402,102.4650012,no,,
-Khorgo,Russia,Sakha (Yakutia),73.48330406,113.6300044,no,,
-Kimmirut,Canada,Nunavut,62.85002545,-69.88331608,no,,
-Kilpisjarvi,Finland,,69.065072,20.81571,no,,
-Kivalina,USA,Alaska,67.73149224,-164.4859034,no,,
-Klaksvik,Faroe Islands,Eysturoyar,62.2374783,-6.53901149,no,,
-Kobuk,USA,Alaska,66.9072455,-156.8809774,no,,
-Kopasker,Iceland,Center,66.255137,-16.147196,no,,
-Kotlit,USA,Alaska,63.03458783,-163.5532833,no,,
-Kovda,Russia,Murmansk,66.690282,32.87023108,no,,
-Koyukuk,USA,Alaska,64.88028912,-157.7008499,no,,
-Kugluktuk,Canada,Nunavut,67.787098,-115.297788,no,,
-Kular,Russia,,70.6389,134.3528,no,,yes
-Kuopio,Finland,Eastern Finland,62.89428632,27.69493974,no,,
-Lac Le Caron,Canada,,52.290278,-75.8375,yes,"in old towers list, not feasible",
-"Laka Hazen, meadow wetland",Canada,,81.904843,-71.965974,yes,"in old towers list, not feasible",
-"Lake Hazen, polar semidesert",Canada,,81.820841,-71.545654,yes,"in old towers list, not feasible",
-Lavrentiya,Russia,Chukchi Autonomous Okrug,65.58326947,-171.0249978,no,,
-Logashkino,Russia,Sakha (Yakutia),70.85038983,153.9000012,no,,
-Lutselk e park,Canada,Northwest Territories,62.454314,-110.00678,no,,yes
-Mackezie,Canada,Northwest Territories,69.2,-135.25,no,,
-"Manitoba, Northern Old Black Spruce BOREAS",Canada,Manitoba,55.88,-98.481,yes,in old towers list,
-Mayo,Canada,Yukon,63.62255048,-135.8561558,no,,yes
-McGill High Arctic Station,Canada,,79.434205,-90.773683,yes,"not feasible, remote",
-Mirnyy,Russia,Sakha (Yakutia),62.54001853,113.9613537,no,,
-Mongolia Meadow steppe,Mongolia,,49.4857,106.0351,no,,
-Montana,USA,Alaska,62.07968488,-150.0727625,no,,yes
-Mountain Village,USA,Alaska,62.08552431,-163.729009,no,,
-Mukhomornoye,Russia,Chukchi Autonomous Okrug,66.4170687,173.333337,no,,
-Nakhodka,Russia,Yamal-Nenets,67.75039817,77.51996049,no,,
-Naryan Mar,Russia,Nenets,67.64740704,53.05742265,no,,
-Naujaat,Canada,Nunavut,66.52946689,-86.28293502,no,,yes
-Nikel,Russia,Murmansk,69.41257062,30.21881669,no,,
-Nizhneyansk,Russia,Sakha (Yakutia),71.43332583,136.0666194,no,,
-Nome,USA,Alaska,64.50610008,-165.4063744,no,,yes
-Norilsk,Russia,Taymyr,69.34001691,88.22499182,no,,
-Novy Port,Russia,Yamal-Nenets,67.69833417,72.92830277,no,,
-Novy Urengoy,Russia,Yamal-Nenets,66.08331647,76.63324459,no,,
-Noyabrsk,Russia,Yamal-Nenets,63.1665436,75.61651078,no,,
-Nuussuaq,Greenland,Qaasuitsup Kommunia,74.12096872,-57.06736051,no,,
-Nyac,USA,Alaska,61.00414329,-159.9404806,no,,
-Olenek,Russia,Sakha (Yakutia),68.52500205,112.4500248,no,,
-Olyokminsk,Russia,Sakha (Yakutia),60.50319196,120.3925891,no,,
-Omchak,Russia,Maga Buryatdan,61.63327801,147.9166971,no,,
-Omolon,Russia,Chukchi Autonomous Okrug,65.24998232,160.5000118,no,,
-OrlovkaA,Russia,,53.7499,52.0416,yes,close to other site,
-OrlovkaF,Russia,,53.7657,52.0104,no,,
-Orlovskoe Polesie National Park,Russia,,53.2496,35.2778,no,,
-Palatka,Russia,Maga Buryatdan,60.10001243,150.8999776,no,,
-Palmer,USA,Alaska,61.59971417,-149.1126919,no,,
-Pangnirtung,Canada,Nunavut,66.13331342,-65.75002832,no,,
-PEARL Eureka,Canada,,80.052386,-86.414106,yes,"not feasible, remote",
-Peregrebnoye,Russia,Khanty-Mansiy,62.96699506,65.08593909,no,,
-Petite Riviere Baie Comeau,Canada,Quebec,49.13333333,-68.28333333,yes,in old tower list,
-Pond Inlet,Canada,Nunavut,72.696998,-77.879819,no,in old tower list,yes
-Port Burwell,Canada,Newfoundland and Labrador,60.26646222,-64.74109766,no,,
-Prince Albert BOREAS,Canada,,53.95,-105.95,yes,in old tower list,
-PriokskoTerrasny Biosphere Reserve,Russia,,54.908,37.5866,no,,
-Provideniya,Russia,Chukchi Autonomous Okrug,64.4234953,-173.2257937,no,,
-Put Lenina,Russia,Sakha (Yakutia),68.51663047,107.7999727,no,,
-Radisson Ecological Research Station,Canada,,53.783729,-77.600231,no,,yes
-Rankin Inlet,Canada,Nunavut,62.81666831,-92.09531946,no,,yes
-Red Devil,USA,Alaska,61.76099632,-157.3125273,no,,
-Resolute,Canada,Nunavut,74.741758,-94.942643,no,decided upon,yes
-Rovaniemi,Finland,Lapland,66.50003522,25.71593909,no,,
-Sagastyr,Russia,Sakha (Yakutia),73.37793312,126.5923521,no,,
-Salekhard,Russia,Yamal-Nenets,66.53502016,66.60998043,no,,
-Salluit,Canada,Quebec,62.18259849,-75.65950098,no,,
-"Saskatchewan Western Boreal, forest burned in 1977",Canada,Saskatchewan,54.485,-105.8176,yes,in old tower list,
-"Saskatchewan Western Boreal, forest burned in 1989",Canada,Saskatchewan,54.2539,-105.8775,yes,in old tower list,
-"Saskatchewan Western Boreal, forest burned in 1998",Canada,Saskatchewan,54.0916,-106.0053,yes,in old tower list,
-Saskylakh,Russia,Sakha (Yakutia),71.91662966,114.0833101,no,,
-Savonlinna,Finland,Southern Savonia,61.86662294,28.88334265,no,,
-Schefferville,Canada,,54.8046,-66.8083,no,,
-Shishmaref,USA,Alaska,66.25697512,-166.0718893,no,,
-Skilak drying fen,USA,,60.51962,-150.53976,no,Paddys Site,
-Slave river delta,Canada,Northwest Territories,61.19433115,-113.6512751,no,,
-Southern Old Black Spruce,Canada,Saskatchewan,53.99,-105.12,yes,in old tower list,
-"Spasskaya Pad, Larch",Russia,,62.2557,129.1682,yes,in old tower list,
-Steinkjer,Norway,Nord-Trøndelag,64.01706016,11.50001094,no,,
-Stjornarfoss,Iceland,South,63.800769,-18.137643,no,,
-Sulgachi,Russia,,61.5381,132.9049,no,,
-Suntar,Russia,Sakha (Yakutia),62.14440961,117.6319307,no,,
-Susuman,Russia,Maga Buryatdan,62.78333702,148.1667594,no,,
-Talkeetna,USA,Alaska,62.3237785,-150.1094269,no,,
-Tanacross,USA,Alaska,63.38570335,-143.346403,no,,
-Tazovskiy,Russia,Yamal-Nenets,67.46666872,78.69999182,no,,
-Thaidene Nene,Canada,,62.4161,-110.6894,no,,
-Tindfjallajokull,Iceland,NorthEast,64.301012,-19.921179,no,,
-Torshavn,Faroe Islands,Eysturoyar,62.03002382,-6.820033612,no,,
-Trofimovsk,Russia,Sakha (Yakutia),72.59968874,127.0336824,no,,
-Tsiigehtchic,Canada,Northwest Territories,67.43328575,-133.7499862,no,,
-Tunguskhaya,Russia,Sakha (Yakutia),64.90044293,125.2500187,no,,
-Tununak,USA,Alaska,60.58548667,-165.2557892,no,,
-Turukhansk,Russia,Krasnoyarsk,65.83816347,87.95498246,no,,
-UCI1850 burn site,Canada,,55.8792,-98.4839,yes,in old tower list,
-UCI1930 burn site,Canada,,55.9058,-98.5247,yes,in old tower list,
-UCI1964 burn site,Canada,,55.9117,-98.3822,yes,in old tower list,
-UCI1964 burn site wet,Canada,,55.9144,-98.3806,yes,in old tower list,
-UCI1981 burn site,Canada,,55.8631,-98.485,yes,in old tower list,
-UCI1989 burn site,Canada,,55.9167,-98.9644,yes,in old tower list,
-UCI1998 burn site,Canada,,56.6358,-99.9483,yes,in old tower list,
-UCI2003 burn site,Canada,,55.8981,-98.2161,yes,in old tower list,
-Udachnyy,Russia,Sakha (Yakutia),66.42316652,112.3965397,no,,
-Ugolnye Kopi,Russia,Chukchi Autonomous Okrug,64.73329551,177.6999955,no,,
-Umiujaq,Canada,Quebec,56.558611,-76.482222,yes,in old tower list,
-Usinsk,Russia,Komi,65.92304201,57.40299719,no,,
-Ust Kuyga,Russia,Sakha (Yakutia),70.01705568,135.6000329,no,,
-Ust Maya,Russia,Sakha (Yakutia),60.45657981,134.5433016,no,,
-Ust Nera,Russia,Sakha (Yakutia),64.56658734,143.1999825,no,,
-"Utikuma Region, Northern Study Area",Canada,Alberta,56.07562778,-115.4768806,yes,in old tower list,
-Uummannaq,Greenland,NaN,70.67502343,-52.12293443,no,,
-Verkhnevilyuysk,Russia,,63.4458,120.3074,no,,
-Verkhoyansk,Russia,Sakha (Yakutia),67.54470013,133.3849743,no,,
-Viliuisk,Russia,Sakha (Yakutia),63.729815,121.699282,no,,
-Wales,USA,Alaska,65.60959861,-168.0875027,no,,
-Ward Hunt Island Field Station,Canada,,83.1,-74.166667,yes,"not feasible, remote",
-WhapmagoostuiKuujjuarapik,Canada,Quebec,55.267955,-77.750742,no,,
-Wiseman,USA,Alaska,67.4104706,-150.1074891,no,,
-Wolf Creek Research Basin,Canada,Yukon,60.5,-135,no,Already has existing tall tower,
-YakutskPine,Russia,,62.2414,129.6506,yes,in old tower list,
-Yamburg,Russia,Yamal-Nenets,68.35038739,77.13331742,no,,
-Yerema,Russia,Irkutsk,60.38079633,107.7794055,no,,
-Yessey,Russia,Evenk,68.48373842,102.1666215,no,,
-Zhilinda,Russia,Sakha (Yakutia),70.13368939,114.0000077,no,,
-Zyryanka,Russia,Sakha (Yakutia),65.73597333,150.890004,no,,
-Churchill Tall,Canada,Manitoba,58.641436,-93.824679,no,,yes
-Umiujaq Forest,Canada,Quebec,56.552187,-76.457378,,,
+Site_Name,Country,region,Latitude,Longitude
+Chisasibi,Canada,Quebec,53.98067,-75.966599
+Quebec New Site,Canada,Quebec,52.728367,-75.966599
+Arviat,Canada,,61.10503,-94.175921
+Baker lake,Canada,Nunavut,64.331665,-96.010433
+Blanc Sablon,Canada,Quebec,51.47122222,-57.19701667
+Cape Dorset,Canada,Nunavut,64.31251972,-76.53857863
+CEF cluster,Canada,Quebec,53.98067,-72.01071
+Chesterfield Inlet,Canada,Nunavut,63.33829022,-90.70008163
+Fort Good Hope,Canada,Northwest Territories,66.26661277,-128.6333218
+Gillam Reservoir,Canada,Manitoba,56.29893333,-95.33698611
+Ivugivik,Canada,Quebec,62.41664105,-77.89998438
+Kangiqsuallujjuaq,Canada,Quebec,58.721456,-65.949649
+Kangirsuk,Canada,Quebec,60.02482322,-69.99909713
+Kimmirut,Canada,Nunavut,62.85002545,-69.88331608
+Kugluktuk,Canada,Nunavut,67.787098,-115.297788
+Lutselk e park,Canada,Northwest Territories,62.454314,-110.00678
+Mackezie,Canada,Northwest Territories,69.2,-135.25
+Mayo,Canada,Yukon,63.62255048,-135.8561558
+Naujaat,Canada,Nunavut,66.52946689,-86.28293502
+Pangnirtung,Canada,Nunavut,66.13331342,-65.75002832
+Port Burwell,Canada,Newfoundland and Labrador,60.26646222,-64.74109766
+Radisson Ecological Research Station,Canada,,53.783729,-77.600231
+Rankin Inlet,Canada,Nunavut,62.81666831,-92.09531946
+Salluit,Canada,Quebec,62.18259849,-75.65950098
+Schefferville,Canada,,54.8046,-66.8083
+Slave river delta,Canada,Northwest Territories,61.19433115,-113.6512751
+Thaidene Nene,Canada,,62.4161,-110.6894
+Tsiigehtchic,Canada,Northwest Territories,67.43328575,-133.7499862
+WhapmagoostuiKuujjuarapik,Canada,Quebec,55.267955,-77.750742
+Churchill Tall,Canada,Manitoba,58.641436,-93.824679
+Umiujaq Forest,Canada,Quebec,56.552187,-76.457378
+Klaksvik,Faroe Islands,Eysturoyar,62.2374783,-6.53901149
+Torshavn,Faroe Islands,Eysturoyar,62.03002382,-6.820033612
+Joensuu,Finland,North Karelia,62.59998903,29.76664791
+Kilpisjarvi,Finland,,69.065072,20.81571
+Kuopio,Finland,Eastern Finland,62.89428632,27.69493974
+Rovaniemi,Finland,Lapland,66.50003522,25.71593909
+Savonlinna,Finland,Southern Savonia,61.86662294,28.88334265
+Ilulissat,Greenland,Qaasuitsup Kommunia,69.21666526,-51.09996647
+Ittoqqortoormiit,Greenland,Kommuneqarfik Sermersooq,70.48335797,-21.9666543
+Kangersuatsiaq,Greenland,NaN,72.37963955,-55.54911893
+Nuussuaq,Greenland,Qaasuitsup Kommunia,74.12096872,-57.06736051
+Uummannaq,Greenland,NaN,70.67502343,-52.12293443
+RIF,Iceland,NorthEast,66.492222,-16.169016
+Stjornarfoss,Iceland,South,63.800769,-18.137643
+Tindfjallajokull,Iceland,NorthEast,64.301012,-19.921179
+Mongolia Meadow steppe,Mongolia,,49.4857,106.0351
+Khueder,Mongolia,,49.682536,107.649645
+Khagiin Khar Lake Forest,Mongolia,,48.39296,107.909619
+Khan Khentii,Mongolia,,48.882569,108.88323
+Bergen,Norway,Hordaland,60.39100242,5.324522256
+Enontekio,Norway,,68.833026,23.913137
+Gjovik,Norway,Oppland,60.80002138,10.7000081
+Steinkjer,Norway,Nord-Trøndelag,64.01706016,11.50001094
+Agapa,Russia,Taymyr,71.45037905,89.24999386
+Archangel,Russia,Arkhangel'sk,64.57495892,40.5450081
+Batagai,Russia,Sakha (Yakutia),67.65598533,134.6350272
+Beringovskiy,Russia,Chukchi Autonomous Okrug,63.0654645,179.3066674
+Boyarka,Russia,Taymyr,70.76698407,97.50003292
+Bugrino,Russia,Nenets,68.80787884,49.30416337
+Chernyshevskii,Russia,Sakha (Yakutia),63.01275454,112.4714188
+Chulman,Russia,,56.817923,124.955189
+Dikson,Russia,Taymyr,73.50697186,80.54509884
+Egvekinot,Russia,Chukchi Autonomous Okrug,66.32213166,-179.1837225
+Eldikan,Russia,Sakha (Yakutia),60.80002138,135.1833142
+Enurmino,Russia,Chukchi Autonomous Okrug,66.95000775,-171.8166032
+Gyda,Russia,Yamal-Nenets,70.88142153,78.46610429
+Karamken,Russia,Maga Buryatdan,60.20041974,151.166628
+Khatanga,Russia,Taymyr,72.04114402,102.4650012
+Khorgo,Russia,Sakha (Yakutia),73.48330406,113.6300044
+Kovda,Russia,Murmansk,66.690282,32.87023108
+Kular,Russia,,70.6389,134.3528
+Lavrentiya,Russia,Chukchi Autonomous Okrug,65.58326947,-171.0249978
+Logashkino,Russia,Sakha (Yakutia),70.85038983,153.9000012
+Mirnyy,Russia,Sakha (Yakutia),62.54001853,113.9613537
+Mukhomornoye,Russia,Chukchi Autonomous Okrug,66.4170687,173.333337
+Nakhodka,Russia,Yamal-Nenets,67.75039817,77.51996049
+Naryan Mar,Russia,Nenets,67.64740704,53.05742265
+Nikel,Russia,Murmansk,69.41257062,30.21881669
+Nizhneyansk,Russia,Sakha (Yakutia),71.43332583,136.0666194
+Norilsk,Russia,Taymyr,69.34001691,88.22499182
+Novy Port,Russia,Yamal-Nenets,67.69833417,72.92830277
+Novy Urengoy,Russia,Yamal-Nenets,66.08331647,76.63324459
+Noyabrsk,Russia,Yamal-Nenets,63.1665436,75.61651078
+Olenek,Russia,Sakha (Yakutia),68.52500205,112.4500248
+Olyokminsk,Russia,Sakha (Yakutia),60.50319196,120.3925891
+Omchak,Russia,Maga Buryatdan,61.63327801,147.9166971
+Omolon,Russia,Chukchi Autonomous Okrug,65.24998232,160.5000118
+OrlovkaF,Russia,,53.7657,52.0104
+Orlovskoe Polesie National Park,Russia,,53.2496,35.2778
+Palatka,Russia,Maga Buryatdan,60.10001243,150.8999776
+Peregrebnoye,Russia,Khanty-Mansiy,62.96699506,65.08593909
+PriokskoTerrasny Biosphere Reserve,Russia,,54.908,37.5866
+Provideniya,Russia,Chukchi Autonomous Okrug,64.4234953,-173.2257937
+Put Lenina,Russia,Sakha (Yakutia),68.51663047,107.7999727
+Sagastyr,Russia,Sakha (Yakutia),73.37793312,126.5923521
+Salekhard,Russia,Yamal-Nenets,66.53502016,66.60998043
+Saskylakh,Russia,Sakha (Yakutia),71.91662966,114.0833101
+Sulgachi,Russia,,61.5381,132.9049
+Suntar,Russia,Sakha (Yakutia),62.14440961,117.6319307
+Susuman,Russia,Maga Buryatdan,62.78333702,148.1667594
+Tazovskiy,Russia,Yamal-Nenets,67.46666872,78.69999182
+Trofimovsk,Russia,Sakha (Yakutia),72.59968874,127.0336824
+Tunguskhaya,Russia,Sakha (Yakutia),64.90044293,125.2500187
+Turukhansk,Russia,Krasnoyarsk,65.83816347,87.95498246
+Udachnyy,Russia,Sakha (Yakutia),66.42316652,112.3965397
+Ugolnye Kopi,Russia,Chukchi Autonomous Okrug,64.73329551,177.6999955
+Usinsk,Russia,Komi,65.92304201,57.40299719
+Ust Kuyga,Russia,Sakha (Yakutia),70.01705568,135.6000329
+Ust Maya,Russia,Sakha (Yakutia),60.45657981,134.5433016
+Ust Nera,Russia,Sakha (Yakutia),64.56658734,143.1999825
+Verkhnevilyuysk,Russia,,63.4458,120.3074
+Verkhoyansk,Russia,Sakha (Yakutia),67.54470013,133.3849743
+Viliuisk,Russia,Sakha (Yakutia),63.729815,121.699282
+Yamburg,Russia,Yamal-Nenets,68.35038739,77.13331742
+Yerema,Russia,Irkutsk,60.38079633,107.7794055
+Yessey,Russia,Evenk,68.48373842,102.1666215
+Zhilinda,Russia,Sakha (Yakutia),70.13368939,114.0000077
+Zyryanka,Russia,Sakha (Yakutia),65.73597333,150.890004
+Allakaket,USA,Alaska,66.56548342,-152.6454995
+Ambler,USA,Alaska,67.08648521,-157.8514091
+Bethel,USA,Alaska,60.79330345,-161.7557962
+Eagle,USA,Alaska,64.78799502,-141.1999966
+Emmonak,USA,Alaska,62.77698081,-164.5229916
+Galena,USA,Alaska,64.73329551,-156.9269953
+Hooper Bay,USA,Alaska,61.53108787,-166.0965648
+Kivalina,USA,Alaska,67.73149224,-164.4859034
+Kobuk,USA,Alaska,66.9072455,-156.8809774
+Kotlit,USA,Alaska,63.03458783,-163.5532833
+Koyukuk,USA,Alaska,64.88028912,-157.7008499
+Montana,USA,Alaska,62.07968488,-150.0727625
+Mountain Village,USA,Alaska,62.08552431,-163.729009
+Nome,USA,Alaska,64.50610008,-165.4063744
+Nyac,USA,Alaska,61.00414329,-159.9404806
+Palmer,USA,Alaska,61.59971417,-149.1126919
+Red Devil,USA,Alaska,61.76099632,-157.3125273
+Shishmaref,USA,Alaska,66.25697512,-166.0718893
+Skilak drying fen,USA,,60.51962,-150.53976
+Talkeetna,USA,Alaska,62.3237785,-150.1094269
+Tanacross,USA,Alaska,63.38570335,-143.346403
+Tununak,USA,Alaska,60.58548667,-165.2557892
+Wales,USA,Alaska,65.60959861,-168.0875027
+Wiseman,USA,Alaska,67.4104706,-150.1074891
