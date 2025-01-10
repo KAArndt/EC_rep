@@ -1,6 +1,6 @@
 # data folders
-data/input data/
-data/euclidean_distance_matrix/
+spatial_data/
+euclidean_distance_matrix/
 data/archive/
 output/
 
