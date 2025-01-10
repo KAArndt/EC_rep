@@ -1,4 +1,5 @@
 rm(list = ls())
+setwd('EC_rep/')
 
 library(data.table)
 library(raster)

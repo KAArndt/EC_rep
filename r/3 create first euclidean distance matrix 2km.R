@@ -3,6 +3,7 @@
 #  created by K Arndt July 2022
 ##################################################################################
 rm(list = ls())
+setwd('EC_rep/')
 
 library(terra)
 library(data.table)

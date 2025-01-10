@@ -4,6 +4,7 @@
 ##################################################################################
 rm(list = ls())
 gc()
+setwd('EC_rep/')
 
 library(svMisc)
 library(maps)
@@ -18,19 +19,18 @@ library(readr)
 
 #load in extracted site data from extraction codes
 tower.data = fread(file = './data/pca.towersv2.csv')
-pca.towers = tower.data
 
 #load back in euclidean distance matrix
-euci = read_rds('./data/euci_2kmv2.rds')
+euci = read_rds('./euclidean_distance_matrix/euci_2kmv2.rds')
 
 #load in the other spatial data
-r = rast('./data/input data/pca.tif')
-r = terra::aggregate(x = r,fact = 2,fun = 'mean',cores=10,na.rm=T)
+r = rast('./spatial_data/pca.tif')
+r = terra::aggregate(x = r,fact = 2,fun='mean',cores=10,na.rm=T)
 df = as.data.frame(x = r,xy = T,na.rm = T)
 
-#########################################################################################
-# BASE ###################################################################
-net = which(pca.towers$active == 'active' & pca.towers$Start_CO2 < 2022)
+##########################################################################
+# BASE
+net = which(tower.data$active == 'active' & tower.data$Start_CO2 < 2022)
 euci.net = euci[,c(net)]
 
 #calculate the base network, parallel processing is much slower here
@@ -83,7 +83,7 @@ methane.towers = tower.data[net.methane,]
 towers = vect(x = methane.towers,geom=c("x", "y"), crs=crs(r))
 
 hist(methane)
-plot(methane,range=c(0,3.5))
+plot(methane,range=c(0,4.5))
 points(towers,col='red')
 
 #save the base here
@@ -114,14 +114,14 @@ annual.towers = tower.data[net.annual,]
 towers = vect(x = annual.towers,geom=c("x", "y"), crs=crs(r))
 
 hist(annual)
-plot(annual,range=c(0,3.5))
+plot(annual,range=c(0,4.5))
 points(towers,col='red')
 
 #save the annual here
 writeRaster(x = annual,filename = './output/annual_2kmv2_min.tif',overwrite = T)
 
-###################################################################################################
-################ Annual Methane
+################################################################################
+# Annual Methane
 
 net.annual.methane = which(pca.towers$active == 'active' & pca.towers$Start_CO2 < 2022 & pca.towers$Season_Activity == 'All year' & pca.towers$methane == 'methane')
 
@@ -145,7 +145,7 @@ annual.methane.towers = tower.data[net.annual.methane,]
 towers = vect(x = annual.methane.towers,geom=c("x", "y"), crs=crs(r))
 
 hist(annual.methane)
-plot(annual.methane,range=c(0,3.5))
+plot(annual.methane,range=c(0,4.5))
 points(towers,col='red')
 
 #save the base here
