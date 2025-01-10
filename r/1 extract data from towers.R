@@ -20,11 +20,10 @@ towers = fread(file = './data/ARGO_EC_Tower_edited.csv')
 ext    = fread(file = './data/extension_sites.csv')
 
 #sub to interested sites
-ext    = subset(ext,ext$remove == 'no')
 towers = subset(towers,towers$Terrestrial == TRUE)
+towers = subset(towers,towers$ignore == 'no')
 towers$active  = ifelse(towers$End_CO2 == 2024,'active','inactive')
-towers$methane = ifelse(towers$GHG == 'CO2,CH4' | 
-                         towers$GHG == 'CO2,CH4,N2O',
+towers$methane = ifelse(towers$GHG == 'CO2,CH4' | towers$GHG == 'CO2,CH4,N2O',
                        'methane','nonmethane')
 
 #reduce the existing sites and add class names

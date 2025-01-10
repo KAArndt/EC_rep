@@ -18,7 +18,6 @@ r = terra::aggregate(x = r,fact = 2,fun = 'mean',cores=10,na.rm=T)
 
 #load in extracted site data from extraction codes
 tower.data = fread(file = './data/pca.towersv2.csv')
-tower.data = subset(tower.data,tower.data$remove == 'no' | is.na(tower.data$remove))
 
 #create data frame from PCAs
 df = as.data.frame(x = r,xy = T,na.rm = T)
@@ -39,7 +38,7 @@ gc()
 #initialize the euclid
 euclid = vector(length = nrow(pca.dt))
 
-#setup parallel backend to use many processors
+#setup parallel back end to use many processors
 cores = detectCores()        #detect the number of cores
 cl = makeCluster(cores[1]-1) #assign X less than total cores to leave some processing for other tasks
 {orig = Sys.time() #start the clock for timing the process

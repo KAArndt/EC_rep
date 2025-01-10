@@ -27,7 +27,6 @@ tower.data = fread(file = './data/extracted_tower_data.csv')
 
 #cut down raster data to remove NAs
 sr = spatSample(x = r,size = 500000,method = "regular")
-
 sr = sr[complete.cases(sr$MeanTemp),]
 
 tower.data[,c("WarmestQuarter",                                 
@@ -70,10 +69,9 @@ PCAloadings = data.frame(Variables = rownames(pca$rotation), pca$rotation)
 summary(pca)
 pca$rotation
 
-
 pca.ice = subset(pca.ex,pca.ex$Country == 'Iceland')
-
 pca.cf = subset(pca.ex,pca.ex$site == 'CEF cluster')
+pca.mon = subset(pca.ex,pca.ex$Country == 'Mongolia')
 
 #PC 1 & 2
 ggplot()+theme_bw()+
@@ -84,9 +82,10 @@ ggplot()+theme_bw()+
 #  geom_point(data = pca.ex,aes(x = pc1,y = pc2,fill='Extension Site'),pch=21,size=2)+
   geom_point(data = pca.ice,aes(x = pc1,y = pc2,fill='Iceland'),pch=21,size=2)+
   geom_point(data = pca.cf,aes(x = pc1,y = pc2,fill='Quebec'),pch=21,size=2)+
+  geom_point(data = pca.mon,aes(x = pc1,y = pc2,fill='Mongolia'),pch=21,size=2)+
 #  geom_label(data = pca.ta,aes(x = pc1,y = pc2,col='Active Site',label=site),pch=21,size=2)+
 #  geom_label(data = pca.ex,aes(x = pc1,y = pc2,col='Extension Site',label=site),pch=21,size=2)+
-  scale_fill_manual('',values = c('green','red','orange'))+
+  scale_fill_manual('',values = c('green','red','orange','pink'))+
   scale_x_continuous('PC1 (34.79%)')+
   scale_y_continuous("PC2 (20.62%)")
   
@@ -170,10 +169,6 @@ plot(p)
 
 writeRaster(x = p,filename = './data/input data/pca.tif',overwrite = T)
 write.csv(x = pca.t,file = './data/pca.towersv2.csv',row.names = F)
-
-
-
-
 
 
 

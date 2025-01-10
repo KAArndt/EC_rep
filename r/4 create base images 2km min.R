@@ -18,7 +18,6 @@ library(readr)
 
 #load in extracted site data from extraction codes
 tower.data = fread(file = './data/pca.towersv2.csv')
-tower.data = subset(tower.data,tower.data$remove == 'no' | is.na(tower.data$remove))
 pca.towers = tower.data
 
 #load back in euclidean distance matrix
