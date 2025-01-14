@@ -3,46 +3,48 @@ gc()
 
 library(readr)
 library(terra)
-library(kit)
+library(data.table)
+library(ggplot2)
 library(svMisc)
+library(sf)
+library(dplyr)
+library(cowplot)
+library(ggspatial)
 
 #load back in
-euci = read_rds('./data/euci_2kmv2.rds')
+euci = read_rds('./euclidean_distance_matrix/euci_2kmv2.rds')
 
 #load in the stack created in the other file
-r = rast('./data/input data/pca.tif')
-r = terra::aggregate(x = r,fact = 2,fun = 'mean',cores=12,na.rm=T)
+r = rast('./spatial_data/pca_2km.tif')
 df = as.data.frame(x = r,na.rm = T,xy = T)
 
 #load in extracted site data from extraction codes
-tower.data = fread(file = './data/pca.towersv2.csv')
-tower.data = subset(tower.data,tower.data$remove == 'no' | is.na(tower.data$remove))
-
-pca.towers = tower.data
+tower.data = fread(file = './data/improved_pca.towersv2.csv')
 
 #ranking of sites
 ranks = read.csv(file = './output/meanreduction.csv')
 ranks$rank = rank(x = ranks$means)
 names(ranks)[1] = 'site'
+top.limit = max(ranks$means*-1)+0.005
 
 ggplot(data = ranks)+theme_bw()+ggtitle('Mean Improvements')+
   geom_bar(aes(reorder(site, -means*-1),means*-1,fill=country),stat = 'identity')+
-  scale_y_continuous(expand = c(0,0),limits = c(0,0.075),'Mean ED Reduction')+
+  scale_y_continuous(expand = c(0,0),limits = c(0,top.limit),'Mean ED Reduction')+
   scale_x_discrete('Site')+
   scale_fill_brewer(palette = "Spectral")+
   theme(axis.text.x = element_text(angle = 80,hjust = 1,size = 7),
         legend.position = c(0.5,0.9),
         legend.direction = 'horizontal')
 
-pca.towers = merge(pca.towers,ranks,by = 'site',all=T)
-pca.towers$active = ifelse(is.na(pca.towers$active),'inactive',pca.towers$active)
+tower.data = merge(tower.data,ranks,by = 'site',all=T)
+tower.data$active = ifelse(is.na(tower.data$active),'inactive',tower.data$active)
 
 #find columns which are active sites
-net = which(pca.towers$active == 'active')
-ext = which(pca.towers$active == 'inactive' & pca.towers$rank < 236)
+net = which(tower.data$active == 'active')
+ext = which(tower.data$active == 'inactive' & tower.data$rank < 100)
 
-pca.towers$site[net]
-pca.towers$site[ext]
+tower.data$site[net]
+tower.data$site[ext]
 
 #create some subsets of the euclidean distance tables for easier calculations
 euci.net = euci[,c(net)]
@@ -71,12 +73,13 @@ Sys.time() - orig}
 
 
 #save off this file for later use ############################################################
-saveRDS(object = eucis,file = './data/remaining_ext_eucis_2km_min.rds')
-#eucis = read_rds(file = './data/remaining_ext_eucis_2km_min.rds')
+#saveRDS(object = eucis,file = './euclidean_distance_matrix/remaining_ext_eucis_2km_min.rds')
+eucis = read_rds(file = './euclidean_distance_matrix/remaining_ext_eucis_2km_min.rds')
 
 #create rasters
 dist.rasts = list()
 tempdf = data.table()
+
 #convert into geotiffs
 for (i in 1:ncol(eucis)) {
   tempdf = cbind(df[,c(1,2)],eucis[,i])
@@ -85,7 +88,7 @@ for (i in 1:ncol(eucis)) {
 }
 
 #create a path of file names
-path = paste('./output/remaining_ext/',pca.towers$site[ext],'.tif',sep = '')
+path = paste('./output/remaining_ext/',tower.data$site[ext],'.tif',sep = '')
 #save off rasters
 for (i in 1:length(dist.rasts)) {
   writeRaster(x = dist.rasts[[i]],filename = path[i],overwrite=T)
@@ -97,20 +100,12 @@ for (i in 1:length(dist.rasts)) {
 # dist.rasts = lapply(X = extpath,FUN = rast)
 
 #load in the base
-base = rast('./output/improve_2kmv2_min.tif')
+base = rast('./output/improved_base_2kmv2_min.tif')
 
 difs = list()
 for (i in 1:length(dist.rasts)) {
-  difs[[i]] = dist.rasts[[i]] - base$improve.dist
+  difs[[i]] = dist.rasts[[i]] - base
   progress(i,length(dist.rasts))
-}
-
-#save off difference maps
-path = paste('./output/remaining_difs/',pca.towers$site[ext],'_dif_min.tif',sep = '')
-#save off rasters
-for (i in 1:length(difs)) {
-  writeRaster(x = difs[[i]],filename = path[i],overwrite=T)
-  progress(i,length(difs))
 }
 
 #calculate mean improvements
@@ -127,33 +122,19 @@ for (i in 1:length(difs)) {
 }
 
 #add other parts of the dataframe back in
-bars = data.frame(pca.towers$site[ext])
-bars$means = meansv
-bars$country = pca.towers$Country[ext]
+bars = data.frame(tower.data$site[ext])
+bars$means = meansv*-1
+bars$country = tower.data$Country[ext]
 
-pca.towers$type = paste(pca.towers$active,pca.towers$methane,pca.towers$Season_Activity,sep = '_')
-bars$type = pca.towers$type[ext]
+tower.data$type = paste(tower.data$active,tower.data$methane,tower.data$Season_Activity,sep = '_')
+bars$type = tower.data$type[ext]
 names(bars)[1] = 'sitename'
 
-top = subset(bars,bars$means < median(bars$means))
-upper.limit = -1*min(bars$means)+0.01
-
-bars = subset(bars,bars$sitename != "Pond Inlet" &
-                bars$sitename != "Cape Bounty" &
-                bars$sitename != 'Resolute' &
-                bars$sitename != 'Iqaluit' &
-                bars$sitename != 'Rylekaerene Zackenberg' &
-                bars$sitename != 'Fosheim Peninsula' &
-                bars$sitename != "Laka Hazen, meadow wetland" &
-                bars$sitename != "Lake Hazen, Ellesmere Island"  &
-                bars$sitename != "Lake Hazen, meadow wetland" &
-                bars$sitename != "Lake Hazen, polar semidesert")
-
-bars$sitename
+upper.limit = -1*min(bars$means)+0.005
 
 ggplot(data = bars)+theme_bw()+ggtitle('Mean Improvements')+
-  geom_bar(aes(reorder(sitename, -means*1),means*1,fill=country),stat = 'identity')+
-  scale_y_continuous(expand = c(0,0),limits = c(0,.2),'Mean ED Reduction')+
+  geom_bar(aes(reorder(sitename, -means),means,fill=country),stat = 'identity')+
+  scale_y_continuous(expand = c(0,0),limits = c(0,upper.limit),'Mean ED Reduction')+
   scale_x_discrete('Site')+
   scale_fill_brewer(palette = "Spectral")+
   theme(axis.text.x = element_text(angle = 80,hjust = 1,size = 7),
@@ -163,20 +144,67 @@ ggplot(data = bars)+theme_bw()+ggtitle('Mean Improvements')+
 write.csv(x = bars,file = './output/meanreduction_remaining.csv',row.names = F)
 
 ########################################################################################################
-bars = fread('./output/meanreduction2.csv')
-top = subset(bars,bars$means < -0.01)
-
+bars = fread('./output/meanreduction_remaining.csv')
 
 png(filename = './figures/barplot_reduction_remaining.png',width = 6,height = 3,units = 'in',res = 2000)
-ggplot(data = top)+theme_bw()+ggtitle('Mean Improvements')+
-  geom_bar(aes(reorder(sitename, -means*-1),means*-1,fill=country),stat = 'identity')+
-  scale_y_continuous(expand = c(0,0),limits = c(0,0.06),'Mean Rep. Improvement')+
-  scale_x_discrete('')+
+ggplot(data = bars)+theme_bw()+ggtitle('Mean Improvements')+
+  geom_bar(aes(reorder(sitename, -means),means,fill=country),stat = 'identity')+
+  scale_y_continuous(expand = c(0,0),limits = c(0,upper.limit),'Mean ED Reduction')+
+  scale_x_discrete('Site')+
   scale_fill_brewer(palette = "Spectral")+
-  theme(axis.text.x = element_blank(),
-        legend.key.size = unit(0.01,units = 'in'),
-        legend.text = element_text(size = 6),
-        legend.title = element_text(size = 6),
-        legend.position = c(0.6,0.6),
+  theme(axis.text.x = element_text(angle = 80,hjust = 1,size = 7),
+        legend.position = c(0.5,0.9),
         legend.direction = 'horizontal')
 dev.off()
+
+#################################################################################################
+#save off difference maps
+#aggregate all the difference plots
+dif.ag = lapply(X = difs,FUN = aggregate,fact = 5,fun = mean,na.rm = T)
+
+#plot difference maps
+sf_use_s2(FALSE) #need to run this before next line
+countries = rnaturalearth::ne_countries(returnclass = "sf") %>%
+  st_crop(y = st_bbox(c(xmin = -180, ymin = 44, xmax = 180, ymax = 90))) %>%
+  smoothr::densify(max_distance = 1) %>%
+  st_transform(crs(base))
+
+#plot the figure
+pal = c('#FEEDB9','#E88D7A','#72509A','#8AABD6','#F2F7FB')
+extention.towers = tower.data[ext]
+
+plot_list = list()
+for (i in 1:length(dif.ag)) {
+  p = ggplot()+theme_map()+
+    geom_sf(data = countries,fill='gray',col='gray40')+
+    layer_spatial(dif.ag[[i]])+
+    scale_fill_gradientn('Improvement',
+                         na.value = 'transparent',
+                         colours = pal,
+                         limits = c(-1,0),
+                         breaks = c(-1,-0.5,0),
+                         labels = c('High','Low','None'),
+                         oob = scales::squish)+
+    geom_point(aes(extention.towers$x[i],extention.towers$y[i]),col='black',show.legend = F)+
+    scale_x_continuous(limits = c(-5093909,4542996))+
+    scale_y_continuous(limits = c(-3687122,4374170))+
+    theme(text = element_text(size = 8),
+          legend.text = element_text(size = 8),
+          axis.title = element_blank(),
+          legend.key.height = unit(x = 0.1,units = 'in'),
+          legend.key.width = unit(x = 0.3,units = 'in'),
+          legend.direction = 'horizontal',
+          legend.position = c(0.1,0.05),
+          legend.title.position = 'top')+
+    annotate(geom = 'text',x = -3093909,y = 3374170,label = extention.towers$site[i])
+  plot_list[[i]] = p
+  progress(value = i,max.value = length(dif.ag))
+}
+
+#plot all the files here, takes awhile
+for (i in 1:length(dif.ag)) {
+  png(filename = paste('./output/remaining_difs/',extention.towers$site[i],'.png',sep = ''),width = 4,height = 4,units = 'in',res = 100)
+  print(plot_list[[i]])
+  dev.off()
+  progress(value = i,max.value = length(dif.ag))
+}

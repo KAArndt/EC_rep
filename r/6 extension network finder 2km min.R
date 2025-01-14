@@ -1,17 +1,25 @@
 rm(list = ls())
+rm(list=setdiff(ls(), "euci"))
 gc()
+setwd('EC_rep/')
 
 library(readr)
 library(terra)
-library(kit)
+library(data.table)
 library(svMisc)
+library(ggplot2)
+library(sf)
+library(dplyr)
+library(cowplot)
+library(ggspatial)
+
+# library(kit)
 
 #load back in
 euci = read_rds('./euclidean_distance_matrix/euci_2kmv2.rds')
 
 #load in the stack created in the other file
-r = rast('./spatial_data/pca.tif')
-r = terra::aggregate(x = r,fact = 2,fun = 'mean',cores=12,na.rm=T)
+r = rast('./spatial_data/pca_2km.tif')
 df = as.data.frame(x = r,na.rm = T,xy = T)
 
 #load in extracted site data from extraction codes
@@ -26,7 +34,7 @@ ext = which(tower.data$active == 'inactive' | tower.data$active == 'extension' |
 euci.net = euci[,c(net)]
 euci.ext = euci[,c(ext)]
 
-#again premaking vectors and matrices of the right length greatly speeds up comp time
+#again pre-making vectors and matrices of the right length greatly speeds up comp time
 dist = numeric(length = nrow(df)) 
 eucis = matrix(nrow = nrow(df),ncol = ncol(euci.ext))
 temp.euci = matrix(nrow = nrow(df),ncol = ncol(euci.net)+1)
@@ -45,8 +53,8 @@ for (j in 1:ncol(euci.ext)) {
 Sys.time() - orig}
 
 #save off this file for later use ############################################################
-saveRDS(object = eucis,file = './euclidean_distance_matrix/ext_eucis_2km_min.rds')
-#eucis = read_rds(file = './data/ext_eucis_2km_min.rds')
+#saveRDS(object = eucis,file = './euclidean_distance_matrix/ext_eucis_2km_min.rds')
+eucis = read_rds(file = './euclidean_distance_matrix/ext_eucis_2km_min.rds')
 
 #create rasters
 dist.rasts = list()
@@ -71,7 +79,7 @@ extpath = list.files(path = './output/ext',pattern = '*.tif',full.names = T)
 dist.rasts = lapply(X = extpath,FUN = rast)
 
 #load in the base
-base = rast('./output/base_2kmv2.tif')
+base = rast('./output/base_2kmv2_min.tif')
 
 difs = list()
 for (i in 1:length(dist.rasts)) {
@@ -79,13 +87,13 @@ for (i in 1:length(dist.rasts)) {
   progress(i,length(dist.rasts))
 }
 
-#save off difference maps
-path = paste('./output/difs/',tower.data$site[ext],'_dif.tif',sep = '')
-#save off rasters
-for (i in 1:length(difs)) {
-  writeRaster(x = difs[[i]],filename = path[i],overwrite=T)
-  progress(i,length(difs))
-}
+# #save off difference maps
+# path = paste('./output/difs/',tower.data$site[ext],'_dif.tif',sep = '')
+# #save off rasters
+# for (i in 1:length(difs)) {
+#   writeRaster(x = difs[[i]],filename = path[i],overwrite=T)
+#   progress(i,length(difs))
+# }
 
 #calculate mean improvements
 means = numeric(length = length(difs))
@@ -140,3 +148,54 @@ ggplot(data = bars)+theme_bw()+ggtitle('Mean Improvements')+
         legend.position = c(0.6,0.6),
         legend.direction = 'horizontal')
 dev.off()
+
+########################################################################################
+#aggregate all the difference plots
+dif.ag = lapply(X = difs,FUN = aggregate,fact = 5,fun = mean,na.rm = T)
+
+#plot difference maps
+sf_use_s2(FALSE) #need to run this before next line
+countries = rnaturalearth::ne_countries(returnclass = "sf") %>%
+  st_crop(y = st_bbox(c(xmin = -180, ymin = 44, xmax = 180, ymax = 90))) %>%
+  smoothr::densify(max_distance = 1) %>%
+  st_transform(crs(base))
+
+#plot the figure
+pal = c('#FEEDB9','#E88D7A','#72509A','#8AABD6','#F2F7FB')
+extention.towers = tower.data[ext]
+
+plot_list = list()
+for (i in 1:length(dif.ag)) {
+p = ggplot()+theme_map()+
+    geom_sf(data = countries,fill='gray',col='gray40')+
+    layer_spatial(dif.ag[[i]])+
+    scale_fill_gradientn('Improvement',
+                         na.value = 'transparent',
+                         colours = pal,
+                         limits = c(-1,0),
+                         breaks = c(-1,-0.5,0),
+                         labels = c('High','Low','None'),
+                         oob = scales::squish)+
+    geom_point(aes(extention.towers$x[i],extention.towers$y[i]),col='black',show.legend = F)+
+    scale_x_continuous(limits = c(-5093909,4542996))+
+    scale_y_continuous(limits = c(-3687122,4374170))+
+    theme(text = element_text(size = 8),
+          legend.text = element_text(size = 8),
+          axis.title = element_blank(),
+          legend.key.height = unit(x = 0.1,units = 'in'),
+          legend.key.width = unit(x = 0.3,units = 'in'),
+          legend.direction = 'horizontal',
+          legend.position = c(0.1,0.05),
+          legend.title.position = 'top')+
+    annotate(geom = 'text',x = -3093909,y = 3374170,label = extention.towers$site[i])
+plot_list[[i]] = p
+progress(value = i,max.value = length(dif.ag))
+}
+
+#plot all the files here, takes awhile
+for (i in 1:length(dif.ag)) {
+  png(filename = paste('./output/difs/',extention.towers$site[i],'.png',sep = ''),width = 4,height = 4,units = 'in',res = 100)
+  print(plot_list[[i]])
+  dev.off()
+  progress(value = i,max.value = length(dif.ag))
+}

@@ -11,8 +11,19 @@ library(readr)
 library(terra)
 
 #load in extracted site data from extraction codes
-tower.data = fread(file = './data/tower.datav2.csv')
+tower.data = fread(file = './data/pca.towersv2.csv')
+tower.data$active = ifelse(tower.data$site == 'Lutose Rich Fen','inactive',tower.data$active)
 
+#change tower sites we increased to all year coverage
+tower.data$Season_Activity = ifelse(tower.data$site == "Lutose" |
+                                      tower.data$site == "Scotty Creek Landscape" |
+                                      tower.data$site == "Steen River" |
+                                      tower.data$site == "Scotty Creek Bog" |
+                                      tower.data$site == "Resolute Bay" |
+                                      tower.data$site == "Smith Creek",
+                                    'All year',tower.data$Season_Activity)
+
+#write.csv(x = tower.data,file = './data/improved_pca.towersv2.csv')
 #load back in euclidean distance matrix
 euci = read_rds('./euclidean_distance_matrix/euci_2kmv2.rds')
 
@@ -22,7 +33,7 @@ df = as.data.frame(x = r,xy = T,na.rm = T)
 
 ##########################################################################
 # BASE
-net = which(tower.data$active == 'active' & tower.data$Start_CO2 < 2022)
+net = which(tower.data$active == 'active')
 euci.net = euci[,c(net)]
 
 #calculate the base network, parallel processing is much slower here
@@ -46,11 +57,10 @@ plot(base,range=c(0,4.5))
 points(towers,col='red')
 
 #save the base here
-writeRaster(x = base,filename = './output/base_2kmv2_min.tif',overwrite = T)
-
+writeRaster(x = base,filename = './output/improved_base_2kmv2_min.tif',overwrite = T)
 #######################################################################################
 ##################     METHANE
-net.methane = which(tower.data$Start_CO2 < 2022 & tower.data$active == 'active' & tower.data$methane == 'methane')
+net.methane = which(tower.data$active == 'active' & tower.data$methane == 'methane')
 euci.net.methane = euci[,c(net.methane)]
 
 #calculate the base network, parallel processing is much slower here
@@ -74,10 +84,10 @@ plot(methane,range=c(0,4.5))
 points(towers,col='red')
 
 #save the base here
-writeRaster(x = methane,filename = './output/methane_2kmv2_min.tif',overwrite = T)
+writeRaster(x = methane,filename = './output/improved_methane_2kmv2_min.tif',overwrite = T)
 ##########################################################################################
 ################ Annual
-net.annual = which(tower.data$active == 'active' & tower.data$Start_CO2 < 2022 & tower.data$Season_Activity == 'All year')
+net.annual = which(tower.data$active == 'active' & tower.data$Season_Activity == 'All year')
 euci.net.annual = euci[,c(net.annual)]
 
 #calculate the base network, parallel processing is much slower here
@@ -101,10 +111,10 @@ plot(annual,range=c(0,4.5))
 points(towers,col='red')
 
 #save the annual here
-writeRaster(x = annual,filename = './output/annual_2kmv2_min.tif',overwrite = T)
+writeRaster(x = annual,filename = './output/improved_annual_2kmv2_min.tif',overwrite = T)
 ################################################################################
 # Annual Methane
-net.annual.methane = which(tower.data$active == 'active' & tower.data$Start_CO2 < 2022 & tower.data$Season_Activity == 'All year' & tower.data$methane == 'methane')
+net.annual.methane = which(tower.data$active == 'active' & tower.data$Season_Activity == 'All year' & tower.data$methane == 'methane')
 euci.net.annual.methane = euci[,c(net.annual.methane)]
 
 #calculate the base network, parallel processing is much slower here
@@ -128,4 +138,4 @@ plot(annual.methane,range=c(0,4.5))
 points(towers,col='red')
 
 #save the base here
-writeRaster(x = annual.methane,filename = './output/annual_methane_2kmv2_min.tif',overwrite = T)
+writeRaster(x = annual.methane,filename = './output/improved_annual_methane_2kmv2_min.tif',overwrite = T)

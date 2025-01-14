@@ -5,17 +5,17 @@ library(terra)
 library(dplyr)
 
 #load in the base network and improvement map
-base   = rast('./output/base_2kmv2.tif')
-base.i = rast('./output/improve_2kmv2.tif')
+base   = rast('./output/base_2kmv2_min.tif')
+base.i = rast('./output/improved_base_2kmv2_min.tif')
 
-meth   = rast('./output/methane_2kmv2.tif')
-meth.i = rast('./output/impch4_2kmv2.tif')
+meth   = rast('./output/methane_2kmv2_min.tif')
+meth.i = rast('./output/improved_methane_2kmv2_min.tif')
 
-annu   = rast('./output/annual_2kmv2.tif')
-annu.i = rast('./output/impanu_2kmv2.tif')
+annu   = rast('./output/annual_2kmv2_min.tif')
+annu.i = rast('./output/improved_annual_2kmv2_min.tif')
 
-anme   = rast('./output/annual_methane_2kmv2.tif')
-anme.i = rast('./output/imp_an_methane_2kmv2.tif')
+anme   = rast('./output/annual_methane_2kmv2_min.tif')
+anme.i = rast('./output/improved_annual_methane_2kmv2_min.tif')
 
 #load in clusters
 clust = rast('./output/clusts.tif')
@@ -31,6 +31,10 @@ summary(df)
 #the cutoff values from the previous exercises (step 4)
 er1 = 1.67
 er4 = 1.56
+
+#the cutoff values from the previous exercises (step 4, minimum)
+er1 = 1.54
+er4 = 1.43
 
 #set 1 for meets cutoff and 0 for does not
 df$base.er1 = ifelse(df$base <= er1,1,0)
@@ -108,6 +112,7 @@ summary = df %>%
 
 write.csv(x = summary,file = './output/improvements.csv')
 summary
+
 # % area well covered area
 pi = sum(df$base.i.er1) - sum(df$base.er1)
 pi*3.43
