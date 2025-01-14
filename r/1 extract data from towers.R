@@ -2,17 +2,10 @@ rm(list = ls())
 setwd('EC_rep/')
 
 library(data.table)
-library(raster)
-library(svMisc)
-library(MASS)
-library(ggplot2)
-library(ggspatial)
-library(plotrix)
-library(terra)
-library(seegSDM)
 library(plyr)
-library(sf)
-library(cowplot)
+library(terra)
+library(raster)
+library(seegSDM)
 
 #gh_install_packages("SEEG-Oxford/seegSDM")
 
@@ -38,7 +31,7 @@ xy.tower = towers.and.ext[,c(9,8)]
 
 #climate #########################################################################
 #load in the stack created in the other files
-clim = rast('./data/input data/climate.tif')
+clim = rast('./spatial_data/climate.tif')
 
 #extract data
 climdat = extract(x = clim,y = xy.tower,cells=T,xy=T)
@@ -54,7 +47,7 @@ climdat$site = towers.and.ext$site
 
 #soil grids #########################################################################
 #load in the stack created in the other files
-soil = rast('./data/input data/soils.tif')
+soil = rast('./spatial_data/soils.tif')
 
 #extract data
 soildat = extract(x = soil,y = xy.tower,cells=T,xy=T)
@@ -71,7 +64,7 @@ soildat$site = towers.and.ext$site
 
 #permafrost #########################################################################
 #load in the stack created in the other files
-pp = rast('./data/input data/pfrost/UiO_PEX_PERPROB_5.0_20181128_2000_2016_NH/UiO_PEX_PERPROB_5.0_20181128_2000_2016_NH.tif')
+pp = rast('./spatial_data/pfrost/UiO_PEX_PERPROB_5.0_20181128_2000_2016_NH/UiO_PEX_PERPROB_5.0_20181128_2000_2016_NH.tif')
 perm = project(x = pp,y = clim)
 
 #extract data
@@ -90,7 +83,7 @@ permdat$site = towers.and.ext$site
 
 #modis #########################################################################
 #load in the stack created in the other files
-modis = rast('./data/input data/modis.tif')
+modis = rast('./spatial_data/modis.tif')
 
 #extract data
 modisdat = extract(x = modis,y = xy.tower,xy=T,cell=T)

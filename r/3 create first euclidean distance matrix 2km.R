@@ -12,18 +12,16 @@ library(doParallel)
 library(doSNOW)
 
 #load in the stack created in the other file
-r = rast('./data/input data/pca.tif')
+r = rast('./spatial_data/pca.tif')
 
 #aggregate the raster to save dataspace
 r = terra::aggregate(x = r,fact = 2,fun = 'mean',cores=10,na.rm=T)
 
 #load in extracted site data from extraction codes
-tower.data = fread(file = './data/pca.towersv2.csv')
+tower.data = fread(file = './data/pca.towers.base.csv')
 
 #create data frame from PCAs
 df = as.data.frame(x = r,xy = T,na.rm = T)
-#xy = df[,c(1,2)]
-#df = df[,-c(1,2)]
 
 #################################################################################
 #calculate the euclidean distance for the whole data set 

@@ -3,25 +3,26 @@
 #  created by K Arndt July 2022
 ##################################################################################
 rm(list = ls())
-setwd('EC_rep/')
+#setwd('EC_rep/')
+
+library(terra)
+library(data.table)
+library(plyr)
+library(ggplot2)
 
 #library(raster)
 #library(svMisc)
 #library(MASS)
-library(ggplot2)
-library(ggnewscale)
+# library(ggnewscale)
 #library(ggspatial)
 #library(plotrix)
-library(terra)
-library(plyr)
-library(data.table)
 #library(kit)
 #library(ggthemes)
 #library(sf)
 #library(ggfortify)
 
 #load in the stack created in the other file
-r = rast('./data/input data/spatial_repro.tif')
+r = rast('./spatial_data/spatial_repro.tif')
 
 #load in extracted site data from extraction codes
 tower.data = fread(file = './data/extracted_tower_data.csv')
@@ -168,9 +169,29 @@ names(r) = c("MeanTemp","Precip","PrecipSeasonality","MeanDiurnalRange",
 p = predict(r, pca,index = 1:4)
 plot(p)
 
-writeRaster(x = p,filename = './data/input data/pca.tif',overwrite = T)
-write.csv(x = pca.t,file = './data/pca.towersv2.csv',row.names = F)
+writeRaster(x = p,filename = './spatial_data/pca.tif',overwrite = T)
 
+
+
+pca.original = pca.t
+
+pca.original$active = ifelse(tower.data$site == 'Lutose Rich Fen','inactive',tower.data$active)
+pca.original$active = ifelse(tower.data$site == 'Council (NGEE Arctic)','inactive',tower.data$active)
+pca.original$Season_Activity = ifelse(tower.data$site == 'Resolute Bay','All year',tower.data$Season_Activity)
+
+write.csv(x = pca.original,file = './data/pca.towers.base.csv',row.names = F)
+          
+pca.upgraded = pca.t
+
+#change tower sites we increased to all year coverage
+pca.upgraded$Season_Activity = ifelse(tower.data$site == "Lutose" |
+                                      tower.data$site == "Scotty Creek Landscape" |
+                                      tower.data$site == "Steen River" |
+                                      tower.data$site == "Scotty Creek Bog" |
+                                      tower.data$site == "Resolute Bay" |
+                                      tower.data$site == "Smith Creek",
+                                    'All year',tower.data$Season_Activity)
+write.csv(x = pca.upgraded,file = './data/pca.towers.upgraded.csv',row.names = F)
 
 
 ggplot(data = pca.r)+theme_bw()+
