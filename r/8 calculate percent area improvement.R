@@ -29,8 +29,8 @@ df = as.data.frame(x = all)
 summary(df)
 
 #the cutoff values from the previous exercises (step 4)
-er1 = 1.67
-er4 = 1.56
+# er1 = 1.67
+# er4 = 1.56
 
 #the cutoff values from the previous exercises (step 4, minimum)
 er1 = 1.54
@@ -117,7 +117,7 @@ summary
 pi = sum(df$base.i.er1) - sum(df$base.er1)
 pi*3.43
 
-# % area with some increase
+# area with some increase
 sum(df$all)*3.43*.37
 
 

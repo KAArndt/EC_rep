@@ -5,18 +5,16 @@
 rm(list = ls())
 gc()
 
-library(svMisc)
-library(maps)
 library(ggplot2)
 library(ggspatial)
 library(terra)
 library(sf)
-library(viridis)
 library(data.table)
-library(readr)
+library(cowplot)
+library(ggnewscale)
 
 #load in extracted site data from extraction codes
-tower.data = fread(file = './data/pca.towersv2.csv')
+tower.data = fread(file = './data/pca.towers.base.csv')
 
 #######################################################################################
 base           = rast('./output/base_2kmv2_min.tif')
@@ -51,21 +49,21 @@ pal = c('#FEEDB9','#E88D7A','#72509A','#8AABD6','#F2F7FB')
 #   scale_y_continuous(expand = c(0,0),limits = c(0,1))+
 #   theme(text = element_text(size = 8))
 
-base.towers            = subset(tower.data,tower.data$active == 'active' & 
+base.towers            = subset(tower.data,tower.data$active == 'active' &
                                   tower.data$Start_CO2 < 2022)
-
-methane.towers         = subset(tower.data,tower.data$active == 'active' & 
-                                  tower.data$Start_CO2 < 2022 & 
-                                  tower.data$methane == 'methane')
-
-annual.towers          = subset(tower.data,tower.data$active == 'active' & 
-                                  tower.data$Start_CO2 < 2022 &
-                                  tower.data$Season_Activity == 'All year')
-
-annual.methane.towers  = subset(tower.data,tower.data$active == 'active' & 
-                                  tower.data$Start_CO2 < 2022 &
-                                  tower.data$Season_Activity == 'All year' &
-                                  tower.data$methane == 'methane')
+# 
+# methane.towers         = subset(tower.data,tower.data$active == 'active' & 
+#                                   tower.data$Start_CO2 < 2022 & 
+#                                   tower.data$methane == 'methane')
+# 
+# annual.towers          = subset(tower.data,tower.data$active == 'active' & 
+#                                   tower.data$Start_CO2 < 2022 &
+#                                   tower.data$Season_Activity == 'All year')
+# 
+# annual.methane.towers  = subset(tower.data,tower.data$active == 'active' & 
+#                                   tower.data$Start_CO2 < 2022 &
+#                                   tower.data$Season_Activity == 'All year' &
+#                                   tower.data$methane == 'methane')
 
 
 #base

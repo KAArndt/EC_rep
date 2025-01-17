@@ -19,7 +19,9 @@ r = rast('./spatial_data/pca_2km.tif')
 df = as.data.frame(x = r,na.rm = T,xy = T)
 
 #load in extracted site data from extraction codes
-tower.data = fread(file = './data/improved_pca.towersv2.csv')
+tower.data = fread(file = './data/pca.towers.upgraded.csv')
+tower.data$active = ifelse(tower.data$site == 'Lutose Rich Fen', 'inactive',tower.data$active)
+tower.data$order = seq(1,359) #important for merging back the tower order
 
 #ranking of sites
 ranks = read.csv(file = './output/meanreduction.csv')
@@ -36,15 +38,15 @@ ggplot(data = ranks)+theme_bw()+ggtitle('Mean Improvements')+
         legend.position = c(0.5,0.9),
         legend.direction = 'horizontal')
 
-tower.data = merge(tower.data,ranks,by = 'site',all=T)
+tower.data = merge(tower.data,ranks,by = 'site',all.x=T)
 tower.data$active = ifelse(is.na(tower.data$active),'inactive',tower.data$active)
+tower.data = tower.data[order(tower.data$order),]
+
+paste(colnames(euci),tower.data$site)
 
 #find columns which are active sites
 net = which(tower.data$active == 'active')
 ext = which(tower.data$active == 'inactive' & tower.data$rank < 100)
-
-tower.data$site[net]
-tower.data$site[ext]
 
 #create some subsets of the euclidean distance tables for easier calculations
 euci.net = euci[,c(net)]
@@ -72,7 +74,7 @@ for (j in 1:ncol(euci.ext)) {
 Sys.time() - orig}
 
 
-#save off this file for later use ############################################################
+#save off this file for later use ###########################################################
 #saveRDS(object = eucis,file = './euclidean_distance_matrix/remaining_ext_eucis_2km_min.rds')
 eucis = read_rds(file = './euclidean_distance_matrix/remaining_ext_eucis_2km_min.rds')
 
@@ -123,7 +125,7 @@ for (i in 1:length(difs)) {
 
 #add other parts of the dataframe back in
 bars = data.frame(tower.data$site[ext])
-bars$means = meansv*-1
+bars$means = meansv
 bars$country = tower.data$Country[ext]
 
 tower.data$type = paste(tower.data$active,tower.data$methane,tower.data$Season_Activity,sep = '_')
@@ -133,7 +135,7 @@ names(bars)[1] = 'sitename'
 upper.limit = -1*min(bars$means)+0.005
 
 ggplot(data = bars)+theme_bw()+ggtitle('Mean Improvements')+
-  geom_bar(aes(reorder(sitename, -means),means,fill=country),stat = 'identity')+
+  geom_bar(aes(reorder(sitename, -means*-1),means*-1,fill=country),stat = 'identity')+
   scale_y_continuous(expand = c(0,0),limits = c(0,upper.limit),'Mean ED Reduction')+
   scale_x_discrete('Site')+
   scale_fill_brewer(palette = "Spectral")+

@@ -15,19 +15,13 @@ library(cowplot)
 library(ggnewscale)
 
 #load in extracted site data from extraction codes
-tower.data = fread(file = './data/pca.towersv2.csv')
+tower.data = fread(file = './data/pca.towers.upgraded.csv')
 tower.data$active = ifelse(tower.data$site == 'Lutose Rich Fen','inactive',tower.data$active)
-tower.data$Season_Activity = ifelse(tower.data$site == "Lutose" |
-                                      tower.data$site == "Scotty Creek Landscape" |
-                                      tower.data$site == "Steen River" |
-                                      tower.data$site == "Scotty Creek Bog" |
-                                      tower.data$site == "Resolute Bay" |
-                                      tower.data$site == "Smith Creek",
-                                    'All year',tower.data$Season_Activity)
 tower.data$site
 new.sites = subset(tower.data,tower.data$site == "Lutose" |
                      tower.data$site == "Scotty Creek Landscape" |
                      tower.data$site == "Steen River" |
+                     tower.data$site == "Kangiqsuallujjuaq" |
                      tower.data$site == "Scotty Creek Bog" |
                      tower.data$site == "Resolute Bay" |
                      tower.data$site == "Smith Creek" |
@@ -100,7 +94,7 @@ base.plot = ggplot()+theme_map()+
         legend.position = c(0.1,0.05),
         legend.title.position = 'top')+
   annotate(geom = 'text',x = -3093909,y = 3374170,label = 'Base')
-base.plot
+#base.plot
 
 #methane
 methane.plot = ggplot()+theme_map()+
@@ -214,6 +208,10 @@ annual.methane.plot = ggplot()+theme_map()+
 #png(filename = './figures/base.all.4.scenarios.v2_min.png',width = 12,height = 12,units = 'in',res = 1000)
 plot_grid(base.plot,methane.plot,annual.plot,annual.methane.plot)
 #dev.off()
+
+
+
+
 
 #difference plots ##################################################################
 base.dif           = base.ag - improved.base.ag
@@ -364,6 +362,3 @@ annual.methane.plot = ggplot()+theme_map()+
 #png(filename = './figures/base.all.4.scenarios.v2_min.png',width = 12,height = 12,units = 'in',res = 1000)
 plot_grid(base.plot,methane.plot,annual.plot,annual.methane.plot)
 #dev.off()
-
-
-

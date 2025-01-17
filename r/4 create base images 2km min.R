@@ -11,7 +11,7 @@ library(readr)
 library(terra)
 
 #load in extracted site data from extraction codes
-tower.data = fread(file = './data/tower.datav2.csv')
+tower.data = fread(file = './data/pca.towers.base.csv')
 
 #load back in euclidean distance matrix
 euci = read_rds('./euclidean_distance_matrix/euci_2kmv2.rds')
@@ -23,6 +23,7 @@ df = as.data.frame(x = r,xy = T,na.rm = T)
 ##########################################################################
 # BASE
 net = which(tower.data$active == 'active' & tower.data$Start_CO2 < 2022)
+tower.data$site[net]
 euci.net = euci[,c(net)]
 
 #calculate the base network, parallel processing is much slower here

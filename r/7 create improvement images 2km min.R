@@ -11,17 +11,8 @@ library(readr)
 library(terra)
 
 #load in extracted site data from extraction codes
-tower.data = fread(file = './data/pca.towersv2.csv')
-tower.data$active = ifelse(tower.data$site == 'Lutose Rich Fen','inactive',tower.data$active)
-
-#change tower sites we increased to all year coverage
-tower.data$Season_Activity = ifelse(tower.data$site == "Lutose" |
-                                      tower.data$site == "Scotty Creek Landscape" |
-                                      tower.data$site == "Steen River" |
-                                      tower.data$site == "Scotty Creek Bog" |
-                                      tower.data$site == "Resolute Bay" |
-                                      tower.data$site == "Smith Creek",
-                                    'All year',tower.data$Season_Activity)
+tower.data = fread(file = './data/pca.towers.upgraded.csv')
+tower.data$active = ifelse(tower.data$site == 'Lutose Rich Fen', 'inactive',tower.data$active)
 
 #write.csv(x = tower.data,file = './data/improved_pca.towersv2.csv')
 #load back in euclidean distance matrix
@@ -34,6 +25,7 @@ df = as.data.frame(x = r,xy = T,na.rm = T)
 ##########################################################################
 # BASE
 net = which(tower.data$active == 'active')
+tower.data$site[net]
 euci.net = euci[,c(net)]
 
 #calculate the base network, parallel processing is much slower here
@@ -88,6 +80,7 @@ writeRaster(x = methane,filename = './output/improved_methane_2kmv2_min.tif',ove
 ##########################################################################################
 ################ Annual
 net.annual = which(tower.data$active == 'active' & tower.data$Season_Activity == 'All year')
+tower.data$site[net.annual]
 euci.net.annual = euci[,c(net.annual)]
 
 #calculate the base network, parallel processing is much slower here

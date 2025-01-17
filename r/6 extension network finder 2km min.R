@@ -1,7 +1,7 @@
 rm(list = ls())
 rm(list=setdiff(ls(), "euci"))
 gc()
-setwd('EC_rep/')
+#setwd('EC_rep/')
 
 library(readr)
 library(terra)
@@ -13,8 +13,6 @@ library(dplyr)
 library(cowplot)
 library(ggspatial)
 
-# library(kit)
-
 #load back in
 euci = read_rds('./euclidean_distance_matrix/euci_2kmv2.rds')
 
@@ -23,12 +21,12 @@ r = rast('./spatial_data/pca_2km.tif')
 df = as.data.frame(x = r,na.rm = T,xy = T)
 
 #load in extracted site data from extraction codes
-tower.data = fread(file = './data/pca.towersv2.csv')
+tower.data = fread(file = './data/pca.towers.base.csv')
 tower.data$active = ifelse(is.na(tower.data$active),'extension',tower.data$active)
 
 #find columns which are active sites
 net = which(tower.data$active == 'active' & tower.data$Start_CO2 < 2022)
-ext = which(tower.data$active == 'inactive' | tower.data$active == 'extension' | tower.data$Start_CO2 >=2022)
+ext = which(tower.data$active == 'inactive' | tower.data$active == 'extension' | tower.data$Start_CO2 >= 2022)
 
 #create some subsets of the euclidean distance tables for easier calculations
 euci.net = euci[,c(net)]
