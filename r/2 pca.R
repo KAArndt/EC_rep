@@ -9,17 +9,7 @@ library(terra)
 library(data.table)
 library(plyr)
 library(ggplot2)
-
-#library(raster)
-#library(svMisc)
-#library(MASS)
-# library(ggnewscale)
-#library(ggspatial)
-#library(plotrix)
-#library(kit)
-#library(ggthemes)
-#library(sf)
-#library(ggfortify)
+library(ggnewscale)
 
 #load in the stack created in the other file
 r = rast('./spatial_data/spatial_repro.tif')
@@ -99,6 +89,7 @@ ggplot()+theme_bw()+
 #  geom_point(data = pca.ex,aes(x = pc1,y = pc2,fill='Extension Site'),pch=21,size=2)+
   geom_point(data = pca.ice,aes(x = pc1,y = pc2,fill='Iceland'),pch=21,size=2)+
   geom_point(data = pca.cf,aes(x = pc1,y = pc2,fill='Quebec'),pch=21,size=2)+
+  geom_point(data = pca.cf,aes(x = pc1,y = pc2,fill='Mongolia'),pch=21,size=2)+
   scale_fill_manual('',values = c('green','red','orange'))+
   geom_segment(data = PCAloadings, 
                aes(x = 0, y = 0, xend = (PC1*20),yend = (PC2*20)),
@@ -170,8 +161,6 @@ p = predict(r, pca,index = 1:4)
 plot(p)
 
 writeRaster(x = p,filename = './spatial_data/pca.tif',overwrite = T)
-
-
 
 pca.original = pca.t
 
