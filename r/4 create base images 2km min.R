@@ -2,9 +2,6 @@
 #   Code for determining the environmental data space of the possible arctic sites
 #  created by K Arndt July 2022
 ##################################################################################
-rm(list = ls())
-gc()
-setwd('EC_rep/')
 
 library(data.table)
 library(readr)

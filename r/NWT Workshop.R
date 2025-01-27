@@ -48,6 +48,14 @@ countries = rnaturalearth::ne_countries(returnclass = "sf") %>%
   smoothr::densify(max_distance = 1) %>%
   st_transform(crs(base))
 
+states = rnaturalearth::ne_states(returnclass = "sf") %>%
+  st_crop(y = st_bbox(c(xmin = -180, ymin = 44, xmax = 180, ymax = 90))) %>%
+  smoothr::densify(max_distance = 1) %>%
+  st_transform(crs(base))
+
+saveRDS(object = states,file = './spatial_data/states.rds')
+plot(states)
+
 #create aggregates for the plots
 base.ag           = aggregate(x = base,fact = 4,fun = mean,na.rm = T)
 methane.ag        = aggregate(x = methane,fact = 4,fun = mean,na.rm = T)
