@@ -1,5 +1,4 @@
-rm(list = ls())
-gc()
+#rm(list=setdiff(ls(), "euci"))
 
 library(readr)
 library(terra)
@@ -51,9 +50,6 @@ ext = which(tower.data$active == 'inactive' & tower.data$rank < 100)
 #create some subsets of the euclidean distance tables for easier calculations
 euci.net = euci[,c(net)]
 euci.ext = euci[,c(ext)]
-
-rm(euci)
-gc()
 
 #again premaking vectors and matrices of the right length greatly speeds up comp time
 dist = numeric(length = nrow(df)) 

@@ -30,9 +30,9 @@ pca.dt     = data.table(df)
 pca.towers = data.table(tower.data[,c('pc1','pc2','pc3','pc4')])
 
 #pre-populating the whole matrix makes computation time much faster *DO NOT USE A DATAFRAME
-rm(r)
-rm(df)
-gc()
+# rm(r)
+# rm(df)
+# gc()
 
 #initialize the euclid
 euclid = vector(length = nrow(pca.dt))
@@ -43,7 +43,7 @@ cl = makeCluster(cores[1]-1) #assign X less than total cores to leave some proce
 {orig = Sys.time() #start the clock for timing the process
 registerDoSNOW(cl) #register the cores
 
-#run the ED calculations in parallel (~31 minutes with 19 cores on physical cpu)
+#run the ED calculations in parallel (~16 minutes with 30 cores on VM)
 euci = foreach (j = 1:nrow(pca.towers),.verbose = T,.combine = cbind) %dopar% {
    for (i in 1:nrow(pca.dt))  {
       euclid[i] = sqrt((pca.dt$PC1[i]-pca.towers$pc1[j])^2 +
@@ -58,4 +58,4 @@ Sys.time() - orig} #stop the clock
 colnames(euci) = tower.data$site
 
 #save the file, rds saves alot of space
-saveRDS(object = euci,file = './data/euci_2kmv2.rds')
+saveRDS(object = euci,file = './euclidean_distance_matrix/euci_2kmv2.rds')

@@ -1,9 +1,3 @@
-#########################################################################
-#   Code for determining the environmental data space of the possible arctic sites
-#  created by K Arndt July 2022
-##################################################################################
-rm(list = ls())
-gc()
 
 library(data.table)
 library(terra)
@@ -205,9 +199,9 @@ annual.methane.plot = ggplot()+theme_map()+
 
 
 #plot all 4 together
-#png(filename = './figures/base.all.4.scenarios.v2_min.png',width = 12,height = 12,units = 'in',res = 1000)
+png(filename = './figures/improved.all.4.scenarios.v2_min.png',width = 12,height = 12,units = 'in',res = 1000)
 plot_grid(base.plot,methane.plot,annual.plot,annual.methane.plot)
-#dev.off()
+dev.off()
 
 
 

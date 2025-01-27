@@ -85,13 +85,6 @@ for (i in 1:length(dist.rasts)) {
   progress(i,length(dist.rasts))
 }
 
-# #save off difference maps
-# path = paste('./output/difs/',tower.data$site[ext],'_dif.tif',sep = '')
-# #save off rasters
-# for (i in 1:length(difs)) {
-#   writeRaster(x = difs[[i]],filename = path[i],overwrite=T)
-#   progress(i,length(difs))
-# }
 
 #calculate mean improvements
 means = numeric(length = length(difs))
