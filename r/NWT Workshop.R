@@ -195,23 +195,65 @@ annual.methane.plot = ggplot()+theme_map()+
 plot_grid(base.plot,methane.plot,annual.plot,annual.methane.plot)
 #dev.off()
 
-library(rnaturalearth)
-library(rnaturalearthdata)
 
-# NWT
-#world map for plotting
-sf_use_s2(FALSE) #need to run this before next line
-canada = ne_countries(returnclass = "sf",country = "Canada",type = 'map_units') %>%
-  st_crop(y = st_bbox(c(xmin = -180, ymin = 44, xmax = 180, ymax = 90))) %>%
-  smoothr::densify(max_distance = 1) %>%
-  st_transform(crs(base))
+#fire map ########################################################################
+nee = rast('./spatial_data/CO2Fluxes_Arctic_Boreal_NEEfire_2002_2020_avg.tif')
+nee = aggregate(x = nee,fact = 4,fun = mean,na.rm = T)
+nee = project(x = nee,y = crs(base.ag))
+hist(nee)
 
-canada_map <- rnaturalearth::ne_states(country = 'canada', returnclass = "sf")
+pal =  c("#053061" ,"#2166AC" ,"#4393C3", "#92C5DE" ,"#D1E5F0" ,"#F7F7F7" ,"#FDDBC7" ,"#F4A582" ,"#D6604D" ,"#B2182B" ,"#67001F")
+pal =  c("#053061" ,"#2166AC" ,"#4393C3", "#92C5DE"  ,"#F7F7F7" ,"#F4A582" ,"#D6604D" ,"#B2182B" ,"#67001F")
 
-canada = ne_states(returnclass = "sf") %>%
-  st_crop(y = st_bbox(c(xmin = -180, ymin = 44, xmax = 180, ymax = 90))) %>%
-  smoothr::densify(max_distance = 1) %>%
-  st_transform(crs(base))
+ggplot()+theme_map()+
+  geom_sf(data = countries,fill='gray',col='gray40')+
+  layer_spatial(nee)+
+  scale_fill_gradientn('Carbon Exchange',
+                       na.value = 'transparent',
+                       colours = pal,
+                       limits = c(-200,200),
+                       breaks = c(-200,0,200),
+                       labels = c('Sink','Neutral','Source'),
+                       oob = scales::squish)+
+  scale_x_continuous(limits = c(-5093909,4542996))+
+  scale_y_continuous(limits = c(-3687122,4374170))+
+  theme(text = element_text(size = 12),
+        legend.text = element_text(size = 12),
+        axis.title = element_blank(),
+        legend.key.height = unit(x = 0.1,units = 'in'),
+        legend.key.width = unit(x = 0.3,units = 'in'),
+        legend.direction = 'horizontal',
+        legend.position = c(0.05,0.05),
+        legend.title.position = 'top')
 
 
+# NWT ############################################################
+#Canada map for plotting
+canada_map = readRDS('./spatial_data/canada.rds')
+nee = project(x = base.ag,y = crs(canada_map))
 
+plot(nee)
+plot(canada_map)
+
+ggplot()+theme_map()+
+  geom_sf(data = countries,fill='gray',col='gray40')+
+  layer_spatial(nee)+
+  scale_fill_gradientn('Carbon Exchange',
+                       na.value = 'transparent',
+                       colours = pal,
+                       limits = c(-200,200),
+                       breaks = c(-200,0,200),
+                       labels = c('Sink','Neutral','Source'),
+                       oob = scales::squish)+
+  scale_x_continuous(limits = c(-5093909,4542996))+
+  scale_y_continuous(limits = c(-3687122,4374170))+
+  theme(text = element_text(size = 12),
+        legend.text = element_text(size = 12),
+        axis.title = element_blank(),
+        legend.key.height = unit(x = 0.1,units = 'in'),
+        legend.key.width = unit(x = 0.3,units = 'in'),
+        legend.direction = 'horizontal',
+        legend.position = c(0.05,0.05),
+        legend.title.position = 'top')
+
+crs(canada_map)
