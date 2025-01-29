@@ -20,10 +20,10 @@ Mayo,Canada,Yukon,63.62255048,-135.8561558
 Naujaat,Canada,Nunavut,66.52946689,-86.28293502
 Pangnirtung,Canada,Nunavut,66.13331342,-65.75002832
 Port Burwell,Canada,Newfoundland and Labrador,60.26646222,-64.74109766
-Radisson Ecological Research Station,Canada,,53.783729,-77.600231
+Radisson Ecological Research Station,Canada,Quebec,53.783729,-77.600231
 Rankin Inlet,Canada,Nunavut,62.81666831,-92.09531946
 Salluit,Canada,Quebec,62.18259849,-75.65950098
-Schefferville,Canada,,54.8046,-66.8083
+Schefferville,Canada,Quebec,54.8046,-66.8083
 Slave river delta,Canada,Northwest Territories,61.19433115,-113.6512751
 Thaidene Nene,Canada,,62.4161,-110.6894
 Tsiigehtchic,Canada,Northwest Territories,67.43328575,-133.7499862
@@ -48,7 +48,9 @@ Tindfjallajokull,Iceland,NorthEast,64.301012,-19.921179
 Mongolia Meadow steppe,Mongolia,Steppe,49.4857,106.0351
 Khueder,Mongolia,Northeast Taiga,49.682536,107.649645
 Khan Khentii,Mongolia,Northeast Taiga,48.882569,108.88323
-Lake Hubsugul,Mongolia,Northwest Taiga,50.833485,100.617151
+DoodNuur,Mongolia,Northwest Taiga,51.351288,99.300116
+Altraga,Mongolia,Northwest Taiga,50.16626792,98.9872405
+Tugul,Mongolia,Northwest Taiga,50.65211243,99.2273438
 Bergen,Norway,Hordaland,60.39100242,5.324522256
 Enontekio,Norway,,68.833026,23.913137
 Gjovik,Norway,Oppland,60.80002138,10.7000081
@@ -60,7 +62,7 @@ Beringovskiy,Russia,Chukchi Autonomous Okrug,63.0654645,179.3066674
 Boyarka,Russia,Taymyr,70.76698407,97.50003292
 Bugrino,Russia,Nenets,68.80787884,49.30416337
 Chernyshevskii,Russia,Sakha (Yakutia),63.01275454,112.4714188
-Chulman,Russia,,56.817923,124.955189
+Chulman,Russia,South Boreal Sakha,56.817923,124.955189
 Dikson,Russia,Taymyr,73.50697186,80.54509884
 Egvekinot,Russia,Chukchi Autonomous Okrug,66.32213166,-179.1837225
 Eldikan,Russia,Sakha (Yakutia),60.80002138,135.1833142
@@ -70,7 +72,7 @@ Karamken,Russia,Maga Buryatdan,60.20041974,151.166628
 Khatanga,Russia,Taymyr,72.04114402,102.4650012
 Khorgo,Russia,Sakha (Yakutia),73.48330406,113.6300044
 Kovda,Russia,Murmansk,66.690282,32.87023108
-Kular,Russia,,70.6389,134.3528
+Kular,Russia,Sakha (Yakutia),70.6389,134.3528
 Lavrentiya,Russia,Chukchi Autonomous Okrug,65.58326947,-171.0249978
 Logashkino,Russia,Sakha (Yakutia),70.85038983,153.9000012
 Mirnyy,Russia,Sakha (Yakutia),62.54001853,113.9613537
