@@ -94,8 +94,8 @@ for (i in 1:length(dist.rasts)) {
 }
 
 #load back in if not already here #####################################################
-# extpath = list.files(path = './output/remaining_ext',pattern = '*.tif',full.names = T)
-# dist.rasts = lapply(X = extpath,FUN = rast)
+ extpath = list.files(path = './output/remaining_ext',pattern = '*.tif',full.names = T)
+ dist.rasts = lapply(X = extpath,FUN = rast)
 
 #load in the base
 base = rast('./output/improved_base_2kmv2_min.tif')
@@ -127,6 +127,8 @@ bars$country = tower.data$Country[ext]
 tower.data$type = paste(tower.data$active,tower.data$methane,tower.data$Season_Activity,sep = '_')
 bars$type = tower.data$type[ext]
 names(bars)[1] = 'sitename'
+
+bars = fread('./output/meanreduction_remaining.csv')
 
 upper.limit = -1*min(bars$means)+0.005
 

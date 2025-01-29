@@ -1,0 +1,121 @@
+
+# library(data.table)
+library(terra)
+library(sf)
+# library(dplyr)
+ library(ggplot2)
+ library(ggspatial)
+ library(cowplot)
+ library(ggnewscale)
+# library(readr)
+
+#load in NEE data
+nee.f    = rast('./spatial_data/CO2Fluxes_Arctic_Boreal_NEEfire_2002_2020_avg.tif')
+nee      = rast('./r/NWT/CO2Fluxes_Arctic_Boreal_NEE_2002_2020_avg.tif')
+
+#load in data
+states = readRDS(file = './spatial_data/states.rds') #load in states sf file
+states = st_transform(x = states,crs = crs(nee.f))
+can    = subset(states,states$admin == 'Canada')
+nwt    = subset(states,states$name == 'Northwest Territories')
+
+#load in the NEE and crop and mask to Canada
+nee.f.can = crop(x = nee.f,y = ext(can))
+nee.f.can = mask(x = nee.f.can,mask = can)
+
+nee.f.nwt = crop(x = nee.f,y = ext(nwt))
+nee.f.nwt = mask(x = nee.f.nwt,mask = nwt)
+
+#canada calculations
+nee.f.can.df = as.data.frame(nee.f.can,xy=T)
+nee.f.can.df$carbonflux = nee.f.can.df$mean*999.9711
+sum(nee.f.can.df$carbonflux)/10^9
+
+#NWT calculations
+nee.f.nwt.df = as.data.frame(nee.f.nwt,xy=T)
+nee.f.nwt.df$carbonflux = nee.f.nwt.df$mean*999.9711
+sum(nee.f.nwt.df$carbonflux)/10^9
+
+#load in the NEE and crop and mask to Canada
+nee.can = crop(x = nee,y = ext(can))
+nee.can = mask(x = nee.can,mask = can)
+
+nee.nwt = crop(x = nee,y = ext(nwt))
+nee.nwt = mask(x = nee.nwt,mask = nwt)
+
+#canada calculations
+nee.can.df = as.data.frame(nee.can,xy=T)
+nee.can.df$carbonflux = nee.can.df$mean*999.9711
+sum(nee.can.df$carbonflux)/10^9
+
+#NWT calculations
+nee.nwt.df = as.data.frame(nee.nwt,xy=T)
+nee.nwt.df$carbonflux = nee.nwt.df$mean*999.9711
+sum(nee.nwt.df$carbonflux)/10^9
+
+#world map for plotting
+sf_use_s2(FALSE) #need to run this before next line
+countries = rnaturalearth::ne_countries(returnclass = "sf") %>%
+  st_crop(y = st_bbox(c(xmin = -180, ymin = 44, xmax = 180, ymax = 90))) %>%
+  smoothr::densify(max_distance = 1) %>%
+  st_transform(crs(nee.can))
+
+#fire map ########################################################################
+pal =  c("#053061" ,"#2166AC" ,"#4393C3", "#92C5DE" ,"#D1E5F0" ,"#F7F7F7" ,"#FDDBC7" ,"#F4A582" ,"#D6604D" ,"#B2182B" ,"#67001F")
+pal =  c("#053061" ,"#2166AC" , "#92C5DE" ,"#D1E5F0" ,"#F7F7F7" ,"#FDDBC7" ,"#F4A582"  ,"#B2182B" ,"#67001F")
+
+nee.ag = aggregate(x = nee.can,fact = 4,fun='mean',na.rm=T)
+hist(nee.ag)
+
+nee.ll = project(x = nee.can,y = esa.ag)
+nee.ll.ag = aggregate(x = nee.ll,fact = 4,fun='mean',na.rm=T)
+
+nee.f.ll = project(x = nee.f.can,y = esa.ag)
+nee.f.ll.ag = aggregate(x = nee.f.ll,fact = 4,fun='mean',na.rm=T)
+
+can.p = st_transform(x = can,crs = crs(esa.ag))
+
+#
+ggplot()+theme_map()+
+  geom_sf(data = can.p,fill='gray',col='gray40')+
+  layer_spatial(nee.ll.ag)+
+  scale_fill_gradientn('Carbon Exchange',
+                       na.value = 'transparent',
+                       colours = pal,
+                       limits = c(-200,200),
+                       breaks = c(-200,0,200),
+                       labels = c('Sink','Neutral','Source'),
+                       oob = scales::squish)+
+  geom_sf(data = can.p,fill='transparent',col='black')+
+  theme(text = element_text(size = 12),
+        legend.text = element_text(size = 12),
+        axis.title = element_blank(),
+        legend.key.height = unit(x = 0.1,units = 'in'),
+        legend.key.width = unit(x = 0.3,units = 'in'),
+        legend.direction = 'horizontal',
+        legend.position = c(0.05,0.05),
+        legend.title.position = 'top')
+
+hist(nee.f.ll.ag)
+hist(nee.ll.ag)
+
+#fire
+ggplot()+theme_map()+
+  geom_sf(data = can.p,fill='gray',col='gray40')+
+  layer_spatial(nee.f.ll.ag)+
+  scale_fill_gradientn('Carbon Exchange',
+                       na.value = 'transparent',
+                       colours = pal,
+                       limits = c(-200,200),
+                       breaks = c(-200,0,200),
+                       labels = c('Sink','Neutral','Source'),
+                       oob = scales::squish)+
+  geom_sf(data = can.p,fill='transparent',col='black')+
+  theme(text = element_text(size = 12),
+        legend.text = element_text(size = 12),
+        axis.title = element_blank(),
+        legend.key.height = unit(x = 0.1,units = 'in'),
+        legend.key.width = unit(x = 0.3,units = 'in'),
+        legend.direction = 'horizontal',
+        legend.position = c(0.05,0.05),
+        legend.title.position = 'top')
