@@ -33,6 +33,7 @@ euci.ext = euci[,c(ext)]
 dist = numeric(length = nrow(df)) 
 eucis = matrix(nrow = nrow(df),ncol = ncol(euci.ext))
 temp.euci = matrix(nrow = nrow(df),ncol = ncol(euci.net)+1)
+num = 2
 
 #parallel processing also much slower here
 {orig = Sys.time()
@@ -40,7 +41,7 @@ for (j in 1:ncol(euci.ext)) {
   #create a temp matrix with the base distances and the site of interest
   temp.euci = cbind(euci.net[,1:ncol(euci.net)],euci.ext[,j]) 
   for (i in 1:nrow(df)) {
-     dist[i] = min(temp.euci[i,])
+    dist[i]    = mean(temp.euci[i,topn(vec = temp.euci[i,],n = num,decreasing = F,hasna = F)])
   }
   eucis[,j] = dist
   progress(j,ncol(euci.ext))
@@ -48,8 +49,8 @@ for (j in 1:ncol(euci.ext)) {
 Sys.time() - orig}
 
 #save off this file for later use ############################################################
-#saveRDS(object = eucis,file = './euclidean_distance_matrix/ext_eucis_2km_min.rds')
-eucis = read_rds(file = './euclidean_distance_matrix/ext_eucis_2km_min.rds')
+#saveRDS(object = eucis,file = './euclidean_distance_matrix/ext_eucis_2km_mean.rds')
+eucis = read_rds(file = './euclidean_distance_matrix/ext_eucis_2km_mean.rds')
 
 #create rasters
 dist.rasts = list()
@@ -62,7 +63,7 @@ for (i in 1:ncol(eucis)) {
 }
 
 #create a path of file names
-path = paste('./output/ext/',tower.data$site[ext],'.tif',sep = '')
+path = paste('./output/ext/mean/',tower.data$site[ext],'.tif',sep = '')
 #save off rasters
 for (i in 1:length(dist.rasts)) {
   writeRaster(x = dist.rasts[[i]],filename = path[i],overwrite=T)
@@ -70,11 +71,11 @@ for (i in 1:length(dist.rasts)) {
 }
 
 #load back in if not already here #####################################################
-extpath = list.files(path = './output/ext',pattern = '*.tif',full.names = T)
-dist.rasts = lapply(X = extpath,FUN = rast)
+# extpath = list.files(path = './output/ext/mean/',pattern = '*.tif',full.names = T)
+# dist.rasts = lapply(X = extpath,FUN = rast)
 
 #load in the base
-base = rast('./output/base_2kmv2_min.tif')
+base = rast('./output/base_2kmv2_mean.tif')
 
 difs = list()
 for (i in 1:length(dist.rasts)) {
@@ -117,13 +118,13 @@ ggplot(data = top)+theme_bw()+ggtitle('Mean Improvements')+
         legend.position = c(0.5,0.9),
         legend.direction = 'horizontal')
 
-write.csv(x = bars,file = './output/meanreduction.csv',row.names = F)
+write.csv(x = bars,file = './output/meanreduction_mean.csv',row.names = F)
 
 ########################################################################################################
-bars = fread('./output/meanreduction.csv')
+bars = fread('./output/meanreduction_mean.csv')
 top = subset(bars,bars$means < mean(bars$means))
 
-png(filename = './figures/barplot_reduction.png',width = 6,height = 3,units = 'in',res = 2000)
+png(filename = './figures/barplot_reduction_mean.png',width = 6,height = 3,units = 'in',res = 2000)
 ggplot(data = bars)+theme_bw()+ggtitle('Mean Improvements')+
   geom_bar(aes(reorder(sitename, -means*-1),means*-1,fill=country),stat = 'identity')+
   scale_y_continuous(expand = c(0,0),limits = c(0,upper.limit),'Mean Rep. Improvement')+
@@ -182,7 +183,7 @@ progress(value = i,max.value = length(dif.ag))
 
 #plot all the files here, takes awhile
 for (i in 1:length(dif.ag)) {
-  png(filename = paste('./output/difs/',extention.towers$site[i],'.png',sep = ''),width = 4,height = 4,units = 'in',res = 100)
+  png(filename = paste('./output/difs/mean/',extention.towers$site[i],'.png',sep = ''),width = 4,height = 4,units = 'in',res = 100)
   print(plot_list[[i]])
   dev.off()
   progress(value = i,max.value = length(dif.ag))

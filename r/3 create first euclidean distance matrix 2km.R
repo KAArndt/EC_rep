@@ -1,9 +1,3 @@
-#########################################################################
-#   Code for determining the environmental data space of the possible arctic sites
-#  created by K Arndt July 2022
-##################################################################################
-rm(list = ls())
-setwd('EC_rep/')
 
 library(terra)
 library(data.table)
@@ -28,11 +22,6 @@ df = as.data.frame(x = r,xy = T,na.rm = T)
 #convert data.frames to data.tables which process faster in loops
 pca.dt     = data.table(df)
 pca.towers = data.table(tower.data[,c('pc1','pc2','pc3','pc4')])
-
-#pre-populating the whole matrix makes computation time much faster *DO NOT USE A DATAFRAME
-# rm(r)
-# rm(df)
-# gc()
 
 #initialize the euclid
 euclid = vector(length = nrow(pca.dt))
