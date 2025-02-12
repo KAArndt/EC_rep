@@ -1,13 +1,10 @@
 
-#library(data.table)
 library(terra)
 library(sf)
-#library(dplyr)
 library(ggplot2)
 library(ggspatial)
 library(cowplot)
 library(ggnewscale)
-#library(readr)
 
 #load in NEE data
 nee.f    = rast('./spatial_data/CO2Fluxes_Arctic_Boreal_NEEfire_2002_2020_avg.tif')
