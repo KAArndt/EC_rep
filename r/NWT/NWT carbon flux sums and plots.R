@@ -30,13 +30,13 @@ nee.f.nwt = mask(x = nee.f.nwt,mask = nwt)
 
 #Calculate Canada budget
 nee.f.can.df = as.data.frame(nee.f.can,xy=T)
-nee.f.can.df$carbonflux = nee.f.can.df$mean*999.9711
-sum(nee.f.can.df$carbonflux)/10^9
+nee.f.can.df$carbonflux = nee.f.can.df$mean*(999.9711^2)
+sum(nee.f.can.df$carbonflux)/10^12
 
 #Calculate NWT budget
 nee.f.nwt.df = as.data.frame(nee.f.nwt,xy=T)
-nee.f.nwt.df$carbonflux = nee.f.nwt.df$mean*999.9711
-sum(nee.f.nwt.df$carbonflux)/10^9
+nee.f.nwt.df$carbonflux = nee.f.nwt.df$mean*(999.9711^2)
+sum(nee.f.nwt.df$carbonflux)/10^12
 
 # WITHOUT FIRE
 #load in the NEE and crop and mask to Canada and NWT
@@ -48,13 +48,13 @@ nee.nwt = mask(x = nee.nwt,mask = nwt)
 
 #Calculate Canada budget
 nee.can.df = as.data.frame(nee.can,xy=T)
-nee.can.df$carbonflux = nee.can.df$mean*999.9711
-sum(nee.can.df$carbonflux)/10^9
+nee.can.df$carbonflux = nee.can.df$mean*(999.9711^2)
+sum(nee.can.df$carbonflux)/10^12
 
 #Calculate NWT budget
 nee.nwt.df = as.data.frame(nee.nwt,xy=T)
-nee.nwt.df$carbonflux = nee.nwt.df$mean*999.9711
-sum(nee.nwt.df$carbonflux)/10^9
+nee.can.df$carbonflux = nee.can.df$mean*(999.9711^2)
+sum(nee.nwt.df$carbonflux)/10^12
 
 # PLOTS #######################################################################
 #load in ESA land cover layer for the projection
