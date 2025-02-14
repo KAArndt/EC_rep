@@ -65,7 +65,7 @@ names(r) = c("MeanTemp","Precip","PrecipSeasonality","MeanDiurnalRange",
 p = predict(r, pca,index = 1:4)
 plot(p)
 
-writeRaster(x = p,filename = './spatial_data/pca.tif',overwrite = T)
+writeRaster(x = p,filename = './spatial_data/pca_extended.tif',overwrite = T)
 
 pca.original = pca.t
 
@@ -113,6 +113,7 @@ ggplot()+theme_bw()+
   new_scale_fill()+
   geom_point(data = pca.ta,aes(x = pc1,y = pc2,fill='Active Site'),pch=21,size=2)+
   #  geom_point(data = pca.ex,aes(x = pc1,y = pc2,fill='Extension Site'),pch=21,size=2)+
+  geom_point(data = pca.ice,aes(x = pc1,y = pc2,fill='Iceland'),pch=21,size=2)+
   geom_point(data = pca.cf,aes(x = pc1,y = pc2,fill='Quebec'),pch=21,size=2)+
   geom_point(data = pca.mon,aes(x = pc1,y = pc2,fill='Mongolia'),pch=21,size=2)+
   scale_fill_manual('',values = c('green','red','orange','pink'))+
@@ -160,7 +161,7 @@ ggplot(data = pca.r)+theme_bw()+
   geom_point(data = pca.mon,aes(x = MeanTemp,y = Precip,fill='Mongolia'),pch=21,size=2)+
   scale_fill_manual('',values = c('cyan','red','orange','pink'))
   
-pca.r$NDVIsum
+
 ggplot(data = pca.r)+theme_bw()+
   geom_hex(aes(NDVIsum,MeanDiurnalRange),bins=150)+
   new_scale_fill()+
@@ -168,4 +169,14 @@ ggplot(data = pca.r)+theme_bw()+
   geom_point(data = pca.ice,aes(x = NDVIsum,y = MeanDiurnalRange,fill='Iceland'),pch=21,size=2)+
   geom_point(data = pca.cf,aes(x = NDVIsum,y = MeanDiurnalRange,fill='Quebec'),pch=21,size=2)+
   geom_point(data = pca.mon,aes(x = NDVIsum,y = MeanDiurnalRange,fill='Mongolia'),pch=21,size=2)+
+  scale_fill_manual('',values = c('cyan','red','orange','pink'))
+
+
+ggplot(data = pca.r)+theme_bw()+
+  geom_hex(aes(CDensity,SWIRaug),bins=150)+
+  new_scale_fill()+
+  geom_point(data = pca.ta,aes(x = CDensity,y = SWIRaug,fill='Active Site'),pch=21,size=2)+
+  geom_point(data = pca.ice,aes(x = CDensity,y = SWIRaug,fill='Iceland'),pch=21,size=2)+
+  geom_point(data = pca.cf,aes(x = CDensity,y = SWIRaug,fill='Quebec'),pch=21,size=2)+
+  geom_point(data = pca.mon,aes(x = CDensity,y = SWIRaug,fill='Mongolia'),pch=21,size=2)+
   scale_fill_manual('',values = c('cyan','red','orange','pink'))
