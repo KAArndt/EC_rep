@@ -12,40 +12,40 @@ mong = subset(ext,ext$Country == "Mongolia")
 pp = rast('./spatial_data/pfrost/UiO_PEX_PERPROB_5.0_20181128_2000_2016_NH/UiO_PEX_PERPROB_5.0_20181128_2000_2016_NH.tif')
 
 #base Extrapolation index image from TNC shapefile
-# eco = vect('./spatial_data/terr-ecoregions-TNC/tnc_terr_ecoregions.shp')
-# 
+eco = vect('./spatial_data/terr-ecoregions-TNC/tnc_terr_ecoregions.shp')
+
 # #subset to rock and ice and tundra and boreal
-# eco = subset(eco,eco$WWF_MHTNAM == 'Rock and Ice' | 
-#                eco$WWF_MHTNAM   == 'Tundra' |
-#                eco$WWF_MHTNAM   == 'Boreal Forests/Taiga' |
-#                eco$ECO_NAME     == 'Sayan Alpine Meadows And Tundra' |
-#                eco$ECO_NAME     == 'Sayan Montane Conifer Forests' |
-#                eco$ECO_NAME     == 'South Siberian Forest Steppe' |
-#                eco$ECO_NAME     == 'Western Siberian Hemiboreal Forests' |
-#                eco$ECO_NAME     == 'Da Hinggan-Dzhagdy Mountains Conifer Forests' |
-#                eco$ECO_NAME     == 'Daurian Forest Steppe' |
-#                eco$ECO_NAME     == 'Eastern Canadian Forest-Boreal Transition' |
-#                eco$ECO_NAME     ==  'Alberta-British Columbia Foothills Forests' |
-#                eco$ECO_NAME     ==  'Sayan Intermontane Steppe'
-#              )
+eco = subset(eco,eco$WWF_MHTNAM == 'Rock and Ice' |
+               eco$WWF_MHTNAM   == 'Tundra' |
+               eco$WWF_MHTNAM   == 'Boreal Forests/Taiga'
+               # eco$ECO_NAME     == 'Sayan Alpine Meadows And Tundra' |
+               # eco$ECO_NAME     == 'Sayan Montane Conifer Forests' |
+               # eco$ECO_NAME     == 'South Siberian Forest Steppe' |
+               # eco$ECO_NAME     == 'Western Siberian Hemiboreal Forests' |
+               # eco$ECO_NAME     == 'Da Hinggan-Dzhagdy Mountains Conifer Forests' |
+               # eco$ECO_NAME     == 'Daurian Forest Steppe' |
+               # eco$ECO_NAME     == 'Eastern Canadian Forest-Boreal Transition' |
+               # eco$ECO_NAME     ==  'Alberta-British Columbia Foothills Forests' |
+               # eco$ECO_NAME     ==  'Sayan Intermontane Steppe'
+             )
 
 #ecoregions2017
-eco = vect('./spatial_data/Ecoregions2017/Ecoregions2017.shp')
+# eco = vect('./spatial_data/Ecoregions2017/Ecoregions2017.shp')
+# 
+# eco = subset(eco,eco$BIOME_NAME == 'Rock and Ice' | 
+#                eco$BIOME_NAME   == 'Tundra' |
+#                eco$BIOME_NAME   == 'Boreal Forests/Taiga' |
+#                eco$ECO_NAME     == 'Sayan alpine meadows and tundra' |
+#                eco$ECO_NAME     == 'Sayan montane conifer forests' |
+#                eco$ECO_NAME     == 'South Siberian forest steppe' |
+#                eco$ECO_NAME     == 'Western Siberian hemiboreal forests' |
+#                eco$ECO_NAME     == 'Da Hinggan-Dzhagdy Mountains conifer forests' |
+#                eco$ECO_NAME     == 'Daurian forest steppe' |
+#                eco$ECO_NAME     == 'Eastern Canadian Forest-Boreal transition' |
+#                eco$ECO_NAME     ==  'Alberta-British Columbia foothills forests' |
+#                eco$ECO_NAME     ==  'Sayan Intermontane steppe')
 
-eco = subset(eco,eco$BIOME_NAME == 'Rock and Ice' | 
-               eco$BIOME_NAME   == 'Tundra' |
-               eco$BIOME_NAME   == 'Boreal Forests/Taiga' |
-               eco$ECO_NAME     == 'Sayan alpine meadows and tundra' |
-               eco$ECO_NAME     == 'Sayan montane conifer forests' |
-               eco$ECO_NAME     == 'South Siberian forest steppe' |
-               eco$ECO_NAME     == 'Western Siberian hemiboreal forests' |
-               eco$ECO_NAME     == 'Da Hinggan-Dzhagdy Mountains conifer forests' |
-               eco$ECO_NAME     == 'Daurian forest steppe' |
-               eco$ECO_NAME     == 'Eastern Canadian Forest-Boreal transition' |
-               eco$ECO_NAME     ==  'Alberta-British Columbia foothills forests' |
-               eco$ECO_NAME     ==  'Sayan Intermontane steppe')
-
-
+eco$ECO_NAME
 #crop to the northern regions
 eco = crop(x = eco,y = c(-180, 180, 40, 83.6236))
 eco = project(x = eco,y = pp)
@@ -75,8 +75,7 @@ ggplot()+
   geom_point(data = mong,aes(x = x,y = y),col='red')
 
 
-
-#load in the differeneconomics#load in the different data files
+#load in the different data files
 clim  = rast('./spatial_data/climate.tif')
 clim = subset(clim,subset = -c(2,3,5,6,8:11,15,16,18,19)) #subset down to layers we want to save space
 modis = rast('./spatial_data/modis.tif')

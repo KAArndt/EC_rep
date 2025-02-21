@@ -6,7 +6,7 @@ library(ggplot2)
 library(ggnewscale)
 
 #load in the stack created in the other file
-r = rast('./spatial_data/spatial_repro_extended.tif')
+r = rast('./spatial_data/spatial_repro.tif')
 
 #load in extracted site data from extraction codes
 tower.data = fread(file = './data/extracted_tower_data.csv')
@@ -65,7 +65,7 @@ names(r) = c("MeanTemp","Precip","PrecipSeasonality","MeanDiurnalRange",
 p = predict(r, pca,index = 1:4)
 plot(p)
 
-writeRaster(x = p,filename = './spatial_data/pca_extended.tif',overwrite = T)
+writeRaster(x = p,filename = './spatial_data/pca.tif',overwrite = T)
 
 pca.original = pca.t
 
