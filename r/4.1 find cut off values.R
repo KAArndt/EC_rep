@@ -1,4 +1,3 @@
-rm(list = ls())
 
 library(data.table)
 library(raster)
@@ -16,7 +15,7 @@ library(dplyr)
 #devtools::install_github('SEEG-Oxford/seegSDM')
 
 #load in sites
-tower.data = fread(file = './data/pca.towersv2.csv')
+tower.data = fread(file = './data/pca.towers.base.csv')
 active = subset(tower.data,tower.data$active == 'active' & tower.data$Start_CO2 < 2022)
 
 #set just the coordinates for the extract
@@ -59,8 +58,7 @@ dfs = active %>%
 dfs
 
 #load in base image
-#base = rast('./output/base_2kmv2.tif')
-base = rast('./output/base_2kmv2_min.tif')
+base = rast('./output/base_2kmv2_mean.tif')
 all = c(base,clust)
 alldf = as.data.frame(x = all)
 
@@ -79,7 +77,7 @@ summary(er4$base.dist)[5]
 hist(er4$base.dist)
 
 #mean
-#the final cut offs are 1.xx and 1.xx for ER1 and ER4 2 mean WOULD NEED TO RE-DO
+#the final cut offs are 1.69 and 1.50 for ER1 and ER4 2 mean
 
 #minimum
-#the final cut offs are 1.54 and 1.43 for ER1 and ER4 minimum
+#the final cut offs are 1.xx and 1.xx for ER1 and ER4 minimum, need to redo with pleistocene park
