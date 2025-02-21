@@ -11,7 +11,7 @@ tower.data = fread(file = './data/pca.towers.base.csv')
 euci = read_rds('./euclidean_distance_matrix/euci_2kmv2.rds')
 
 #load in the other spatial data
-r = rast('./spatial_data/pca_2km.tif')
+r = rast('./spatial_data/pca_2km_extended.tif')
 df = as.data.frame(x = r,xy = T,na.rm = T)
 
 ##########################################################################

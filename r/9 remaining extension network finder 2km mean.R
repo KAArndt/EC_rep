@@ -14,7 +14,7 @@ library(ggspatial)
 euci = read_rds('./euclidean_distance_matrix/euci_2kmv2.rds')
 
 #load in the stack created in the other file
-r = rast('./spatial_data/pca_2km.tif')
+r = rast('./spatial_data/pca_2km_extended.tif')
 df = as.data.frame(x = r,na.rm = T,xy = T)
 
 #load in extracted site data from extraction codes
@@ -27,7 +27,7 @@ ranks = read.csv(file = './output/meanreduction_mean.csv')
 ranks$rank = rank(x = ranks$means)
 names(ranks)[1] = 'site'
 top.limit = max(ranks$means*-1)+0.005
-top = subset(ranks,ranks$rank<150)
+top = subset(ranks,ranks$rank<100)
 
 ggplot(data = top)+theme_bw()+ggtitle('Mean Improvements')+
   geom_bar(aes(reorder(site, -means*-1),means*-1,fill=country),stat = 'identity')+
@@ -44,7 +44,7 @@ tower.data = tower.data[order(tower.data$order),]
 
 #find columns which are active sites
 net = which(tower.data$active == 'active')
-ext = which(tower.data$active == 'inactive' & tower.data$rank < 150)
+ext = which(tower.data$active == 'inactive' & tower.data$rank < 100)
 
 #create some subsets of the euclidean distance tables for easier calculations
 euci.net = euci[,c(net)]
@@ -129,7 +129,6 @@ bars$type = tower.data$type[ext]
 names(bars)[1] = 'sitename'
 
 #bars = fread('./output/meanreduction_remaining_mean.csv')
-
 upper.limit = -1*min(bars$means)+0.005
 
 ggplot(data = bars)+theme_bw()+ggtitle('Mean Improvements')+
@@ -148,7 +147,7 @@ bars = fread('./output/meanreduction_remaining_mean.csv')
 
 png(filename = './figures/barplot_reduction_remaining_mean.png',width = 6,height = 3,units = 'in',res = 2000)
 ggplot(data = bars)+theme_bw()+ggtitle('Mean Improvements')+
-  geom_bar(aes(reorder(sitename, -means),means,fill=country),stat = 'identity')+
+  geom_bar(aes(reorder(sitename, -means*-1),means*-1,fill=country),stat = 'identity')+
   scale_y_continuous(expand = c(0,0),limits = c(0,upper.limit),'Mean ED Reduction')+
   scale_x_discrete('Site')+
   scale_fill_brewer(palette = "Spectral")+

@@ -14,7 +14,7 @@ library(ggspatial)
 euci = read_rds('./euclidean_distance_matrix/euci_2kmv2.rds')
 
 #load in the stack created in the other file
-r = rast('./spatial_data/pca_2km.tif')
+r = rast('./spatial_data/pca_2km_extended.tif')
 df = as.data.frame(x = r,na.rm = T,xy = T)
 
 #load in extracted site data from extraction codes
@@ -82,7 +82,6 @@ for (i in 1:length(dist.rasts)) {
   difs[[i]] = dist.rasts[[i]] - base$base.dist
   progress(i,length(dist.rasts))
 }
-
 
 #calculate mean improvements
 means = numeric(length = length(difs))
