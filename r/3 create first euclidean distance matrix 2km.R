@@ -6,11 +6,12 @@ library(doParallel)
 library(doSNOW)
 
 #load in the stack created in the other file
-r = rast('./spatial_data/pca_extended.tif')
+#r = rast('./spatial_data/pca_extended.tif')
+r = rast('./spatial_data/pca_2km.tif')
 
 #aggregate the raster to save dataspace
-r = terra::aggregate(x = r,fact = 2,fun = 'mean',cores=10,na.rm=T)
-writeRaster(x = r,filename = './spatial_data/pca_2km_extended.tif')
+#r = terra::aggregate(x = r,fact = 2,fun = 'mean',cores=10,na.rm=T)
+#writeRaster(x = r,filename = './spatial_data/pca_2km_extended.tif')
 
 #load in extracted site data from extraction codes
 tower.data = fread(file = './data/pca.towers.base.csv')
