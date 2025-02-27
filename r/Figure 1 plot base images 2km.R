@@ -15,7 +15,7 @@ base           = rast('./output/base_2kmv2_mean.tif')
 methane        = rast('./output/methane_2kmv2_mean.tif')
 annual         = rast('./output/annual_2kmv2_mean.tif')
 annual.methane = rast('./output/annual_methane_2kmv2_mean.tif')
-
+base
 #base = base/minmax(base)[2] #use this to rescale from 0-1
 
 #world map for plotting
