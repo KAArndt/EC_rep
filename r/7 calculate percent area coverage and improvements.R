@@ -1,21 +1,19 @@
-rm(list = ls())
-gc()
 
 library(terra)
 library(dplyr)
 
 #load in the base network and improvement map
-base   = rast('./output/base_2kmv2_min.tif')
-base.i = rast('./output/improved_base_2kmv2_min.tif')
+base   = rast('./output/base_2kmv2_mean.tif')
+base.i = rast('./output/improved_base_2kmv2_mean.tif')
 
-meth   = rast('./output/methane_2kmv2_min.tif')
-meth.i = rast('./output/improved_methane_2kmv2_min.tif')
+meth   = rast('./output/methane_2kmv2_mean.tif')
+meth.i = rast('./output/improved_methane_2kmv2_mean.tif')
 
-annu   = rast('./output/annual_2kmv2_min.tif')
-annu.i = rast('./output/improved_annual_2kmv2_min.tif')
+annu   = rast('./output/annual_2kmv2_mean.tif')
+annu.i = rast('./output/improved_annual_2kmv2_mean.tif')
 
-anme   = rast('./output/annual_methane_2kmv2_min.tif')
-anme.i = rast('./output/improved_annual_methane_2kmv2_min.tif')
+anme   = rast('./output/annual_methane_2kmv2_mean.tif')
+anme.i = rast('./output/improved_annual_methane_2kmv2_mean.tif')
 
 #load in clusters
 clust = rast('./output/clusts.tif')
@@ -28,13 +26,13 @@ names(all) = c('base','base.i','meth','meth.i','annu','annu.i','anme','anme.i','
 df = as.data.frame(x = all)
 summary(df)
 
-#the cutoff values from the previous exercises (step 4)
-# er1 = 1.67
-# er4 = 1.56
+#the cutoff values from the previous exercises (step 4, mean)
+er1 = 1.69
+er4 = 1.5
 
 #the cutoff values from the previous exercises (step 4, minimum)
-er1 = 1.54
-er4 = 1.43
+# er1 = 1.54
+# er4 = 1.43
 
 #set 1 for meets cutoff and 0 for does not
 df$base.er1 = ifelse(df$base <= er1,1,0)
@@ -113,20 +111,19 @@ summary = df %>%
 write.csv(x = summary,file = './output/improvements.csv')
 summary
 
-# % area well covered area
-pi = sum(df$base.i.er1) - sum(df$base.er1)
-pi*3.43
+#count number of towers
+base.towers = fread('./data/pca.towers.base.csv')
+new.towers  = fread('./data/pca.towers.upgraded.csv')
 
-# area with some increase
-sum(df$all)*3.43*.37
+base.t           = subset(base.towers,base.towers$active == 'active' & base.towers$Start_CO2 < 2022)
+methane.t        = subset(base.towers,base.towers$active == 'active' & base.towers$Start_CO2 < 2022 
+                          & base.towers$methane == 'methane')
+annual.t         = subset(base.towers,base.towers$active == 'active' & base.towers$Start_CO2 < 2022 
+                          & base.towers$Season_Activity == 'All year')
+annual.methane.t = subset(base.towers,base.towers$active == 'active' & base.towers$Start_CO2 < 2022 
+                          & base.towers$Season_Activity == 'All year' & base.towers$methane == 'methane')
 
-
-sum(df$change)
-sum(df$base.dist)
-sum(df$improve)/sum(df$base.dist)
-
-all$dif = all$improve - all$base.dist
-
-plot(all$dif)
-
-
+base.t.new                = subset(new.towers,new.towers$active == 'active')
+methane.t.new        = subset(new.towers,new.towers$active == 'active' & new.towers$methane == 'methane')
+annual.t.new         = subset(new.towers,new.towers$active == 'active' & new.towers$Season_Activity == 'All year')
+annual.methane.t.new = subset(new.towers,new.towers$active == 'active' & new.towers$Season_Activity == 'All year' & new.towers$methane == 'methane')
