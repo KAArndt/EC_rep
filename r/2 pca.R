@@ -69,28 +69,30 @@ writeRaster(x = p,filename = './spatial_data/pca.tif',overwrite = T)
 
 pca.original = pca.t
 
-pca.original$active = ifelse(tower.data$site == 'Lutose Rich Fen','inactive',tower.data$active)
-pca.original$active = ifelse(tower.data$site == 'Council (NGEE Arctic)','inactive',tower.data$active)
-pca.original$Season_Activity = ifelse(tower.data$site == 'Resolute Bay','All year',tower.data$Season_Activity)
+pca.original$active = ifelse(pca.original$site == 'Scotty Creek Landscape','inactive',pca.original$active)
+pca.original$active = ifelse(pca.original$site == 'Lutose Rich Fen','inactive',pca.original$active)
+pca.original$active = ifelse(pca.original$site == 'Council (NGEE Arctic)','inactive',pca.original$active)
+pca.original$Season_Activity = ifelse(pca.original$site == 'Resolute Bay','All year',pca.original$Season_Activity)
 
 write.csv(x = pca.original,file = './data/pca.towers.base.csv',row.names = F)
           
 pca.upgraded = pca.t
 
 #change tower sites we increased to all year coverage
-pca.upgraded$Season_Activity = ifelse(tower.data$site == "Lutose" |
-                                      tower.data$site == "Scotty Creek Landscape" |
-                                      tower.data$site == "Steen River" |
-                                      tower.data$site == "Scotty Creek Bog" |
-                                      tower.data$site == "Smith Creek",
-                                    'All year',tower.data$Season_Activity)
+pca.upgraded$Season_Activity = ifelse(pca.upgraded$site == "Lutose" |
+                                        pca.upgraded$site == "Scotty Creek Landscape" |
+                                        pca.upgraded$site == "Steen River" |
+                                        pca.upgraded$site == "Scotty Creek Bog" |
+                                        pca.upgraded$site == "Resolute Bay" |
+                                        pca.upgraded$site == "Smith Creek",
+                                    'All year',pca.upgraded$Season_Activity)
+
+pca.upgraded$active = ifelse(pca.upgraded$site == 'Council (NGEE Arctic)','inactive',pca.upgraded$active)
+pca.upgraded$active = ifelse(pca.upgraded$site == 'Lutose Rich Fen','inactive',pca.upgraded$active)
+
 write.csv(x = pca.upgraded,file = './data/pca.towers.upgraded.csv',row.names = F)
 
 #PCA plots #############################################################
-pca.ice = subset(pca.ex,pca.ex$Country == 'Iceland')
-pca.cf = subset(pca.ex,pca.ex$site == 'CEF cluster')
-pca.mon = subset(pca.ex,pca.ex$Country == 'Mongolia')
-
 #PC 1 & 2
 ggplot()+theme_bw()+
   geom_hex(data = pca.r,aes(x = pc1,y = pc2),bins = 150)+

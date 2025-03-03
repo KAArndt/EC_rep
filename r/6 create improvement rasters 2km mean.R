@@ -6,7 +6,6 @@ library(kit)
 
 #load in extracted site data from extraction codes
 tower.data = fread(file = './data/pca.towers.upgraded.csv')
-tower.data$active = ifelse(tower.data$site == 'Lutose Rich Fen', 'inactive',tower.data$active)
 
 #write.csv(x = tower.data,file = './data/improved_pca.towersv2.csv')
 #load back in euclidean distance matrix
@@ -16,9 +15,9 @@ euci = read_rds('./euclidean_distance_matrix/euci_2kmv2.rds')
 r = rast('./spatial_data/pca_2km.tif')
 df = as.data.frame(x = r,xy = T,na.rm = T)
 
-##########################################################################
 num = 2
 
+##########################################################################
 # BASE
 net = which(tower.data$active == 'active')
 tower.data$site[net]
