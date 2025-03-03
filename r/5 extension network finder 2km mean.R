@@ -32,22 +32,40 @@ euci.ext = euci[,c(ext)]
 
 #again pre-making vectors and matrices of the right length greatly speeds up comp time
 dist = numeric(length = nrow(df)) 
-eucis = matrix(nrow = nrow(df),ncol = ncol(euci.ext))
+#eucis = matrix(nrow = nrow(df),ncol = ncol(euci.ext))
 temp.euci = matrix(nrow = nrow(df),ncol = ncol(euci.net)+1)
 num = 2
 
 #parallel processing also much slower here
-{orig = Sys.time()
-for (j in 1:ncol(euci.ext)) {
-  #create a temp matrix with the base distances and the site of interest
-  temp.euci = cbind(euci.net[,1:ncol(euci.net)],euci.ext[,j]) 
-  for (i in 1:nrow(df)) {
-    dist[i]    = mean(temp.euci[i,topn(vec = temp.euci[i,],n = num,decreasing = F,hasna = F)])
-  }
-  eucis[,j] = dist
-  progress(j,ncol(euci.ext))
-}
-Sys.time() - orig}
+library(foreach)
+library(doParallel)
+library(doSNOW)
+
+#setup parallel back end to use many processors
+cores = detectCores()        #detect the number of cores
+cl = makeCluster(10) #assign X less than total cores to leave some processing for other tasks
+{orig = Sys.time() #start the clock for timing the process
+  registerDoSNOW(cl) #register the cores
+  eucis = foreach (j = 1:ncol(euci.ext),.verbose = T,.combine = cbind,.packages = c('kit')) %dopar% {
+    temp.euci = cbind(euci.net[,1:ncol(euci.net)],euci.ext[,j]) 
+    for (i in 1:nrow(euci.net)) {
+      dist[i]    = mean(temp.euci[i,topn(vec = temp.euci[i,],n = num,decreasing = F,hasna = F)])
+    }
+    dist}
+  stopCluster(cl) #stop the clusters
+  Sys.time() - orig}
+    
+
+#   for (j in 1:ncol(euci.ext)) {
+#   #create a temp matrix with the base distances and the site of interest
+#   temp.euci = cbind(euci.net[,1:ncol(euci.net)],euci.ext[,j]) 
+#   for (i in 1:nrow(df)) {
+#     dist[i]    = mean(temp.euci[i,topn(vec = temp.euci[i,],n = num,decreasing = F,hasna = F)])
+#   }
+#   eucis[,j] = dist
+#   progress(j,ncol(euci.ext))
+# }
+# Sys.time() - orig}
 
 #save off this file for later use ############################################################
 #saveRDS(object = eucis,file = './euclidean_distance_matrix/ext_eucis_2km_mean.rds')

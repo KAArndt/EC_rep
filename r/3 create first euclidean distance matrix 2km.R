@@ -15,6 +15,7 @@ r = rast('./spatial_data/pca_2km.tif')
 
 #load in extracted site data from extraction codes
 tower.data = fread(file = './data/pca.towers.base.csv')
+tower.data$active = ifelse(tower.data$site == 'Scotty Creek Landscape' | tower.data$site == 'Council (NGEE Arctic)','inactive',tower.data$active)
 
 #create data frame from PCAs
 df = as.data.frame(x = r,xy = T,na.rm = T)
@@ -30,7 +31,7 @@ euclid = vector(length = nrow(pca.dt))
 
 #setup parallel back end to use many processors
 cores = detectCores()        #detect the number of cores
-cl = makeCluster(cores[1]-1) #assign X less than total cores to leave some processing for other tasks
+cl = makeCluster(100) #assign X less than total cores to leave some processing for other tasks
 {orig = Sys.time() #start the clock for timing the process
 registerDoSNOW(cl) #register the cores
 
