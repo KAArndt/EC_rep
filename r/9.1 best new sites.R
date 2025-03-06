@@ -49,7 +49,7 @@ tower.data$active  = ifelse(tower.data$site == "Yessey",'active',tower.data$acti
 
 #find columns which are active sites
 net = which(tower.data$active == 'active')
-ext = which(tower.data$active == 'inactive' & tower.data$rank < 70)
+ext = which(tower.data$active == 'inactive' & tower.data$rank <= 100)
 
 #create some subsets of the euclidean distance tables for easier calculations
 euci.net = euci[,c(net)]
@@ -77,7 +77,8 @@ plot(base,range=c(0,4.5))
 points(towers,col='red')
 
 #save the base here
-writeRaster(x = base,filename = './output/improved_base_2kmv2_mean_Yessey1.tif',overwrite = T)
+#writeRaster(x = base,filename = './output/improved_base_2kmv2_mean_Yessey1.tif',overwrite = T)
+base = rast('./output/improved_base_2kmv2_mean_Yessey1.tif')
 
 #again premaking vectors and matrices of the right length greatly speeds up comp time
 dist = numeric(length = nrow(df)) 
@@ -118,18 +119,6 @@ for (i in 1:ncol(eucis)) {
   dist.rasts[[i]] = rast(x = tempdf,type = 'xyz',crs = crs(r))
   progress(i,ncol(eucis))
 }
-
-#create a path of file names
-path = paste('./output/remaining_ext/1_yessey_added/',tower.data$site[ext],'.tif',sep = '')
-#save off rasters
-for (i in 1:length(dist.rasts)) {
-  writeRaster(x = dist.rasts[[i]],filename = path[i],overwrite=T)
-  progress(i,length(dist.rasts))
-}
-
-#load back in if not already here #####################################################
-# extpath = list.files(path = './output/remaining_ext/mean/',pattern = '*.tif',full.names = T)
-# dist.rasts = lapply(X = extpath,FUN = rast)
 
 #load in the base
 base = rast('./output/improved_base_2kmv2_mean_Yessey1.tif')

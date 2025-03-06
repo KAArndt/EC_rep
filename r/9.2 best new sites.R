@@ -108,7 +108,7 @@ cl = makeCluster(10) #assign number of cores
 
 #save off this file for later use ###########################################################
 #saveRDS(object = eucis,file = './euclidean_distance_matrix/ext_eucis_2km_mean_2_khankentii.rds')
-eucis = read_rds(file = './euclidean_distance_matrix/ext_eucis_2km_mean_1_yessey.rds')
+eucis = read_rds(file = './euclidean_distance_matrix/ext_eucis_2km_mean_2_khankentii.rds')
 
 #create rasters
 dist.rasts = list()
@@ -120,20 +120,9 @@ for (i in 1:ncol(eucis)) {
   progress(i,ncol(eucis))
 }
 
-#create a path of file names
-path = paste('./output/remaining_ext/2_khentii/',tower.data$site[ext],'.tif',sep = '')
-#save off rasters
-for (i in 1:length(dist.rasts)) {
-  writeRaster(x = dist.rasts[[i]],filename = path[i],overwrite=T)
-  progress(i,length(dist.rasts))
-}
-
-#load back in if not already here #####################################################
-# extpath = list.files(path = './output/remaining_ext/mean/',pattern = '*.tif',full.names = T)
-# dist.rasts = lapply(X = extpath,FUN = rast)
 
 #load in the base
-base = rast('./output/improved_base_2kmv2_mean_khentii_2.tif')
+base = rast('./output/improved_base_2kmv2_mean_khan_kentii_2.tif')
 
 difs = list()
 for (i in 1:length(dist.rasts)) {
