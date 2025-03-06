@@ -8,9 +8,10 @@ library(doSNOW)
 #load in the stack created in the other file
 r = rast('./spatial_data/pca_2km.tif')
 
-#aggregate the raster to save dataspace
-#r = terra::aggregate(x = r,fact = 2,fun = 'mean',cores=10,na.rm=T)
-#writeRaster(x = r,filename = './spatial_data/pca_2km_extended.tif')
+#aggregate the raster to save data space
+# r = rast('./spatial_data/pca.tif')
+# r = terra::aggregate(x = r,fact = 2,fun = 'mean',cores=10,na.rm=T)
+# writeRaster(x = r,filename = './spatial_data/pca_2km.tif',overwrite=T)
 
 #load in extracted site data from extraction codes, can be base or upgraded since active, methane etc doesn't matter here
 tower.data = fread(file = './data/pca.towers.base.csv')
@@ -29,7 +30,7 @@ euclid = vector(length = nrow(pca.dt))
 
 #setup parallel back end to use many processors
 cores = detectCores()        #detect the number of cores
-cl = makeCluster(90) #assign number of cores
+cl = makeCluster(cores-1) #assign number of cores
 {orig = Sys.time() #start the clock for timing the process
 registerDoSNOW(cl) #register the cores
 

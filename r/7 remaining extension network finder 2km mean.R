@@ -28,7 +28,7 @@ names(ranks)[1] = 'site'
 top.limit = max(ranks$means*-1)+0.005
 top = subset(ranks,ranks$rank<100)
 
-ggplot(data = top)+theme_bw()+ggtitle('Mean Improvements')+
+ggplot(data = ranks)+theme_bw()+ggtitle('Mean Improvements')+
   geom_bar(aes(reorder(site, -means*-1),means*-1,fill=country),stat = 'identity')+
   scale_y_continuous(expand = c(0,0),limits = c(0,top.limit),'Mean ED Reduction')+
   scale_x_discrete('Site')+
@@ -102,13 +102,13 @@ for (i in 1:ncol(eucis)) {
   progress(i,ncol(eucis))
 }
 
-#create a path of file names
-path = paste('./output/remaining_ext/mean/',tower.data$site[ext],'.tif',sep = '')
-#save off rasters
-for (i in 1:length(dist.rasts)) {
-  writeRaster(x = dist.rasts[[i]],filename = path[i],overwrite=T)
-  progress(i,length(dist.rasts))
-}
+# #create a path of file names
+# path = paste('./output/remaining_ext/mean/',tower.data$site[ext],'.tif',sep = '')
+# #save off rasters
+# for (i in 1:length(dist.rasts)) {
+#   writeRaster(x = dist.rasts[[i]],filename = path[i],overwrite=T)
+#   progress(i,length(dist.rasts))
+# }
 
 #load back in if not already here #####################################################
  # extpath = list.files(path = './output/remaining_ext/mean/',pattern = '*.tif',full.names = T)
