@@ -43,7 +43,7 @@ library(doSNOW)
 
 #setup parallel back end to use many processors
 cores = detectCores()        #detect the number of cores
-cl = makeCluster(12) #assign number of cores
+cl = makeCluster(10) #assign number of cores
 {orig = Sys.time() #start the clock for timing the process
   registerDoSNOW(cl) #register the cores
   eucis = foreach (j = 1:ncol(euci.ext),.verbose = T,.combine = cbind,.packages = c('kit')) %dopar% {
@@ -68,7 +68,7 @@ cl = makeCluster(12) #assign number of cores
 
 #save off this file for later use ############################################################
 #saveRDS(object = eucis,file = './euclidean_distance_matrix/ext_eucis_2km_methane.rds')
-eucis = read_rds(file = './euclidean_distance_matrix/ext_eucis_2km_methane.rds')
+#eucis = read_rds(file = './euclidean_distance_matrix/ext_eucis_2km_methane.rds')
 
 #create rasters
 dist.rasts = list()
@@ -81,7 +81,7 @@ for (i in 1:ncol(eucis)) {
 }
 
 #load in the base
-base = rast('./output/improved_methane_2kmv2_mean.tif')
+base = rast('./output/improved_network/improved_methane_2kmv2_mean.tif')
 
 difs = list()
 for (i in 1:length(dist.rasts)) {
@@ -121,7 +121,6 @@ ggplot(data = bars)+theme_bw()+ggtitle('Mean Improvements')+
         legend.position = c(0.5,0.9),
         legend.direction = 'horizontal')
 
-write.csv(x = bars,file = './output/meanreduction_methane.csv',row.names = F)
-
+write.csv(x = bars,file = './output/reductions/meanreduction_methane.csv',row.names = F)
 
 ###############################################################################################

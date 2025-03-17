@@ -22,7 +22,7 @@ tower.data = fread(file = './data/pca.towers.upgraded.csv')
 tower.data$order = seq(1,361) #important for merging back the tower order
 
 #ranking of sites
-ranks = read.csv(file = './output/meanreduction_mean.csv')
+ranks = read.csv(file = './output/reductions/meanreduction_mean.csv')
 ranks$rank = rank(x = ranks$means)
 names(ranks)[1] = 'site'
 top.limit = max(ranks$means*-1)+0.005
@@ -115,7 +115,7 @@ for (i in 1:ncol(eucis)) {
  # dist.rasts = lapply(X = extpath,FUN = rast)
 
 #load in the base
-base = rast('./output/improved_base_2kmv2_mean.tif')
+base = rast('./output/improved_network/improved_base_2kmv2_mean.tif')
 
 difs = list()
 for (i in 1:length(dist.rasts)) {
@@ -157,7 +157,7 @@ ggplot(data = bars)+theme_bw()+ggtitle('Mean Improvements')+
         legend.position = c(0.5,0.9),
         legend.direction = 'horizontal')
 
-write.csv(x = bars,file = './output/meanreduction_remaining_mean.csv',row.names = F)
+write.csv(x = bars,file = './output/reductions/meanreduction_remaining_mean.csv',row.names = F)
 
 ########################################################################################################
 # bars = fread('./output/meanreduction_remaining_mean.csv')
@@ -176,51 +176,51 @@ write.csv(x = bars,file = './output/meanreduction_remaining_mean.csv',row.names 
 #################################################################################################
 #save off difference maps
 #aggregate all the difference plots
-dif.ag = lapply(X = difs,FUN = aggregate,fact = 5,fun = mean,na.rm = T)
-
-#plot difference maps
-sf_use_s2(FALSE) #need to run this before next line
-countries = rnaturalearth::ne_countries(returnclass = "sf") %>%
-  st_crop(y = st_bbox(c(xmin = -180, ymin = 44, xmax = 180, ymax = 90))) %>%
-  smoothr::densify(max_distance = 1) %>%
-  st_transform(crs(base))
-
-#plot the figure
-pal = c('#FEEDB9','#E88D7A','#72509A','#8AABD6','#F2F7FB')
-extention.towers = tower.data[ext]
-
-plot_list = list()
-for (i in 1:length(dif.ag)) {
-  p = ggplot()+theme_map()+
-    geom_sf(data = countries,fill='gray',col='gray40')+
-    layer_spatial(dif.ag[[i]])+
-    scale_fill_gradientn('Improvement',
-                         na.value = 'transparent',
-                         colours = pal,
-                         limits = c(-1,0),
-                         breaks = c(-1,-0.5,0),
-                         labels = c('High','Low','None'),
-                         oob = scales::squish)+
-    geom_point(aes(extention.towers$x[i],extention.towers$y[i]),col='black',show.legend = F)+
-    scale_x_continuous(limits = c(-5093909,4542996))+
-    scale_y_continuous(limits = c(-3687122,4374170))+
-    theme(text = element_text(size = 8),
-          legend.text = element_text(size = 8),
-          axis.title = element_blank(),
-          legend.key.height = unit(x = 0.1,units = 'in'),
-          legend.key.width = unit(x = 0.3,units = 'in'),
-          legend.direction = 'horizontal',
-          legend.position = c(0.1,0.05),
-          legend.title.position = 'top')+
-    annotate(geom = 'text',x = -3093909,y = 3374170,label = extention.towers$site[i])
-  plot_list[[i]] = p
-  progress(value = i,max.value = length(dif.ag))
-}
-
-#plot all the files here, takes awhile
-for (i in 1:length(dif.ag)) {
-  png(filename = paste('./output/remaining_difs/mean/',extention.towers$site[i],'.png',sep = ''),width = 4,height = 4,units = 'in',res = 100)
-  print(plot_list[[i]])
-  dev.off()
-  progress(value = i,max.value = length(dif.ag))
-}
+# dif.ag = lapply(X = difs,FUN = aggregate,fact = 5,fun = mean,na.rm = T)
+# 
+# #plot difference maps
+# sf_use_s2(FALSE) #need to run this before next line
+# countries = rnaturalearth::ne_countries(returnclass = "sf") %>%
+#   st_crop(y = st_bbox(c(xmin = -180, ymin = 44, xmax = 180, ymax = 90))) %>%
+#   smoothr::densify(max_distance = 1) %>%
+#   st_transform(crs(base))
+# 
+# #plot the figure
+# pal = c('#FEEDB9','#E88D7A','#72509A','#8AABD6','#F2F7FB')
+# extention.towers = tower.data[ext]
+# 
+# plot_list = list()
+# for (i in 1:length(dif.ag)) {
+#   p = ggplot()+theme_map()+
+#     geom_sf(data = countries,fill='gray',col='gray40')+
+#     layer_spatial(dif.ag[[i]])+
+#     scale_fill_gradientn('Improvement',
+#                          na.value = 'transparent',
+#                          colours = pal,
+#                          limits = c(-1,0),
+#                          breaks = c(-1,-0.5,0),
+#                          labels = c('High','Low','None'),
+#                          oob = scales::squish)+
+#     geom_point(aes(extention.towers$x[i],extention.towers$y[i]),col='black',show.legend = F)+
+#     scale_x_continuous(limits = c(-5093909,4542996))+
+#     scale_y_continuous(limits = c(-3687122,4374170))+
+#     theme(text = element_text(size = 8),
+#           legend.text = element_text(size = 8),
+#           axis.title = element_blank(),
+#           legend.key.height = unit(x = 0.1,units = 'in'),
+#           legend.key.width = unit(x = 0.3,units = 'in'),
+#           legend.direction = 'horizontal',
+#           legend.position = c(0.1,0.05),
+#           legend.title.position = 'top')+
+#     annotate(geom = 'text',x = -3093909,y = 3374170,label = extention.towers$site[i])
+#   plot_list[[i]] = p
+#   progress(value = i,max.value = length(dif.ag))
+# }
+# 
+# #plot all the files here, takes awhile
+# for (i in 1:length(dif.ag)) {
+#   png(filename = paste('./output/remaining_difs/mean/',extention.towers$site[i],'.png',sep = ''),width = 4,height = 4,units = 'in',res = 100)
+#   print(plot_list[[i]])
+#   dev.off()
+#   progress(value = i,max.value = length(dif.ag))
+# }

@@ -22,16 +22,12 @@ df = as.data.frame(x = r,na.rm = T,xy = T)
 tower.data = fread(file = './data/pca.towers.upgraded.csv')
 
 #First addition ############################################################################################
-tower.data$order = seq(1,361) #important for merging back the tower order
-
 #ranking of sites
-ranks = read.csv(file = './output/reductions/meanreduction_remaining_mean_1_yessey.csv')
-ranks$rank = rank(x = ranks$means)
+ranks = read.csv(file = './output/reductions/meanreduction_remaining_annual_4_spaskaya.csv')
 names(ranks)[1] = 'site'
 top.limit = max(ranks$means*-1)+0.005
-top = subset(ranks,ranks$rank<100)
 
-ggplot(data = top)+theme_bw()+ggtitle('Mean Improvements')+
+ggplot(data = ranks)+theme_bw()+ggtitle('Mean Improvements')+
   geom_bar(aes(reorder(site, -means*-1),means*-1,fill=country),stat = 'identity')+
   scale_y_continuous(expand = c(0,0),limits = c(0,top.limit),'Mean ED Reduction')+
   scale_x_discrete('Site')+
@@ -40,17 +36,16 @@ ggplot(data = top)+theme_bw()+ggtitle('Mean Improvements')+
         legend.position = c(0.5,0.9),
         legend.direction = 'horizontal')
 
-tower.data = merge(tower.data,ranks,by = 'site',all.x=T)
-tower.data$active = ifelse(is.na(tower.data$active),'inactive',tower.data$active)
-tower.data = tower.data[order(tower.data$order),]
-
 #add the #1 site
-tower.data$active  = ifelse(tower.data$site == "Yessey" |
-                            tower.data$site == 'Khan Khentii','active',tower.data$active)
+tower.data$Season_Activity  = ifelse(tower.data$site == "Tura" |
+                                     tower.data$site == "Bonanza Creek, 1987 Burn site near Delta Junction" |
+                                     tower.data$site == 'Cape Bounty' |
+                                     tower.data$site == "Spasskaya Pad (experimental forest)"  |
+                                     tower.data$site == 'Groundhog River','All year',tower.data$Season_Activity)
 
 #find columns which are active sites
-net = which(tower.data$active == 'active')
-ext = which(tower.data$active == 'inactive' & tower.data$rank < 100)
+net = which(tower.data$active == 'active' & tower.data$Season_Activity == 'All year')
+ext = which(tower.data$active == 'active' & tower.data$Season_Activity != 'All year')
 
 #create some subsets of the euclidean distance tables for easier calculations
 euci.net = euci[,c(net)]
@@ -73,12 +68,19 @@ base = rast(x = basedf,type = 'xyz',crs = crs(r))
 base.towers = tower.data[net,]
 towers = vect(x = base.towers,geom=c("x", "y"), crs=crs(r))
 
-hist(base)
+#load the last image
+last = rast('./output/improved_network/annual/improved_annual_4_spaskaya.tif')
+
+dif = last - base
 plot(base,range=c(0,4.5))
 points(towers,col='red')
 
+plot(dif,range=c(-0.0001,1))
+points(towers,col='red')
+
 #save the base here
-writeRaster(x = base,filename = './output/improved_network/next_five_sites/improved_base_2kmv2_mean_khan_kentii_2.tif',overwrite = T)
+writeRaster(x = base,filename = './output/improved_network/annual/improved_annual_5_groundhogriver.tif',overwrite = T)
+#base = rast('./output/improved_network/annual/improved_annual_2_1987bonanza.tif')
 
 #again premaking vectors and matrices of the right length greatly speeds up comp time
 dist = numeric(length = nrow(df)) 
@@ -93,7 +95,7 @@ library(doSNOW)
 
 #setup parallel back end to use many processors
 cores = detectCores()        #detect the number of cores
-cl = makeCluster(10) #assign number of cores
+cl = makeCluster(12) #assign number of cores
 {orig = Sys.time() #start the clock for timing the process
   registerDoSNOW(cl) #register the cores
   eucis = foreach (j = 1:ncol(euci.ext),.verbose = T,.combine = cbind,.packages = c('kit')) %dopar% {
@@ -105,10 +107,9 @@ cl = makeCluster(10) #assign number of cores
   stopCluster(cl) #stop the clusters
   Sys.time() - orig}
 
-
 #save off this file for later use ###########################################################
-#saveRDS(object = eucis,file = './euclidean_distance_matrix/ext_eucis_2km_mean_2_khankentii.rds')
-#eucis = read_rds(file = './euclidean_distance_matrix/ext_eucis_2km_mean_2_khankentii.rds')
+#saveRDS(object = eucis,file = './euclidean_distance_matrix/ext_eucis_methane_1_tura.rds')
+#eucis = read_rds(file = './euclidean_distance_matrix/ext_eucis_methane_1_tura.rds')
 
 #create rasters
 dist.rasts = list()
@@ -120,9 +121,8 @@ for (i in 1:ncol(eucis)) {
   progress(i,ncol(eucis))
 }
 
-
 #load in the base
-#base = rast('./output/improved_base_2kmv2_mean_khan_kentii_2.tif')
+base = rast('./output/improved_network/annual/improved_annual_5_groundhogriver.tif')
 
 difs = list()
 for (i in 1:length(dist.rasts)) {
@@ -164,7 +164,7 @@ ggplot(data = bars)+theme_bw()+ggtitle('Mean Improvements')+
         legend.position = c(0.5,0.9),
         legend.direction = 'horizontal')
 
-write.csv(x = bars,file = './output/reductions/meanreduction_remaining_mean_2_khentii.csv',row.names = F)
+write.csv(x = bars,file = './output/reductions/meanreduction_remaining_annual_5_groundhogriver.csv',row.names = F)
 
 #################################################################################################
 #save off difference maps
@@ -212,7 +212,7 @@ write.csv(x = bars,file = './output/reductions/meanreduction_remaining_mean_2_kh
 # 
 # #plot all the files here, takes awhile
 # for (i in 1:length(dif.ag)) {
-#   png(filename = paste('./output/remaining_difs/2_khentii/',extention.towers$site[i],'.png',sep = ''),width = 4,height = 4,units = 'in',res = 100)
+#   png(filename = paste('./output/remaining_difs/1_yessey/',extention.towers$site[i],'.png',sep = ''),width = 4,height = 4,units = 'in',res = 100)
 #   print(plot_list[[i]])
 #   dev.off()
 #   progress(value = i,max.value = length(dif.ag))
