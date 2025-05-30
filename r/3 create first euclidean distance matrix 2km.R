@@ -5,16 +5,15 @@ library(foreach)
 library(doParallel)
 library(doSNOW)
 
-#load in the stack created in the other file
-r = rast('./spatial_data/pca_2km.tif')
-
-#aggregate the raster to save data space
-# r = rast('./spatial_data/pca.tif')
-# r = terra::aggregate(x = r,fact = 2,fun = 'mean',cores=10,na.rm=T)
-# writeRaster(x = r,filename = './spatial_data/pca_2km.tif',overwrite=T)
-
 #load in extracted site data from extraction codes, can be base or upgraded since active, methane etc doesn't matter here
 tower.data = fread(file = './data/pca.towers.base.csv')
+
+ext = subset(tower.data,tower.data$active != 'active' | is.na(tower.data$active))
+can = subset(ext,ext$Country == 'Canada')
+
+
+ggplot(data = ext)+
+  geom_bar(aes(Country))
 
 #create data frame from PCAs
 df = as.data.frame(x = r,xy = T,na.rm = T)

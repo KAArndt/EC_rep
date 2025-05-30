@@ -12,7 +12,7 @@ tower.data$active = ifelse(is.na(tower.data$active),'extension',tower.data$activ
 
 #load in the base image for the plot
 base = rast('./output/base_network/base_2kmv2_mean.tif')
-
+base
 ########################################################################################################
 bars = fread('./output/reductions/meanreduction_mean.csv')
 upper.limit = -1*min(bars$means)+0.005
