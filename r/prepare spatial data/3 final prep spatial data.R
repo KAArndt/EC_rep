@@ -9,7 +9,7 @@ ext = fread('./data/extracted_tower_data.csv')
 mong = subset(ext,ext$Country == "Mongolia")
 
 #load in the permafrost layer
-pp = rast('./spatial_data/pfrost/UiO_PEX_PERPROB_5.0_20181128_2000_2016_NH/UiO_PEX_PERPROB_5.0_20181128_2000_2016_NH.tif')
+pp = rast('./spatial_data/UiO_PEX_PERPROB_5.0_20181128_2000_2016_NH.tif')
 
 #base Extrapolation index image from TNC shapefile
 eco = vect('./spatial_data/terr-ecoregions-TNC/tnc_terr_ecoregions.shp')
