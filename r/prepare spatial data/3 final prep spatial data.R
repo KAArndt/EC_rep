@@ -5,19 +5,16 @@ library(ggspatial)
 library(ggplot2)
 library(sf)
 
-ext = fread('./data/extracted_tower_data.csv')
-mong = subset(ext,ext$Country == "Mongolia")
-
 #load in the permafrost layer
 pp = rast('./spatial_data/UiO_PEX_PERPROB_5.0_20181128_2000_2016_NH.tif')
 
 #base Extrapolation index image from TNC shapefile
-eco = vect('./spatial_data/terr-ecoregions-TNC/tnc_terr_ecoregions.shp')
-
-# #subset to rock and ice and tundra and boreal
-eco = subset(eco,eco$WWF_MHTNAM == 'Rock and Ice' |
-               eco$WWF_MHTNAM   == 'Tundra' |
-               eco$WWF_MHTNAM   == 'Boreal Forests/Taiga'
+# eco = vect('./spatial_data/terr-ecoregions-TNC/tnc_terr_ecoregions.shp')
+# 
+# # #subset to rock and ice and tundra and boreal
+# eco = subset(eco,eco$WWF_MHTNAM == 'Rock and Ice' |
+#                eco$WWF_MHTNAM   == 'Tundra' |
+#                eco$WWF_MHTNAM   == 'Boreal Forests/Taiga'
                # eco$ECO_NAME     == 'Sayan Alpine Meadows And Tundra' |
                # eco$ECO_NAME     == 'Sayan Montane Conifer Forests' |
                # eco$ECO_NAME     == 'South Siberian Forest Steppe' |
@@ -30,22 +27,21 @@ eco = subset(eco,eco$WWF_MHTNAM == 'Rock and Ice' |
              )
 
 #ecoregions2017
-# eco = vect('./spatial_data/Ecoregions2017/Ecoregions2017.shp')
-# 
-# eco = subset(eco,eco$BIOME_NAME == 'Rock and Ice' | 
-#                eco$BIOME_NAME   == 'Tundra' |
-#                eco$BIOME_NAME   == 'Boreal Forests/Taiga' |
-#                eco$ECO_NAME     == 'Sayan alpine meadows and tundra' |
-#                eco$ECO_NAME     == 'Sayan montane conifer forests' |
-#                eco$ECO_NAME     == 'South Siberian forest steppe' |
-#                eco$ECO_NAME     == 'Western Siberian hemiboreal forests' |
-#                eco$ECO_NAME     == 'Da Hinggan-Dzhagdy Mountains conifer forests' |
-#                eco$ECO_NAME     == 'Daurian forest steppe' |
-#                eco$ECO_NAME     == 'Eastern Canadian Forest-Boreal transition' |
-#                eco$ECO_NAME     ==  'Alberta-British Columbia foothills forests' |
-#                eco$ECO_NAME     ==  'Sayan Intermontane steppe')
+eco = vect('./spatial_data/Ecoregions2017/Ecoregions2017.shp')
 
-eco$ECO_NAME
+eco = subset(eco,eco$BIOME_NAME == 'Rock and Ice' |
+               eco$BIOME_NAME   == 'Tundra' |
+               eco$BIOME_NAME   == 'Boreal Forests/Taiga')
+               # eco$ECO_NAME     == 'Sayan alpine meadows and tundra' |
+               # eco$ECO_NAME     == 'Sayan montane conifer forests' |
+               # eco$ECO_NAME     == 'South Siberian forest steppe' |
+               # eco$ECO_NAME     == 'Western Siberian hemiboreal forests' |
+               # eco$ECO_NAME     == 'Da Hinggan-Dzhagdy Mountains conifer forests' |
+               # eco$ECO_NAME     == 'Daurian forest steppe' |
+               # eco$ECO_NAME     == 'Eastern Canadian Forest-Boreal transition' |
+               # eco$ECO_NAME     ==  'Alberta-British Columbia foothills forests' |
+               # eco$ECO_NAME     ==  'Sayan Intermontane steppe')
+
 #crop to the northern regions
 eco = crop(x = eco,y = c(-180, 180, 40, 83.6236))
 eco = project(x = eco,y = pp)
@@ -55,7 +51,6 @@ pp = crop(x = pp,y = eco)
 pp = mask(x = pp,mask = eco)
 
 plot(pp)
-points(mong$x,mong$y,pch=16)
 
 #world map for plotting
 sf_use_s2(FALSE) #need to run this before next line
@@ -136,4 +131,4 @@ final[is.na(final$MeanTemp)] = NA #worldclim
 final[is.na(final$ndwimin)] = NA #MODIS
 final[is.na(final$mirsaug)] = NA #MODIS
 
-writeRaster(x = final,filename = './spatial_data/spatial_repro_extended.tif',overwrite = T)
+writeRaster(x = final,filename = './spatial_data/spatial_repro.tif',overwrite = T)

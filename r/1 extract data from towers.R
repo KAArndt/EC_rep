@@ -62,7 +62,7 @@ soildat$site = towers.and.ext$site
 
 #permafrost #########################################################################
 #load in the stack created in the other files
-pp = rast('./spatial_data/pfrost/UiO_PEX_PERPROB_5.0_20181128_2000_2016_NH/UiO_PEX_PERPROB_5.0_20181128_2000_2016_NH.tif')
+pp = rast('./spatial_data/UiO_PEX_PERPROB_5.0_20181128_2000_2016_NH.tif')
 perm = project(x = pp,y = clim)
 
 #extract data

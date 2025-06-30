@@ -72,7 +72,6 @@ pca.original = pca.t
 pca.original$active = ifelse(pca.original$site == 'Scotty Creek Landscape','inactive',pca.original$active)
 pca.original$active = ifelse(pca.original$site == 'Lutose Rich Fen','inactive',pca.original$active)
 pca.original$active = ifelse(pca.original$site == 'Council (NGEE Arctic)','inactive',pca.original$active)
-pca.original$Season_Activity = ifelse(pca.original$site == 'Resolute Bay','All year',pca.original$Season_Activity)
 
 write.csv(x = pca.original,file = './data/pca.towers.base.csv',row.names = F)
           
