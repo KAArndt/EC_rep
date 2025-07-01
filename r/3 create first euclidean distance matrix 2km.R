@@ -42,4 +42,4 @@ Sys.time() - orig} #stop the clock
 colnames(euci) = tower.data$site
 
 #save the file, rds saves alot of space
-saveRDS(object = euci,file = './euclidean_distance_matrix/euci_2kmv2.rds')
+saveRDS(object = euci,file = './euclidean_distance_matrix/euci_2km.rds')

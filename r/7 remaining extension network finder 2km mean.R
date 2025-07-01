@@ -19,10 +19,10 @@ df = as.data.frame(x = r,na.rm = T,xy = T)
 
 #load in extracted site data from extraction codes
 tower.data = fread(file = './data/pca.towers.upgraded.csv')
-tower.data$order = seq(1,361) #important for merging back the tower order
+tower.data$order = seq(1,length(tower.data$MeanTemp)) #important for merging back the tower order
 
 #ranking of sites
-ranks = read.csv(file = './output/reductions/meanreduction_mean.csv')
+ranks = read.csv(file = './output/reductions/meanreduction.csv')
 ranks$rank = rank(x = ranks$means)
 names(ranks)[1] = 'site'
 top.limit = max(ranks$means*-1)+0.005
@@ -43,7 +43,7 @@ tower.data = tower.data[order(tower.data$order),]
 
 #find columns which are active sites
 net = which(tower.data$active == 'active')
-ext = which(tower.data$active == 'inactive' & tower.data$rank <= 100)
+ext = which(tower.data$active == 'inactive' & tower.data$rank <= 107)
 
 #create some subsets of the euclidean distance tables for easier calculations
 euci.net = euci[,c(net)]

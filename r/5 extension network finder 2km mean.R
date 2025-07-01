@@ -12,7 +12,7 @@ library(ggspatial)
 library(kit)
 
 #load back in
-euci = read_rds('./euclidean_distance_matrix/euci_2kmv2.rds')
+euci = read_rds('./euclidean_distance_matrix/euci_2km.rds')
 
 #load in the stack created in the other file
 r = rast('./spatial_data/pca_2km.tif')
@@ -123,7 +123,7 @@ ggplot(data = top)+theme_bw()+ggtitle('Mean Improvements')+
         legend.position = c(0.5,0.9),
         legend.direction = 'horizontal')
 
-write.csv(x = bars,file = './output/meanreduction_mean.csv',row.names = F)
+write.csv(x = bars,file = './output/reductions/meanreduction.csv',row.names = F)
 
 ########################################################################################
 #aggregate all the difference plots
