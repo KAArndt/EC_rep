@@ -65,7 +65,13 @@ names(r) = c("MeanTemp","Precip","PrecipSeasonality","MeanDiurnalRange",
 p = predict(r, pca,index = 1:4)
 plot(p)
 
+p = rast('./spatial_data/pca.tif')
 writeRaster(x = p,filename = './spatial_data/pca.tif',overwrite = T)
+
+p2 = aggregate(x = p,fact = 2,fun = mean,na.rm = T)
+writeRaster(x = p2,filename = './spatial_data/pca_2km.tif',overwrite = T)
+
+
 
 pca.original = pca.t
 

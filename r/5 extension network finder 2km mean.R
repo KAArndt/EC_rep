@@ -43,7 +43,7 @@ library(doSNOW)
 
 #setup parallel back end to use many processors
 cores = detectCores()        #detect the number of cores
-cl = makeCluster(10) #assign number of cores
+cl = makeCluster(12) #assign number of cores
 {orig = Sys.time() #start the clock for timing the process
   registerDoSNOW(cl) #register the cores
   eucis = foreach (j = 1:ncol(euci.ext),.verbose = T,.combine = cbind,.packages = c('kit')) %dopar% {
@@ -67,8 +67,8 @@ cl = makeCluster(10) #assign number of cores
 # Sys.time() - orig}
 
 #save off this file for later use ############################################################
-#saveRDS(object = eucis,file = './euclidean_distance_matrix/ext_eucis_2km_mean.rds')
-eucis = read_rds(file = './euclidean_distance_matrix/ext_eucis_2km_mean.rds')
+#saveRDS(object = eucis,file = './euclidean_distance_matrix/ext_eucis_2km.rds')
+eucis = read_rds(file = './euclidean_distance_matrix/ext_eucis_2km.rds')
 
 #create rasters
 dist.rasts = list()
@@ -81,7 +81,7 @@ for (i in 1:ncol(eucis)) {
 }
 
 #load in the base
-base = rast('./output/base_2kmv2_mean.tif')
+base = rast('./output/base_network/base_2kmv2.tif')
 
 difs = list()
 for (i in 1:length(dist.rasts)) {

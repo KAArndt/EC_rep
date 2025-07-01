@@ -58,11 +58,10 @@ dfs = active %>%
 dfs
 
 #load in base image
-base = rast('./output/base_2kmv2_mean.tif')
+base = rast('./output/base_2km.tif')
 all = c(base,clust)
 alldf = as.data.frame(x = all)
 
-dfs4 = subset(dfs,dfs$count >= 4)
 
 er1 = merge(dfs,alldf,by = 'cluster',all = T)
 er1 = er1[complete.cases(er1$count),]
@@ -70,6 +69,7 @@ er1 = er1[complete.cases(er1$count),]
 summary(er1$base.dist)[5]
 hist(er1$base.dist)
 
+dfs4 = subset(dfs,dfs$count == 4)
 er4 = merge(dfs4,alldf,by = 'cluster',all = T)
 er4 = er4[complete.cases(er4$count),]
 

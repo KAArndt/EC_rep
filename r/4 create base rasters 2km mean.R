@@ -42,7 +42,7 @@ towers = vect(x = base.towers,geom=c("x", "y"), crs=crs(r))
 # points(towers,col='red')
 
 #save the base here
-writeRaster(x = base,filename = './output/base_2kmv2_mean.tif',overwrite = T)
+writeRaster(x = base,filename = './output/base_network/base_2kmv2.tif',overwrite = T)
 
 #######################################################################################
 ##################     METHANE
@@ -70,7 +70,7 @@ towers = vect(x = methane.towers,geom=c("x", "y"), crs=crs(r))
 # points(towers,col='red')
 
 #save the base here
-writeRaster(x = methane,filename = './output/methane_2kmv2_mean.tif',overwrite = T)
+writeRaster(x = methane,filename = './output/base_network/methane_2kmv2.tif',overwrite = T)
 ##########################################################################################
 ################ Annual
 net.annual = which(tower.data$active == 'active' & tower.data$Start_CO2 < 2022 & tower.data$Season_Activity == 'All year')
@@ -97,7 +97,7 @@ towers = vect(x = annual.towers,geom=c("x", "y"), crs=crs(r))
 # points(towers,col='red')
 
 #save the annual here
-writeRaster(x = annual,filename = './output/annual_2kmv2_mean.tif',overwrite = T)
+writeRaster(x = annual,filename = './output/base_network/annual_2kmv2.tif',overwrite = T)
 ################################################################################
 # Annual Methane
 net.annual.methane = which(tower.data$active == 'active' & tower.data$Start_CO2 < 2022 & tower.data$Season_Activity == 'All year' & tower.data$methane == 'methane')
@@ -124,4 +124,4 @@ towers = vect(x = annual.methane.towers,geom=c("x", "y"), crs=crs(r))
 # points(towers,col='red')
 
 #save the base here
-writeRaster(x = annual.methane,filename = './output/annual_methane_2kmv2_mean.tif',overwrite = T)
+writeRaster(x = annual.methane,filename = './output/base_network/annual_methane_2kmv2.tif',overwrite = T)

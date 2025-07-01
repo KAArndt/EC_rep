@@ -7,13 +7,7 @@ library(doSNOW)
 
 #load in extracted site data from extraction codes, can be base or upgraded since active, methane etc doesn't matter here
 tower.data = fread(file = './data/pca.towers.base.csv')
-
-ext = subset(tower.data,tower.data$active != 'active' | is.na(tower.data$active))
-can = subset(ext,ext$Country == 'Canada')
-
-
-ggplot(data = ext)+
-  geom_bar(aes(Country))
+r = rast('./spatial_data/pca_2km.tif')
 
 #create data frame from PCAs
 df = as.data.frame(x = r,xy = T,na.rm = T)
