@@ -2,13 +2,13 @@
 library(data.table)
 library(raster)
 library(svMisc)
-library(MASS)
+# library(MASS)
 library(ggplot2)
-library(ggspatial)
-library(plotrix)
+# library(ggspatial)
+# library(plotrix)
 library(terra)
 library(seegSDM)
-library(plyr)
+# library(plyr)
 library(dplyr)
 
 #gh_install_packages("SEEG-Oxford/seegSDM")
@@ -25,7 +25,7 @@ xy.tower = active[,c(56,57)]
 #load in the stack created in the other files
 clust = rast('./output/clusts.tif')
 
-clust = clust$km40
+clust = clust$km50
 plot(clust)
 names(clust) = 'cluster'
 
@@ -50,20 +50,20 @@ ggplot(data = active)+theme_bw()+
   scale_y_continuous(expand = c(0,0),limits = c(0,20),'Number of Tower Sites')+
   scale_x_continuous(expand = c(0,0),"Cluster")
 
+#load in base image
+base = rast('./output/base_network/base_2km.tif')
+all = c(base,clust)
+alldf = as.data.frame(x = all)
+
 active$one = 1
 
 dfs = active %>%
   group_by(cluster) %>%
   summarise(count = sum(one))
-dfs
-
-#load in base image
-base = rast('./output/base_2km.tif')
-all = c(base,clust)
-alldf = as.data.frame(x = all)
 
 
-er1 = merge(dfs,alldf,by = 'cluster',all = T)
+dfs1 = subset(dfs,dfs$count == 1)
+er1 = merge(dfs1,alldf,by = 'cluster',all = T)
 er1 = er1[complete.cases(er1$count),]
 
 summary(er1$base.dist)[5]
@@ -77,7 +77,4 @@ summary(er4$base.dist)[5]
 hist(er4$base.dist)
 
 #mean
-#the final cut offs are 1.69 and 1.50 for ER1 and ER4 2 mean
-
-#minimum
-#the final cut offs are 1.xx and 1.xx for ER1 and ER4 minimum, need to redo with pleistocene park
+#the final cut offs are 2.05 and 1.53 for ER1 and ER4 2 mean
