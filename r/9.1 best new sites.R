@@ -12,20 +12,20 @@ library(ggspatial)
 library(kit)
 
 #load back in
-euci = read_rds('./euclidean_distance_matrix/euci_2kmv2.rds')
+euci = read_rds('./euclidean_distance_matrix/euci_2km.rds')
 
 #load in the stack created in the other file
 r = rast('./spatial_data/pca_2km.tif')
 df = as.data.frame(x = r,na.rm = T,xy = T)
 
 #load in extracted site data from extraction codes
-tower.data = fread(file = './data/pca.towers.upgraded.csv')
+tower.data = fread('./data/pca.towers.upgraded.csv')
 
 #First addition ############################################################################################
-tower.data$order = seq(1,361) #important for merging back the tower order
+tower.data$order = seq(1,length(tower.data$MeanTemp)) #important for merging back the tower order
 
 #ranking of sites
-ranks = read.csv(file = './output/reductions/meanreduction_remaining_mean.csv')
+ranks = read.csv(file = './output/reductions/meanreduction_remaining.csv')
 ranks$rank = rank(x = ranks$means)
 names(ranks)[1] = 'site'
 top.limit = max(ranks$means*-1)+0.005
@@ -45,17 +45,22 @@ tower.data$active = ifelse(is.na(tower.data$active),'inactive',tower.data$active
 tower.data = tower.data[order(tower.data$order),]
 
 #add the #1 site
-tower.data$active  = ifelse(tower.data$site == "Yessey",'active',tower.data$active)
+name = subset(tower.data,tower.data$rank == 1)$site
+tower.data$active  = ifelse(tower.data$site == name,'active',tower.data$active)
 
 #find columns which are active sites
 net = which(tower.data$active == 'active')
 ext = which(tower.data$active == 'inactive' & tower.data$rank <= 100)
 
+#save off
+tower.data = tower.data[,-c('rank','country','means','order','type')]
+write_csv(x = tower.data,'./data/next_5_sites/base_1.csv')
+
 #create some subsets of the euclidean distance tables for easier calculations
 euci.net = euci[,c(net)]
 euci.ext = euci[,c(ext)]
 
-#calculate the base network
+#calculate the new base network
 num=2
 base.dist = numeric(length = nrow(euci.net))
 {orig = Sys.time() #start the clock for timing the process
@@ -72,15 +77,20 @@ base = rast(x = basedf,type = 'xyz',crs = crs(r))
 base.towers = tower.data[net,]
 towers = vect(x = base.towers,geom=c("x", "y"), crs=crs(r))
 
-hist(base)
+last = rast('./output/improved_network/improved_base_2km.tif')
+
 plot(base,range=c(0,4.5))
 points(towers,col='red')
 
+new = subset(towers,towers$site == name)
+plot(last - base,range=c(0.01,1))
+points(new,col='red')
+
 #save the base here
-writeRaster(x = base,filename = './output/improved_network/next_five_sites/improved_base_2kmv2_mean_Yessey1.tif',overwrite = T)
+writeRaster(x = base,filename = './output/improved_network/next_five_sites/improved_base_2km_1.tif',overwrite = T)
 #base = rast('./output/improved_base_2kmv2_mean_Yessey1.tif')
 
-#again premaking vectors and matrices of the right length greatly speeds up comp time
+#again pre-making vectors and matrices of the right length greatly speeds up comp time
 dist = numeric(length = nrow(df)) 
 #eucis = matrix(nrow = nrow(df),ncol = ncol(euci.ext))
 temp.euci = matrix(nrow = nrow(df),ncol = ncol(euci.net)+1)
@@ -93,7 +103,7 @@ library(doSNOW)
 
 #setup parallel back end to use many processors
 cores = detectCores()        #detect the number of cores
-cl = makeCluster(10) #assign number of cores
+cl = makeCluster(12) #assign number of cores
 {orig = Sys.time() #start the clock for timing the process
   registerDoSNOW(cl) #register the cores
   eucis = foreach (j = 1:ncol(euci.ext),.verbose = T,.combine = cbind,.packages = c('kit')) %dopar% {
@@ -105,10 +115,9 @@ cl = makeCluster(10) #assign number of cores
   stopCluster(cl) #stop the clusters
   Sys.time() - orig}
 
-
 #save off this file for later use ###########################################################
-#saveRDS(object = eucis,file = './euclidean_distance_matrix/ext_eucis_2km_mean_1_yessey.rds')
-#eucis = read_rds(file = './euclidean_distance_matrix/ext_eucis_2km_mean_1_yessey.rds')
+#saveRDS(object = eucis,file = './euclidean_distance_matrix/ext_eucis_2km_1.rds')
+#eucis = read_rds(file = './euclidean_distance_matrix/ext_eucis_2km_1.rds')
 
 #create rasters
 dist.rasts = list()
@@ -120,8 +129,6 @@ for (i in 1:ncol(eucis)) {
   progress(i,ncol(eucis))
 }
 
-#load in the base
-base = rast('./output/improved_network/next_five_sites/improved_base_2kmv2_mean_Yessey1.tif')
 
 difs = list()
 for (i in 1:length(dist.rasts)) {
@@ -163,7 +170,7 @@ ggplot(data = bars)+theme_bw()+ggtitle('Mean Improvements')+
         legend.position = c(0.5,0.9),
         legend.direction = 'horizontal')
 
-write.csv(x = bars,file = './output/reductions/meanreduction_remaining_mean_1_yessey.csv',row.names = F)
+write.csv(x = bars,file = './output/reductions/meanreduction_remaining_1.csv',row.names = F)
 
 #################################################################################################
 #save off difference maps

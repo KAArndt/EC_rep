@@ -12,18 +12,21 @@ library(ggspatial)
 library(kit)
 
 #load back in
-euci = read_rds('./euclidean_distance_matrix/euci_2kmv2.rds')
+euci = read_rds('./euclidean_distance_matrix/euci_2km.rds')
 
 #load in the stack created in the other file
 r = rast('./spatial_data/pca_2km.tif')
 df = as.data.frame(x = r,na.rm = T,xy = T)
 
 #load in extracted site data from extraction codes
-tower.data = fread(file = './data/pca.towers.upgraded.csv')
+tower.data = fread(file = './data/next_5_sites/annual_methane_2.csv')
+
+tower.data$order = seq(1,length(tower.data$MeanTemp)) #important for merging back the tower order
 
 #First addition ############################################################################################
 #ranking of sites
-ranks = read.csv(file = './output/reductions/meanreduction_remaining_annual_methane_2_1987bonanza.csv')
+ranks = read.csv(file = './output/reductions/meanreduction_remaining_annual_methane_2.csv')
+ranks$rank = rank(x = ranks$means)
 names(ranks)[1] = 'site'
 top.limit = max(ranks$means*-1)+0.005
 
@@ -36,21 +39,23 @@ ggplot(data = ranks)+theme_bw()+ggtitle('Mean Improvements')+
         legend.position = c(0.5,0.9),
         legend.direction = 'horizontal')
 
-#add the #1 site
-tower.data$Season_Activity  = ifelse(tower.data$site == "Tura" |
-                                       tower.data$site == 'Bonanza Creek, 1987 Burn site near Delta Junction' |
-                                       tower.data$site == 'ZOTTO-Forest EC',
-                                     'All year',tower.data$Season_Activity)
+tower.data = merge(tower.data,ranks,by = 'site',all.x=T)
+tower.data = tower.data[order(tower.data$order),]
 
-tower.data$methane          = ifelse(tower.data$site == "Tura" |
-                                       tower.data$site == 'Bonanza Creek, 1987 Burn site near Delta Junction'|
-                                       tower.data$site == 'ZOTTO-Forest EC',
-                                     'methane',tower.data$methane)
+#add the #1 site
+name = subset(tower.data,tower.data$rank == 1)$site
+tower.data$methane  = ifelse(tower.data$site == name,'methane',tower.data$methane)
+tower.data$Season_Activity  = ifelse(tower.data$site == name,'All year',tower.data$Season_Activity)
 
 #find columns which are active sites
-tower.data$anmeth = paste(tower.data$methane,tower.data$Season_Activity,sep = '-')
-net = which(tower.data$active == 'active' & tower.data$Season_Activity == 'All year' & tower.data$methane == 'methane')
-ext = which(tower.data$active == 'active' & tower.data$anmeth != 'methane-All year')
+tower.data$annualmethane = paste(tower.data$Season_Activity,tower.data$methane,sep = '_')
+
+net = which(tower.data$active == 'active' & tower.data$annualmethane == 'All year_methane')
+net = which(tower.data$active == 'active' & tower.data$annualmethane != 'All year_methane')
+
+#save off
+tower.data = tower.data[,-c('rank','country','means','order','type')]
+write_csv(x = tower.data,'./data/next_5_sites/annual_methane_3.csv')
 
 #create some subsets of the euclidean distance tables for easier calculations
 euci.net = euci[,c(net)]
@@ -70,22 +75,23 @@ basedf = data.frame(df$x,df$y,base.dist)
 base = rast(x = basedf,type = 'xyz',crs = crs(r))
 
 #project the towers d#project the towers d#project the towers database
-last = rast('./output/improved_network/annual_methane/improved_annual_methane_2_1987bonanza.tif')
+base.towers = tower.data[net,]
+towers = vect(x = base.towers,geom=c("x", "y"), crs=crs(r))
 
-dif = last - base
+orig = rast('./output/improved_network/next_five_sites/improved_annual_methane_2km_2.tif')
+
 plot(base,range=c(0,4.5))
 points(towers,col='red')
 
-plot(dif,range=c(-0.0001,1))
-points(towers,col='red')
+new = subset(towers,towers$site == name)
+plot(orig - base,range=c(0.1,1.15))
+points(new,col='red')
 
 #save the base here
-writeRaster(x = base,filename = './output/improved_network/annual_methane/improved_annual_methane_3_zotto.tif',overwrite = T)
-#base = rast('./output/improved_network/annual/improved_annual_1_tura.tif')
+writeRaster(x = base,filename = './output/improved_network/next_five_sites/improved_annual_methane_2km_3.tif',overwrite = T)
 
 #again premaking vectors and matrices of the right length greatly speeds up comp time
-dist = numeric(length = nrow(df))
-#eucis = matrix(nrow = nrow(df),ncol = ncol(euci.ext))
+dist = numeric(length = nrow(df)) 
 temp.euci = matrix(nrow = nrow(df),ncol = ncol(euci.net)+1)
 num = 2
 
@@ -108,6 +114,10 @@ cl = makeCluster(12) #assign number of cores
   stopCluster(cl) #stop the clusters
   Sys.time() - orig}
 
+#save off this file for later use ###########################################################
+#saveRDS(object = eucis,file = './euclidean_distance_matrix/ext_eucis_methane_1_tura.rds')
+#eucis = read_rds(file = './euclidean_distance_matrix/ext_eucis_methane_1_tura.rds')
+
 #create rasters
 dist.rasts = list()
 tempdf = data.table()
@@ -118,9 +128,7 @@ for (i in 1:ncol(eucis)) {
   progress(i,ncol(eucis))
 }
 
-#load in the base
-#base = rast('./output/improved_network/annual/improved_annual_methane_3_zotto.tif')
-
+#calculate differences
 difs = list()
 for (i in 1:length(dist.rasts)) {
   difs[[i]] = dist.rasts[[i]] - base
@@ -161,56 +169,6 @@ ggplot(data = bars)+theme_bw()+ggtitle('Mean Improvements')+
         legend.position = c(0.5,0.9),
         legend.direction = 'horizontal')
 
-write.csv(x = bars,file = './output/reductions/meanreduction_remaining_annual_methane_3_zotto.csv',row.names = F)
+write.csv(x = bars,file = './output/reductions/meanreduction_remaining_annual_methane_3.csv',row.names = F)
 
 #################################################################################################
-#save off difference maps
-#aggregate all the difference plots
-# dif.ag = lapply(X = difs,FUN = aggregate,fact = 5,fun = mean,na.rm = T)
-# 
-# #plot difference maps
-# sf_use_s2(FALSE) #need to run this before next line
-# countries = rnaturalearth::ne_countries(returnclass = "sf") %>%
-#   st_crop(y = st_bbox(c(xmin = -180, ymin = 44, xmax = 180, ymax = 90))) %>%
-#   smoothr::densify(max_distance = 1) %>%
-#   st_transform(crs(base))
-# 
-# #plot the figure
-# pal = c('#FEEDB9','#E88D7A','#72509A','#8AABD6','#F2F7FB')
-# extention.towers = tower.data[ext]
-# 
-# plot_list = list()
-# for (i in 1:length(dif.ag)) {
-#   p = ggplot()+theme_map()+
-#     geom_sf(data = countries,fill='gray',col='gray40')+
-#     layer_spatial(dif.ag[[i]])+
-#     scale_fill_gradientn('Improvement',
-#                          na.value = 'transparent',
-#                          colours = pal,
-#                          limits = c(-1,0),
-#                          breaks = c(-1,-0.5,0),
-#                          labels = c('High','Low','None'),
-#                          oob = scales::squish)+
-#     geom_point(aes(extention.towers$x[i],extention.towers$y[i]),col='black',show.legend = F)+
-#     scale_x_continuous(limits = c(-5093909,4542996))+
-#     scale_y_continuous(limits = c(-3687122,4374170))+
-#     theme(text = element_text(size = 8),
-#           legend.text = element_text(size = 8),
-#           axis.title = element_blank(),
-#           legend.key.height = unit(x = 0.1,units = 'in'),
-#           legend.key.width = unit(x = 0.3,units = 'in'),
-#           legend.direction = 'horizontal',
-#           legend.position = c(0.1,0.05),
-#           legend.title.position = 'top')+
-#     annotate(geom = 'text',x = -3093909,y = 3374170,label = extention.towers$site[i])
-#   plot_list[[i]] = p
-#   progress(value = i,max.value = length(dif.ag))
-# }
-# 
-# #plot all the files here, takes awhile
-# for (i in 1:length(dif.ag)) {
-#   png(filename = paste('./output/remaining_difs/1_yessey/',extention.towers$site[i],'.png',sep = ''),width = 4,height = 4,units = 'in',res = 100)
-#   print(plot_list[[i]])
-#   dev.off()
-#   progress(value = i,max.value = length(dif.ag))
-# }

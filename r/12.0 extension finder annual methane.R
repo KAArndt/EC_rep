@@ -12,7 +12,7 @@ library(ggspatial)
 library(kit)
 
 #load back in
-euci = read_rds('./euclidean_distance_matrix/euci_2kmv2.rds')
+#euci = read_rds('./euclidean_distance_matrix/euci_2km.rds')
 
 #load in the stack created in the other file
 r = rast('./spatial_data/pca_2km.tif')
@@ -20,12 +20,12 @@ df = as.data.frame(x = r,na.rm = T,xy = T)
 
 #load in extracted site data from extraction codes
 tower.data = fread(file = './data/pca.towers.upgraded.csv')
-tower.data$active = ifelse(is.na(tower.data$active),'extension',tower.data$active)
 
 #find columns which are active sites
-tower.data$anmeth = paste(tower.data$methane,tower.data$Season_Activity,sep = '-')
-net = which(tower.data$active == 'active' & tower.data$Season_Activity == 'All year' & tower.data$methane == 'methane')
-ext = which(tower.data$active == 'active' & tower.data$anmeth != 'methane-All year')
+tower.data$annualmethane = paste(tower.data$Season_Activity,tower.data$methane,sep = '_')
+
+net = which(tower.data$active == 'active' & tower.data$annualmethane == 'All year_methane')
+net = which(tower.data$active == 'active' & tower.data$annualmethane != 'All year_methane')
 
 #create some subsets of the euclidean distance tables for easier calculations
 euci.net = euci[,c(net)]
@@ -33,7 +33,6 @@ euci.ext = euci[,c(ext)]
 
 #again pre-making vectors and matrices of the right length greatly speeds up comp time
 dist = numeric(length = nrow(df)) 
-#eucis = matrix(nrow = nrow(df),ncol = ncol(euci.ext))
 temp.euci = matrix(nrow = nrow(df),ncol = ncol(euci.net)+1)
 num = 2
 
@@ -44,7 +43,7 @@ library(doSNOW)
 
 #setup parallel back end to use many processors
 cores = detectCores()        #detect the number of cores
-cl = makeCluster(10) #assign number of cores
+cl = makeCluster(12) #assign number of cores
 {orig = Sys.time() #start the clock for timing the process
   registerDoSNOW(cl) #register the cores
   eucis = foreach (j = 1:ncol(euci.ext),.verbose = T,.combine = cbind,.packages = c('kit')) %dopar% {
@@ -82,7 +81,7 @@ for (i in 1:ncol(eucis)) {
 }
 
 #load in the base
-base = rast('./output/improved_network/improved_annual_methane_2kmv2_mean.tif')
+base = rast('./output/improved_network/improved_annual_methane_2km.tif')
 
 difs = list()
 for (i in 1:length(dist.rasts)) {
@@ -107,7 +106,6 @@ for (i in 1:length(difs)) {
 bars = data.frame(tower.data$site[ext])
 bars$means = meansv
 bars$country = tower.data$Country[ext]
-bars$Season_Activity = tower.data$Season_Activity[ext]
 names(bars)[1] = 'sitename'
 
 top = subset(bars,bars$means < median(bars$means))

@@ -12,7 +12,7 @@ library(ggspatial)
 library(kit)
 
 #load back in
-euci = read_rds('./euclidean_distance_matrix/euci_2kmv2.rds')
+#euci = read_rds('./euclidean_distance_matrix/euci_2km.rds')
 
 #load in the stack created in the other file
 r = rast('./spatial_data/pca_2km.tif')
@@ -68,7 +68,7 @@ cl = makeCluster(12) #assign number of cores
 
 #save off this file for later use ############################################################
 #saveRDS(object = eucis,file = './euclidean_distance_matrix/ext_eucis_2km_methane.rds')
-eucis = read_rds(file = './euclidean_distance_matrix/ext_eucis_2km_methane.rds')
+#eucis = read_rds(file = './euclidean_distance_matrix/ext_eucis_2km_methane.rds')
 
 #create rasters
 dist.rasts = list()
@@ -81,7 +81,7 @@ for (i in 1:ncol(eucis)) {
 }
 
 #load in the base
-base = rast('./output/improved_methane_2kmv2_mean.tif')
+base = rast('./output/improved_network/improved_methane_2km.tif')
 
 difs = list()
 for (i in 1:length(dist.rasts)) {
@@ -106,7 +106,6 @@ for (i in 1:length(difs)) {
 bars = data.frame(tower.data$site[ext])
 bars$means = meansv
 bars$country = tower.data$Country[ext]
-bars$Season_Activity = tower.data$Season_Activity[ext]
 names(bars)[1] = 'sitename'
 
 top = subset(bars,bars$means < median(bars$means))
@@ -121,7 +120,6 @@ ggplot(data = bars)+theme_bw()+ggtitle('Mean Improvements')+
         legend.position = c(0.5,0.9),
         legend.direction = 'horizontal')
 
-write.csv(x = bars,file = './output/meanreduction_methane.csv',row.names = F)
-
+write.csv(x = bars,file = './output/reductions/meanreduction_methane.csv',row.names = F)
 
 ###############################################################################################

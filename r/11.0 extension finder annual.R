@@ -12,7 +12,7 @@ library(ggspatial)
 library(kit)
 
 #load back in
-euci = read_rds('./euclidean_distance_matrix/euci_2kmv2.rds')
+euci = read_rds('./euclidean_distance_matrix/euci_2km.rds')
 
 #load in the stack created in the other file
 r = rast('./spatial_data/pca_2km.tif')
@@ -81,7 +81,7 @@ for (i in 1:ncol(eucis)) {
 }
 
 #load in the base
-base = rast('./output/improved_network/improved_annual_2kmv2_mean.tif')
+base = rast('./output/improved_network/improved_annual_2km.tif')
 
 difs = list()
 for (i in 1:length(dist.rasts)) {
@@ -106,7 +106,6 @@ for (i in 1:length(difs)) {
 bars = data.frame(tower.data$site[ext])
 bars$means = meansv
 bars$country = tower.data$Country[ext]
-bars$Season_Activity = tower.data$Season_Activity[ext]
 names(bars)[1] = 'sitename'
 
 top = subset(bars,bars$means < median(bars$means))

@@ -72,7 +72,7 @@ p2 = aggregate(x = p,fact = 2,fun = mean,na.rm = T)
 writeRaster(x = p2,filename = './spatial_data/pca_2km.tif',overwrite = T)
 
 
-
+#make site lists
 pca.original = pca.t
 
 pca.original$active = ifelse(pca.original$site == 'Scotty Creek Landscape','inactive',pca.original$active)
@@ -91,6 +91,9 @@ pca.upgraded$Season_Activity = ifelse(pca.upgraded$site == "Lutose" |
                                         pca.upgraded$site == "Resolute Bay" |
                                         pca.upgraded$site == "Smith Creek",
                                     'All year',pca.upgraded$Season_Activity)
+
+pca.upgraded$methane = ifelse(pca.upgraded$site == "Lutose",'methane',pca.upgraded$methane)
+                                        
 
 pca.upgraded$active = ifelse(pca.upgraded$site == 'Council (NGEE Arctic)','inactive',pca.upgraded$active)
 pca.upgraded$active = ifelse(pca.upgraded$site == 'Lutose Rich Fen','inactive',pca.upgraded$active)
