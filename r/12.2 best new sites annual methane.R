@@ -1,4 +1,4 @@
-rm(list=setdiff(ls(), "euci"))
+rm(list=setdiff(ls(), c("euci",'r','df')))
 
 library(readr)
 library(terra)
@@ -51,7 +51,7 @@ tower.data$Season_Activity  = ifelse(tower.data$site == name,'All year',tower.da
 tower.data$annualmethane = paste(tower.data$Season_Activity,tower.data$methane,sep = '_')
 
 net = which(tower.data$active == 'active' & tower.data$annualmethane == 'All year_methane')
-net = which(tower.data$active == 'active' & tower.data$annualmethane != 'All year_methane')
+ext = which(tower.data$active == 'active' & tower.data$annualmethane != 'All year_methane')
 
 #save off
 tower.data = tower.data[,-c('rank','country','means','order','type')]

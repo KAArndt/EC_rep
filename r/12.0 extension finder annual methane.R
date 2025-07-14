@@ -12,7 +12,7 @@ library(ggspatial)
 library(kit)
 
 #load back in
-#euci = read_rds('./euclidean_distance_matrix/euci_2km.rds')
+euci = read_rds('./euclidean_distance_matrix/euci_2km.rds')
 
 #load in the stack created in the other file
 r = rast('./spatial_data/pca_2km.tif')
@@ -25,7 +25,7 @@ tower.data = fread(file = './data/pca.towers.upgraded.csv')
 tower.data$annualmethane = paste(tower.data$Season_Activity,tower.data$methane,sep = '_')
 
 net = which(tower.data$active == 'active' & tower.data$annualmethane == 'All year_methane')
-net = which(tower.data$active == 'active' & tower.data$annualmethane != 'All year_methane')
+ext = which(tower.data$active == 'active' & tower.data$annualmethane != 'All year_methane')
 
 #create some subsets of the euclidean distance tables for easier calculations
 euci.net = euci[,c(net)]
