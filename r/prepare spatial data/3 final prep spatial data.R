@@ -24,7 +24,7 @@ pp = rast('./spatial_data/UiO_PEX_PERPROB_5.0_20181128_2000_2016_NH.tif')
                # eco$ECO_NAME     == 'Eastern Canadian Forest-Boreal Transition' |
                # eco$ECO_NAME     ==  'Alberta-British Columbia Foothills Forests' |
                # eco$ECO_NAME     ==  'Sayan Intermontane Steppe'
-             )
+#             )
 
 #ecoregions2017
 eco = vect('./spatial_data/Ecoregions2017/Ecoregions2017.shp')
@@ -66,15 +66,21 @@ ggplot()+
   layer_spatial(data = pp.ag)+
   layer_spatial(data = eco,fill='transparent',col='red')+
   geom_sf(data = countries,fill='transparent',col='black')+
-  scale_color_viridis_c(na.value = 'transparent')+
-  geom_point(data = mong,aes(x = x,y = y),col='red')
+  scale_color_viridis_c(na.value = 'transparent')
 
 
 #load in the different data files
 clim  = rast('./spatial_data/climate.tif')
 clim = subset(clim,subset = -c(2,3,5,6,8:11,15,16,18,19)) #subset down to layers we want to save space
-modis = rast('./spatial_data/modis.tif')
+mir = rast('./spatial_data/mir_aug_10yrmean.tif')
+ndwi = rast('./spatial_data/ndwi_min_10yrmean.tif')
+ndvi_max = rast('./spatial_data/ndvisum_10yrmean.tif')
+ndvi_sum = rast('./spatial_data/ndvimax_10yrmean.tif')
+evi = rast('./spatial_data/evimax_10yrmean.tif')
 soil  = rast('./spatial_data/soils.tif')
+
+modis = c(mir,ndwi,ndvi_max,ndvi_sum,evi)
+names(modis) = c('mir','ndwi','ndvi_sum','ndvi_max','evi')
 
 #merge them all together
 #r = c(clim,modis,soil)
@@ -90,11 +96,11 @@ clim7 = project(x = clim$TempSeasonality,         y = pp)
 clim8 = project(x = clim$TempAnnualRange,         y = pp)
 
 #modis
-modis2 = project(x = modis$ndvimax,y = pp)
-modis3 = project(x = modis$ndvisum,y = pp)
-modis4 = project(x = modis$evimax, y = pp)
-modis5 = project(x = modis$ndwimin,y = pp)
-modis6 = project(x = modis$mirsaug,y = pp)
+modis2 = project(x = modis$mir,y = pp)
+modis3 = project(x = modis$ndwi,y = pp)
+modis4 = project(x = modis$ndvi_sum, y = pp)
+modis5 = project(x = modis$ndvi_max,y = pp)
+modis6 = project(x = modis$evi,y = pp)
 
 #soil grids
 soil2 = project(x = soil$bd_100_agg,           y = pp)
@@ -128,7 +134,7 @@ final = c(final.clim2,final.modis2,final.soil2,pp)
 final[is.na(final$UiO_PEX_PERPROB_5.0_20181128_2000_2016_NH)] = NA #permafrost
 final[is.na(final$OCSTHA_M_100cm_1km_ll)] = NA #soil grids
 final[is.na(final$MeanTemp)] = NA #worldclim
-final[is.na(final$ndwimin)] = NA #MODIS
-final[is.na(final$mirsaug)] = NA #MODIS
+final[is.na(final$ndwi)] = NA #MODIS
+final[is.na(final$mir)] = NA #MODIS
 
-writeRaster(x = final,filename = './spatial_data/spatial_repro.tif',overwrite = T)
+writeRaster(x = final,filename = './spatial_data/spatial_repro_new.tif',overwrite = T)

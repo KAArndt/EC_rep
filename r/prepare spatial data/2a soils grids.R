@@ -1,4 +1,4 @@
-rm(list = ls())
+
 setwd('C:/Users/karndt.WHRC/Desktop/site.selection/')
 
 #library(raster)
@@ -21,13 +21,57 @@ library(terra)
 
 #extent file to use
 ext = c(-180,180,40,85)
+crops = ext(-19949750,19862250,4500000,8361000)
 
 ############################################################
 #Newer soil files from soil grids https://soilgrids.org/
 ############################################################
 
 #bd
-bd00  = rast('./data/input data/soil grids 2017/bd/BLDFIE_M_sl1_1km_ll.tif')
+ocda  = rast('D:/spatial_data/soil_grids/2017/soc.density/OCDENS_M_sl2_1km_ll.tif')
+ocdb  = rast('D:/spatial_data/soil_grids/ocd/ocd_0-5cm_mean_1000.tif')
+
+ocda = crop(x = ocda,y = ext(ext))
+ocdb = project(x = ocdb,y = ocda)
+
+dif = ocdb - ocda
+new = c(ocda,ocdb,dif)
+plot(new)
+
+new = c(bd00b)
+
+
+#bd
+bd00a  = rast('D:/spatial_data/soil_grids/2017/bd/BLDFIE_M_sl1_1km_ll.tif')
+bd00b  = rast('D:/spatial_data/soil_grids/bulk_density/bdod_0-5cm_mean_1000.tif')
+
+
+#bd00b = crop(x = bd00b,y = ext(crops))
+bd00a = crop(x = bd00a,y = ext(ext))
+
+bd00b = project(x = bd00b,y = bd00a)
+
+new = c(bd00a,bd00b)
+plot(new)
+
+new = c(bd00b)
+
+bd00b = aggregate(x = bd00b,fact=2,fun='mean',na.rm=T)
+
+plot(bd00b)
+bd00a
+xmin = ext(bd00b)[1]
+xmax = ext(bd00b)[2]
+ymin = 4500000
+ymax = ext(bd00b)[4]
+
+
+bd00b = crop(x = bd00b,fact=2,fun='mean')
+bd00b = aggregate(x = bd00a,fact=2,fun='mean')
+
+plot(bd00b)
+abline(h = 4500000)
+
 bd05  = rast('./data/input data/soil grids 2017/bd/BLDFIE_M_sl2_1km_ll.tif')
 bd15  = rast('./data/input data/soil grids 2017/bd/BLDFIE_M_sl3_1km_ll.tif')
 bd30  = rast('./data/input data/soil grids 2017/bd/BLDFIE_M_sl4_1km_ll.tif')
