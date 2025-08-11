@@ -6,14 +6,14 @@ library(ggplot2)
 library(ggnewscale)
 
 #load in the stack created in the other file
-r = rast('./spatial_data/spatial_repro.tif')
+r = rast('./spatial_data/spatial_repro_new.tif')
 
 #load in extracted site data from extraction codes
-tower.data = fread(file = './data/extracted_tower_data.csv')
+tower.data = fread(file = './data/extracted_tower_data_new.csv')
 
 #cut down raster data to remove NAs
 sr = spatSample(x = r,size = 500000,method = "regular")
-sr = sr[complete.cases(sr$MeanTemp),]
+sr = sr[complete.cases(sr),]
 
 tower.data[,c("WarmestQuarter",                                 
       "ColdestQuarter",                                   
@@ -29,15 +29,13 @@ tower.data[,c("WarmestQuarter",
       "MeanTempDriestQuarter")] = NULL
 
 srt = rbind.fill(sr,tower.data)
-names(srt)
 
 #change these for plotting
 names(srt)[1:20] = c("MeanTemp","Precip","PrecipSeasonality","MeanDiurnalRange",
                      "Isothermality","TempSeasonality","TempAnnualRange",
                      "NDVImax","NDVIsum","EVImax","NDWImin","SWIRaug",
-                     "BulkDens","pH","CStock",'CDensity',"Sand","Silt","Clay",                             
+                     "BulkDens","pH","CStock",'CDensity',"Sand","Silt","Clay",
                      "Permafrost")
-
 
 pca = prcomp(srt[,c(1:20)],center = T,scale = T)
 
@@ -59,13 +57,13 @@ pca$rotation
 names(r) = c("MeanTemp","Precip","PrecipSeasonality","MeanDiurnalRange",
              "Isothermality","TempSeasonality","TempAnnualRange",
              "NDVImax","NDVIsum","EVImax","NDWImin","SWIRaug",
-             "BulkDens","pH","CStock",'CDensity',"Sand","Silt","Clay",                             
+             "BulkDens","pH","CStock",'CDensity',"Sand","Silt","Clay",
              "Permafrost")
 
 p = predict(r, pca,index = 1:4)
 plot(p)
 
-p = rast('./spatial_data/pca.tif')
+#p = rast('./spatial_data/pca.tif')
 writeRaster(x = p,filename = './spatial_data/pca.tif',overwrite = T)
 
 p2 = aggregate(x = p,fact = 2,fun = mean,na.rm = T)
@@ -82,21 +80,22 @@ pca.original$active = ifelse(pca.original$site == 'Council (NGEE Arctic)','inact
 write.csv(x = pca.original,file = './data/pca.towers.base.csv',row.names = F)
           
 pca.upgraded = pca.t
-
 #change tower sites we increased to all year coverage
 pca.upgraded$Season_Activity = ifelse(pca.upgraded$site == "Lutose" |
                                         pca.upgraded$site == "Scotty Creek Landscape" |
                                         pca.upgraded$site == "Steen River" |
                                         pca.upgraded$site == "Scotty Creek Bog" |
-                                        pca.upgraded$site == "Resolute Bay" |
+                                   #     pca.upgraded$site == "Resolute Bay" |
                                         pca.upgraded$site == "Smith Creek",
                                     'All year',pca.upgraded$Season_Activity)
 
 pca.upgraded$methane = ifelse(pca.upgraded$site == "Lutose",'methane',pca.upgraded$methane)
-                                        
+
 
 pca.upgraded$active = ifelse(pca.upgraded$site == 'Council (NGEE Arctic)','inactive',pca.upgraded$active)
 pca.upgraded$active = ifelse(pca.upgraded$site == 'Lutose Rich Fen','inactive',pca.upgraded$active)
+pca.upgraded$active = ifelse(pca.upgraded$site == 'Lutose Rich Fen','inactive',pca.upgraded$active)
+
 
 write.csv(x = pca.upgraded,file = './data/pca.towers.upgraded.csv',row.names = F)
 

@@ -45,11 +45,15 @@ bd60_100 = rast('D:/spatial_data/soil_grids/bulk_density/bdod_60-100cm_mean_1000
 bd2017 = c(bd00,bd05,bd15,bd30,bd60,bd100)
 bd2020 = c(bd00_05,bd05_15,bd15_30,bd30_60,bd60_100)
 
+
 #resize to the area and size of the base image, only need to do 2017 as 2020 will come with the projection
 bd2017 = crop(x = bd2017,y = c2017)
 
 #re-project 2020 to match 2017
 bd2020 = project(x = bd2020,y = bd2017)
+
+
+plot(bd2020$`bdod_0-5cm_mean_1000`,xlim=c(160,180),ylim=c(60,73))
 
 #calculating aggregate soil layers to match
 bd2017$bd00_05  = (bd2017$BLDFIE_M_sl1_1km_ll+bd2017$BLDFIE_M_sl2_1km_ll)/2
@@ -75,7 +79,7 @@ bd2020$bd_100_agg = (5*bd2020$bd00_05 +
 
 plot(bd2020$bd_100_agg)
 plot(bd2017$bd_100_agg)
-
+plot(bd2017)
 summary(bd2017$bd_100_agg)
 summary(bd2020$bd_100_agg)
 
@@ -105,9 +109,9 @@ soc60  = rast('D:/spatial_data/soil_grids/2017/soc.density/OCDENS_M_sl5_1km_ll.t
 soc100 = rast('D:/spatial_data/soil_grids/2017/soc.density/OCDENS_M_sl6_1km_ll.tif')
 
 soc.dens = c(soc00,soc05,soc15,soc30,soc60,soc100)
-soc.dens = crop(x = soc.dens,y = ext)
- 
-plot(soc.dens)
+soc.dens = crop(x = soc.dens,y = c2017)
+
+plot(soc.dens,range=c(0,800))
 
 #calculating aggregate soil layers
 soc.dens$soc0_100 = 1./100*(5.*(soc.dens$OCDENS_M_sl1_1km_ll+soc.dens$OCDENS_M_sl2_1km_ll)/2 +

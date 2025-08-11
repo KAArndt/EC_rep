@@ -1,0 +1,463 @@
+"NAME","SOV0NAME","LONGITUDE","LATITUDE","TYPE","ADM1NAME","POP_MAX"
+"Villum Research Station (VRS)","Greenland (Denmark)",-16.65,81.6,"Research_Station",NA,NA
+"The Arctic Research Station (former Labytnangi Ecological Research Station)","Russia ",66.4,66.65,"Research_Station",NA,NA
+"Orotuk Field Station","Russia",148.65,62.05,"Research_Station",NA,NA
+"Igloolik Research Center ","Nunavut/Canada",-81.8,69.366667,"Research_Station",NA,NA
+"Willem Barentsz Biological Station","Russia",80.533333,73.35,"Research_Station",NA,NA
+"CEN Boniface River Field Station ","Canada ",-76.166667,57.75,"Research_Station",NA,NA
+"Numto Park Station","Russia ",70.717853,63.480987,"Research_Station",NA,NA
+"Khanymey","Russia",75.95,63.716667,"Research_Station",NA,NA
+"Flashline Mars Arctic Research Station","Canada",-89.823063,75.430873,"Research_Station",NA,NA
+"CEN Salluit Research Station","Canada ",-75.633333,62.2,"Research_Station",NA,NA
+"Lammin-Suo Peatland Station","Russia",29.8,60.233333,"Research_Station",NA,NA
+"Avachinsky Volcano Field Station","Russia",158.733333,53.25,"Research_Station",NA,NA
+"CEN Whapmagoostui-Kuujjuarapik Research Station","Canada ",-77.75,55.266667,"Research_Station",NA,NA
+"Litla-Skard ","Iceland ",-21.616667,64.716667,"Research_Station",NA,NA
+"Kainuu Fisheries Research Station","Finland",27.5,64.4,"Research_Station",NA,NA
+"Sudurnes Science and Learning Center","Iceland",-22.7,64.033333,"Research_Station",NA,NA
+"Uapishka Research Station","Canada",-68.234306,51.469444,"Research_Station",NA,NA
+"Nibio Svanhovd Research Station ","Norway ",30.05,69.45,"Research_Station",NA,NA
+"CEN Clearwater Lake Research Station","Canada ",-74.45,56.333333,"Research_Station",NA,NA
+"China Iceland Arctic  Observatory  CIAO","Iceland",-17.36695,65.707183,"Research_Station",NA,NA
+"Polish Polar Station Hornsund","Svalbard/Poland",15.55,77,"Research_Station",NA,NA
+"Kluane Lake Research Station","Canada ",-138.4,61.016667,"Research_Station",NA,NA
+"DMI Geophysical Observatory Qaanaaq","Greenland/Denmark",-69.216667,77.466667,"Research_Station",NA,NA
+"Khibiny Educational and Scientific Station ","Russia ",33.716667,67.633333,"Research_Station",NA,NA
+"Arctic DTU Research Station Sisimiut","Greenland",-53.666667,66.916667,"Research_Station",NA,NA
+"Rif Field Station","Iceland",-15.95,66.45,"Research_Station",NA,NA
+"Härnösand","Sweden",17.934004,62.633997,"Populated_Place","Västernorrland",17016
+"Tønsberg","Kingdom of Norway",10.421002,59.264001,"Populated_Place","Vestfold",38914
+"Mikkeli","Finland",27.285004,61.689996,"Populated_Place","Southern Savonia",46550
+"Borgarnes","Iceland",-21.862322,64.569503,"Populated_Place","Vesturland",1783
+"Sand Point","United States",-160.497191,55.339709,"Populated_Place","Alaska",667
+"Mekoryuk","United States",-166.189937,60.388647,"Populated_Place","Alaska",99
+"Port Heiden","United States",-158.626892,56.949094,"Populated_Place","Alaska",102
+"Perryville","United States",-159.151149,55.918614,"Populated_Place","Alaska",113
+"Dillingham","United States",-158.480312,59.05656,"Populated_Place","Alaska",2488
+"Goodnews Bay","United States",-161.58713,59.120993,"Populated_Place","Alaska",230
+"Nyac","United States",-159.940481,61.004143,"Populated_Place","Alaska",100
+"Tununak","United States",-165.255789,60.585487,"Populated_Place","Alaska",352
+"Emmonak","United States",-164.522992,62.776981,"Populated_Place","Alaska",100
+"Kaltag","United States",-158.721899,64.327196,"Populated_Place","Alaska",190
+"Koyukuk","United States",-157.70085,64.880289,"Populated_Place","Alaska",101
+"Kobuk","United States",-156.880977,66.907246,"Populated_Place","Alaska",151
+"Selawik","United States",-160.009391,66.603879,"Populated_Place","Alaska",832
+"Talkeetna","United States",-150.109427,62.323779,"Populated_Place","Alaska",1078
+"Montana","United States",-150.072763,62.079685,"Populated_Place","Alaska",10
+"Lake Minchumina","United States",-152.312187,63.882831,"Populated_Place","Alaska",32
+"Gulkana","United States",-145.382196,62.271353,"Populated_Place","Alaska",119
+"Eagle","United States",-141.199997,64.787995,"Populated_Place","Alaska",104
+"Allakaket","United States",-152.6455,66.565483,"Populated_Place","Alaska",97
+"Tanana","United States",-152.07879,65.171873,"Populated_Place","Alaska",308
+"Enurmino","Russia",-171.816603,66.950008,"Populated_Place","Chukchi Autonomous Okrug",297
+"Zvëzdnyj","Russia",-179.589979,70.956585,"Populated_Place","Chukchi Autonomous Okrug",10
+"Severomorsk","Russia",33.423066,69.073057,"Populated_Place","Murmansk",53921
+"Apatity","Russia",33.393042,67.573071,"Populated_Place","Murmansk",66907
+"Polyarnyy","Russia",33.450247,69.205219,"Populated_Place","Murmansk",19200
+"Kolpino","Russia",30.650005,59.730009,"Populated_Place","City of St. Petersburg",225801
+"Shuya","Russia",41.364286,56.854345,"Populated_Place","Ivanovo",60705
+"Kineshma","Russia",42.129976,57.469966,"Populated_Place","Ivanovo",92983
+"Bakal","Russia",58.795884,54.945883,"Populated_Place","Chelyabinsk",26559
+"Verkhniy Ufaley","Russia",60.2313,56.066279,"Populated_Place","Chelyabinsk",33879
+"Kirovo-Chepetsk","Russia",50.044377,58.55437,"Populated_Place","Kirov",90252
+"Krasnoturinsk","Russia",60.484773,59.794786,"Populated_Place","Sverdlovsk",64878
+"Asbest","Russia",61.458047,57.023043,"Populated_Place","Sverdlovsk",81248
+"Alapayevsk","Russia",61.691521,57.846507,"Populated_Place","Sverdlovsk",44000
+"Krasnouralsk","Russia",60.051518,58.351515,"Populated_Place","Sverdlovsk",20571
+"Severouralsk","Russia",59.961549,60.156521,"Populated_Place","Sverdlovsk",36138
+"Nefteyugansk","Russia",72.702684,61.077653,"Populated_Place","Khanty-Mansiy",112632
+"Petrovsk Zabaykalskiy","Russia",108.832675,51.282695,"Populated_Place","Chita",20889
+"Zemlya Bunge","Russia",142.105011,74.898308,"Populated_Place","Sakha (Yakutia)",10
+"Khorgo","Russia",113.630004,73.483304,"Populated_Place","Sakha (Yakutia)",10
+"Put Lenina","Russia",107.799973,68.516631,"Populated_Place","Sakha (Yakutia)",298
+"Vanino","Russia",140.242489,49.087326,"Populated_Place","Khabarovsk",18618
+"Omchak","Russia",147.916697,61.633278,"Populated_Place","Maga Buryatdan",10
+"Uglegorsk","Russia",142.033335,49.083346,"Populated_Place","Sakhalin",12669
+"Solikamsk","Russia",56.749962,59.669987,"Populated_Place","Perm'",100812
+"Kizel","Russia",57.634301,59.064365,"Populated_Place","Perm'",22135
+"Pakhachi","Russia",169.049981,60.581585,"Populated_Place","Kamchatka",10
+"Savonlinna","Finland",28.883343,61.866623,"Populated_Place","Southern Savonia",27353
+"Selkirk","Canada",-96.883322,50.150026,"Populated_Place","Manitoba",9986
+"Berens River","Canada",-97.033313,52.366557,"Populated_Place","Manitoba",892
+"Pukatawagan","Canada",-101.316617,55.733276,"Populated_Place","Manitoba",431
+"Gimli","Canada",-96.999981,50.633303,"Populated_Place","Manitoba",2623
+"Island Lake","Canada",-94.766578,53.966588,"Populated_Place","Manitoba",10
+"Stony Rapids","Canada",-105.833266,59.266575,"Populated_Place","Saskatchewan",152
+"Hall Beach","Canada",-81.236083,68.767467,"Populated_Place","Nunavut",654
+"Lutselke","Canada",-110.733329,62.400053,"Populated_Place","Northwest Territories",102
+"Hay River","Canada",-115.700003,60.849993,"Populated_Place","Northwest Territories",3900
+"Doline","Canada",-123.416664,65.183346,"Populated_Place","Northwest Territories",525
+"Paulatuk","Canada",-123.983321,69.383322,"Populated_Place","Northwest Territories",294
+"Kapuskasing","Canada",-82.433325,49.416685,"Populated_Place","Ontario",9240
+"Geraldton","Canada",-86.96664,49.716641,"Populated_Place","Ontario",1290
+"Big Beaver House","Canada",-89.883284,52.949984,"Populated_Place","Ontario",10
+"Port-Menier","Canada",-64.347995,49.822578,"Populated_Place","Québec",263
+"Natashquan","Canada",-61.810656,50.191341,"Populated_Place","Québec",722
+"Eastmain","Canada",-78.516691,52.233335,"Populated_Place","Québec",335
+"Schefferville","Canada",-66.816656,54.8,"Populated_Place","Québec",471
+"Salluit","Canada",-75.659501,62.182599,"Populated_Place","Québec",106
+"Amos","Canada",-78.116664,48.566634,"Populated_Place","Québec",10516
+"St-Augustin","Canada",-58.646999,51.24231,"Populated_Place","Québec",3961
+"Rouyn-Noranda","Canada",-79.033249,48.250012,"Populated_Place","Québec",24602
+"La Sarre","Canada",-79.200034,48.800005,"Populated_Place","Québec",7206
+"Deer Lake","Canada",-57.426919,49.1744,"Populated_Place","Newfoundland and Labrador",4163
+"La Scie","Canada",-55.583,49.967013,"Populated_Place","Newfoundland and Labrador",817
+"Hopedale","Canada",-60.216671,55.44996,"Populated_Place","Newfoundland and Labrador",442
+"Happy Valley - Goose Bay","Canada",-60.299999,53.299988,"Populated_Place","Newfoundland and Labrador",7572
+"Port Hope Simpson","Canada",-56.300011,52.533291,"Populated_Place","Newfoundland and Labrador",197
+"Oymyakon","Russia",142.769768,63.421446,"Populated_Place","Sakha (Yakutia)",500
+"Shishmaref","United States",-166.071889,66.256975,"Populated_Place","Alaska",254
+"Atka","United States",-174.200489,52.19649,"Populated_Place","Alaska",61
+"Nikolski","United States",-168.867688,52.938434,"Populated_Place","Alaska",18
+"Karluk","United States",-154.455027,57.572286,"Populated_Place","Alaska",96
+"False Pass","United States",-163.415023,54.851211,"Populated_Place","Alaska",35
+"Kivalina","United States",-164.485903,67.731492,"Populated_Place","Alaska",374
+"Newhalen","United States",-154.897197,59.720346,"Populated_Place","Alaska",160
+"Pilot Point","United States",-157.569127,57.56456,"Populated_Place","Alaska",68
+"King Salmon","United States",-156.661378,58.688703,"Populated_Place","Alaska",292
+"Quinhagak","United States",-161.915786,59.749233,"Populated_Place","Alaska",250
+"Aniak","United States",-159.522186,61.578708,"Populated_Place","Alaska",501
+"Kotlit","United States",-163.553283,63.034588,"Populated_Place","Alaska",1002
+"Unalakleet","United States",-160.788052,63.873426,"Populated_Place","Alaska",741
+"Koyuk","United States",-161.157472,64.940269,"Populated_Place","Alaska",254
+"McGrath","United States",-155.595785,62.956815,"Populated_Place","Alaska",138
+"Hughes","United States",-154.254988,66.049184,"Populated_Place","Alaska",78
+"Ambler","United States",-157.851409,67.086485,"Populated_Place","Alaska",258
+"Wales","United States",-168.087503,65.609599,"Populated_Place","Alaska",99
+"Wasilla","United States",-149.439442,61.581731,"Populated_Place","Alaska",8521
+"Circle","United States",-144.06052,65.82589,"Populated_Place","Alaska",100
+"Tanacross","United States",-143.346403,63.385703,"Populated_Place","Alaska",136
+"Wiseman","United States",-150.107489,67.410471,"Populated_Place","Alaska",14
+"Sauðárkrókur","Iceland",-19.638993,65.746412,"Populated_Place","Akrahreppur",2682
+"Ålesund","Kingdom of Norway",6.388023,62.545419,"Populated_Place","MOre og Romsdal",47772
+"Steinkjer","Kingdom of Norway",11.500011,64.01706,"Populated_Place","Nord-Trøndelag",11274
+"Asino","Russia",86.162689,56.993122,"Populated_Place","Tomsk",27070
+"Strezhevoy","Russia",77.577683,60.733152,"Populated_Place","Tomsk",44784
+"Mukhomornoye","Russia",173.333337,66.417069,"Populated_Place","Chukchi Autonomous Okrug",100
+"Beringovskiy","Russia",179.306667,63.065465,"Populated_Place","Chukchi Autonomous Okrug",1861
+"Bilibino","Russia",166.333299,68.050406,"Populated_Place","Chukchi Autonomous Okrug",5757
+"Egvekinot","Russia",-179.183723,66.322132,"Populated_Place","Chukchi Autonomous Okrug",2248
+"Nikel","Russia",30.218817,69.412571,"Populated_Place","Murmansk",15866
+"Monchegorsk","Russia",32.828735,67.929121,"Populated_Place","Murmansk",49868
+"Kirovsk","Russia",33.668735,67.609089,"Populated_Place","Murmansk",29605
+"Volkhov","Russia",32.338739,59.929093,"Populated_Place","Leningrad",45673
+"Tikhvin","Russia",33.514378,59.644846,"Populated_Place","Leningrad",62075
+"Svetogorsk","Russia",28.917656,61.101321,"Populated_Place","Leningrad",30115
+"Luga","Russia",29.838995,58.736349,"Populated_Place","Leningrad",40114
+"Segezha","Russia",34.324303,63.754776,"Populated_Place","Karelia",33354
+"Vichuga","Russia",41.928748,57.219129,"Populated_Place","Ivanovo",39071
+"Sharya","Russia",45.509356,58.379756,"Populated_Place","Kostroma",35532
+"Buy","Russia",41.52438,58.484685,"Populated_Place","Kostroma",26486
+"Bezhetsk","Russia",36.689998,57.764729,"Populated_Place","Tver'",34736
+"Sokol","Russia",40.114388,59.46478,"Populated_Place","Vologda",42174
+"Cherepovets","Russia",37.909975,59.140433,"Populated_Place","Vologda",311850
+"Rybinsk","Russia",38.819997,58.050344,"Populated_Place","Yaroslavl'",216724
+"Rostov","Russia",39.404303,57.189157,"Populated_Place","Yaroslavl'",33803
+"Miass","Russia",60.094926,54.995414,"Populated_Place","Chelyabinsk",167500
+"Kyshtym","Russia",60.559549,55.699997,"Populated_Place","Chelyabinsk",50911
+"Varnek","Russia",60.063558,69.730148,"Populated_Place","Nenets",10
+"Bugrino","Russia",49.304163,68.807879,"Populated_Place","Nenets",300
+"Yamburg","Russia",74.925313,67.922117,"Populated_Place","Yamal-Nenets",48488
+"Sosnogorsk","Russia",53.894323,63.59476,"Populated_Place","Komi",29343
+"Sovetsk","Russia",48.958086,57.578461,"Populated_Place","Kirov",17869
+"Slobodskoy","Russia",50.188037,58.718495,"Populated_Place","Kirov",48962
+"Kirs","Russia",52.245173,59.313833,"Populated_Place","Kirov",11385
+"Omutninsk","Russia",52.159183,58.658938,"Populated_Place","Kirov",32800
+"Kotelnich","Russia",48.313733,58.304127,"Populated_Place","Kirov",28431
+"Yoshkar Ola","Russia",47.874948,56.635392,"Populated_Place","Mariy-El",324406
+"Kamensk Uralskiy","Russia",61.93502,56.42047,"Populated_Place","Sverdlovsk",182500
+"Polevskoy","Russia",60.188047,56.443414,"Populated_Place","Sverdlovsk",65770
+"Artemovskiy","Russia",61.869753,57.365192,"Populated_Place","Sverdlovsk",44689
+"Nevyansk","Russia",60.214764,57.490249,"Populated_Place","Sverdlovsk",28170
+"Verkhnyaya Salda","Russia",60.549782,58.050189,"Populated_Place","Sverdlovsk",48992
+"Nizhnyaya Tura","Russia",59.798252,58.643641,"Populated_Place","Sverdlovsk",56084
+"Karpinsk","Russia",60.009815,59.760162,"Populated_Place","Sverdlovsk",30807
+"Ivdel","Russia",60.413253,60.693645,"Populated_Place","Sverdlovsk",19379
+"Glazov","Russia",52.628767,58.123208,"Populated_Place","Udmurt",100676
+"Peregrebnoye","Russia",65.085939,62.966995,"Populated_Place","Khanty-Mansiy",10
+"Saranpaul","Russia",60.970015,64.250457,"Populated_Place","Khanty-Mansiy",2985
+"Uray","Russia",64.754797,60.140139,"Populated_Place","Khanty-Mansiy",39878
+"Laryak","Russia",80.25137,61.101192,"Populated_Place","Khanty-Mansiy",10
+"Kogalym","Russia",74.494099,62.044622,"Populated_Place","Khanty-Mansiy",58192
+"Megion","Russia",76.095345,61.060755,"Populated_Place","Khanty-Mansiy",48691
+"Yessey","Russia",102.166622,68.483738,"Populated_Place","Evenk",10
+"Ulkan","Russia",107.783333,55.900398,"Populated_Place","Irkutsk",10
+"Kirensk","Russia",108.111943,57.785735,"Populated_Place","Irkutsk",13308
+"Zheleznogorsk Ilimskiy","Russia",104.122678,56.576248,"Populated_Place","Irkutsk",28456
+"Vikhorevka","Russia",101.242699,56.093099,"Populated_Place","Irkutsk",166
+"Biryusinsk","Russia",97.814432,55.960653,"Populated_Place","Irkutsk",9583
+"Kodinskiy","Russia",99.177657,58.698057,"Populated_Place","Krasnoyarsk",15670
+"Artemovsk","Russia",93.435527,54.348736,"Populated_Place","Krasnoyarsk",4948
+"Agapa","Russia",89.249994,71.450379,"Populated_Place","Taymyr",10
+"Boyarka","Russia",97.500033,70.766984,"Populated_Place","Taymyr",35968
+"Nordvik","Russia",111.510031,74.016502,"Populated_Place","Taymyr",0
+"Chelyuskin","Russia",104.250009,77.716973,"Populated_Place","Taymyr",885
+"Taksimo","Russia",114.889979,56.331534,"Populated_Place","Buryat",10359
+"Nyukzha","Russia",121.613083,56.531212,"Populated_Place","Amur",10
+"Nerchinsk","Russia",116.548586,52.008956,"Populated_Place","Chita",15360
+"Shalaurova","Russia",143.183343,73.220374,"Populated_Place","Sakha (Yakutia)",10
+"Logashkino","Russia",153.900001,70.85039,"Populated_Place","Sakha (Yakutia)",0
+"Ust Kuyga","Russia",135.600033,70.017056,"Populated_Place","Sakha (Yakutia)",1517
+"Verkhnevilyuysk","Russia",120.316728,63.4457,"Populated_Place","Sakha (Yakutia)",6341
+"Vitim","Russia",112.557822,59.451499,"Populated_Place","Sakha (Yakutia)",3843
+"Olyokminsk","Russia",120.392589,60.503192,"Populated_Place","Sakha (Yakutia)",10000
+"Tunguskhaya","Russia",125.250019,64.900443,"Populated_Place","Sakha (Yakutia)",10
+"Natara","Russia",123.9255,68.410616,"Populated_Place","Sakha (Yakutia)",10
+"Zhilinda","Russia",114.000008,70.133689,"Populated_Place","Sakha (Yakutia)",10
+"Tukchi","Russia",139.500002,57.366975,"Populated_Place","Khabarovsk",10
+"Chegdomyn","Russia",133.024118,51.117796,"Populated_Place","Khabarovsk",14855
+"Siglan","Russia",152.416578,59.033721,"Populated_Place","Maga Buryatdan",10
+"Karamken","Russia",151.166628,60.20042,"Populated_Place","Maga Buryatdan",10
+"Strelka","Russia",152.250179,61.866985,"Populated_Place","Maga Buryatdan",10
+"Severo Kurilsk","Russia",156.085036,50.690483,"Populated_Place","Sakhalin",2422
+"Poronaysk","Russia",143.085002,49.241554,"Populated_Place","Sakhalin",16677
+"Makarov","Russia",142.800007,48.633736,"Populated_Place","Sakhalin",6663
+"Dolinsk","Russia",142.800007,47.350429,"Populated_Place","Sakhalin",11989
+"Kudymkar","Russia",54.633037,59.016177,"Populated_Place","Komi-Permyak",32423
+"Krasnokamsk","Russia",55.744287,58.074736,"Populated_Place","Perm'",52689
+"Chusovoy","Russia",57.81305,58.29343,"Populated_Place","Perm'",72113
+"Gubakha","Russia",57.588722,58.869132,"Populated_Place","Perm'",31424
+"Utkholok","Russia",157.233338,57.550401,"Populated_Place","Kamchatka",10
+"Bol'sheretsk","Russia",156.359386,52.438981,"Populated_Place","Kamchatka",10
+"Qasigiannguit","Denmark",-51.178519,68.81927,"Populated_Place","Qaasuitsup Kommunia",1341
+"Shamattawa","Canada",-92.083279,55.850375,"Populated_Place","Manitoba",870
+"Oxford House","Canada",-95.266599,54.950404,"Populated_Place","Manitoba",184
+"Meadow Lake","Canada",-108.434736,54.130118,"Populated_Place","Saskatchewan",5882
+"Hudson Bay","Canada",-102.383296,52.850429,"Populated_Place","Saskatchewan",2157
+"Fort Chipewyan","Canada",-111.149996,58.717099,"Populated_Place","Alberta",3222
+"Dawson Creek","Canada",-120.233266,55.766969,"Populated_Place","British Columbia",10802
+"Dease Lake","Canada",-130.033288,58.450346,"Populated_Place","British Columbia",303
+"Baker Lake","Canada",-96.016656,64.31699,"Populated_Place","Nunavut",1584
+"Norman Wells","Canada",-126.849968,65.283727,"Populated_Place","Northwest Territories",1027
+"Fort McPherson","Canada",-134.894981,67.491525,"Populated_Place","Northwest Territories",1069
+"Burwash Landing","Canada",-139.000002,61.350375,"Populated_Place","Yukon",73
+"Wawa","Canada",-84.783337,48.000415,"Populated_Place","Ontario",2174
+"Hearst","Canada",-83.666583,49.700492,"Populated_Place","Ontario",5043
+"Marathon","Canada",-86.366651,48.750395,"Populated_Place","Ontario",4627
+"Sioux Lookout","Canada",-91.916648,50.262964,"Populated_Place","Ontario",4570
+"Red Lake","Canada",-93.833301,51.033692,"Populated_Place","Ontario",1765
+"Deer Lake","Canada",-94.066595,52.617033,"Populated_Place","Ontario",3743
+"Cat Lake","Canada",-91.799989,51.717036,"Populated_Place","Ontario",277
+"Cochrane","Canada",-81.016564,49.067017,"Populated_Place","Ontario",4441
+"Nipigon","Canada",-88.249973,49.017046,"Populated_Place","Ontario",1204
+"Chevery","Canada",-59.609783,50.481323,"Populated_Place","Québec",284
+"Kangirsuk","Canada",-69.999097,60.024823,"Populated_Place","Québec",549
+"Matagami","Canada",-77.633282,49.750386,"Populated_Place","Québec",1966
+"Argentia","Canada",-53.989997,47.300432,"Populated_Place","Newfoundland and Labrador",1063
+"St. Anthony","Canada",-55.59995,51.383749,"Populated_Place","Newfoundland and Labrador",224
+"Buchans","Canada",-56.866591,48.817032,"Populated_Place","Newfoundland and Labrador",685
+"Trout River","Canada",-58.116644,49.483658,"Populated_Place","Newfoundland and Labrador",452
+"Churchill Falls","Canada",-63.980679,53.526409,"Populated_Place","Newfoundland and Labrador",100
+"Forteau","Canada",-56.949997,51.450385,"Populated_Place","Newfoundland and Labrador",448
+"Trepassey","Canada",-53.363291,46.736978,"Populated_Place","Newfoundland and Labrador",398
+"Kullorsuaq","Denmark",-57.224986,74.578063,"Populated_Place",NA,450
+"Tasiusaq","Denmark",-56.059814,73.369002,"Populated_Place",NA,250
+"Gambell","United States",-171.731079,63.77971,"Populated_Place","Alaska",681
+"Palmer","United States",-149.112692,61.599714,"Populated_Place","Alaska",13111
+"Höfn","Iceland",-15.21386,64.272315,"Populated_Place","Sveitarfélagið Hornafjörður",1695
+"Mo i Rana","Kingdom of Norway",14.16667,66.31661,"Populated_Place","Nordland",20409
+"Skien","Kingdom of Norway",9.600024,59.19999,"Populated_Place","Telemark",73330
+"Namsos","Kingdom of Norway",11.500011,64.483311,"Populated_Place","Nord-Trøndelag",9035
+"Vadsø","Kingdom of Norway",29.765749,70.096597,"Populated_Place","Finnmark",5139
+"Kolpashevo","Russia",82.995389,58.300407,"Populated_Place","Tomsk",27876
+"Omolon","Russia",160.500012,65.249982,"Populated_Place","Chukchi Autonomous Okrug",1050
+"Pevek","Russia",170.313315,69.700822,"Populated_Place","Chukchi Autonomous Okrug",4837
+"Umba","Russia",34.345542,66.681394,"Populated_Place","Murmansk",6128
+"Kovda","Russia",32.870231,66.690282,"Populated_Place","Murmansk",20
+"Belomorsk","Russia",34.765826,64.52522,"Populated_Place","Karelia",12165
+"Kem","Russia",34.56837,64.953592,"Populated_Place","Karelia",13829
+"Severodvinsk","Russia",39.830013,64.570024,"Populated_Place","Arkhangel'sk",194292
+"Indiga","Russia",49.016595,67.689754,"Populated_Place","Nenets",10
+"Salekhard","Russia",66.60998,66.53502,"Populated_Place","Yamal-Nenets",38025
+"Gyda","Russia",78.466104,70.881422,"Populated_Place","Yamal-Nenets",10
+"Tazovsky","Russia",78.699992,67.466669,"Populated_Place","Yamal-Nenets",5981
+"Novy Urengoy","Russia",76.633245,66.083317,"Populated_Place","Yamal-Nenets",94212
+"Nadym","Russia",72.514788,65.52981,"Populated_Place","Yamal-Nenets",46339
+"Noyabrsk","Russia",75.616511,63.166544,"Populated_Place","Yamal-Nenets",110572
+"Ukhta","Russia",53.689994,63.559982,"Populated_Place","Komi",102187
+"Serov","Russia",60.584974,59.614977,"Populated_Place","Sverdlovsk",98438
+"Igrim","Russia",64.419417,63.193312,"Populated_Place","Khanty-Mansiy",9545
+"Nyagan","Russia",65.381425,62.146528,"Populated_Place","Khanty-Mansiy",52137
+"Nizhenvartovsk","Russia",76.580018,60.934974,"Populated_Place","Khanty-Mansiy",244937
+"Numto","Russia",71.33331,63.66672,"Populated_Place","Khanty-Mansiy",10
+"Tobolsk","Russia",68.264815,58.199793,"Populated_Place","Tyumen'",113800
+"Noginsk","Russia",91.233335,64.483311,"Populated_Place","Evenk",229731
+"Yerema","Russia",107.779406,60.380796,"Populated_Place","Irkutsk",745
+"Tayshet","Russia",97.987703,55.927709,"Populated_Place","Irkutsk",52184
+"Slyudyanka","Russia",103.698828,51.653836,"Populated_Place","Irkutsk",18809
+"Zima","Russia",102.03309,53.93305,"Populated_Place","Irkutsk",60239
+"Nizhneudinsk","Russia",99.027692,54.897669,"Populated_Place","Irkutsk",43326
+"Ust Kut","Russia",105.759994,56.764971,"Populated_Place","Irkutsk",25388
+"Bodaybo","Russia",114.32898,57.964975,"Populated_Place","Irkutsk",15933
+"Yeniseysk","Russia",92.156535,58.451508,"Populated_Place","Krasnoyarsk",19920
+"Lesosibirsk","Russia",92.483285,58.243252,"Populated_Place","Krasnoyarsk",65945
+"Turukhansk","Russia",87.954983,65.838164,"Populated_Place","Krasnoyarsk",4774
+"Starorybnoye","Russia",104.800001,72.766604,"Populated_Place","Taymyr",10
+"Dudinka","Russia",86.225011,69.418203,"Populated_Place","Taymyr",23619
+"Novyy Uoyin","Russia",111.733893,56.134983,"Populated_Place","Buryat",4184
+"Bagdarin","Russia",113.600032,54.433304,"Populated_Place","Buryat",4676
+"Tynda","Russia",124.707571,55.174267,"Populated_Place","Amur",37335
+"Mogocha","Russia",119.766581,53.733321,"Populated_Place","Chita",12647
+"Khilok","Russia",110.450044,51.350004,"Populated_Place","Chita",10627
+"Kavache","Russia",136.216636,70.733291,"Populated_Place","Sakha (Yakutia)",-99
+"Verkhoyansk","Russia",133.384974,67.5447,"Populated_Place","Sakha (Yakutia)",1388
+"Srednekolymsk","Russia",153.710039,67.450003,"Populated_Place","Sakha (Yakutia)",3459
+"Zyryanka","Russia",150.890004,65.735973,"Populated_Place","Sakha (Yakutia)",3627
+"Eldikan","Russia",135.183314,60.800021,"Populated_Place","Sakha (Yakutia)",1516
+"Khandyga","Russia",135.600033,62.666006,"Populated_Place","Sakha (Yakutia)",6796
+"Neryungri","Russia",124.710362,56.674046,"Populated_Place","Sakha (Yakutia)",66320
+"Chernyshevskiy","Russia",112.471419,63.012755,"Populated_Place","Sakha (Yakutia)",5137
+"Terbyas","Russia",120.546895,64.376082,"Populated_Place","Sakha (Yakutia)",10
+"Vilyuysk","Russia",121.624762,63.755267,"Populated_Place","Sakha (Yakutia)",9948
+"Sangar","Russia",127.473914,63.924146,"Populated_Place","Sakha (Yakutia)",4633
+"Menkere","Russia",123.350496,67.988601,"Populated_Place","Sakha (Yakutia)",10
+"Saskylakh","Russia",114.08331,71.91663,"Populated_Place","Sakha (Yakutia)",1920
+"Govorovo","Russia",125.993281,70.211359,"Populated_Place","Sakha (Yakutia)",943
+"Sagastyr","Russia",126.592352,73.377933,"Populated_Place","Sakha (Yakutia)",10
+"Suntar","Russia",117.631931,62.14441,"Populated_Place","Sakha (Yakutia)",8639
+"Olenek","Russia",112.450025,68.525002,"Populated_Place","Sakha (Yakutia)",10
+"Udachnyy","Russia",112.39654,66.423167,"Populated_Place","Sakha (Yakutia)",15266
+"Khakhar","Russia",135.430018,57.666595,"Populated_Place","Khabarovsk",10
+"Chumikan","Russia",135.314514,54.711395,"Populated_Place","Khabarovsk",1305
+"Komsomolsk na Amure","Russia",137.019998,50.554988,"Populated_Place","Khabarovsk",275908
+"Ayan","Russia",138.167331,56.454241,"Populated_Place","Khabarovsk",1286
+"Sovetskaya Gavan","Russia",140.27489,48.969891,"Populated_Place","Khabarovsk",29740
+"Evensk","Russia",159.233319,61.949977,"Populated_Place","Maga Buryatdan",2024
+"Palatka","Russia",150.899978,60.100012,"Populated_Place","Maga Buryatdan",21452
+"Omsukchan","Russia",155.80004,62.533275,"Populated_Place","Maga Buryatdan",4201
+"Susuman","Russia",148.166759,62.783337,"Populated_Place","Maga Buryatdan",7367
+"Nogliki","Russia",143.166703,51.833282,"Populated_Place","Sakhalin",10098
+"Korsakov","Russia",142.777476,46.642436,"Populated_Place","Sakhalin",35091
+"Manily","Russia",165.300029,62.549992,"Populated_Place","Kamchatka",10
+"Oktyabrskiy","Russia",156.238722,52.663593,"Populated_Place","Kamchatka",1534
+"Klyuchi","Russia",160.850016,56.29996,"Populated_Place","Kamchatka",1089
+"Kulusuk","Denmark",-37.183322,65.566578,"Populated_Place","Kommuneqarfik Sermersooq",286
+"Paamiut","Denmark",-49.63507,62.004102,"Populated_Place","Kommuneqarfik Sermersooq",1862
+"Ittoqqortoormiit","Denmark",-21.966654,70.483358,"Populated_Place","Kommuneqarfik Sermersooq",469
+"Timmiarmiut","Denmark",-42.21671,62.533275,"Populated_Place","Kommune Kujalleq",10
+"Qaqortoq","Denmark",-46.036412,60.72891,"Populated_Place","Kommune Kujalleq",3224
+"Kangerlussuaq","Denmark",-50.709909,67.014123,"Populated_Place","Qeqqata Kommunia",556
+"Nord","Denmark",-17.800035,81.716626,"Populated_Place","Nationalparken",10
+"Kokkola","Finland",23.116666,63.833299,"Populated_Place","Western Finland",46714
+"Unalaska","United States",-166.531603,53.868584,"Populated_Place","Alaska",3571
+"Togiak","United States",-160.378323,59.070361,"Populated_Place","Alaska",236
+"Red Devil","United States",-157.312527,61.760996,"Populated_Place","Alaska",25
+"Hooper Bay","United States",-166.096565,61.531088,"Populated_Place","Alaska",1079
+"Galena","United States",-156.926995,64.733296,"Populated_Place","Alaska",500
+"Skagway","United States",-135.313896,59.45832,"Populated_Place","Alaska",955
+"Fort Yukon","United States",-145.273779,66.564682,"Populated_Place","Alaska",833
+"Brochet","Canada",-101.666596,57.883223,"Populated_Place","Manitoba",278
+"Holman","Canada",-117.749981,70.733369,"Populated_Place","Northwest Territories",500
+"Attawapiskat","Canada",-82.433325,52.916627,"Populated_Place","Ontario",1802
+"Sept-Îles","Canada",-66.360017,50.316088,"Populated_Place","Québec",25686
+"Ísafjörður","Iceland",-23.149967,66.083317,"Populated_Place","Vestfirðir",2534
+"Akureyri","Iceland",-18.100017,65.666572,"Populated_Place","Akureyri",16563
+"Keflavík","Iceland",-22.566592,64.016647,"Populated_Place","Suðurnes",7930
+"Östersund","Sweden",14.65,63.183313,"Populated_Place","Jämtland",46178
+"Molde","Kingdom of Norway",7.183324,62.7483,"Populated_Place","Møre og Romsdal",18594
+"Provideniya","Russia",-173.225794,64.423495,"Populated_Place","Chukchi Autonomous Okrug",2536
+"Vyborg","Russia",28.754927,60.703877,"Populated_Place","Leningrad",117201
+"Rusanovo","Russia",56.372291,70.598074,"Populated_Place","Arkhangel'sk",10
+"Mezen","Russia",44.240028,65.85222,"Populated_Place","Arkhangel'sk",3672
+"Velsk","Russia",42.09742,61.067395,"Populated_Place","Arkhangel'sk",26300
+"Kotlas","Russia",46.663084,61.263068,"Populated_Place","Arkhangel'sk",59879
+"Onega","Russia",38.077148,63.927143,"Populated_Place","Arkhangel'sk",22693
+"Kostroma","Russia",40.940023,57.770026,"Populated_Place","Kostroma",277656
+"Velikiy Ustyug","Russia",46.298662,60.768706,"Populated_Place","Vologda",33237
+"Zlatoust","Russia",59.649992,55.17499,"Populated_Place","Chelyabinsk",191366
+"Amderma","Russia",61.667698,69.763014,"Populated_Place","Nenets",282
+"Naryan Mar","Russia",53.057423,67.647407,"Populated_Place","Nenets",21658
+"Inta","Russia",60.167428,66.037428,"Populated_Place","Komi",22921
+"Usinsk","Russia",57.402997,65.923042,"Populated_Place","Komi",45000
+"Pechora","Russia",57.208746,65.158748,"Populated_Place","Komi",46113
+"Pervouralsk","Russia",59.955038,56.910026,"Populated_Place","Sverdlovsk",133600
+"Berezniki","Russia",56.759987,59.420002,"Populated_Place","Perm'",167748
+"Oulu","Finland",25.470011,64.999998,"Populated_Place","Northern Ostrobothnia",136752
+"Norway House","Canada",-97.83329,53.966588,"Populated_Place","Manitoba",6000
+"Flin Flon","Canada",-101.883301,54.766591,"Populated_Place","Manitoba",6393
+"The Pas","Canada",-101.233315,53.816623,"Populated_Place","Manitoba",6055
+"Uranium City","Canada",-108.616585,59.566557,"Populated_Place","Saskatchewan",89
+"Grand Prairie","Canada",-118.799994,55.166644,"Populated_Place","Alberta",41462
+"Fort Nelson","Canada",-122.532971,58.816706,"Populated_Place","British Columbia",6315
+"Cape Dorset","Canada",-76.538579,64.31252,"Populated_Place","Nunavut",1326
+"Kimmirut","Canada",-69.883316,62.850026,"Populated_Place","Nunavut",385
+"Gjoa Haven","Canada",-95.916662,68.63329,"Populated_Place","Nunavut",1109
+"Grise Fiord","Canada",-82.949986,76.441651,"Populated_Place","Nunavut",23
+"Alert","Canada",-62.249984,82.483323,"Populated_Place","Nunavut",125
+"Ennadai","Canada",-100.883336,61.133283,"Populated_Place","Nunavut",0
+"Rankin Inlet","Canada",-92.09532,62.816668,"Populated_Place","Nunavut",2472
+"Fort Resolution","Canada",-113.682994,61.166588,"Populated_Place","Northwest Territories",448
+"Watson Lake","Canada",-128.80003,60.116626,"Populated_Place","Yukon",802
+"Lansdowne House","Canada",-87.883329,52.216644,"Populated_Place","Ontario",120
+"Dolbeau","Canada",-72.233328,48.86659,"Populated_Place","Québec",13337
+"Val d'Or","Canada",-77.766633,48.116635,"Populated_Place","Québec",20625
+"Ivugivik","Canada",-77.899984,62.416641,"Populated_Place","Québec",156
+"Inukjuak","Canada",-78.135991,58.470009,"Populated_Place","Québec",1597
+"Chicoutimi","Canada",-71.066706,48.433309,"Populated_Place","Québec",53940
+"Gander","Canada",-54.549988,48.949995,"Populated_Place","Newfoundland and Labrador",3345
+"Rigolet","Canada",-58.447322,54.176601,"Populated_Place","Newfoundland and Labrador",124
+"Port Burwell","Canada",-64.741098,60.266462,"Populated_Place","Newfoundland and Labrador",2762
+"Tasiilaq","Denmark",-37.633737,65.601869,"Populated_Place",NA,1829
+"Savissivik","Denmark",-65.112481,76.019476,"Populated_Place",NA,66
+"Uummannaq","Denmark",-52.122934,70.675023,"Populated_Place",NA,1299
+"Sundsvall","Sweden",17.316659,62.400053,"Populated_Place","Västernorrland",73389
+"Hammerfest","Kingdom of Norway",23.688001,70.66128,"Populated_Place","Finnmark",10000
+"Ugolnye Kopi","Russia",177.699996,64.733296,"Populated_Place","Chukchi Autonomous Okrug",3367
+"Petrozavodsk","Russia",34.280016,61.849983,"Populated_Place","Karelia",265025
+"Vologda","Russia",39.919982,59.209989,"Populated_Place","Vologda",294889
+"Yaroslavl","Russia",39.870011,57.619983,"Populated_Place","Yaroslavl'",606730
+"Kirov","Russia",49.669981,58.590053,"Populated_Place","Kirov",457437
+"Nizhny Tagil","Russia",59.974985,57.920016,"Populated_Place","Sverdlovsk",381116
+"Ust-Ulimsk","Russia",102.633311,57.98996,"Populated_Place","Irkutsk",100271
+"Norilsk","Russia",88.224992,69.340017,"Populated_Place","Taymyr",165873
+"Khatanga","Russia",102.465001,72.041144,"Populated_Place","Taymyr",3205
+"Bukachacha","Russia",116.916626,52.983341,"Populated_Place","Chita",3372
+"Ambarchik","Russia",162.333595,69.651006,"Populated_Place","Sakha (Yakutia)",0
+"Batagay","Russia",134.635027,67.655985,"Populated_Place","Sakha (Yakutia)",4266
+"Ust Nera","Russia",143.199983,64.566587,"Populated_Place","Sakha (Yakutia)",9148
+"Lensk","Russia",114.94703,60.725271,"Populated_Place","Sakha (Yakutia)",25589
+"Aldan","Russia",125.38939,58.602998,"Populated_Place","Sakha (Yakutia)",24426
+"Mirnyy","Russia",113.961354,62.540019,"Populated_Place","Sakha (Yakutia)",40308
+"Zhigansk","Russia",123.371115,66.769709,"Populated_Place","Sakha (Yakutia)",3237
+"Okhotsk","Russia",143.217036,59.383002,"Populated_Place","Khabarovsk",5570
+"Okha","Russia",142.947853,53.573899,"Populated_Place","Sakhalin",26560
+"Yuzhno Sakhalinsk","Russia",142.740011,46.964974,"Populated_Place","Sakhalin",176484
+"Narsarsuaq","Denmark",-45.416618,61.166588,"Populated_Place","Kommune Kujalleq",145
+"Sisimiut","Denmark",-53.666606,66.950008,"Populated_Place","Qeqqata Kommunia",5227
+"Qaanaaq","Denmark",-69.332239,77.483473,"Populated_Place","Qaasuitsup Kommunia",616
+"Rovaniemi","Finland",25.715939,66.500035,"Populated_Place","Lapland",34781
+"Vaasa","Finland",21.600015,63.099984,"Populated_Place","Western Finland",57014
+"Fort Smith","Canada",-111.883336,60.000019,"Populated_Place","Alberta",518
+"Fort McMurray","Canada",-111.383315,56.733319,"Populated_Place","Alberta",21863
+"Peace River","Canada",-117.283291,56.233323,"Populated_Place","Alberta",5340
+"Fort St. John","Canada",-120.833281,56.249989,"Populated_Place","British Columbia",18776
+"Kugluktuk","Canada",-115.12535,67.798663,"Populated_Place","Nunavut",1302
+"Taloyoak","Canada",-93.53332,69.533313,"Populated_Place","Nunavut",774
+"Igloolik","Canada",-81.793592,69.256535,"Populated_Place","Nunavut",1612
+"Kuujjuarapik","Canada",-77.765832,55.281495,"Populated_Place","Québec",1243
+"Labrador City","Canada",-66.915875,52.941431,"Populated_Place","Newfoundland and Labrador",10313
+"Kodiak","United States",-152.406987,57.789998,"Populated_Place","Alaska",9461
+"Cold Bay","United States",-162.715092,55.200001,"Populated_Place","Alaska",200
+"Valdez","United States",-146.348287,61.135996,"Populated_Place","Alaska",4036
+"Juneau","United States",-134.419997,58.314127,"Populated_Place","Alaska",30711
+"Trondheim","Kingdom of Norway",10.416666,63.416658,"Populated_Place","Sør-Trøndelag",147139
+"Murmansk","Russia",33.100036,68.969988,"Populated_Place","Murmansk",319263
+"Archangel","Russia",40.545008,64.574959,"Populated_Place","Arkhangel'sk",356051
+"Yekaterinburg","Russia",60.598014,56.851976,"Populated_Place","Sverdlovsk",1313000
+"Surgut","Russia",73.425017,61.259942,"Populated_Place","Khanty-Mansiy",400000
+"Bratsk","Russia",101.615027,56.156997,"Populated_Place","Irkutsk",246348
+"Irkutsk","Russia",104.245048,52.319971,"Populated_Place","Irkutsk",586695
+"Dikson","Russia",80.545099,73.506972,"Populated_Place","Taymyr",1113
+"Chita","Russia",113.465002,52.055026,"Populated_Place","Chita",308500
+"Nizhneyansk","Russia",136.066619,71.433326,"Populated_Place","Sakha (Yakutia)",400
+"Magadan","Russia",150.810009,59.57498,"Populated_Place","Maga Buryatdan",95282
+"Palana","Russia",159.95002,59.084002,"Populated_Place","Kamchatka",3671
+"Petropavlovsk Kamchatskiy","Russia",158.62302,53.061992,"Populated_Place","Kamchatka",187282
+"Arctic Bay","Canada",-85.166621,73.033306,"Populated_Place","Nunavut",604
+"Naujaat","Canada",-86.282935,66.529467,"Populated_Place","Nunavut",1000
+"Yellowknife","Canada",-114.396981,62.442014,"Populated_Place","Northwest Territories",19234
+"Fort Good Hope","Canada",-128.633322,66.266613,"Populated_Place","Northwest Territories",597
+"Fort Severn","Canada",-87.649984,55.983339,"Populated_Place","Ontario",125
+"St. John's","Canada",-52.681007,47.584988,"Populated_Place","Newfoundland and Labrador",131469
+"Nain","Canada",-61.686045,56.547352,"Populated_Place","Newfoundland and Labrador",1151
+"St. Petersburg","Russia",30.314074,59.94096,"Populated_Place","City of St. Petersburg",4553000

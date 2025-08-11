@@ -1,0 +1,1209 @@
+site_name,dataset,flux_method,latitude,longitude,num.months,num.years,start_year,end_year,Flux,co2.yearround,ch4.yearround
+1554,Lotic,Concentration (no flux),45.38395,-75.54702,1,1,2008.0,2008.0,CO2,N,N
+1555,Lotic,Concentration (no flux),45.39528,-75.55323,1,1,2008.0,2008.0,CO2,N,N
+1556,Lotic,Concentration (no flux),45.39995,-75.55574,1,1,2008.0,2008.0,CO2,N,N
+1557,Lotic,Concentration (no flux),45.41106,-75.56226,1,1,2008.0,2008.0,CO2,N,N
+1819,Lotic,Concentration (no flux),59.024,-158.534,2,2,2014.0,2015.0,CO2,N,N
+1820,Lotic,Concentration (no flux),59.034,-158.517,2,2,2014.0,2015.0,CO2,N,N
+1821,Lotic,Concentration (no flux),59.172,-158.546,1,1,2014.0,2014.0,CO2,N,N
+1822,Lotic,Concentration (no flux),59.266,-158.681,4,2,2014.0,2015.0,CO2,N,N
+1823,Lotic,Concentration (no flux),59.275,-158.708,4,2,2014.0,2015.0,CO2,N,N
+1824,Lotic,Concentration (no flux),59.317,-158.694,4,2,2014.0,2015.0,CO2,N,N
+1825,Lotic,Concentration (no flux),59.323,-158.718,3,2,2014.0,2015.0,CO2,N,N
+1826,Lotic,Concentration (no flux),59.332,-158.814,1,1,2015.0,2015.0,CO2,N,N
+1827,Lotic,Concentration (no flux),59.43,-158.659,2,1,2015.0,2015.0,CO2,N,N
+1828,Lotic,Concentration (no flux),59.459,-158.635,4,2,2014.0,2015.0,CO2,N,N
+1829,Lotic,Concentration (no flux),59.47,-158.664,4,2,2014.0,2015.0,CO2,N,N
+1830,Lotic,Concentration (no flux),59.482,-158.729,4,2,2014.0,2015.0,CO2,N,N
+1831,Lotic,Concentration (no flux),59.485,-158.92,1,1,2015.0,2015.0,CO2,N,N
+1832,Lotic,Concentration (no flux),59.5,-158.901,1,1,2015.0,2015.0,CO2,N,N
+1833,Lotic,Concentration (no flux),59.54,-158.767,4,2,2014.0,2015.0,CO2,N,N
+1834,Lotic,Concentration (no flux),59.544,-158.752,4,2,2014.0,2015.0,CO2,N,N
+1835,Lotic,Concentration (no flux),59.546,-158.656,3,2,2014.0,2015.0,CO2,N,N
+1836,Lotic,Concentration (no flux),59.55,-159.064,4,2,2014.0,2015.0,CO2,N,N
+1837,Lotic,Concentration (no flux),59.58,-158.914,3,2,2014.0,2015.0,CO2,N,N
+1838,Lotic,Concentration (no flux),59.58,-158.91,4,2,2014.0,2015.0,CO2,N,N
+1839,Lotic,Concentration (no flux),59.581,-159.055,4,2,2014.0,2015.0,CO2,N,N
+1840,Lotic,Concentration (no flux),59.589,-158.895,4,2,2014.0,2015.0,CO2,N,N
+1841,Lotic,Concentration (no flux),59.599,-158.814,4,2,2014.0,2015.0,CO2,N,N
+1842,Lotic,Concentration (no flux),59.623,-159.082,4,2,2014.0,2015.0,CO2,N,N
+1843,Lotic,Concentration (no flux),59.639,-158.584,2,2,2014.0,2015.0,CO2,N,N
+1844,Lotic,Concentration (no flux),59.646,-158.599,2,2,2014.0,2015.0,CO2,N,N
+1845,Lotic,Concentration (no flux),59.665,-159.157,3,2,2014.0,2015.0,CO2,N,N
+1849,Lotic,Concentration (no flux),59.691,-158.755,1,1,2015.0,2015.0,CO2,N,N
+2173,Lotic,Concentration (no flux),68.45168,160.8056,1,1,2017.0,2017.0,CO2,N,N
+2174,Lotic,Concentration (no flux),68.45959,160.78298,1,1,2017.0,2017.0,CO2,N,N
+2175,Lotic,Concentration (no flux),68.62917,159.17932,1,1,2017.0,2017.0,CO2,N,N
+2176,Lotic,Concentration (no flux),68.62996,159.13322,1,1,2017.0,2017.0,CO2,N,N
+2177,Lotic,Concentration (no flux),68.63055,159.1506,1,1,2017.0,2017.0,CO2,N,N
+2178,Lotic,Concentration (no flux),68.63567,159.0795,1,1,2017.0,2017.0,CO2,N,N
+2181,Lotic,Concentration (no flux),68.70218,161.51962,1,1,2017.0,2017.0,CO2,N,N
+2182,Lotic,Concentration (no flux),68.70888,161.50779,1,1,2017.0,2017.0,CO2,N,N
+2183,Lotic,Concentration (no flux),68.73478,161.43513,1,1,2017.0,2017.0,CO2,N,N
+2184,Lotic,Concentration (no flux),68.7381,161.3909,1,1,2017.0,2017.0,CO2,N,N
+2185,Lotic,Concentration (no flux),68.74146,161.41405,1,1,2017.0,2017.0,CO2,N,N
+2186,Lotic,Concentration (no flux),68.74545,161.39554,1,1,2017.0,2017.0,CO2,N,N
+2187,Lotic,Concentration (no flux),68.75965,161.44963,1,1,2017.0,2017.0,CO2,N,N
+2188,Lotic,Concentration (no flux),68.77473,161.3044,1,1,2017.0,2017.0,CO2,N,N
+2190,Lotic,Concentration (no flux),69.4406,161.7066,1,1,2017.0,2017.0,CO2,N,N
+2191,Lotic,Concentration (no flux),69.4654,161.7636,1,1,2017.0,2017.0,CO2,N,N
+2192,Lotic,Concentration (no flux),69.4916,161.8413,1,1,2017.0,2017.0,CO2,N,N
+2652,Lotic,Concentration (no flux),68.258,19.006,1,1,2016.0,2016.0,CO2,N,N
+2653,Lotic,Concentration (no flux),68.264,18.99,1,1,2016.0,2016.0,CO2,N,N
+2654,Lotic,Concentration (no flux),68.265,18.988,1,1,2016.0,2016.0,CO2,N,N
+2655,Lotic,Concentration (no flux),68.267,18.917,1,1,2016.0,2016.0,CO2,N,N
+2656,Lotic,Concentration (no flux),68.267,18.983,1,1,2016.0,2016.0,CO2,N,N
+2657,Lotic,Concentration (no flux),68.269,18.979,1,1,2016.0,2016.0,CO2,N,N
+2658,Lotic,Concentration (no flux),68.28,19.025,1,1,2016.0,2016.0,CO2,N,N
+2659,Lotic,Concentration (no flux),68.284,18.939,1,1,2016.0,2016.0,CO2,N,N
+2660,Lotic,Concentration (no flux),68.284,18.942,1,1,2016.0,2016.0,CO2,N,N
+2661,Lotic,Concentration (no flux),68.286,18.935,1,1,2016.0,2016.0,CO2,N,N
+2662,Lotic,Concentration (no flux),68.287,18.919,1,1,2016.0,2016.0,CO2,N,N
+2663,Lotic,Concentration (no flux),68.288,18.923,1,1,2016.0,2016.0,CO2,N,N
+2664,Lotic,Concentration (no flux),68.288,19.027,1,1,2016.0,2016.0,CO2,N,N
+2665,Lotic,Concentration (no flux),68.289,18.919,1,1,2016.0,2016.0,CO2,N,N
+2666,Lotic,Concentration (no flux),68.289,18.932,1,1,2016.0,2016.0,CO2,N,N
+2667,Lotic,Concentration (no flux),68.289,18.979,1,1,2016.0,2016.0,CO2,N,N
+2668,Lotic,Concentration (no flux),68.289,18.98,1,1,2016.0,2016.0,CO2,N,N
+2669,Lotic,Concentration (no flux),68.289,18.989,1,1,2016.0,2016.0,CO2,N,N
+2670,Lotic,Concentration (no flux),68.289,19.001,1,1,2016.0,2016.0,CO2,N,N
+2671,Lotic,Concentration (no flux),68.289,19.005,1,1,2016.0,2016.0,CO2,N,N
+2672,Lotic,Concentration (no flux),68.289,19.009,1,1,2016.0,2016.0,CO2,N,N
+2673,Lotic,Concentration (no flux),68.289,19.024,1,1,2016.0,2016.0,CO2,N,N
+2674,Lotic,Concentration (no flux),68.29,18.913,1,1,2016.0,2016.0,CO2,N,N
+2675,Lotic,Concentration (no flux),68.29,18.931,1,1,2016.0,2016.0,CO2,N,N
+2676,Lotic,Concentration (no flux),68.29,18.98,1,1,2016.0,2016.0,CO2,N,N
+2677,Lotic,Concentration (no flux),68.29,18.981,1,1,2016.0,2016.0,CO2,N,N
+2678,Lotic,Concentration (no flux),68.29,18.994,1,1,2016.0,2016.0,CO2,N,N
+2679,Lotic,Concentration (no flux),68.29,18.999,1,1,2016.0,2016.0,CO2,N,N
+2680,Lotic,Concentration (no flux),68.29,19.014,1,1,2016.0,2016.0,CO2,N,N
+2681,Lotic,Concentration (no flux),68.291,18.914,1,1,2016.0,2016.0,CO2,N,N
+2682,Lotic,Concentration (no flux),68.291,18.922,1,1,2016.0,2016.0,CO2,N,N
+2683,Lotic,Concentration (no flux),68.291,18.981,1,1,2016.0,2016.0,CO2,N,N
+2684,Lotic,Concentration (no flux),68.291,18.983,1,1,2016.0,2016.0,CO2,N,N
+2685,Lotic,Concentration (no flux),68.292,18.914,1,1,2016.0,2016.0,CO2,N,N
+2686,Lotic,Concentration (no flux),68.292,18.932,1,1,2016.0,2016.0,CO2,N,N
+2687,Lotic,Concentration (no flux),68.292,18.98,1,1,2016.0,2016.0,CO2,N,N
+2688,Lotic,Concentration (no flux),68.293,18.913,1,1,2016.0,2016.0,CO2,N,N
+2689,Lotic,Concentration (no flux),68.294,18.913,1,1,2016.0,2016.0,CO2,N,N
+2690,Lotic,Concentration (no flux),68.294,18.924,1,1,2016.0,2016.0,CO2,N,N
+2691,Lotic,Concentration (no flux),68.294,18.932,1,1,2016.0,2016.0,CO2,N,N
+2692,Lotic,Concentration (no flux),68.294,18.974,1,1,2016.0,2016.0,CO2,N,N
+2693,Lotic,Concentration (no flux),68.294,19.038,1,1,2016.0,2016.0,CO2,N,N
+2694,Lotic,Concentration (no flux),68.295,18.914,1,1,2016.0,2016.0,CO2,N,N
+2695,Lotic,Concentration (no flux),68.295,18.931,1,1,2016.0,2016.0,CO2,N,N
+2696,Lotic,Concentration (no flux),68.295,18.971,1,1,2016.0,2016.0,CO2,N,N
+2697,Lotic,Concentration (no flux),68.295,19.04,1,1,2016.0,2016.0,CO2,N,N
+2698,Lotic,Concentration (no flux),68.296,18.914,1,1,2016.0,2016.0,CO2,N,N
+2699,Lotic,Concentration (no flux),68.296,18.915,1,1,2016.0,2016.0,CO2,N,N
+2700,Lotic,Concentration (no flux),68.296,18.965,1,1,2016.0,2016.0,CO2,N,N
+2701,Lotic,Concentration (no flux),68.296,18.968,1,1,2016.0,2016.0,CO2,N,N
+2702,Lotic,Concentration (no flux),68.297,18.907,1,1,2016.0,2016.0,CO2,N,N
+2703,Lotic,Concentration (no flux),68.297,18.909,1,1,2016.0,2016.0,CO2,N,N
+2704,Lotic,Concentration (no flux),68.297,18.914,1,1,2016.0,2016.0,CO2,N,N
+2705,Lotic,Concentration (no flux),68.298,18.911,1,1,2016.0,2016.0,CO2,N,N
+2706,Lotic,Concentration (no flux),68.298,18.914,1,1,2016.0,2016.0,CO2,N,N
+2707,Lotic,Concentration (no flux),68.298,18.926,1,1,2016.0,2016.0,CO2,N,N
+2708,Lotic,Concentration (no flux),68.298,18.934,1,1,2016.0,2016.0,CO2,N,N
+2709,Lotic,Concentration (no flux),68.298,18.952,1,1,2016.0,2016.0,CO2,N,N
+2710,Lotic,Concentration (no flux),68.298,18.957,1,1,2016.0,2016.0,CO2,N,N
+2711,Lotic,Concentration (no flux),68.298,18.962,1,1,2016.0,2016.0,CO2,N,N
+2712,Lotic,Concentration (no flux),68.298,19.041,1,1,2016.0,2016.0,CO2,N,N
+2713,Lotic,Concentration (no flux),68.299,18.91,1,1,2016.0,2016.0,CO2,N,N
+2714,Lotic,Concentration (no flux),68.299,18.912,1,1,2016.0,2016.0,CO2,N,N
+2715,Lotic,Concentration (no flux),68.299,18.915,1,1,2016.0,2016.0,CO2,N,N
+2716,Lotic,Concentration (no flux),68.299,18.937,1,1,2016.0,2016.0,CO2,N,N
+2717,Lotic,Concentration (no flux),68.3,18.913,1,1,2016.0,2016.0,CO2,N,N
+2718,Lotic,Concentration (no flux),68.3,18.914,1,1,2016.0,2016.0,CO2,N,N
+2719,Lotic,Concentration (no flux),68.3,18.915,1,1,2016.0,2016.0,CO2,N,N
+2720,Lotic,Concentration (no flux),68.3,18.949,1,1,2016.0,2016.0,CO2,N,N
+2721,Lotic,Concentration (no flux),68.3,19.04,1,1,2016.0,2016.0,CO2,N,N
+2722,Lotic,Concentration (no flux),68.3,19.074,1,1,2016.0,2016.0,CO2,N,N
+2723,Lotic,Concentration (no flux),68.301,18.93,1,1,2016.0,2016.0,CO2,N,N
+2724,Lotic,Concentration (no flux),68.301,18.945,1,1,2016.0,2016.0,CO2,N,N
+2725,Lotic,Concentration (no flux),68.301,18.948,1,1,2016.0,2016.0,CO2,N,N
+2726,Lotic,Concentration (no flux),68.301,19.05,1,1,2016.0,2016.0,CO2,N,N
+2727,Lotic,Concentration (no flux),68.301,19.051,1,1,2016.0,2016.0,CO2,N,N
+2728,Lotic,Concentration (no flux),68.301,19.056,1,1,2016.0,2016.0,CO2,N,N
+2729,Lotic,Concentration (no flux),68.301,19.058,1,1,2016.0,2016.0,CO2,N,N
+2730,Lotic,Concentration (no flux),68.302,18.913,1,1,2016.0,2016.0,CO2,N,N
+2731,Lotic,Concentration (no flux),68.302,18.944,1,1,2016.0,2016.0,CO2,N,N
+2732,Lotic,Concentration (no flux),68.302,19.038,1,1,2016.0,2016.0,CO2,N,N
+2733,Lotic,Concentration (no flux),68.303,18.944,1,1,2016.0,2016.0,CO2,N,N
+2734,Lotic,Concentration (no flux),68.303,19.042,1,1,2016.0,2016.0,CO2,N,N
+2735,Lotic,Concentration (no flux),68.304,18.914,1,1,2016.0,2016.0,CO2,N,N
+2736,Lotic,Concentration (no flux),68.304,18.928,1,1,2016.0,2016.0,CO2,N,N
+2737,Lotic,Concentration (no flux),68.305,18.94,1,1,2016.0,2016.0,CO2,N,N
+2738,Lotic,Concentration (no flux),68.305,19.037,1,1,2016.0,2016.0,CO2,N,N
+2739,Lotic,Concentration (no flux),68.305,19.038,1,1,2016.0,2016.0,CO2,N,N
+2740,Lotic,Concentration (no flux),68.306,18.915,1,1,2016.0,2016.0,CO2,N,N
+2741,Lotic,Concentration (no flux),68.306,18.928,1,1,2016.0,2016.0,CO2,N,N
+2742,Lotic,Concentration (no flux),68.307,18.92,1,1,2016.0,2016.0,CO2,N,N
+2743,Lotic,Concentration (no flux),68.307,18.927,1,1,2016.0,2016.0,CO2,N,N
+2744,Lotic,Concentration (no flux),68.307,19.029,1,1,2016.0,2016.0,CO2,N,N
+2745,Lotic,Concentration (no flux),68.308,18.914,1,1,2016.0,2016.0,CO2,N,N
+2746,Lotic,Concentration (no flux),68.308,18.921,1,1,2016.0,2016.0,CO2,N,N
+2747,Lotic,Concentration (no flux),68.308,18.931,1,1,2016.0,2016.0,CO2,N,N
+2748,Lotic,Concentration (no flux),68.309,18.921,1,1,2016.0,2016.0,CO2,N,N
+2749,Lotic,Concentration (no flux),68.309,18.926,1,1,2016.0,2016.0,CO2,N,N
+2750,Lotic,Concentration (no flux),68.31,18.914,1,1,2016.0,2016.0,CO2,N,N
+2751,Lotic,Concentration (no flux),68.31,18.921,1,1,2016.0,2016.0,CO2,N,N
+2752,Lotic,Concentration (no flux),68.31,18.927,1,1,2016.0,2016.0,CO2,N,N
+2753,Lotic,Concentration (no flux),68.31,19.015,1,1,2016.0,2016.0,CO2,N,N
+2754,Lotic,Concentration (no flux),68.31,19.023,1,1,2016.0,2016.0,CO2,N,N
+2755,Lotic,Concentration (no flux),68.311,18.916,1,1,2016.0,2016.0,CO2,N,N
+2756,Lotic,Concentration (no flux),68.311,18.922,1,1,2016.0,2016.0,CO2,N,N
+2757,Lotic,Concentration (no flux),68.311,18.923,1,1,2016.0,2016.0,CO2,N,N
+2758,Lotic,Concentration (no flux),68.311,18.925,1,1,2016.0,2016.0,CO2,N,N
+2759,Lotic,Concentration (no flux),68.311,19.008,1,1,2016.0,2016.0,CO2,N,N
+2760,Lotic,Concentration (no flux),68.312,18.923,1,1,2016.0,2016.0,CO2,N,N
+2761,Lotic,Concentration (no flux),68.312,18.924,1,1,2016.0,2016.0,CO2,N,N
+2762,Lotic,Concentration (no flux),68.313,19.004,1,1,2016.0,2016.0,CO2,N,N
+2763,Lotic,Concentration (no flux),68.314,18.919,1,1,2016.0,2016.0,CO2,N,N
+2764,Lotic,Concentration (no flux),68.315,18.991,1,1,2016.0,2016.0,CO2,N,N
+2765,Lotic,Concentration (no flux),68.316,18.919,1,1,2016.0,2016.0,CO2,N,N
+2766,Lotic,Concentration (no flux),68.317,18.98,1,1,2016.0,2016.0,CO2,N,N
+2767,Lotic,Concentration (no flux),68.318,18.92,1,1,2016.0,2016.0,CO2,N,N
+2768,Lotic,Concentration (no flux),68.319,18.92,1,1,2016.0,2016.0,CO2,N,N
+2769,Lotic,Concentration (no flux),68.32,18.972,1,1,2016.0,2016.0,CO2,N,N
+2770,Lotic,Concentration (no flux),68.321,18.918,1,1,2016.0,2016.0,CO2,N,N
+2771,Lotic,Concentration (no flux),68.324,18.92,1,1,2016.0,2016.0,CO2,N,N
+2772,Lotic,Concentration (no flux),68.325,18.966,1,1,2016.0,2016.0,CO2,N,N
+2773,Lotic,Concentration (no flux),68.326,18.922,1,1,2016.0,2016.0,CO2,N,N
+2774,Lotic,Concentration (no flux),68.327,18.925,1,1,2016.0,2016.0,CO2,N,N
+2775,Lotic,Concentration (no flux),68.33,18.927,1,1,2016.0,2016.0,CO2,N,N
+2776,Lotic,Concentration (no flux),68.33,18.965,1,1,2016.0,2016.0,CO2,N,N
+2777,Lotic,Concentration (no flux),68.332,18.93,1,1,2016.0,2016.0,CO2,N,N
+2778,Lotic,Concentration (no flux),68.335,18.938,1,1,2016.0,2016.0,CO2,N,N
+2779,Lotic,Concentration (no flux),68.335,18.962,1,1,2016.0,2016.0,CO2,N,N
+2780,Lotic,Concentration (no flux),68.337,18.946,1,1,2016.0,2016.0,CO2,N,N
+2781,Lotic,Concentration (no flux),68.337,18.95,1,1,2016.0,2016.0,CO2,N,N
+2782,Lotic,Concentration (no flux),68.337,18.961,1,1,2016.0,2016.0,CO2,N,N
+2783,Lotic,Concentration (no flux),68.339,18.949,1,1,2016.0,2016.0,CO2,N,N
+2784,Lotic,Concentration (no flux),68.339,18.957,1,1,2016.0,2016.0,CO2,N,N
+2785,Lotic,Concentration (no flux),68.339,18.958,1,1,2016.0,2016.0,CO2,N,N
+2786,Lotic,Concentration (no flux),68.34,18.951,1,1,2016.0,2016.0,CO2,N,N
+2787,Lotic,Concentration (no flux),68.341,18.952,1,1,2016.0,2016.0,CO2,N,N
+2788,Lotic,Concentration (no flux),68.341,18.96,1,1,2016.0,2016.0,CO2,N,N
+2789,Lotic,Concentration (no flux),68.342,18.941,1,1,2016.0,2016.0,CO2,N,N
+2790,Lotic,Concentration (no flux),68.342,18.944,1,1,2016.0,2016.0,CO2,N,N
+2791,Lotic,Concentration (no flux),68.342,18.948,1,1,2016.0,2016.0,CO2,N,N
+2792,Lotic,Concentration (no flux),68.342,18.949,1,1,2016.0,2016.0,CO2,N,N
+2793,Lotic,Concentration (no flux),68.342,18.95,1,1,2016.0,2016.0,CO2,N,N
+2794,Lotic,Concentration (no flux),68.342,18.951,1,1,2016.0,2016.0,CO2,N,N
+2795,Lotic,Concentration (no flux),68.342,18.952,1,1,2016.0,2016.0,CO2,N,N
+2796,Lotic,Concentration (no flux),68.343,18.95,1,1,2016.0,2016.0,CO2,N,N
+2797,Lotic,Concentration (no flux),68.343,18.952,1,1,2016.0,2016.0,CO2,N,N
+2798,Lotic,Concentration (no flux),68.343,18.955,1,1,2016.0,2016.0,CO2,N,N
+2799,Lotic,Concentration (no flux),68.344,18.957,1,1,2016.0,2016.0,CO2,N,N
+2800,Lotic,Concentration (no flux),68.346,18.954,1,1,2016.0,2016.0,CO2,N,N
+2801,Lotic,Concentration (no flux),68.348,18.95,1,1,2016.0,2016.0,CO2,N,N
+2802,Lotic,Concentration (no flux),68.349,18.948,1,1,2016.0,2016.0,CO2,N,N
+2803,Lotic,Concentration (no flux),68.35,18.94,1,1,2016.0,2016.0,CO2,N,N
+2804,Lotic,Concentration (no flux),68.35,18.943,1,1,2016.0,2016.0,CO2,N,N
+2805,Lotic,Concentration (no flux),68.353,18.938,1,1,2016.0,2016.0,CO2,N,N
+APEX Beta,Terrestrial,Chamber,64.69630009090909,-148.32139145454545,165,6,2017,2023,CO2 and CH4,N,N
+ARM-NSA-Barrow,Terrestrial,EC,71.323,-156.609,110,10,2011,2020,CO2 and CH4,Y,Y
+ARM-NSA-Oliktok,Terrestrial,EC,70.495,-149.886,80,8,2014,2021,CO2 and CH4,Y,N
+Abeille,Terrestrial,Chamber,54.12,-72.501667,7,2,2009,2010,CH4,N,N
+Abisko,Terrestrial,Chamber,68.34175003125,18.8219064375,32,6,1999,2012,CO2,N,N
+Abisko Scientific Research Station,Terrestrial,Chamber,68.033333,18.833333,15,1,2012,2012,CO2,N,N
+Abisko Stordalen birch forest,Terrestrial,EC,68.347939,19.049769,30,3,2021,2023,CO2,Y,N
+Abisko_Heath,Terrestrial,Chamber,68.35,18.826111,6,1,2015,2015,CO2 and CH4,N,N
+Abitibi,Lentic,Chamber,48.5,-79,1,1,2010,2010,NA,N,N
+Abitibi,Lotic,Concentration,48.92602324324324,-79.0759372972973,37,1,2010.0,2010.0,CO2 and CH4,N,N
+Abitibi,Lotic,Concentration (no flux),48.61451532374101,-79.24746748201439,139,2,2010.0,2011.0,CO2 and CH4,N,N
+Adventdalen,Terrestrial,Chamber,78.18203176470588,15.956455294117648,34,2,2007,2013,CO2,Y,N
+Adventdalen,Terrestrial,EC,78.186,15.923,48,4,2012,2015,CO2,Y,N
+"Adventdalen, Svalbard",Terrestrial,Chamber,78.167,16.067,20,4,2007,2011,CO2,N,N
+"Adventdalen, Svalbard",Terrestrial,Snow diffusion,78.16877777777778,16.050333333333334,9,2,2008,2015,CO2,N,N
+Aekaeslompolo,Lentic,Concentration,67.61105,24.157294,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Aetaeskoe,Lentic,Concentration,62.040826,29.989014,4,2,1998.0,1999.0,CO2 and CH4,N,N
+Aeyhoenjaervi,Lentic,Concentration,61.1248399,21.5416374,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Agan,Lotic,Concentration,61.432675,74.803031,1,1,2015.0,2015.0,CO2 and CH4,N,N
+Ahmasjaervi,Lentic,Concentration,64.643261999999993,26.434919,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Ahmasvesi,Lentic,Concentration,60.661298,21.499933,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Ahvenlampi,Lentic,Concentration,66.3929779,28.665538249999997,8,1,1999.0,1999.0,CO2 and CH4,N,N
+Ahvensalo,Terrestrial,Chamber,62.833333,30.883333,20,1,1994,1994,CO2,N,N
+Ai-Kirill-Vysyagun,Lotic,Concentration,62.7218,74.4411,1,1,2015.0,2015.0,CO2 and CH4,N,N
+Aikinlampi,Lentic,Concentration,66.0122363,28.4887217,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Ala-Keraetti,Lentic,Concentration,60.8106528,28.0423459,4,1,1998.0,1998.0,CO2 and CH4,N,N
+Ala-Lyly,Lentic,Concentration,62.3896975,27.4476146,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Ala-Mustalampi,Lentic,Concentration,63.0471751,28.6936836,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Alainen Mustalampi,Lentic,Concentration,62.5896524,23.9448737,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Alajaervi,Lentic,Concentration,64.93959375,24.742136549999998,8,1,1999.0,1999.0,CO2 and CH4,N,N
+Alasenlampi,Lentic,Concentration,62.783849,24.067015,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Alaska,Lentic,Chamber,64.23955092307692,-148.022531,13,1,2016.0,2016.0,CO2 and CH4,N,N
+Alaska,Lentic,Concentration,65.33796875,-149.1809375,32,1,2011-2012,2011-2012,CH4,N,N
+Alaska,Lentic,Concentration (no flux),64.9911935483871,-149.46251612903225,31,2,2011,2011-2012,CH4,N,N
+Alaska,Terrestrial,Chamber,64.231851,-147.93169975,16,1,2016,2016,CO2 and CH4,N,N
+Alaskan arctic zone,Lentic,Concentration,68.26,-149.32999999999998,6,2,2008,2012,NA,N,N
+"Alberta - Western Peatland - LaBiche River,Black Spruce,Larch Fen",Terrestrial,EC,54.95384,-112.46698,73,7,2003,2009,CO2,Y,N
+Alberta - Western Peatland - Poor Fen (Sphagnum moss),Terrestrial,EC,55.5375,-112.3343,32,3,2004,2006,CO2,N,N
+Alberta - Western Peatland - Rich Fen  (Carex),Terrestrial,EC,54.47,-113.32,32,3,2004,2006,CO2,N,N
+Alex's Tongue,Lotic,Concentration (no flux),68.47,-149.344,5,1,2011.0,2011.0,CO2 and CH4,N,N
+Almayakha,Lotic,Concentration,65.795624,78.159713,1,1,2015.0,2015.0,CO2 and CH4,N,N
+Amanita,Terrestrial,Chamber,64.8995,-147.4281,1,1,2022,2022,CH4,N,N
+Ambolikha River,Lotic,Concentration,68.612881,161.35265,3,1,2019.0,2019.0,CO2 and CH4,N,N
+Anaktuvuk River Moderate Burn,Terrestrial,EC,68.95,-150.21,47,16,2008,2023,CO2,N,N
+Anaktuvuk River Severe Burn,Terrestrial,EC,68.99,-150.28,47,16,2008,2023,CO2,N,N
+Anaktuvuk River Unburned,Terrestrial,EC,69.93,-150.27,47,16,2008,2023,CO2,N,N
+Anchorage,Lentic,Chamber,61.19,-149.81,9,2,1995,1996,CH4,N,N
+Andarma,Lotic,Concentration,57.321032,82.120866,1,1,2015.0,2015.0,CO2 and CH4,N,N
+Andoya,Terrestrial,EC,69.14278,16.02222,77,7,2008,2014,CO2,Y,N
+Andrew's Water Track,Lotic,Concentration (no flux),68.986,-150.717,1,1,2011.0,2011.0,CO2 and CH4,N,N
+Apoku-Yakha,Lotic,Concentration,64.201458,75.408902,1,1,2015.0,2015.0,CO2 and CH4,N,N
+ArcticCoast,Terrestrial,Chamber,70,-150,4,1,1987,1987,CH4,N,N
+ArcticFoothills,Terrestrial,Chamber,69,-150,2,1,1987,1987,CH4,N,N
+Atqasuk,Terrestrial,Chamber,70.477778,-157.418056,6,1,2014,2014,CO2 and CH4,Y,Y
+Atqasuk,Terrestrial,EC,70.4696,-157.4089,177,16,2003,2022,CO2 and CH4,Y,Y
+Attawapiskat River Bog,Terrestrial,EC,52.695,-83.9452,56,5,2011,2015,CO2,Y,N
+Attawapiskat River Fen,Terrestrial,EC,52.7008,-83.955,57,5,2011,2015,CO2,Y,N
+Auhojaervi,Lentic,Concentration,64.9906774,27.5631958,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Axel,Terrestrial,Chamber,79.42,-90.76281275,4,3,2011,2013,CH4,N,N
+BOREAS,Lentic,Concentration,55.91,-98.01,5,1,1996,1996,CO2 and CH4,N,N
+BOREAS NSA,Terrestrial,Chamber,55.666667,-97.866667,53,1,1994,1994,CH4,N,N
+Baie Comeau,Lentic,Concentration,49.13,-68.28,21,3,2011,2012,CO2 and CH4,N,N
+Bakchar,Lotic,Concentration,56.99876,82.339182,1,1,2015.0,2015.0,CO2 and CH4,N,N
+Bakcharskoe bog,Lentic,Chamber,56.81228333333333,82.85405,1,1,2014.0,2014.0,CO2 and CH4,N,N
+Barkchar,Terrestrial,Chamber,56.97,82.6,8,2,2013,2014,CH4,N,N
+Barrow,Lentic,EC,71.13,-156.34,3,1,2011.0,2011.0,NA,N,N
+Barrow,Lentic,Ebullition,61.23,-165.63,1,1,2009-2011,2009-2011,NA,N,N
+Barrow,Terrestrial,Chamber,71.27271422185592,-156.60863787382988,18,5,2007,2015,CO2 and CH4,N,N
+Barrow coastal tundra,Terrestrial,Chamber,71,-157,40,1,2005,2005,CH4,N,N
+"Barrow, Alaska",Terrestrial,Chamber,71.279780570467,-156.6093390375241,90,1,2013,2013,CO2 and CH4,N,N
+Barrow-BEO,Terrestrial,Chamber,71.281111,-156.612222,15,1,2014,2014,CO2 and CH4,Y,Y
+Barrow-BEO,Terrestrial,EC,71.2810016,-156.6258806,92,10,2013,2022,CO2 and CH4,Y,Y
+Barrow-BES,Terrestrial,Chamber,71.281003,-156.612344,3,1,2014,2014,CO2 and CH4,Y,Y
+Barrow-BES,Terrestrial,EC,71.280881,-156.596467,106,12,2005,2022,CO2 and CH4,Y,Y
+Barrow-CMDL,Terrestrial,EC,71.32256898148148,-156.60918148148147,108,10,2013,2022,CO2 and CH4,Y,Y
+"Bayelva, Spitsbergen",Terrestrial,EC,78.92161671428572,11.831057142857142,28,3,2008,2015,CO2,Y,N
+Bergslagen,Lentic,Concentration,59.903071676118095,15.376806285973021,60,2,2000.0,2001.0,CO2,N,N
+Bernard Lake,Lentic,EC,50.8614547,-63.3898409,19,3,2022.0,2024.0,CO2 and CH4,Y,Y
+Bernard spruce-moss valley,Terrestrial,EC,50.9020996,-63.4051018,63,7,2018,2024,CO2 and CH4,Y,Y
+Bethel,Lentic,Chamber,60.75,-161.75,4,1,1988.0,1988.0,CH4,N,N
+Bethel,Lentic,Concentration,60.812,-161.802,5,2,1988,1988.0,CH4,N,N
+Bibai bog,Terrestrial,EC,43.32300556,141.8106972,74,7,2015,2021,CO2 and CH4,Y,Y
+Bisen,Lentic,Concentration,59.959479,15.508404,1,1,2000,2000,CH4,N,N
+Blaesedalen,Terrestrial,Chamber,69.27,-53.47,1,1,2017,2017,NA,N,N
+Blood Creek,Lotic,Concentration (no flux),68.283,-157.053,1,1,2011.0,2011.0,CO2 and CH4,N,N
+Bloodslide,Lotic,Concentration (no flux),68.283,-157.053,1,1,2011.0,2011.0,CO2 and CH4,N,N
+Bonanza Creek,Terrestrial,Chamber,64.41,-148.19,1,1,2004,2004,CO2,N,N
+Bonanza Creek,Terrestrial,Snow diffusion,64.69,-148.32,2,2,2015,2016,CO2,N,N
+Bonanza Creek Black Spruce,Terrestrial,EC,64.69635,-148.323525,115,10,2010,2021,CO2 and CH4,Y,N
+Bonanza Creek Experimental Forest,Terrestrial,Chamber,64.68,-148.3166667,35,1,1990,1990,CH4,N,N
+Bonanza Creek Old Thermokarst Bog,Terrestrial,EC,64.6936,-148.33,45,4,2018,2021,CO2,Y,N
+Bonanza Creek Rich Fen,Terrestrial,EC,64.7013,-148.3121,116,10,2011,2021,CO2 and CH4,Y,N
+Bonanza Creek Thermokarst Bog,Terrestrial,EC,64.69555,-148.3208,120,10,2011,2021,CO2 and CH4,Y,N
+Boniface River,Lentic,Concentration (no flux),57.73,-76.23,5,1,2004,2004,CO2 and CH4,N,N
+"Boreal forest-fen mosaic north of Big Trail Lake, Fairbanks, AK",Terrestrial,Chamber,64.92155258928571,-147.82029735,56,1,2021,2021,CO2 and CH4,N,N
+Borgarnes,Terrestrial,Chamber,64.5249,-21.8363,8,1,2022,2022,CO2 and CH4,N,N
+Bottemyra,Terrestrial,Chamber,69.68333333333334,29.197961,3,1,2011,2011,CH4,N,N
+Bouleau peatland,Lentic,Chamber,50.517,-63.2,10,1,2019.0,2019.0,CO2 and CH4,Y,N
+Bouleau peatland,Lentic,"Chamber, Ebullition",50.517,-63.2,2,1,2019.0,2019.0,CO2 and CH4,Y,N
+Bouleau peatland,Lentic,Concentration,50.517,-63.2,13,2,2019.0,2020.0,CO2 and CH4,Y,N
+Bouleau peatland,Lotic,Chamber,50.526256076923076,-63.20836469230769,13,1,2019.0,2019.0,CO2 and CH4,Y,N
+Bouleau peatland,Lotic,Concentration,50.52742765517241,-63.206834655172415,58,2,2019.0,2020.0,CO2 and CH4,Y,N
+Bouleau peatland,Terrestrial,Chamber,50.516667,-63.2,40,2,2019,2020,CO2 and CH4,Y,N
+Bouleau peatland,Terrestrial,EC,50.520400172413794,-63.20308965517242,29,3,2018,2020,CO2 and CH4,Y,N
+Bykovsky Peninsula,Lentic,Chamber,71.76,129.5,3,1,1992,1992,CH4,N,N
+Bylot Island,Lentic,Concentration (no flux),73.15,-79.96,7,1,2005,2005,CO2 and CH4,N,N
+Bylot Island,Lentic,"Concentration, Ebullition",73.15517853846154,-79.98829469230769,26,4,2013.0,2016.0,CO2 and CH4,N,N
+CBAWO wet sedge,Terrestrial,Chamber,74.9,-109.583,3,3,2016,2018,NA,N,N
+Cambride_Bay,Terrestrial,Snow diffusion,69.22449968918919,-104.8623266918919,74,2,2021,2022,CO2 and CH4,N,N
+Cambridge Bay,Terrestrial,Chamber,69.13,-105.065,4,2,2018,2019,CO2,N,N
+Cambridge Bay - Mesic,Terrestrial,EC,69.22212778,-104.8985861,5,1,2022,2022,CO2,N,N
+Cape Bounty,Terrestrial,EC,74.915,-109.574,12,7,2008,2018,CO2,N,N
+Caribou Creek,Lotic,Concentration,65.153224,-147.50397,19,4,2017.0,2020.0,CO2 and CH4,N,N
+Caribou Creek,Lotic,Concentration (no flux),65.153224,-147.50397,26,4,2020,2022,CO2 and CH4,N,N
+Caribou-Poker Creek,Terrestrial,Chamber,65.1574753,-147.4997501,6,1,2022,2022,CH4,N,N
+Carling Lake,Terrestrial,Chamber,51.5,-81.67,2,1,1990,1990,CH4,N,N
+Carmon Creek,Terrestrial,Chamber,56.36222,-116.795833,24,1,2019,2019,CO2,N,N
+Carmon Creek 2,Terrestrial,Chamber,56.36222,-116.795833,20,1,2019,2019,CO2,N,N
+Cascaden Ridge Fire Scar,Terrestrial,EC,65.396775,-149.12149394166664,48,4,2011,2014,CO2,Y,N
+Central Marsh,Terrestrial,EC,71.32019,-156.62227,80,7,1999,2005,CO2 and CH4,Y,N
+Chaya,Lotic,Concentration,58.082048,82.86314,1,1,2015.0,2015.0,CO2 and CH4,N,N
+Cherskii,Lentic,Chamber,68.75,161.3,2,1,2003,2003,NA,N,N
+Cherskii,Lentic,Concentration,68.75033333333333,161.39833333333334,15,1,2003,2003,CO2,N,N
+Cherskii,Lentic,"Concentration, Ebullition",68.45,161.2,3,1,2003-2004,2003-2004,NA,N,N
+Cherskii,Lentic,Ebullition,68.75,161.3,2,1,2003-2004,2003-2004,NA,N,N
+Cherskii,Terrestrial,Chamber,68.83,161.6666667,4,1,1995,1995,CH4,N,N
+Cherskii disturbed forest,Terrestrial,EC,68.69808,161.538781,31,3,2013,2015,CO2,N,N
+Cherskii ecotone,Terrestrial,EC,68.51351,161.53115,36,3,2012,2015,CO2,Y,N
+Cherskii reference,Terrestrial,EC,68.61689,161.35089,102,9,2013,2021,CO2 and CH4,Y,Y
+Chibougamau,Lentic,Chamber,49.6,-74,1,1,2011,2011,NA,N,N
+Chibougamau,Lotic,Concentration,49.496835000000004,-74.0911325,8,1,2011.0,2011.0,CO2 and CH4,N,N
+Chibougamau,Lotic,Concentration (no flux),49.50533,-74.24896,3,1,2011.0,2011.0,CO2 and CH4,N,N
+Chicoutimi,Lentic,Chamber,48,-71,1,1,2011,2011,NA,N,N
+Chicoutimi,Lotic,Concentration,48.07515565217391,-71.09912652173912,23,1,2011.0,2011.0,CO2 and CH4,N,N
+Chicoutimi,Lotic,Concentration (no flux),48.04800855072464,-71.19173869565218,69,2,2011.0,2012.0,CO2 and CH4,N,N
+Churchill,Lentic,Chamber,58.75,-94.16,14,2,1989,1990,CH4,N,N
+Churchill Fen 3,Terrestrial,EC,58.6658,-93.8304,28,3,2022,2024,CO2 and CH4,Y,Y
+Churchill Fen Site 1,Terrestrial,EC,58.6658,-93.83,24,2,2007,2008,CO2,N,N
+Churchill Fen Site 2,Terrestrial,EC,58.6658,-93.83,18,4,2008,2011,CH4,N,N
+Clay Belt,Lentic,Chamber,50,-79.75,4,1,1991.0,1991.0,NA,N,N
+Clear-cut,Terrestrial,Chamber,60.000212,10.674314,53,3,2021,2023,CH4,N,N
+Coastal Fen,Terrestrial,Chamber,51.47,-80.62,1,1,1990,1990,CH4,N,N
+Coastal Marsh,Terrestrial,Chamber,51.33,-81.83,1,1,1990,1990,CH4,N,N
+Cold Hands Creek,Lotic,Concentration (no flux),68.26,-157.5,1,1,2011.0,2011.0,CO2 and CH4,N,N
+Copper River Delta,Lentic,Chamber,60.44368,-145.47248,25,1,2014,2014,CH4,N,N
+Cote-Nord,Lotic,Concentration,50.39573808510638,-66.67589893617021,47,1,2013.0,2013.0,CO2 and CH4,N,N
+Cote-Nord,Lotic,Concentration (no flux),50.67189666666667,-66.95938333333334,3,1,2013.0,2013.0,CO2 and CH4,N,N
+CoteNord,Lentic,Chamber,50.4,-67,1,1,2013,2013,NA,N,N
+Council Alaska Tundra,Terrestrial,EC,64.8618,-163.7002,1,1,2024,2024,CO2 and CH4,N,N
+"Council Road Mile Marker 71, Seward Peninsula",Terrestrial,Chamber,64.86017694954128,-163.69910995412843,218,4,2016,2019,CO2 and CH4,N,N
+"Council, AK",Terrestrial,Chamber,64.861,-163.711,21,2,2014,2015,CO2,N,N
+"Council, Alaska",Terrestrial,Chamber,64.8439,-163.7105,8,2,2014,2015,CO2,N,N
+"Council, Alaska",Terrestrial,EC,64.8439,-163.7105,26,8,2014,2023,CO2,N,N
+CrippleCreek,Terrestrial,Chamber,64.8057,-148.0564,1,1,2022,2022,CH4,N,N
+Dalalven,Lotic,Concentration (no flux),61.12257937104762,14.352652972984126,315,1,2011.0,2011.0,CO2 and CH4,N,N
+Daring Lake,Lentic,EC,64.86,-112.59,4,1,2006.0,2006.0,CO2,N,N
+Daring Lake,Terrestrial,Chamber,64.833,-111.633,2,1,2014,2014,CO2,N,N
+Daring Lake,Terrestrial,EC,64.8684696969697,-111.5844,99,12,2004,2015,CO2,N,N
+Degero,Terrestrial,Chamber,64.18203,19.55654,14,3,2015,2017,CO2 and CH4,Y,Y
+Degero,Terrestrial,EC,64.18203,19.55654,276,23,2001,2023,CO2 and CH4,Y,Y
+Degero Stormyr,Terrestrial,Chamber,64.183333,19.55,13,3,2015,2017,CO2,N,N
+Delta Junction  evergreen conifer forest,Terrestrial,EC,63.88805556,-145.7394444,3,3,2002,2004,CO2,N,N
+Delta Junction deciduous broadleaf forest,Terrestrial,EC,63.90111111,-145.3730556,3,3,2002,2004,CO2,N,N
+Disko,Terrestrial,EC,69.25349,-53.51413,107,10,2012,2023,CO2,Y,N
+Disko Island,Terrestrial,Chamber,69.254,-53.514,2,1,2017,2017,CO2,N,N
+"Disko Island, West Greenland",Terrestrial,Chamber,69.26,-53.45,4,1,2014,2014,CH4,N,N
+Dorohovo,Terrestrial,Chamber,55.56793855263158,36.35651315789474,76,4,2019,2022,CH4,N,N
+Duck lake Water Track,Lotic,Concentration (no flux),68.684,-149.627,1,1,2011.0,2011.0,CO2 and CH4,N,N
+Duvanny Yar,Terrestrial,Chamber,68.62981857142857,159.15114524285713,7,1,2017,2017,CO2 and CH4,N,N
+Dyke,Lotic,Chamber,58.4261111,-3.93305555555555,2,1,2017.0,2017.0,CO2,N,N
+E6 (Toolik),Terrestrial,Chamber,68.6461,-149.445,1,1,2022,2022,CH4,N,N
+Eastmain,Lentic,Chamber,52,-75,1,1,2006-2009,2006-2009,NA,N,N
+Eastmain Reservoir,Lentic,EC,52.124722,-75.929722,45,4,2008.0,2012.0,CO2,Y,N
+Eastview-Bennett,Terrestrial,Chamber,64.8858,-147.5745,1,1,2022,2022,CH4,N,N
+Eight Mile Lake,Terrestrial,Chamber,63.883056,-149.225556,75,9,2004,2014,CO2,Y,Y
+Eight Mile Lake,Terrestrial,EC,63.8784,-149.2536,188,17,2008,2024,CO2 and CH4,Y,Y
+Elgeeii forest station,Terrestrial,EC,60.01551563,133.8240123,108,9,2010,2018,CO2,N,N
+"Endalen, Svalbard",Terrestrial,Chamber,78.2,15.6,9,1,2004,2004,CO2,N,N
+Enkoeping,Lotic,Chamber,59.7163889,17.1452777777777,3,2,2016.0,2017.0,CO2,N,N
+Esro East,Terrestrial,Chamber,64.9014,-147.4807,1,1,2020,2020,CH4,N,N
+Esro West,Terrestrial,Chamber,64.907,-147.4844,1,1,2021,2021,CH4,N,N
+Faejemyr,Terrestrial,EC,56.2655,13.5535,53,5,2005,2009,CO2,Y,N
+Fairbanks,Lentic,Ebullition,64.92,-147.85,1,1,2008-2012,2008-2012,NA,N,N
+Fairbanks,Terrestrial,Chamber,64.88,-147.5,5,2,1992,1993,CH4,N,N
+Fiby,Lotic,Chamber,59.91288473684211,17.372498421052633,19,1,2020.0,2020.0,CO2 and CH4,N,N
+Finse west,Terrestrial,EC,60.11,7.53,36,3,2019,2021,CO2,Y,N
+Fiolen,Lentic,Concentration,57.082382,14.532981,1,1,2000,2000,CH4,N,N
+Fish Island,Terrestrial,EC,69.37227778,-134.8810889,3,1,2017,2017,CO2 and CH4,N,N
+Fjallnora E,Lotic,Chamber,59.826495333333334,17.977535333333332,15,1,2020.0,2020.0,CO2 and CH4,N,N
+Flakaliden,Terrestrial,EC,64.11277779300971,19.45694440932039,103,9,1996,2009,CO2,Y,N
+Flux Observations of Carbon from an Airborne Laboratory (FOCAL) Campaign Site 1,Terrestrial,EC,70.085,-148.5671,9,3,2013,2024,CO2 and CH4,N,N
+Flux Observations of Carbon from an Airborne Laboratory (FOCAL) Campaign Site 2,Terrestrial,EC,70.0229,-148.6598,9,2,2023,2024,CO2 and CH4,N,N
+Fox CRREL Uplands,Terrestrial,Chamber,64.9498,-147.6177,1,1,2022,2022,CH4,N,N
+Freshwater Creek,Lotic,Concentration (no flux),69.12975,-104.99459,7,2,2017.0,2018.0,CH4,N,N
+Funbo/Slattmyran,Lotic,Chamber,59.99135142857143,17.896414285714286,7,1,2020.0,2020.0,CO2 and CH4,N,N
+Fyodorovskoye,Terrestrial,EC,56.4615278,32.9220833,272,23,1998,2020,CO2,Y,N
+Fyodorovskoye2,Terrestrial,EC,56.447603,32.901878,68,6,2015,2020,CO2 and CH4,Y,Y
+Galka,Lotic,Concentration,57.040922,82.068247,1,1,2015.0,2015.0,CO2 and CH4,N,N
+Gransjoen,Lentic,Concentration,57.139499,14.71241,1,1,2000,2000,CH4,N,N
+Grunnen,Lentic,Concentration,57.156541,14.416122,1,1,2000,2000,CH4,N,N
+Gunnarsholt,Terrestrial,EC,63.8333,-20.2166,22,3,1996,1998,CO2,N,N
+Gunstink1 Water Track,Lotic,Concentration (no flux),68.963,-150.733,1,1,2011.0,2011.0,CO2 and CH4,N,N
+Gyda,Lentic,Chamber,70.54,78.32,5,1,2010,2010,CH4,N,N
+Gyslaettasjoen,Lentic,Concentration,57.109449,14.47998,1,1,2000,2000,CH4,N,N
+HJP02 Jack Pine,Terrestrial,EC,53.15,-104.1,24,2,2004,2005,CO2,Y,N
+HJP75 Jack Pine,Terrestrial,EC,53.15,-104.1,21,2,2004,2005,CO2,Y,N
+HJP94 Jack Pine,Terrestrial,EC,53.15,-104.116667,24,2,2004,2005,CO2,Y,N
+Haapajarvi-Valtimojarvi,Lotic,Concentration (no flux),63.8667,28.65,2,1,2008.0,2008.0,CO2 and CH4,N,N
+Haga,Lotic,Chamber,59.8316102,17.5745466,5,1,2020.0,2020.0,CO2 and CH4,N,N
+Haikaralampi,Lentic,Concentration,66.996937,26.800544,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Hakasia 10 yr,Terrestrial,EC,54.70455,90.07785,8,1,2004,2004,CO2,N,N
+Hakasia 5yr,Terrestrial,EC,54.77301,89.95664,9,2,2002,2003,CO2,N,N
+Hakasia Steppe,Terrestrial,EC,54.7252,90.0022,30,3,2002,2004,CO2,N,N
+Halkjaervi,Lentic,Concentration,60.5098332,23.6622045,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Halladale,Lotic,Chamber,58.4172222,-3.87944444444444,3,2,2016.0,2017.0,CO2,N,N
+Halmyran,Terrestrial,EC,64.16,19.56924,33,3,2020,2022,CO2 and CH4,Y,Y
+Halsingfors mire,Terrestrial,EC,64.15956,19.5515,33,3,2020,2022,CO2 and CH4,Y,Y
+Halsuanjaervi,Lentic,Concentration,63.4495693,24.1295477,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Hamppulampi,Lentic,Concentration,65.1289497,25.602981,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Hangasjaervi,Lentic,Concentration,63.876024,23.295629,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Happy Valley,Terrestrial,Chamber,69.15,-148.85,17,4,1993,1996,CO2,N,N
+Happy Valley,Terrestrial,EC,69.1423,-148.8412,7,2,1994,1995,CO2 and CH4,N,N
+Happy Valley,Terrestrial,Snow diffusion,69.28,-148.467,4,1,1996,1996,CO2,N,N
+Happy Valley Wet Sedge Tundra,Terrestrial,EC,69.1672,-148.8569,5,1,1995,1995,CO2,N,N
+Haukijaervi,Lentic,Concentration,63.0412175,27.0759876,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Haukilampi,Lentic,Concentration,61.5802428,27.1430023,4,1,1998.0,1998.0,CO2 and CH4,N,N
+Haukkajaervi,Lentic,Concentration,62.0349253,23.7846124,4,1,1998.0,1998.0,CO2 and CH4,N,N
+Haul Road,Lentic,Chamber,70.21,-150,1,1,1987,1987,CH4,N,N
+Haustovo,Terrestrial,Chamber,55.695,36.67,2,1,2020,2020,CH4,N,N
+Havanganjaervi,Lentic,Concentration,62.1484821,23.6179062,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Havikpak Creek,Terrestrial,EC,68.3203,-133.5188,114,10,2013,2022,CO2 and CH4,N,Y
+Havikpak_Creek,Terrestrial,Snow diffusion,68.3204614,-133.520207,10,2,2021,2022,CH4,N,N
+Heritage Hills,Terrestrial,Chamber,64.8749,-147.1845,2,2,2022,2023,CH4,N,N
+Hess Creek,Terrestrial,Chamber,65.562,-148.9142,1,1,2022,2022,CH4,N,N
+Hirvasjaervi,Lentic,Concentration,67.0849115,24.5799061,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Hirvijaervi,Lentic,Concentration,62.54096053333333,24.442710233333333,12,1,1999.0,1999.0,CO2 and CH4,N,N
+Hiukanlampi,Lentic,Concentration,66.6388772,25.0723699,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Hoeisaltraes,Lentic,Concentration,63.1162201,22.4357283,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Hoikanlamp,Lentic,Concentration,62.4673107,30.7482733,4,1,1998.0,1998.0,CO2 and CH4,N,N
+Honeycomb Water Track,Lotic,Concentration (no flux),68.158,-156.951,3,1,2011.0,2011.0,CO2 and CH4,N,N
+Horn Water Track,Lotic,Concentration (no flux),68.961,-150.315,3,1,2011.0,2011.0,CO2 and CH4,N,N
+Hospitaldalen,Terrestrial,Chamber,61.18,-45.37,1,1,2017,2017,NA,N,N
+Hossanjaervi,Lentic,Concentration,65.4466226,29.4996878,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Hudson Bay,Lotic,Concentration (no flux),55.86416679863636,-76.80002566045455,22,2,2018.0,2019.0,CO2 and CH4,N,N
+Hudson Bay Lowlands,Lentic,Concentration,51.303333333333335,-80.8,3,1,1990,1990,NA,N,N
+Humaljaervi,Lentic,Concentration,60.1643434,24.4279295,4,1,1998.0,1998.0,CO2 and CH4,N,N
+Hurdal,Terrestrial,Chamber,60.37163,11.07949,48,3,2021,2023,CH4,N,N
+Hustai grassland,Terrestrial,EC,47.594131,105.856439,72,6,2015,2020,CO2,Y,N
+Hyltemossa,Terrestrial,EC,56.09763,13.41897,71,6,2015,2020,CO2,Y,N
+Hyypii,Lentic,Concentration,62.0696619,30.2016144,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Hyystinlampi,Lentic,Concentration,61.5891568,29.1792096,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Hyytiala,Terrestrial,EC,61.8474,24.2948,330,28,1996,2023,CO2 and CH4,Y,N
+IBP-II,Terrestrial,Chamber,71.322,-156.602,6,2,1991,1992,CO2,N,N
+IFG Water Track,Lotic,Concentration (no flux),68.553,-149.566,1,1,2010.0,2010.0,CO2 and CH4,N,N
+IM1 Revegetated Water Track,Lotic,Concentration (no flux),68.5547,-149.576,1,1,2011.0,2011.0,CO2 and CH4,N,N
+IM1 Water Track,Lotic,Concentration (no flux),68.554,-149.559,1,1,2011.0,2011.0,CO2 and CH4,N,N
+IM1VAG wt,Lotic,Concentration (no flux),68.554,-149.558,1,1,2011.0,2011.0,CO2 and CH4,N,N
+IM2 Water Track,Lotic,Concentration (no flux),68.544,-149.521,5,2,2010.0,2011.0,CO2 and CH4,N,N
+IPAD,Terrestrial,Chamber,56.397561,-116.891,20,1,2019,2019,CO2,N,N
+ITK Water Track,Lotic,Concentration (no flux),68.667,-149.819,1,1,2011.0,2011.0,CO2 and CH4,N,N
+Igarka,Lentic,Chamber,67.4944396,86.5867575,10,2,2006,2016.0,CO2 and CH4,N,N
+Igarka,Lentic,Concentration,67.465,86.578,4,1,2016,2016,CH4,N,N
+Igarka,Terrestrial,Chamber,67.48678844444444,86.59202627777778,36,2,2016,2023,CO2 and CH4,N,N
+Igarka,Terrestrial,EC,67.48114615384615,86.43719511538463,26,7,2016,2023,CO2,N,N
+"Igarka, Krasnoyarsk,  forest-tundra ecotone",Terrestrial,Chamber,67.482022,86.430172,75,3,2003,2007,CH4,N,N
+Ihalanjaervi,Lentic,Concentration,61.4941756,28.8534924,4,1,1998.0,1998.0,CO2 and CH4,N,N
+Iksa,Lotic,Concentration,56.8648,83.0806,1,1,2015.0,2015.0,CO2 and CH4,N,N
+Illisarvik,Terrestrial,EC,69.47986111,-134.5885278,1,1,2016,2016,NA,N,N
+Imnavait Creek,Terrestrial,Chamber,68.60676923076923,-149.29865384615385,26,5,2009,2016,CO2,N,N
+Imnavait Creek Watershed Heath Tundra,Terrestrial,EC,68.6068,-149.2958,172,15,2007,2021,CO2,Y,N
+Imnavait Creek Watershed Tussock Tundra,Terrestrial,EC,68.6063,-149.3041,174,15,2007,2021,CO2,Y,N
+Imnavait Creek Watershed Wet Sedge Tundra,Terrestrial,EC,68.6058,-149.311,160,14,2007,2021,CO2 and CH4,Y,N
+Indigirka River,Lotic,Concentration,70.60333333333332,148.03666666666666,3,2,2016.0,2017.0,CH4,N,N
+Indigirka River,Lotic,Concentration (no flux),70.60499999999999,148.005,2,1,2016.0,2016.0,CH4,N,N
+Indigirka River lowlands,Lentic,Concentration,70.83,147.49,35,1,2016.0,2016.0,CO2 and CH4,N,N
+Indigirka River lowlands,Lotic,Concentration,70.83,147.49,4,1,2016.0,2016.0,CO2 and CH4,N,N
+Innoko_Flats,Terrestrial,Chamber,63.58,-157.72,15,1,2011,2011,CO2 and CH4,N,N
+Interior Fen,Terrestrial,Chamber,51.51,-80.88,1,1,1990,1990,CH4,N,N
+Inuvik,Lentic,Concentration,68.313767,-133.715517,5,3,2015,2017,CH4,N,N
+Iqaluit,Terrestrial,EC,63.79025,-68.56005,1,1,2008,2008,CO2,N,N
+Iqaluit Tundra,Terrestrial,EC,63.75084,-68.428596,11,2,2022,2023,CO2,N,N
+Isabella,Terrestrial,Chamber,64.8844,-147.6708,2,2,2022,2023,CH4,N,N
+Iskoras,Lentic,Chamber,69.34081126375,25.2943111,24,4,2020.0,2023.0,CO2 and CH4,Y,Y
+Iskoras,Lentic,Chamber,69.34081126375,25.2943111,24,4,2020.0,2023.0,CO2 and CH4,Y,Y
+Iskoras,Lentic,EC,69.57,25.5,35,4,2019.0,2022.0,CO2 and CH4,Y,Y
+Iskoras,Lentic,EC,69.57,25.5,35,4,2019.0,2022.0,CO2 and CH4,Y,Y
+Iskoras,Lotic,Chamber,69.341655008,25.297603696499998,20,4,2020.0,2023.0,CO2 and CH4,Y,Y
+Iskoras,Lotic,Chamber,69.341655008,25.297603696499998,20,4,2020.0,2023.0,CO2 and CH4,Y,Y
+Iskoras,Terrestrial,Chamber,69.566667,25.05,72,4,2019,2022,CO2 and CH4,Y,Y
+Iskoras,Terrestrial,Chamber,69.566667,25.05,72,4,2019,2022,CO2 and CH4,Y,Y
+Iskoras,Terrestrial,EC,69.57,25.5,105,4,2019,2022,CO2 and CH4,Y,Y
+Iskoras,Terrestrial,EC,69.57,25.5,105,4,2019,2022,CO2 and CH4,Y,Y
+Iso Kalajaervi,Lentic,Concentration,61.8648483,23.4750121,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Iso Kangasjaervi,Lentic,Concentration,63.4134169,27.352893,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Iso Kovala,Lentic,Concentration,62.3742569,25.434263,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Iso Laklemjaervi,Lentic,Concentration,68.9410172,28.3814923,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Iso Leppaejaervi,Lentic,Concentration,61.85608,23.718476,4,1,1998.0,1998.0,CO2 and CH4,N,N
+Iso Onkilampi,Lentic,Concentration,63.5605376,28.2231349,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Iso Saerkilampi,Lentic,Concentration,66.3776728,29.5702694,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Iso-Allasjaervi,Lentic,Concentration,62.5581501,23.3639358,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Iso-Hakojaervi,Lentic,Concentration,65.3589883,27.6217081,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Iso-Kaihar,Lentic,Concentration,62.218168,25.907172,4,1,1998.0,1998.0,CO2 and CH4,N,N
+Iso-Lyly,Lentic,Concentration,62.9966373,28.5213512,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Iso-Pellinen,Lentic,Concentration,63.2871524,23.3868186,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Iso-Valkia,Lentic,Concentration,63.434628,24.878478,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Itaeinen Palokotajaervi,Lentic,Concentration,68.8618777,28.7692207,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Itu-Yakha,Lotic,Concentration,63.189113,74.759724,1,1,2015.0,2015.0,CO2 and CH4,N,N
+Ivotuk,Terrestrial,Chamber,68.5175,-155.74,12,2,2013,2014,CO2 and CH4,Y,Y
+Ivotuk,Terrestrial,EC,68.4865,-155.7503,119,11,2003,2018,CO2 and CH4,Y,Y
+Jaemijaervi,Lentic,Concentration,61.809583,22.670266,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Jaemntraesk,Lentic,Concentration,63.6724725,23.0509119,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Jaenkaelaeisenlampi Pond,Lentic,Chamber,67.16,27.06,5,1,1994,1994,CO2 and CH4,N,N
+Jamalinjaervi,Lentic,Concentration,63.3987232,29.9360253,4,1,1998.0,1998.0,CO2 and CH4,N,N
+James Bay,Lentic,Chamber,49.7,-79,1,1,2010,2010,NA,N,N
+Jarneto,Lentic,Chamber,67.37324,78.40604,5,1,2016,2016,CH4,N,N
+Johdasjaervi,Lentic,Concentration,61.0995021,26.587327,4,1,1998.0,1998.0,CO2 and CH4,N,N
+Joukkaisjaervi,Lentic,Concentration,68.6551561,28.1648025,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Kaamanen,Terrestrial,Chamber,69.09066659999999,27.192666600000003,15,2,1995,2007,CO2,Y,N
+Kaamanen,Terrestrial,EC,69.14057,27.26985,143,12,1997,2008,CO2,Y,N
+Kaetkaenjaervi,Lentic,Concentration,62.8577119,23.8314954,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Kaitajaervi,Lentic,Concentration,66.7356654,25.8708346,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Kaivojaervi,Lentic,Concentration,62.2875845,22.0149225,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Kaivosjaervi,Lentic,Concentration,68.6337293,28.0594473,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Kalajaervi,Lentic,Concentration,62.159914,25.6270305,4,1,1998.0,1998.0,CO2 and CH4,N,N
+Kalakhari Island,Lentic,Chamber,72.03,128.75,1,1,1992,1992,CH4,N,N
+Kalevansuo,Terrestrial,EC,60.64683332142857,24.356167,56,6,2004,2009,CO2,Y,N
+Kalijaervi,Lentic,Concentration,63.2627355,23.045448,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Kalilampi,Lentic,Concentration,62.1011192,30.424269,4,1,1998.0,1998.0,CO2 and CH4,N,N
+Kaljaervi,Lentic,Concentration,60.2659018,24.4184137,4,1,1998.0,1998.0,CO2 and CH4,N,N
+Kamgayakha,Lotic,Concentration,63.38437,74.734887,1,1,2015.0,2015.0,CO2 and CH4,N,N
+Kangerlussuaq,Lentic,"Chamber, Ebullition",67.087778,-50.287222,1,1,2014.0,2014.0,CH4,N,N
+Karhujaervi,Lentic,Concentration,64.599339,27.8108147,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Karijaervi,Lentic,Concentration,61.1542704,26.4328712,4,1,1998.0,1998.0,CO2 and CH4,N,N
+Kastbaelgen,Lentic,Concentration,63.2560376,21.8572217,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Kavilanjaervi,Lentic,Concentration,60.5960269,24.0449005,4,1,1998.0,1998.0,CO2 and CH4,N,N
+Keihaesjaervi,Lentic,Concentration,61.54,28.04,1,1,2000-2002,2000-2002,NA,N,N
+Kenttarova,Terrestrial,EC,67.98729,24.24300714285714,84,7,2012,2023,CO2,Y,N
+Kerttuanjaervi,Lentic,Concentration,63.4079431,23.30417,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Keskijaervi,Lentic,Concentration,61.8407669,25.7940217,4,1,1998.0,1998.0,CO2 and CH4,N,N
+Keskimmaeinen,Lentic,Concentration,64.5223679,26.6757967,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Ket river,Lotic,"Chamber, Concentration",58.63912548888889,86.878221,45,1,2019,2019,CO2 and CH4,N,N
+Ket river,Lotic,Concentration (no flux),58.543529400000004,86.3986258,5,1,2019,2019,CH4,N,N
+"Kevo, Skalluvaara",Terrestrial,Chamber,69.816667,27.166667,34,2,1998,1999,CO2 and CH4,N,N
+Khanty-Mansiysk,Lentic,Chamber,60.9833333333333,70.1666666666667,6,1,2005.0,2005.0,CO2 and CH4,N,N
+Khanupiyakha,Lotic,Concentration,63.775047,74.787831,1,1,2015.0,2015.0,CO2 and CH4,N,N
+Khanymey,Lentic,Concentration (no flux),63.5,75.4,39,1,2012,2012,CO2 and CH4,N,N
+Kharucheiyakha,Lotic,Concentration,63.848404,75.195547,1,1,2015.0,2015.0,CO2 and CH4,N,N
+Kharv-Yakha,Lotic,Concentration,64.439313,76.551291,1,1,2015.0,2015.0,CO2 and CH4,N,N
+Khatytayakha,Lotic,Concentration,63.623974,74.720535,1,1,2015.0,2015.0,CO2 and CH4,N,N
+Kherlenbayan Ulaan,Terrestrial,EC,47.213972,108.737333,72,6,2003,2008,CO2,Y,N
+Kihliae,Lentic,Concentration,61.1693087,28.1639329,4,1,1998.0,1998.0,CO2 and CH4,N,N
+Kilpisjarvi,Terrestrial,Chamber,69.06193711206896,20.82014535866995,203,2,2017,2018,CO2,N,N
+Kilvenaava,Lentic,Concentration,66.215974,26.161853,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Kinnasjaervi,Lentic,Concentration,62.5052415,30.7526206,4,1,1998.0,1998.0,CO2 and CH4,N,N
+Kinosheo Lake,Terrestrial,Chamber,51.55,-81.83,4,1,1990,1990,CH4,N,N
+Kirill-Vysyagun,Lotic,Concentration,62.656326,74.306737,1,1,2015.0,2015.0,CO2 and CH4,N,N
+Kirjavalampi,Lentic,Concentration,61.0164545,27.210988,4,1,1998.0,1998.0,CO2 and CH4,N,N
+Kitinen,Lotic,EC,67.36645,26.62301,4,1,2018.0,2018.0,CO2 and CH4,N,N
+Kivikesku,Lentic,Concentration,61.5346874,23.509495,4,1,1998.0,1998.0,CO2 and CH4,N,N
+Klintsjoen,Lentic,Concentration,57.127249,14.699879,1,1,2000,2000,CH4,N,N
+Knottasen,Terrestrial,EC,60.99825,16.2172778,139,12,2006,2017,CO2,Y,N
+Kobbefjord,Lentic,Ebullition,64.1317,-51.375475,2,1,2024.0,2024.0,CH4,N,N
+Koeyrtynlampi,Lentic,Concentration,63.0200417,26.3299732,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Koijaervi,Lentic,Concentration,61.8930803,29.195022,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Koivujaervi,Lentic,Concentration,64.1199904,27.7260739,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Koivulampi,Lentic,Concentration,66.5051391,28.0302807,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Kolyma Lowland,Lentic,"Chamber, Ebullition",69,154,2,2,1996,1996-1997,NA,N,N
+Kolyma River,Lotic,Concentration,68.635,160.04933333333332,3,1,2019.0,2019.0,CH4,N,N
+Kolyma River Floodplain,Terrestrial,Chamber,69.6,161.3333333,3,3,2002,2004,CH4,N,N
+Kolyma river  basin,Lotic,Ebullition,69.3,161.2,1,1,2014,2014,NA,N,N
+Korpijaervi,Lentic,Concentration,61.9503213,23.7761966,4,1,1998.0,1998.0,CO2 and CH4,N,N
+Korvajaervi,Lentic,Concentration,62.409153,22.6670176,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Kostonjaervi,Lentic,Concentration,65.8052811,28.4785099,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Kotajaervi,Lentic,Concentration,61.0829948,27.9138525,4,1,1998.0,1998.0,CO2 and CH4,N,N
+Kotojaervi,Lentic,Concentration,61.245016050000004,23.4597978,8,2,1998.0,1999.0,CO2 and CH4,N,N
+Kotsamolampi Pond,Lentic,Chamber,68.08,27.1,3,1,1995,1995,CO2 and CH4,N,N
+Kottymegan,Lotic,Concentration,61.459422000000004,74.673492,1,1,2015.0,2015.0,CO2 and CH4,N,N
+Kotzebue,Lentic,Ebullition,66.55,-164.45,1,1,2008-2009,2008-2009,NA,N,N
+Kovelanjaervi,Lentic,Concentration,60.3987268,23.8439553,4,1,1998.0,1998.0,CO2 and CH4,N,N
+Krycklan,Lotic,Concentration (no flux),64.24143836725,19.7952049469875,800,9,2005.0,2019.0,CO2 and CH4,N,N
+Kuivajaervi,Lentic,Chamber,61.847353,24.279935,1,1,2014,2014,CO2 and CH4,Y,N
+Kuivajaervi,Lentic,Concentration,61.847353,24.279935,1,1,2014,2014,CO2 and CH4,Y,N
+Kuivajaervi,Lentic,Concentration (no flux),61.847352778,24.279934722,13,6,2010.0,2021.0,CO2,Y,N
+Kuivajaervi,Lentic,EC,61.847352778,24.279934722,116,13,2010.0,2022.0,CO2 and CH4,Y,N
+Kuivinjaervi,Lentic,Concentration,62.8529865,28.6424508,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Kukkia,Lentic,Concentration,61.3198991,24.7468837,4,1,1998.0,1998.0,CO2 and CH4,N,N
+Kumpunen,Lentic,Concentration,63.3819984,27.8192476,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Kuonanjaervi,Lentic,Concentration,61.9780053,29.2496197,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Kuortaneenjaervi,Lentic,Concentration,62.833607,23.4450458,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Kuparek River,Lotic,Concentration,69.5,-149.5,3,3,1994.0,1996.0,CH4,N,N
+Kuparek Stream,Lotic,Concentration (no flux),68.652,-149.422,2,1,2011.0,2011.0,CO2 and CH4,N,N
+Kuparuk River,Lotic,Concentration,68.63596632181817,-149.38782154363636,55,3,2012.0,2014.0,CO2 and CH4,N,N
+"Kuparuk Watershed, North Slope",Terrestrial,Snow diffusion,69.494,-148.809,8,1,1996,1996,CO2,N,N
+Kurungnakh,Terrestrial,Chamber,72.33989166666666,126.29427221666667,6,1,2016,2016,CO2 and CH4,N,N
+Kuujjuarapik,Lentic,Concentration,55.33185123076923,-77.50235907692307,13,1,2007.0,2007.0,CO2 and CH4,N,N
+Kuusuaq River,Lotic,Concentration (no flux),61.19226153846154,-45.36256923076923,13,2,2017.0,2018.0,CO2 and CH4,N,N
+Kuvasjaervi,Lentic,Concentration,62.0156841,26.4221953,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Kylmaejaervi,Lentic,Concentration,65.1634329,28.5888458,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Kymijaervi,Lentic,Concentration,60.9711797,25.7929927,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Kymijoki,Lotic,Chamber,60.64888569205087,26.82658817073155,1,1,2009.0,2009.0,CO2,N,N
+Kymijoki,Lotic,EC,60.65186795371738,26.818457627710863,2,1,2009.0,2009.0,CO2,N,N
+Kypaerijaervi,Lentic,Concentration,60.2839279,24.3470861,4,1,1998.0,1998.0,CO2 and CH4,N,N
+Kyrkoesjaervi,Lentic,Concentration,62.7425439,22.8034667,4,1,1999.0,1999.0,CO2 and CH4,N,N
+"Kytalyk, Russia",Lentic,Chamber,70.80895294117647,147.5012882352941,17,2,2007.0,2009.0,CH4,N,N
+"Kytalyk, Russia",Terrestrial,Chamber,70.82,147.4833333,74,6,2004,2009,CH4,N,N
+"Kytalyk, Russia",Terrestrial,EC,70.82913889,147.4942778,80,16,2003,2021,CO2 and CH4,N,N
+Kyyjaervi,Lentic,Concentration,63.057485,24.593074,4,1,1998.0,1998.0,CO2 and CH4,N,N
+L Sangaren,Lentic,Concentration,59.899851,15.39206,1,1,2000,2000,CH4,N,N
+La Grande Riviere,Lentic,Chamber,53.730555555555554,-77.73777777777778,18,1,2004,2004,NA,N,N
+Laadunjaervi,Lentic,Concentration,61.1876429,23.5596999,4,1,1999.0,1999.0,CO2 and CH4,N,N
+"Lac Le Caron peatland, an ombrotrophic bog",Terrestrial,EC,52.29027778,-75.25416667,45,5,2008,2012,CO2,N,N
+Lake Gaddtjarn,Lotic,Concentration,59.84397825,15.176186,4,2,2015.0,2016.0,CO2 and CH4,N,N
+Lake Gaddtjarn,Lotic,Concentration (no flux),59.86,15.18,4,1,2013.0,2013.0,CH4,N,N
+Lake Gaeddtjaern,Lentic,"Chamber, Concentration",59.85,15.18,1,1,2011-2012,2011-2012,NA,N,N
+Lake Gaeddtjaern catchment,Lotic,Concentration,59.86,15.18,10,2,2011,2012,CO2,N,N
+Lake Hazen,Lentic,Concentration,81.82571875,-71.39721875000001,32,7,2005.0,2012.0,CO2 and CH4,N,N
+Lake Hazen,Lentic,"Concentration, Ebullition",81.8248,-71.4032,5,2,2007.0,2008.0,CO2 and CH4,N,N
+"Lake Hazen, Ellesmere Island",Terrestrial,Chamber,82.41085,-71.38239166666666,12,4,2008,2012,CO2 and CH4,N,N
+"Lake Hazen, Ellesmere Island",Terrestrial,EC,82.427318,-71.38233,15,4,2009,2012,CO2,N,N
+Lake Heinaelampi,Lentic,Chamber,63.03,27.56,1,1,1996,1996,NA,N,N
+Lake Jaenkaejaervi,Lentic,Chamber,69.13,27.26,3,1,2017,2017,CO2 and CH4,N,N
+Lake Jaenkaelampi,Lentic,Chamber,69.13,27.26,9,2,2017,2018,CO2 and CH4,N,N
+Lake Kevaetoen,Lentic,Chamber,63.102709,27.631059,5,3,1997.0,1999.0,CO2 and CH4,N,N
+Lake Kevaetoen,Lentic,"Chamber, Ebullition",63.102709,27.631059,10,2,1998.0,1999.0,CO2 and CH4,N,N
+Lake Kipojarvi,Lotic,Concentration (no flux),69.196,27.302,1,1,2005.0,2005.0,CO2 and CH4,N,N
+Lake Ljusvattentjaernen,Lentic,Chamber,64.09309729468073,18.92982571385797,4,1,2019.0,2019.0,CH4,N,N
+Lake Maekijaervi,Lentic,Chamber,63.03,27.56,2,2,1997,1998,NA,N,N
+Lake Mekrijaervi,Lentic,Chamber,62.732313,30.959202,19,3,1998.0,2000.0,CO2 and CH4,N,N
+Lake Onega,Lotic,Concentration (no flux),61.78075277777778,34.35174444444444,36,4,2007.0,2010.0,CH4,N,N
+Lake Ormajaervi,Lentic,Chamber,61.1,24.96,8,1,2004,2004,CO2 and CH4,N,N
+Lake Ormajaervi,Lentic,Concentration,61.1,24.96,8,1,2004,2004,CO2 and CH4,N,N
+Lake Paajarvi,Lotic,Concentration (no flux),61.089058333333334,25.139725,12,1,2011.0,2011.0,CO2 and CH4,N,N
+Lake Paeaejaervi,Lentic,Chamber,61.06,25.13,9,1,2004,2004,CO2 and CH4,N,N
+Lake Paeaejaervi,Lentic,Concentration,61.06,25.13,9,1,2004,2004,CO2 and CH4,N,N
+Lake Postilampi,Lentic,Chamber,63.03,27.56,2,2,1997,1998,NA,N,N
+Lake Postilampi,Lentic,Ebullition,63.03,27.56,1,1,1996,1996,NA,N,N
+Lake Tornetrask,Lotic,Concentration (no flux),68.32861922034682,18.987496784104046,173,3,2009.0,2015.0,CO2 and CH4,N,N
+Lake Vehmasjaervi,Lentic,Chamber,63.03,27.56,2,2,1997,1998,NA,N,N
+Lakkasuo,Terrestrial,Chamber,61.792,24.2761,30,3,1991,1993,CO2 and CH4,N,N
+Lakkasuo mire,Lotic,Chamber,61.79,24.315,1,1,1997.0,1997.0,CH4,N,N
+Lakkasuo mire,Lotic,"Chamber, Ebullition",61.79,24.31357142857143,7,3,1995.0,1997.0,CH4,N,N
+Lakkasuo peatland complex,Terrestrial,Chamber,61.783,24.3,21,4,2001,2004,CH4,N,N
+Lamminmaeenlampi,Lentic,Concentration,62.530132,25.129432,4,1,1998.0,1998.0,CO2 and CH4,N,N
+Lampi 1402,Lentic,Concentration,68.752001,28.418069,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Lampi 1402x,Lentic,Concentration,69.201348,27.720799,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Lampi 1404,Lentic,Concentration,68.71104,27.918202,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Lampinjaervi,Lentic,Concentration,64.0020252,24.6493221,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Lampsijaervi,Lentic,Concentration,66.699327,24.505101,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Langtjern,Lentic,"Chamber, Concentration",60.3698307674894,9.72998565314984,8,2,2018.0,2019.0,CO2 and CH4,N,N
+Langtjern East Inlet Stream,Lotic,Chamber,60.3708,9.731,2,1,2019.0,2019.0,CO2 and CH4,N,N
+Langtjern East Inlet Stream,Lotic,Concentration (no flux),60.370975,9.731758333333334,12,2,2018.0,2019.0,CO2 and CH4,N,N
+Langtjern Outlet Stream,Lotic,Chamber,60.3731,9.7268,3,1,2019.0,2019.0,CO2 and CH4,N,N
+Langtjern Outlet Stream,Lotic,Concentration (no flux),60.3731,9.7268,7,2,2018.0,2019.0,CO2 and CH4,N,N
+Langtjern South Inlet Stream,Lotic,Chamber,60.3603,9.7351,2,1,2019.0,2019.0,CO2 and CH4,N,N
+Langtjern South Inlet Stream,Lotic,Concentration (no flux),60.3603,9.7351,1,1,2019.0,2019.0,CO2 and CH4,N,N
+Langtjern forest streams,Lotic,Chamber,60.374,9.745,2,1,2019.0,2019.0,CO2 and CH4,N,N
+Langtjern forest streams,Lotic,Concentration (no flux),60.374,9.745,1,1,2019.0,2019.0,CO2 and CH4,N,N
+Langtjern wetland streams,Lotic,Chamber,60.357,9.746,2,1,2019.0,2019.0,CO2 and CH4,N,N
+Lapinkylaenjaervi,Lentic,Concentration,60.2126567,24.4638733,4,1,1998.0,1998.0,CO2 and CH4,N,N
+Latnjajaure,Terrestrial,Chamber,68.35647515813953,18.4941782,215,3,2017,2022,CO2 and CH4,N,N
+Latnjajaure,Terrestrial,Snow diffusion,68.333,18.5,22,2,2006,2008,CO2,N,N
+Laurentians,Lentic,Chamber,46,-74,1,1,2010,2010,NA,N,N
+Lautakodanlampi,Lentic,Concentration,61.6661987,29.3411664,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Leilaenlammi,Lentic,Concentration,60.2127626,23.6274232,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Lek Vorkuta,Terrestrial,Snow diffusion,67.383,63.367,5,1,2000,2000,CO2,N,N
+Lena,Lentic,Concentration (no flux),71.744215,129.31805500000002,2,1,2017,2017,CH4,N,N
+Lena,Lotic,Concentration (no flux),67.72375417910447,123.17414925373134,67,8,2009.0,2018.0,CO2 and CH4,N,N
+Lena,Terrestrial,Chamber,72.62,126.7833333,2,1,1999,1999,CH4,N,N
+Lena River Delta,Terrestrial,Chamber,72.366667,126.466667,4,1,2015,2015,CO2,N,N
+Lentiiranjaervi,Lentic,Concentration,64.435205,29.763181,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Lettosuo,Terrestrial,Chamber,60.641833,23.959717,204,4,2015,2018,CH4,Y,N
+Lettosuo,Terrestrial,EC,60.641833,23.959713098360655,183,16,2009,2024,CO2,Y,N
+Leverett Glacier catchment,Lotic,Concentration (no flux),67.18,-50.4,3,1,2015.0,2015.0,CH4,N,N
+Liioslampi,Lentic,Concentration,61.3927675,26.6132587,4,1,1998.0,1998.0,CO2 and CH4,N,N
+Likolampi,Lentic,Concentration,63.28771005,28.0525418,8,2,1998.0,1999.0,CO2 and CH4,N,N
+Lillisjoeilidtjaernen,Lentic,Chamber,63.844916,18.616719,3,1,2014.0,2014.0,CH4,N,N
+Lillsjolidtjarnen inlet,Lotic,Concentration,63.84422121903846,18.619983905192306,104,4,2012.0,2015.0,CO2 and CH4,N,N
+Lily Lake Fen,Terrestrial,EC,60.5382,-150.5061,32,3,2021,2023,CO2 and CH4,N,N
+Lindig Farm Bear Trail,Terrestrial,Chamber,64.8813,-147.5776,1,1,2022,2022,CH4,N,N
+Lindig Farm East,Terrestrial,Chamber,64.883,-147.5711,2,2,2022,2023,CH4,N,N
+Lindig Farm Field,Terrestrial,Chamber,64.8819,-147.569,1,1,2022,2022,CH4,N,N
+Linkoeping,Lentic,Chamber,58.393611,15.578889,4,1,2010.0,2010.0,CH4,N,N
+Little Grawijka Creek,Lotic,Concentration (no flux),67.48110363636363,86.43426336363636,11,1,2006.0,2006.0,CH4,N,N
+Ljusdal_HY,Terrestrial,EC,61.937,15.483,23,4,2019,2022,CO2,N,N
+Ljusdal_SLM,Terrestrial,EC,61.938,15.427,25,3,2020,2022,CO2,Y,N
+Ljustjaern,Lentic,Concentration,59.923861,15.452485,1,1,2000,2000,CH4,N,N
+Loekkioe,Lentic,Concentration,61.483384,28.739786,4,1,1998.0,1998.0,CO2 and CH4,N,N
+Loevtjaern,Lentic,Concentration,59.913149,15.406308,1,1,2000,2000,CH4,N,N
+Loeytynlampi,Lentic,Concentration,61.9610949,27.318301,4,1,1998.0,1998.0,CO2 and CH4,N,N
+Lompolojankka,Terrestrial,EC,67.99724816666667,24.209113,72,6,2006,2012,CO2 and CH4,Y,Y
+Loukkojaervi,Lentic,Concentration,65.1936659,25.9351037,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Loukkulampi,Lentic,Concentration,63.9769876,29.5495818,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Luhdanjoki basin trib,Lotic,Concentration (no flux),61.0636,25.1954,1,1,2011.0,2011.0,CO2 and CH4,N,N
+Lunsen,Lotic,Chamber,59.755497,17.675266999999998,10,1,2020.0,2020.0,CO2 and CH4,N,N
+Lunsen Burnt,Terrestrial,Chamber,59.789611,17.698008,4,1,2021,2021,CO2 and CH4,N,N
+Lunsend Unburnt,Terrestrial,Chamber,59.786428,17.701661,3,1,2021,2021,CO2 and CH4,N,N
+Lutose,Terrestrial,Chamber,59.483175920245394,-117.17924162576688,163,5,2016,2023,CO2 and CH4,Y,Y
+Lutose,Terrestrial,EC,59.45,-117.25,29,3,2021,2023,CO2,Y,Y
+Lymbydyakha,Lotic,Concentration,63.80156,75.668775,1,1,2015.0,2015.0,CO2 and CH4,N,N
+Lyukh-Yagun,Lotic,Concentration,61.99308,73.792553,1,1,2015.0,2015.0,CO2 and CH4,N,N
+Mackenzie,Lotic,Concentration,67.833,-134.28566666666666,6,1,2010.0,2010.0,CO2 and CH4,N,N
+Mackenzie Delta,Lentic,Chamber,63.07947142857143,-124.32577142857143,7,2,2015,2021.0,CO2 and CH4,N,N
+Mackenzie Delta,Lentic,Concentration,68.31421257142857,-133.82257816666666,126,1,2015.0,2015.0,CO2,N,N
+Mackenzie Delta,Lentic,Concentration (no flux),69.232,-135.2513,1,1,2021.0,2021.0,CO2 and CH4,N,N
+Mackenzie Lowlands,Lotic,Chamber,67.60664222222222,-133.94389666666666,18,1,2016.0,2016.0,CO2 and CH4,N,N
+Mackenzie Lowlands,Lotic,Concentration (no flux),67.64807875,-133.96270375,8,1,2016.0,2016.0,CO2 and CH4,N,N
+Mackenzie River Delta,Lentic,Concentration (no flux),62.88645555555556,-123.96746296296297,27,2,2014,2018.0,CH4,N,N
+Mackenzie River Delta,Lotic,Concentration (no flux),69.3219,-134.44819999999999,2,1,2018.0,2018.0,CH4,N,N
+"Mackenzie Valley, Anzac, Mid-Boreal - Peat Plateau",Terrestrial,Chamber,56.4,-111.03,18,3,2007,2009,CO2,N,N
+"Mackenzie Valley, Fort Simpson, High Boreal - Peat Plateau",Terrestrial,Chamber,61.63,-121.4,12,2,2007,2008,CO2,N,N
+"Mackenzie Valley, Inuvik, High Sub-Arctic - Peat Plateau",Terrestrial,Chamber,68.32,-133.43,12,3,2007,2009,CO2,N,N
+"Mackenzie Valley, Inuvik, High Sub-Arctic - Upland",Terrestrial,Chamber,68.32,-133.43,1,1,2007,2007,CO2,N,N
+"Mackenzie Valley, Normal Wells, Low Sub-Arctic - Peat Plateau",Terrestrial,Chamber,65.21,-127.01,12,2,2007,2008,CO2,N,N
+"Mackenzie Valley, Norman Wells, Low Sub-Arctic - Upland",Terrestrial,Chamber,65.21,-127.01,14,3,2007,2009,CO2,N,N
+Manitoba - Northern Old Black Spruce (former BOREAS Northern Study Area),Terrestrial,EC,55.8796,-98.4808,149,13,1994,2008,CO2,Y,N
+Mannikjarve,Terrestrial,Chamber,58.8749,26.251,6,1,2019,2019,CO2,N,N
+Marily Water Track,Lotic,Concentration (no flux),67.8623,-157.5283,1,1,2011.0,2011.0,CO2 and CH4,N,N
+Marilyn stream,Lotic,Concentration (no flux),67.862,-157.528,1,1,2011.0,2011.0,CO2 and CH4,N,N
+Matamek,Lentic,Chamber,50.25,-66,6,1,1984,1984,CH4,N,N
+Matamek,Lotic,Chamber,50.25,-66,21,1,1984,1984,CH4,N,N
+Mateenlammi,Lentic,Concentration,61.7610858,22.3152468,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Matkunlammi,Lentic,Concentration,60.5348745,24.7114764,4,1,1998.0,1998.0,CO2 and CH4,N,N
+Mature,Terrestrial,Chamber,59.988326,10.682232,51,3,2021,2023,CH4,N,N
+McKee Farm,Terrestrial,Chamber,64.8812,-146.9943,1,1,2022,2022,CH4,N,N
+Mellemlandet,Terrestrial,Chamber,61.15,-45.38,1,1,2016,2016,NA,N,N
+Merasjaervi,Lentic,EC,67.5515,21.9625,5,1,2005.0,2005.0,CO2,N,N
+Middle Taiga Zone,Terrestrial,Chamber,60.9,68.7,23,2,2017,2018,CO2,N,N
+Miekojaervi,Lentic,Concentration,66.5932224,24.3842993,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Minnesota,Lentic,Chamber,48.5,-92.88,6,1,1988,1988,CH4,N,N
+Mittimatalik (Pond Inlet) Tundra,Terrestrial,EC,72.6695,-77.9981,4,1,2024,2024,CO2 and CH4,N,N
+Mokhovaya,Lotic,Concentration,61.577498,73.774521,1,1,2015.0,2015.0,CO2 and CH4,N,N
+Monroe Water Track,Lotic,Concentration (no flux),67.876,-157.531,1,1,2011.0,2011.0,CO2 and CH4,N,N
+Montmorency_Forest,Terrestrial,Snow diffusion,47.29295043411765,-71.16555168147059,34,2,2021,2022,CH4,N,N
+Moose Creek,Lotic,Concentration (no flux),67.928,-161.424,1,1,2010.0,2010.0,CO2 and CH4,N,N
+Moosonee Fen,Terrestrial,Chamber,51.03,-80.62,1,1,1990,1990,CH4,N,N
+Mozhaisk,Lentic,Chamber,55.58,35.82,36,4,2015,2018,CH4,N,N
+Mt. St. Hilaire,Terrestrial,Chamber,45.53333,-73.13333,17,3,1986,1988,CH4,N,N
+Mukhrino,Lentic,Chamber,60.8907365,68.6619325,4,1,2014.0,2014.0,CO2 and CH4,N,N
+Mukhrino,Lentic,Concentration,60.89,68.66,2,2,2009,2010,CH4,N,N
+Mukhrino,Terrestrial,Chamber,60.891755259259256,68.67914662962963,27,2,2015,2016,CH4,N,N
+Mukhrino,Terrestrial,EC,60.89133,68.67627,4,1,2015,2015,CO2,N,N
+"Mukhrino field station, Khanty-Mansiysk, Russia",Terrestrial,Chamber,60.891458,68.676406,36,3,2017,2019,CO2,N,N
+"Mukhrino field station, Khanty-Mansiysk, Russia",Terrestrial,EC,60.89373586666667,68.68269773333333,15,3,2015,2022,CO2,N,N
+Mukhrino_bog,Terrestrial,Chamber,60.892412144285714,68.68976166714286,28,1,2022,2022,CO2,N,N
+Muntsurinjaervi,Lentic,Concentration,63.5257765,29.9810744,4,1,1998.0,1998.0,CO2 and CH4,N,N
+Muorijaervi,Lentic,Concentration,68.0876434,23.6095773,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Muskateer 1 Water Track,Lotic,Concentration (no flux),68.263,-157.729,1,1,2011.0,2011.0,CO2 and CH4,N,N
+Muskateer 2 Water Track,Lotic,Concentration (no flux),68.263,-157.706,1,1,2011.0,2011.0,CO2 and CH4,N,N
+Muskoka-Haliburton,Lentic,Chamber,45.38,-79.13,2,1,1990,1990,CH4,N,N
+Muskoka-Haliburton,Lentic,"Chamber, Ebullition",45.38,-79.13,2,1,1990,1990,CH4,N,N
+Mustajaervi,Lentic,Concentration,62.2344192,22.8384797,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Muuratjaervi,Lentic,Concentration,62.1222493,25.5435769,4,1,1998.0,1998.0,CO2 and CH4,N,N
+NE14 tk2 Water Track,Lotic,Concentration (no flux),68.678,-149.626,1,1,2010.0,2010.0,CO2 and CH4,N,N
+NE2 (Toolik),Terrestrial,Chamber,68.6422,-149.5829,1,1,2022,2022,CH4,N,N
+NEON Barrow Environmental Observatory (BARR),Terrestrial,EC,71.2824,-156.6194,37,4,2019,2022,CO2,N,N
+NEON Caribou Creek - Poker Flats Watershed (BONA),Terrestrial,EC,65.154,-147.5026,56,6,2017,2022,CO2,Y,N
+NEON Delta Junction (DEJU),Terrestrial,EC,63.881100000000004,-145.7514,54,6,2017,2022,CO2,Y,N
+NEON Healy (HEAL),Terrestrial,EC,63.8757,-149.2133,48,5,2018,2022,CO2,Y,N
+NGEE Arctic Barrow,Terrestrial,EC,71.283333,-156.6092333,100,11,2012,2023,CO2 and CH4,N,N
+NGEE Arctic Council,Terrestrial,EC,64.86138889,-163.7007222,48,7,2017,2023,CO2 and CH4,N,N
+Nalaikh grassland,Terrestrial,EC,47.693592,107.489342,72,6,2015,2020,CO2,Y,N
+Naryan-Mar,Lentic,Chamber,67.65,53.02,6,4,2015,2018,CO2 and CH4,N,N
+Near-natural,Terrestrial,Chamber,59.977223,10.704186,53,3,2021,2023,CH4,N,N
+Nelegel,Terrestrial,EC,62.31583333,129.4997222,30,7,2000,2006,CO2,N,N
+Neleger Burnt Forest,Terrestrial,EC,62.325937,129.487342,24,2,1999,2000,CO2,N,N
+Neleger Cutover,Terrestrial,EC,62.314844,129.500075,72,6,2001,2006,CO2,N,N
+Neleger larch forest,Terrestrial,EC,62.315615,129.499964,84,7,2000,2006,CO2,N,N
+Ngarka-Tyde-Yakha,Lotic,Concentration,64.22197,75.523914,1,1,2015.0,2015.0,CO2 and CH4,N,N
+Ngarka-Varka-Yakha,Lotic,Concentration,64.113827,75.236122,1,1,2015.0,2015.0,CO2 and CH4,N,N
+North Slope,Lentic,Chamber,70.65948148148148,-156.64362962962963,27,3,1987,2015.0,CH4,N,N
+North Slope,Lentic,Concentration,69.12466666666666,-150.44233333333332,30,4,1986,2014,CO2 and CH4,N,N
+North Slope,Lentic,Concentration (no flux),70.11581395348837,-154.26947674418605,86,2,2014.0,2015.0,CH4,N,N
+North Slope,Lotic,Concentration,68.49666666666667,-149.53333333333333,3,2,1988,1990,CO2,N,N
+North Slope,Terrestrial,Chamber,68.8,-149.0694,15,5,2008,2012,CO2,N,N
+North Slope,Terrestrial,Snow diffusion,70.38,-148.75,1,1,1996,1996,CO2,N,N
+North Star Yedoma,Terrestrial,Chamber,64.89384435,-147.6368194,10,4,2020,2023,CH4,Y,Y
+North Star Yedoma,Terrestrial,EC,64.894,-147.637,24,3,2021,2023,CO2 and CH4,Y,Y
+North Star Yedoma-Regrowth,Terrestrial,Chamber,64.894,-147.6399,4,3,2020,2022,CH4,N,N
+Northeast Russia,Terrestrial,Chamber,67.05,62.916667,16,2,2012,2013,CO2,N,N
+Northern Finland,Terrestrial,Chamber,69.494167,27.230278,24,1,2008,2008,CH4,N,N
+Northwest Territories,Lentic,Chamber,61.709022503346155,-122.42383191827642,24,1,2023.0,2023.0,CO2 and CH4,N,N
+Norunda,Terrestrial,EC,60.086497206666664,17.47950279333333,180,15,1999,2023,CO2,Y,N
+Norway,Lentic,Concentration,NA,NA,1,1,2011,2011,NA,N,N
+Novy Urengoy,Lentic,Chamber,65.8666666666667,74.9666666666667,4,1,2005.0,2005.0,CO2 and CH4,N,N
+Noyabrsk,Lentic,Concentration,63.22,74.7625,4,1,2010,2010,CH4,N,N
+Nummijaervi,Lentic,Concentration,60.24725,24.242504,4,1,1998.0,1998.0,CO2 and CH4,N,N
+Nunavik,Lentic,Concentration,56.384,-76.834,5,2,2012-2014,2012-2015,CO2 and CH4,N,N
+Nunavut,Lentic,Concentration,81.13,-71.06,4,2,2015,2016,CO2 and CH4,N,N
+Nunavut,Lentic,Concentration (no flux),74.9,-109.58,9,1,2018,2018,CO2,N,N
+Nurmijaervi,Lentic,Concentration,61.3786159,29.1697392,4,1,1998.0,1998.0,CO2 and CH4,N,N
+Nuuk Fen,Terrestrial,EC,64.130933,-51.386068,49,10,2008,2022,CO2,N,N
+"Nyalesund, Spitzbergen",Terrestrial,Chamber,78.923806,11.8915,14,1,2019,2019,CO2,N,N
+Nyudya-Itu-Yakha,Lotic,Concentration,63.159266,75.048958,1,1,2015.0,2015.0,CO2 and CH4,N,N
+Ob River,Lotic,Concentration,57.50593169230769,83.71717492307693,13,2,2015.0,2018.0,CO2 and CH4,N,N
+Ob River,Lotic,Concentration (no flux),57.236666666666665,84.2005,6,2,2016.0,2018.0,CO2 and CH4,N,N
+Ob river,Lotic,Chamber,57.246,84.184,10,1,2018,2018,CO2 and CH4,N,N
+Oelkynjaervi,Lentic,Concentration,65.6989434,29.718451,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Oevre Bjoerntjaern,Lentic,Chamber,63.844916,18.616719,3,1,2014.0,2014.0,CH4,N,N
+Ohmolampi,Lentic,Concentration,61.5595735,27.8807925,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Oksrukuyik Creek,Lotic,Concentration,68.66975,-149.14302,4,3,2017.0,2020.0,CO2 and CH4,N,N
+Oksrukuyik Creek,Lotic,Concentration (no flux),68.66975,-149.14302,32,8,2016,2022,CO2 and CH4,N,N
+Old Guy Water Track,Lotic,Concentration (no flux),68.5533,-149.5609,1,1,2011.0,2011.0,CO2 and CH4,N,N
+Old Iron Slides Water Track,Lotic,Concentration (no flux),68.27,-157.679,1,1,2011.0,2011.0,CO2 and CH4,N,N
+Old Steese,Terrestrial,Chamber,64.8853,-147.653,1,1,2022,2022,CH4,N,N
+Onkivesi,Lentic,Concentration,63.308467,27.3128858,4,1,1999.0,1999.0,CO2 and CH4,N,N
+"Ontario - Groundhog River, Boreal Mixedwood Forest",Terrestrial,EC,48.2173,-82.1555,125,11,2003,2013,CO2,Y,N
+Ostojaervi,Lentic,Concentration,61.4559707,27.2464003,4,1,1998.0,1998.0,CO2 and CH4,N,N
+OvreBjorntjarn inlet,Lotic,Concentration,64.12632673267326,18.77669702970297,101,5,2011.0,2015.0,CO2 and CH4,N,N
+OvreBjorntjarn inlet,Lotic,Concentration (no flux),64.1263,18.7768,4,1,2011.0,2011.0,CO2 and CH4,N,N
+Ox Stream,Lotic,Concentration (no flux),68.65,-149.45,2,1,2011.0,2011.0,CO2 and CH4,N,N
+Paeaejaervi,Lentic,Concentration,61.450333,22.89613,4,1,1998.0,1998.0,CO2 and CH4,N,N
+Paktajaure,Terrestrial,Chamber,68.431,18.554,2,1,1999,1999,CO2,N,N
+Pallas,Terrestrial,Chamber,67.9838164699729,24.195973481179674,369,2,2019,2020,CH4,N,N
+Pallasjaervi,Lentic,EC,68.0047,24.2042,4,1,2013.0,2013.0,CO2,N,N
+Palomaanjaervi,Lentic,Concentration,61.0568752,25.2528611,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Paraguay River,Lotic,Concentration (no flux),61.0495,25.0266,1,1,2011.0,2011.0,CO2 and CH4,N,N
+Paskolampi,Lentic,Concentration,62.498539,23.650116,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Paukajaervi,Lentic,Concentration,62.3400477,23.479396,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Peace-Athabasca Delta,Lentic,Chamber,58.752973971818186,-111.25765637272727,11,1,2019.0,2019.0,CO2 and CH4,N,N
+Peace-Athabasca Delta,Lentic,Concentration (no flux),58.66473922822615,-111.23649518426734,6,1,2018.0,2018.0,CO2 and CH4,N,N
+Peace-Athabasca Delta,Lotic,Concentration (no flux),58.71281743524543,-111.32491192259717,101,1,2018.0,2018.0,CO2 and CH4,N,N
+Peel Plateau,Lotic,Chamber,67.2311,-135.46558125,16,1,2016.0,2016.0,CO2 and CH4,N,N
+Peel Plateau,Lotic,Concentration (no flux),67.21943571428571,-135.50805857142856,7,1,2016.0,2016.0,CO2 and CH4,N,N
+Peel River,Lotic,Concentration,67.22613636363637,-135.49745454545453,44,1,2015.0,2015.0,CO2 and CH4,N,N
+Peel River,Lotic,Concentration (no flux),67.20325581395349,-135.5934418604651,43,1,2015.0,2015.0,CO2 and CH4,N,N
+Pentinlampi,Lentic,Concentration,64.4590936,27.6363601,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Petkeljaervi,Lentic,Concentration,61.6374726,25.1299767,4,1,1998.0,1998.0,CO2 and CH4,N,N
+Petriyagun,Lotic,Concentration,62.618061,74.316937,1,1,2015.0,2015.0,CO2 and CH4,N,N
+Petsikko,Terrestrial,Chamber,69.359825,27.231364,32,1,2008,2008,CO2,N,N
+Pieksaenjaervi,Lentic,Concentration,62.3423349,27.1512147,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Pieni Hangaslampi,Lentic,Concentration,63.3020595,30.1876704,4,1,1998.0,1998.0,CO2 and CH4,N,N
+Pieni kangaslampi,Lentic,Concentration,63.2095144,24.6281313,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Pieni-Montonen,Lentic,Concentration,61.746592,26.9463828,4,1,1998.0,1998.0,CO2 and CH4,N,N
+Pieni-Mustalampi,Lentic,Concentration,62.5091337,27.7319987,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Pienivesi,Lentic,Concentration,61.5093474,26.4380521,4,1,1998.0,1998.0,CO2 and CH4,N,N
+Piilampi,Lentic,Concentration,61.4565911,28.5970742,4,1,1998.0,1998.0,CO2 and CH4,N,N
+Pikjaervi,Lentic,Concentration,61.1637567,26.5256411,4,1,1998.0,1998.0,CO2 and CH4,N,N
+Pikku Kaihlajaervi,Lentic,Concentration,65.8774959,29.2298371,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Pintamojaervi,Lentic,Concentration,65.455873,27.6869871,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Pintyryagun,Lotic,Concentration (no flux),62.57425,74.180252,1,1,2015.0,2015.0,CO2 and CH4,N,N
+Pitkaejaervi,Lentic,Concentration,64.8690912,24.78838225,8,2,1998.0,1999.0,CO2 and CH4,N,N
+Pitkaelammi,Lentic,Concentration,60.6704022,24.5876726,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Pitsalu,Terrestrial,EC,58.562,24.37,13,2,2022,2023,CO2 and CH4,N,N
+"Plotnikovo field station, Tomsk, Rusia",Terrestrial,EC,56.813743,82.852093,6,1,2022,2022,CO2,N,N
+Pobeda,Lentic,Chamber,56.547452,84.141817,1,1,2014.0,2014.0,CO2 and CH4,N,N
+Poker Flat Research Range Black Spruce Forest,Terrestrial,EC,65.12367,-147.48756,144,12,2011,2022,CO2,Y,N
+Poker Flat Research Range: Succession from fire scar to deciduous forest,Terrestrial,EC,65.11983333,-147.5123528,172,15,2008,2022,CO2,Y,N
+Polusjaervi,Lentic,Concentration,64.4155518,24.7074849,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Pond Inlet,Terrestrial,EC,72.69275,-77.95761667,1,1,2008,2008,CO2,N,N
+Ponie-Yakha,Lotic,Concentration,65.276038,77.756148,1,1,2015.0,2015.0,CO2 and CH4,N,N
+Ponto-Yakha,Lotic,Concentration,63.16287,75.248058,1,1,2015.0,2015.0,CO2 and CH4,N,N
+Poplar Fen,Terrestrial,Chamber,56.938833,-111.5489,48,2,2017,2018,CH4,N,N
+Prudhoe Bay,Terrestrial,Chamber,70.35,-148.55,5,2,1993,1994,CO2,N,N
+Pulpuyakha,Lotic,Concentration,63.678929,74.588708,1,1,2015.0,2015.0,CO2 and CH4,N,N
+Pur,Lotic,Concentration (no flux),65.8811,78.4625,1,1,2015.0,2015.0,CO2 and CH4,N,N
+Purpe,Lentic,Concentration,63.263333333333335,74.26666666666667,3,1,2009,2009,CH4,N,N
+Pyakupur,Lotic,Concentration,63.829199,75.390253,1,1,2015.0,2015.0,CO2 and CH4,N,N
+Pyhaejaervi,Lentic,Concentration,60.7229446,26.0298597,4,1,1998.0,1998.0,CO2 and CH4,N,N
+Pyoeriae,Lentic,Concentration,61.09018,27.23417,4,1,1998.0,1998.0,CO2 and CH4,N,N
+Qoornup Kuua,Lotic,Concentration (no flux),61.20673636363637,-45.37290303030303,33,2,2017.0,2018.0,CO2 and CH4,N,N
+Quebec - 1975 Harvested Black Spruce,Terrestrial,EC,49.7598,-74.5711,36,3,2008,2010,CO2,Y,N
+"Quebec - Eastern Boreal, Mature Black Spruce",Terrestrial,EC,49.6925,-74.3421,88,8,2003,2010,CO2,Y,N
+RAS Experimental Field Station,Terrestrial,Chamber,55.7,37.56,12,2,1999,2000,CH4,N,N
+Radisson,Lentic,Chamber,53.38,-77.43,9,1,2004-2005,2004-2005,NA,N,N
+Raeimaejaervi,Lentic,Concentration,63.0321368,27.6111319,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Ragastjaern,Lentic,Concentration,59.914397,15.464115,1,1,2000,2000,CH4,N,N
+Raisduoddar,Terrestrial,Chamber,69.524722,21.321111,9,1,2014,2014,CO2,N,N
+Ranskalankorpi,Terrestrial,EC,61.182914,25.262622,92,5,2019,2023,CO2,Y,N
+Reinikaisenlampi,Lentic,Concentration,61.6585717,27.5427751,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Reisjaervi,Lentic,Concentration,63.606638,24.978809,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Reittioenjaervi,Lentic,Concentration,63.3019899,27.9153897,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Reservoir Lokka,Lentic,Chamber,63.03,27.56,2,2,1994,1995,NA,N,N
+Reservoir Porttipahta,Lentic,Chamber,63.03,27.56,1,1,1995,1995,NA,N,N
+Resolute Bay Polar Desert,Terrestrial,EC,74.7279,-94.8985,2,1,2024,2024,CO2 and CH4,N,N
+Richardson Mountains,Lotic,Chamber,66.86767,-136.280225,16,1,2016.0,2016.0,CO2 and CH4,N,N
+Richardson Mountains,Lotic,Concentration (no flux),66.96383,-136.251418,5,1,2016.0,2016.0,CO2 and CH4,N,N
+Riihijaervi,Lentic,Concentration,61.7302427,25.2082859,4,1,1998.0,1998.0,CO2 and CH4,N,N
+Rimbo,Lotic,Chamber,59.79189,18.39566,9,1,2020.0,2020.0,CO2 and CH4,N,N
+Ristijaervi,Lentic,Concentration,63.6098048,28.9585469,4,1,1998.0,1998.0,CO2 and CH4,N,N
+Riviere du Nord,Lotic,Concentration,45.628536133333334,-74.27171346666667,30,3,2017.0,2019.0,CO2 and CH4,N,N
+Riviere du Nord,Lotic,Concentration (no flux),45.631237666666664,-74.25231033333334,18,2,2018.0,2019.0,CO2 and CH4,N,N
+Romaine-2 reservoir,Lentic,EC,50.6889992,-63.2494011,67,7,2018.0,2024.0,CO2 and CH4,Y,Y
+Rosinedal-3,Terrestrial,EC,64.1725,19.738,77,7,2014,2020,CO2,Y,N
+Ruokojaervi,Lentic,Concentration,61.7898766,27.9178027,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Ruotepuoli,Lentic,Concentration,61.3312185,25.1205821,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Rylekaerene,Terrestrial,Chamber,74.48198641246623,-20.55327605902622,130,1,2007,2007,CO2 and CH4,N,N
+Rylekaerene,Terrestrial,EC,74.481511,-20.555689,11,2,2008,2009,CO2 and CH4,N,N
+Rytijaervi,Lentic,Concentration,66.5572822,26.4680306,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Rytinki,Lentic,Concentration,66.0468558,27.9766162,4,1,1999.0,1999.0,CO2 and CH4,N,N
+SES,Lotic,Concentration (no flux),58.70922244441861,15.010845395581395,43,2,2016.0,2017.0,CO2 and CH4,N,N
+Saarijaervi,Lentic,Concentration,61.80361675,26.605403199999998,8,1,1998.0,1998.0,CO2 and CH4,N,N
+Saarinen,Lentic,Concentration,65.265165,28.5306514,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Saeaeskilampi,Lentic,Concentration,61.5047402,29.1852501,4,1,1998.0,1998.0,CO2 and CH4,N,N
+Saeaeskjaervi,Lentic,Concentration,60.8287154,26.2230641,4,1,1998.0,1998.0,CO2 and CH4,N,N
+Saerkijaervi,Lentic,Concentration,61.5807192,28.4192765,4,1,1998.0,1998.0,CO2 and CH4,N,N
+Saevijaervi,Lentic,Concentration,61.635571,22.763097,4,1,1998.0,1998.0,CO2 and CH4,N,N
+Saeyhtee,Lentic,Concentration,60.7574603,26.0867793,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Saeynaejaeluoma,Lentic,Concentration,65.781097,29.5316353,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Sag River,Terrestrial,EC,69.5056,-148.225,3,1,1996,1996,CO2 and CH4,N,N
+Sag River,Terrestrial,Snow diffusion,69.5,-149.5,2,1,1996,1996,CO2,N,N
+Saguenay region,Lentic,"Concentration, Ebullition",48.38,-71.41,1,1,2011,2011,NA,N,N
+Salamajaervi,Lentic,Concentration,66.3156837,24.2814262,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Salmisuo,Terrestrial,Chamber,62.783333,30.933333,20,1,1993,1993,CO2,Y,N
+Salmisuo,Terrestrial,EC,62.7833,30.9333,24,2,2006,2007,CO2,Y,N
+"Salmisuo Mire, Eastern Finland",Terrestrial,Chamber,62.78,30.933333,24,3,1996,1998,CH4,N,N
+Sam's Slump Water Track,Lotic,Concentration (no flux),68.267,-157.47,1,1,2011.0,2011.0,CO2 and CH4,N,N
+Sammaltunturi fell,Terrestrial,EC,67.9733,24.11565,12,1,2012,2012,CO2,Y,N
+Samoylov Island,Lentic,Chamber,72.37,126.486,5,2,2002,2013,CH4,Y,N
+Samoylov Island,Lentic,Concentration,72.22,126.29,6,1,2008,2008,CO2,Y,N
+Samoylov Island,Lentic,EC,72.36,126.46,1,1,2019.0,2019.0,NA,Y,N
+Samoylov Island,Terrestrial,EC,72.37381103793103,126.49579612955665,203,16,2002,2017,CO2,Y,N
+Sarkka,Terrestrial,Chamber,62.802,30.97916,30,2,1991,1992,CO2 and CH4,N,N
+Sasapimakwananisikw River,Lentic,Concentration (no flux),55.216,-77.694,5,1,2016,2016,CO2 and CH4,N,N
+"Saskatchewan - Western Boreal, Jack Pine harvested in 1975",Terrestrial,EC,53.8758,-104.6453,37,4,2003,2006,CO2,Y,N
+"Saskatchewan - Western Boreal, Jack Pine harvested in 2002",Terrestrial,EC,53.945,-104.649,48,4,2004,2007,CO2,Y,N
+"Saskatchewan - Western Boreal, Mature Aspen",Terrestrial,EC,53.6289,-106.1978,176,15,1996,2010,CO2,Y,N
+"Saskatchewan - Western Boreal, Mature Black Spruce",Terrestrial,EC,53.9872,-105.1178,140,12,1999,2010,CO2,Y,N
+"Saskatchewan - Western Boreal, Mature Jack Pine",Terrestrial,EC,53.916289545454546,-104.69192492424241,132,11,2000,2010,CO2,Y,N
+"Saskatchewan - Western Boreal, forest burned in 1977",Terrestrial,EC,54.485,-105.8176,41,4,2003,2006,CO2,N,N
+"Saskatchewan - Western Boreal, forest burned in 1989",Terrestrial,EC,54.2539,-105.8775,48,5,2001,2005,CO2,N,N
+"Saskatchewan - Western Boreal, forest burned in 1998",Terrestrial,EC,54.0916,-106.0053,59,6,2001,2006,CO2,N,N
+Saunajaervi,Lentic,Concentration,65.4332494,26.3220566,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Schefferville,Lentic,Chamber,54.031666666666666,-68.93333333333334,6,3,1989,2012,CH4,N,N
+Schefferville,Lotic,Concentration,54.81975347826087,-66.94149152173912,46,1,2012.0,2012.0,CO2 and CH4,N,N
+Schefferville,Lotic,Concentration (no flux),54.77222727272727,-66.84875,11,1,2012.0,2012.0,CO2 and CH4,N,N
+Schefferville,Terrestrial,Chamber,54.8,-66.816667,67,3,1986,1988,CH4,N,N
+Scotty Creek,Terrestrial,Chamber,61.3,-121.3,4,1,2018,2018,CO2 and CH4,N,N
+Scotty Creek Bog,Terrestrial,EC,61.3089,-121.2985,105,9,2014,2022,CO2 and CH4,Y,Y
+Scotty Creek Landscape,Terrestrial,EC,61.3082,-121.299,108,9,2013,2022,CO2 and CH4,Y,Y
+Seida,Lentic,Concentration,67.05,62.93,12,2,2007,2008,CO2,N,N
+Seida,Lentic,"Concentration, Ebullition",67.05536166705882,62.945020685882355,17,2,2007.0,2008.0,CO2 and CH4,N,N
+Seida,Terrestrial,Chamber,67.057532223,62.945148334,70,2,2007,2008,CO2 and CH4,N,N
+Seida,Terrestrial,EC,67.05467987,62.94046783,12,1,2008,2008,CO2 and CH4,N,N
+Seryareyakha,Lotic,Concentration,64.53444,76.907689,1,1,2015.0,2015.0,CO2 and CH4,N,N
+Severnaya Dvina,Lotic,Concentration (no flux),64.50326315789474,40.61876315789473,38,4,2004.0,2008.0,CH4,N,N
+Shapsha,Terrestrial,Chamber,61.074983333333336,69.45080999999999,6,1,2018,2018,CH4,N,N
+Shegarka,Lotic,Concentration,57.110059,83.917451,1,1,2015.0,2015.0,CO2 and CH4,N,N
+Siberia,Lentic,Chamber,67.52461375,86.6148625,4,1,2016.0,2016.0,CO2 and CH4,N,N
+Siggefora,Lotic,Chamber,59.99864117647059,17.187573529411765,17,1,2020.0,2020.0,CO2 and CH4,N,N
+Siikalampi,Lentic,Concentration,63.1499975,30.7783543,8,1,1998.0,1998.0,CO2 and CH4,N,N
+Siikaneva,Terrestrial,Chamber,61.8449,24.2882,6,1,2019,2019,CO2,Y,Y
+Siikaneva,Terrestrial,EC,61.8326779972,24.192793997200003,225,19,2005,2023,CO2 and CH4,Y,Y
+Siikaneva2,Terrestrial,Chamber,61.837030157068064,24.1731767539267,955,4,2012,2022,CO2 and CH4,Y,Y
+Siikaneva2,Terrestrial,EC,61.8372,24.1967,60,5,2012,2016,CO2 and CH4,Y,Y
+Siippo,Lentic,Concentration,60.685352,25.9070658,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Siksik,Lentic,Concentration,68.748472,-133.494917,72,2,2013.0,2014.0,CO2 and CH4,N,N
+Simpevarp,Lentic,Concentration,57.436083000000004,16.62275,24,3,2002.0,2004.0,CO2,N,N
+Sirmilik National Park,Lentic,Concentration,73.15,-79.96,4,1,2011,2011,NA,N,N
+Sisimiut 1,Lotic,Concentration (no flux),66.94670833333333,-53.57510833333333,12,2,2017.0,2018.0,CO2 and CH4,N,N
+Sisimiut 3,Lotic,Concentration (no flux),66.95734999999999,-53.6886,6,2,2017.0,2018.0,CO2 and CH4,N,N
+Skaershultssjoen,Lentic,Concentration,57.16315,14.50985,1,1,2000,2000,CH4,N,N
+Skarvefjeld,Terrestrial,Chamber,69.27,-53.45,1,1,2017,2017,NA,N,N
+Skeleton Creek,Lotic,Concentration (no flux),81.83324999999999,-71.39975,4,1,2012.0,2012.0,CO2 and CH4,N,N
+Skogaryd,Lentic,Chamber,58.36851927083333,12.151811104166667,48,2,2012.0,2013.0,CO2 and CH4,N,N
+Skogaryd,Lentic,Concentration (no flux),58.3711,12.1614,33,3,2017,2019,CO2,N,N
+Skogaryd,Lentic,EC,58.371111,12.161278,7,1,2013.0,2013.0,CH4,N,N
+Skogaryd,Lotic,"Chamber, Concentration",58.362493,12.150704,23,2,2013.0,2014.0,CO2 and CH4,N,N
+Skogaryd,Lotic,Concentration (no flux),58.371394598486845,12.151795476118421,152,3,2013.0,2015.0,CO2 and CH4,N,N
+Skottjaern,Lentic,Concentration,59.941729,15.397339,1,1,2000,2000,CH4,N,N
+Skyttorp 1,Terrestrial,EC,60.125,17.91805556,48,4,2005,2008,CO2,Y,N
+Skyttorp 2,Terrestrial,EC,60.12966667,17.84005556,12,2,2004,2005,CO2,N,N
+Smaland,Lentic,Concentration,57.13132139130248,14.568654361799126,64,2,2000.0,2001.0,CO2,N,N
+Smith Creek,Terrestrial,Chamber,63.15,-123.25,20,1,2019,2019,CO2 and CH4,N,Y
+Smith Creek,Terrestrial,EC,63.1533,-123.255,63,6,2017,2022,CO2 and CH4,N,Y
+Sodankyla,Terrestrial,Chamber,67.3651585,26.646324999999997,8,1,2012,2012,CO2 and CH4,Y,N
+Sodankyla,Terrestrial,EC,67.3618,26.6382,168,14,2001,2014,CO2,Y,N
+Sodankyla,Terrestrial,Snow diffusion,67.36747427413043,26.651821416086957,46,4,2021,2024,CO2 and CH4,Y,N
+Soilampi,Lentic,Concentration,61.6875907,27.9612315,4,1,1998.0,1998.0,CO2 and CH4,N,N
+Solheimajokull glacier,Lotic,Concentration (no flux),63.5247,-19.3801,10,3,2013.0,2017.0,CH4,N,N
+Sorsamo,Lentic,Concentration,61.0642402,24.7989455,4,1,1999.0,1999.0,CO2 and CH4,N,N
+South Brooks Range,Terrestrial,Chamber,67.9905,-149.76,6,5,2008,2012,CO2,N,N
+Southern Khentei Taiga,Terrestrial,EC,48.351861,108.654333,48,4,2003,2006,CO2,Y,N
+Southwest Sweden,Terrestrial,Chamber,58.07,12.016667,28,2,1993,1994,CH4,N,N
+Spitsbergen,Terrestrial,Chamber,78.92,15.933333,1,1,2014,2014,CH4,N,N
+St. Bruno,Terrestrial,Chamber,45.55,-73.3833,36,2,1987,1988,CH4,N,N
+Steen River,Terrestrial,Chamber,59.6,-117.3,3,1,2019,2019,CH4,Y,N
+Steen River,Terrestrial,EC,59.6,-117.3,37,4,2020,2023,CO2,Y,N
+Stora Vojaerv,Lentic,Concentration,63.5222729,23.3663689,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Stordalen,Lentic,Chamber,68.35777,19.048874,1,1,2012.0,2012.0,CH4,Y,Y
+Stordalen,Lentic,"Chamber, Concentration",68.35365010225,19.0238957802,18,1,2010.0,2010.0,CO2 and CH4,Y,Y
+Stordalen,Lentic,"Chamber, Ebullition",68.35666008653847,19.04709101923077,104,9,2009.0,2017.0,CH4,Y,Y
+Stordalen,Lentic,Concentration,68.35373703684928,19.025651242124287,140,3,2005,2010.0,CO2 and CH4,Y,Y
+Stordalen,Lentic,Concentration (no flux),68.35539800000001,19.04830775,8,2,2009.0,2012.0,CH4,Y,Y
+Stordalen,Lentic,Ebullition,68.35432793052631,19.04609637491228,114,13,2009,2024.0,CH4,Y,Y
+Stordalen,Lotic,Concentration,68,19,109,1,2009.0,2009.0,CO2 and CH4,Y,Y
+Stordalen,Lotic,Concentration (no flux),68,19,3,1,2009.0,2009.0,CO2,Y,Y
+Stordalen,Lotic,Ebullition,68.356591,19.04151,2,1,2022.0,2022.0,CH4,Y,Y
+Stordalen,Terrestrial,Chamber,68.34809726210526,19.03492828293629,722,17,1998,2022,CO2 and CH4,Y,Y
+Stordalen,Terrestrial,EC,68.37,19.05,3,1,1996,1996,CH4,Y,Y
+Stordalen Fen,Lentic,Concentration (no flux),68.354,19.0505,2,1,2017.0,2017.0,CO2 and CH4,Y,Y
+Stordalen Fen,Lentic,EC,68.354,19.0505,45,8,2012.0,2019.0,CO2 and CH4,Y,Y
+Stordalen Fen,Terrestrial,EC,68.354,19.0505,88,8,2012,2019,CO2 and CH4,Y,Y
+Stordalen Palsa Bog,Terrestrial,EC,68.3559428,19.0452089,104,9,2014,2023,CO2 and CH4,Y,Y
+Stordalen_Harrsjoen,Lentic,EC,68.35782,19.03872,4,1,2009.0,2009.0,CO2,N,N
+Storflaket,Terrestrial,Chamber,68.351631946875,18.897968746874998,160,1,2021,2021,CO2 and CH4,N,N
+Stortjaern,Lentic,Chamber,63.844916,18.616719,3,1,2014.0,2014.0,CH4,N,N
+Stortjaern lake,Lentic,Concentration (no flux),64.26,19.76,1,1,2014,2014,CO2 and CH4,N,N
+Stortjarn,Terrestrial,EC,64.17498,19.56381,33,3,2020,2022,CO2 and CH4,Y,Y
+Struptjaern,Lentic,Chamber,63.844916,18.616719,3,1,2014.0,2014.0,CH4,N,N
+Struptjarn inlet,Lotic,Concentration,64.02076572519609,19.487780038627452,102,4,2012.0,2015.0,CO2 and CH4,N,N
+Suha,Lentic,Concentration,62.582765,30.906121,4,1,1998.0,1998.0,CO2 and CH4,N,N
+Sulkalampi,Lentic,Concentration,66.3044208,27.2101886,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Sulkuejaervi,Lentic,Concentration,62.208823,23.1673545,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Suuri-Hautajaervi,Lentic,Concentration,62.3789173,28.3712088,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Suuri-Urkk,Lentic,Concentration,62.7478876,30.3805565,4,1,1998.0,1998.0,CO2 and CH4,N,N
+Suurijaervi,Lentic,Concentration,60.6945192,27.9233001,4,1,1998.0,1998.0,CO2 and CH4,N,N
+Svalbard,Terrestrial,Chamber,78.55657142857143,13.89942857142857,7,3,2001,2004,CO2,N,N
+Svartberget,Lotic,Concentration (no flux),64.233,19.767,6,2,2014.0,2015.0,CO2 and CH4,Y,N
+Svartberget,Terrestrial,EC,64.2561,19.7745,108,9,2014,2023,CO2,Y,N
+Svarttjaern,Lentic,Concentration,59.890455,15.257435,1,1,2000,2000,CH4,N,N
+Sweden,Lentic,Concentration,NA,NA,1,1,2011,2011,NA,N,N
+Synsiae,Lentic,Concentration,62.0768963,26.4749133,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Syvaejaervi,Lentic,Concentration,61.3286802,28.8593118,4,1,1998.0,1998.0,CO2 and CH4,N,N
+T Road Water Track,Lotic,Concentration (no flux),68.691,-149.1826,1,1,2011.0,2011.0,CO2 and CH4,N,N
+T Road Water Track 2,Lotic,Concentration (no flux),68.691,-149.192,2,1,2011.0,2011.0,CO2 and CH4,N,N
+T37 Water Track,Lotic,Concentration (no flux),68.871,-149.578,1,1,2011.0,2011.0,CO2 and CH4,N,N
+T54 Water Track,Lotic,Concentration (no flux),68.619,-149.425,1,1,2011.0,2011.0,CO2 and CH4,N,N
+TRG Stream,Lotic,Concentration (no flux),68.69,-149.21,1,1,2010.0,2010.0,CO2 and CH4,N,N
+TRTK Water Track,Lotic,Concentration (no flux),68.691,-149.208,6,2,2010.0,2011.0,CO2 and CH4,N,N
+Taemnaren,Lentic,EC,60.16,17.32,18,3,2010.0,2012.0,CO2 and CH4,N,N
+Taiga Plain,Lotic,Concentration,62.16947128192307,-118.10138846153846,26,1,2017.0,2017.0,CO2 and CH4,N,N
+Taiga Plain,Lotic,Concentration (no flux),62.485145,-119.7148,2,1,2017.0,2017.0,CO2 and CH4,N,N
+Taiga Plains,Lentic,Chamber,61.54254319298246,-122.63193956140351,57,2,2018.0,2019.0,CH4,N,N
+Taiga Plains,Lentic,"Chamber, Ebullition",60.976158,-121.89583976923076,39,2,2018.0,2019.0,CH4,N,N
+Taiga Plains,Lentic,Concentration,59.480228,-117.182856,1,1,2017,2017,CH4,N,N
+Taiga Plains,Lentic,"Concentration, Ebullition",59.480228,-117.182856,7,2,2017,2018,CH4,N,N
+Taiga Plains,Lentic,Ebullition,67.477378,-134.705003,1,1,2018.0,2018.0,CH4,N,N
+Taiga Shield,Lotic,Concentration,63.70692333363636,-115.05980136363637,22,1,2017.0,2017.0,CO2 and CH4,N,N
+Taivallampi,Lentic,Concentration,62.6264988,31.1134912,4,1,1998.0,1998.0,CO2 and CH4,N,N
+Takajaervi,Lentic,Concentration,65.9199773,26.5470521,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Talvijaervi,Lentic,Concentration,66.172687,29.132714,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Tammalammi,Lentic,Concentration,62.3646753,30.2251371,4,1,1998.0,1998.0,CO2 and CH4,N,N
+Tanana_River,Terrestrial,Chamber,64.63,-148.3333333,12,1,2004,2004,CO2 and CH4,N,N
+Taz,Lotic,Concentration,66.287318,79.249869,1,1,2015.0,2015.0,CO2 and CH4,N,N
+Taz river,Lotic,Chamber,67.57,78.15,2,1,2019,2019,CO2 and CH4,N,N
+Tazovskii,Lentic,Chamber,67.11,78.55,6,1,2009,2009,CH4,N,N
+Tear 2 Water Track,Lotic,Concentration (no flux),68.526,-149.544,1,1,2011.0,2011.0,CO2 and CH4,N,N
+Teerilampi,Lentic,Concentration,64.28933705,29.23339795,8,1,1999.0,1999.0,CO2 and CH4,N,N
+Temmesjoki,Lotic,Concentration,64.88,25.9175,4,1,2003.0,2003.0,CO2 and CH4,N,N
+Temmesjoki,Lotic,Concentration (no flux),65.02,25.51,1,1,2003.0,2003.0,CO2 and CH4,N,N
+Teno,Lentic,Chamber,69.85905,27.01657,1,1,2023.0,2023.0,CO2 and CH4,N,N
+Teno,Lotic,Chamber,70.04499666666666,27.376603333333335,3,1,2023.0,2023.0,CO2 and CH4,N,N
+Tervalamminsuo,Terrestrial,EC,60.645567,23.972,252,11,2012,2022,CO2,Y,N
+The Kara Sea coast,Lentic,Chamber,68.86007000000001,66.6949475,4,1,2018,2018,CH4,N,N
+The Polar Urals,Lentic,Chamber,67.95139666666667,67.54531,3,1,2018,2018,CH4,N,N
+Thinned,Terrestrial,Chamber,60.000241,10.678185,54,3,2021,2023,CH4,N,N
+Thompson,Lentic,Chamber,55.92,-98.02,1,1,1994.0,1994.0,CH4,N,N
+Thompson,Lentic,"Chamber, Ebullition",55.92,-98.02,4,1,1994.0,1994.0,CH4,N,N
+Thompson,Lentic,Concentration,55.92,-98.02,1,1,1996,1996,NA,N,N
+Thoreau,Terrestrial,Chamber,64.87,-147.0881,2,2,2022,2023,CH4,N,N
+Thule,Terrestrial,Chamber,76.55,-68.566667,3,1,2018,2018,CO2,N,N
+Tideotta,Lotic,Concentration,65.199648,77.73349,1,1,2015.0,2015.0,CO2 and CH4,N,N
+Tiksi,Terrestrial,Chamber,71.83,129,2,1,1993,1993,CH4,Y,N
+Tiksi,Terrestrial,EC,71.5944,128.888,54,5,2010,2014,CO2,Y,N
+Tim's Water Track,Lotic,Concentration (no flux),68.266,-157.474,1,1,2011.0,2011.0,CO2 and CH4,N,N
+Tobo,Lentic,Chamber,60.262529,17.617135,15,2,2018.0,2019.0,CO2 and CH4,N,N
+Tobo,Lotic,Chamber,60.26493013157895,17.617255131578947,114,2,2018.0,2019.0,CO2 and CH4,N,N
+Tombstone_slavin,Terrestrial,EC,64.70989,-138.4102,35,3,2020,2022,CO2,N,N
+Toolik,Terrestrial,Chamber,68.6304444,-149.62560744,15,7,1991,1998,CO2,N,N
+Toolik Lake,Lentic,Concentration,68.630499,-149.606112,1,1,2019.0,2019.0,CO2 and CH4,N,N
+Toolik Lake,Lentic,Concentration (no flux),68.630499,-149.606112,60,9,2016.0,2022,CO2 and CH4,N,N
+Toolik Lake,Lentic,EC,68.630499,-149.606112,18,6,2010.0,2015.0,CO2 and CH4,N,N
+Toolik Lake,Lotic,Concentration (no flux),68.61860966017227,-149.5813254909762,1219,29,1992.0,2020.0,CO2 and CH4,N,N
+Toolik Lake,Terrestrial,Chamber,68.649722,-149.566667,10,4,1993,1996,CO2,N,N
+Toolik Lake,Terrestrial,Snow diffusion,68.65232,-149.63516,50,7,1996,2009,CO2,N,N
+Toolik Lake- Long-term US ITEX,Terrestrial,Chamber,68.6333,-149.6333,15,1,2012,2012,CO2 and CH4,N,N
+Toolik Moist Tussock Tundra,Terrestrial,Chamber,61.416667,-165.833333,8,1,2015,2015,CO2 and CH4,N,N
+Tornetraesk catchment,Lentic,Concentration,68.431,18.441,20,1,2019,2019,CH4,N,N
+Tornetrask,Lotic,Concentration (no flux),68.42702142857144,18.514200476190474,21,2,2018.0,2019.0,CO2 and CH4,N,N
+Tourist St.,Terrestrial,Chamber,68.35888889,18.78944444,118,1,2021,2021,CO2 and CH4,N,N
+Trail Valley Creek,Lentic,EC,68.7408056,-133.5274167,8,1,2023.0,2023.0,CO2 and CH4,Y,Y
+Trail Valley Creek,Terrestrial,Chamber,68.74448235571428,-133.51152902857143,56,2,2019,2021,CO2 and CH4,Y,Y
+Trail Valley Creek,Terrestrial,EC,68.7462,-133.5017,117,10,2013,2022,CO2 and CH4,Y,Y
+Trail_Valley_Creek,Terrestrial,Snow diffusion,68.74075644444444,-133.4931464814815,54,2,2021,2022,CO2 and CH4,N,N
+Travaillant Uplands,Lotic,Chamber,68.136464,-133.38338066666668,15,1,2016.0,2016.0,CO2 and CH4,N,N
+Travaillant Uplands,Lotic,Concentration (no flux),68.15361833333333,-133.41289666666665,6,1,2016.0,2016.0,CO2 and CH4,N,N
+Trice Grasto Graminoid,Terrestrial,Chamber,64.9207,-147.8639,2,2,2022,2023,CH4,N,N
+Trice Grasto Spruce Forest,Terrestrial,Chamber,64.921,-147.8653,2,2,2022,2023,CH4,N,N
+Tromyegan,Lotic,Concentration,61.467371,74.483026,2,1,2015.0,2015.0,CO2 and CH4,N,N
+Tuktoyaktuk Coastlands,Lentic,Chamber,68.84,-133.235,2,1,2013,2013,NA,N,N
+Tuomaslampi,Lentic,Concentration,61.1107733,27.2846862,4,1,1998.0,1998.0,CO2 and CH4,N,N
+Tura,Terrestrial,Chamber,64.203,100.445,8,1,2023,2023,CO2,N,N
+Tura,Terrestrial,EC,64.20746060606061,100.45905681818182,33,7,2004,2023,CO2,N,N
+"Tura, Russia",Terrestrial,Chamber,64.26,100.21,8,3,2005,2007,CH4,N,N
+Tutulampi,Lentic,Concentration,65.4890551,27.8450601,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Tvaerassjoen,Lentic,Concentration,63.49733,23.616156,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Twin 1 Water Track,Lotic,Concentration (no flux),67.962,-156.789,1,1,2011.0,2011.0,CO2 and CH4,N,N
+Twin 2 Water Track,Lotic,Concentration (no flux),67.962,-156.792,1,1,2011.0,2011.0,CO2 and CH4,N,N
+Tydylyakha,Lotic,Concentration,65.07026,78.160755,1,1,2015.0,2015.0,CO2 and CH4,N,N
+Tyva Republic,Lentic,Chamber,51.11991644444444,93.22683172222223,18,2,2021,2022,CO2,N,N
+Tyva Republic,Lentic,Concentration (no flux),51.048347,93.63619087500001,8,2,2020,2021,CO2,N,N
+Tyva Republic,Lotic,Chamber,51.27428431372549,92.6318105490196,51,2,2021,2022,CO2,N,N
+Tyva Republic,Lotic,Concentration (no flux),51.32751922222222,92.90891519444445,36,3,2020,2022,CO2,N,N
+U-PAD,Terrestrial,Chamber,70.2733334,-148.883333,10,2,1993,1994,CO2,N,N
+UAF Bicycle Bumps,Terrestrial,Chamber,64.863,-147.8578,4,3,2020,2022,CH4,N,N
+UAF Bicycle Bumps - low elevation,Terrestrial,Chamber,64.86467,-147.858673,2,2,2020,2021,CH4,N,N
+UAF Groomers,Terrestrial,Chamber,64.8625,-147.8319,1,1,2020,2020,CH4,N,N
+UAF Midnight Sun Loop,Terrestrial,Chamber,64.8608,-147.8624,1,1,2022,2022,CH4,N,N
+UAF Murie,Terrestrial,Chamber,64.8613,-147.8433,1,1,2020,2020,CH4,N,N
+UAF Potato Field,Terrestrial,Chamber,64.8633,-147.863,4,2,2022,2023,CH4,N,N
+UCI-1850 burn site,Terrestrial,EC,55.8792,-98.4839,40,4,2002,2005,CO2,Y,N
+UCI-1930 burn site,Terrestrial,EC,55.9058,-98.5247,50,5,2001,2005,CO2,Y,N
+UCI-1964 burn site,Terrestrial,EC,55.9117,-98.3822,50,5,2001,2005,CO2,Y,N
+UCI-1964 burn site wet,Terrestrial,EC,55.9144,-98.3806,33,3,2003,2005,CO2,N,N
+UCI-1981 burn site,Terrestrial,EC,55.8631,-98.485,50,5,2001,2005,CO2,Y,N
+UCI-1989 burn site,Terrestrial,EC,55.9167,-98.9644,48,5,2001,2005,CO2,Y,N
+UCI-1998 burn site,Terrestrial,EC,56.6358,-99.9483,41,4,2002,2005,CO2,Y,N
+Udleg practice forest,Terrestrial,EC,48.25638888,106.8511111,36,3,2010,2012,CO2,N,N
+Ukonjaervi,Lentic,Concentration,62.5723518,26.3228019,4,1,1998.0,1998.0,CO2 and CH4,N,N
+Ume,Lotic,Concentration (no flux),64.18769166666667,19.547583333333332,12,2,2014.0,2015.0,CO2 and CH4,N,N
+Umea,Lotic,Chamber,63.92,20.1969444444444,3,2,2016.0,2017.0,CO2,N,N
+Umiujaq,Terrestrial,EC,56.556557,-76.48234,35,4,2017,2020,CO2,Y,N
+Umiujaq and Sheldrake River,Lentic,Concentration (no flux),56.61,-76.21,7,2,2004,2005,CO2 and CH4,N,N
+"University of Alaska, Fairbanks",Terrestrial,EC,64.86627,-147.85553,252,21,2003,2023,CO2 and CH4,Y,N
+Uppsala,Lotic,Chamber,60.0111111,17.8488888888888,3,2,2016.0,2017.0,CO2,N,N
+Uppsala,Lotic,Concentration (no flux),59.69608387096774,17.170958064516128,62,2,2014.0,2015.0,CO2 and CH4,N,N
+Utqiagvik,Lotic,Chamber,71.27409090909092,-156.56045454545455,22,3,2022.0,2024.0,CO2,N,N
+Utqiagvik,Terrestrial,Chamber,71.32078377777778,-156.61559333333335,18,5,2001,2019,CO2 and CH4,N,N
+Utqiagvik Central,Terrestrial,Chamber,71.32,-156.62,6,3,2006,2008,CO2,N,N
+Utqiagvik North,Terrestrial,Chamber,71.32,-156.62,6,3,2006,2008,CO2,N,N
+Utqiagvik South,Terrestrial,Chamber,71.32,-156.62,6,3,2006,2008,CO2,N,N
+Uuranjaervi,Lentic,Concentration,62.4555119,24.5628087,4,1,1998.0,1998.0,CO2 and CH4,N,N
+Vach-Yagun,Lotic,Concentration,61.489458,74.372955,1,1,2015.0,2015.0,CO2 and CH4,N,N
+Vachinguriyagun,Lotic,Concentration,61.861178,73.955259,1,1,2015.0,2015.0,CO2 and CH4,N,N
+Vaeaeraelampi,Lentic,Concentration,63.6045427,29.796427,4,1,1998.0,1998.0,CO2 and CH4,N,N
+Vaehae Meltaus,Lentic,Concentration,66.5283332,24.619588,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Vaenajavesi,Lentic,EC,61.133935,24.259119,13,2,2016.0,2017.0,CO2,Y,N
+Vaesterbotten,Lentic,Concentration,64.2219721451904,18.598061437731708,39,1,2000.0,2000.0,CO2,N,N
+Vahermanjaervi,Lentic,Concentration,60.5621,23.986895,4,1,1998.0,1998.0,CO2 and CH4,N,N
+"Vaisjeaggi, northern Finland",Terrestrial,Chamber,69.816667,27.166667,6,2,1998,1999,CO2,N,N
+Vakh,Lotic,Concentration,60.94465,76.89685,2,1,2015.0,2015.0,CO2 and CH4,N,N
+Valkea-Kotinen,Lentic,Concentration (no flux),61.24195,25.063564,2,2,2005.0,2007.0,CO2,N,N
+Valkea-Kotinen,Lentic,EC,61.24195,25.063564,52,7,2003.0,2009.0,CO2,N,N
+Valkeislampi,Lentic,Concentration,64.3090946,30.1209201,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Valley of the TK ALD3 wt,Lotic,Concentration (no flux),68.959,-150.67,1,1,2011.0,2011.0,CO2 and CH4,N,N
+Valtasenjaervi,Lentic,Concentration,64.3444078,30.1160971,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Vanda,Lotic,Chamber,58.283,26.72,59,7,2018,2024,CO2 and CH4,N,Y
+Vara-Yakha,Lotic,Concentration,64.218425,76.338103,1,1,2015.0,2015.0,CO2 and CH4,N,N
+Varislampi,Lentic,Concentration,66.7580353,26.1857904,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Varrio,Terrestrial,Chamber,67,29,17,2,2011,2014,CH4,Y,N
+Varrio,Terrestrial,EC,67.7549,29.636712333333332,144,12,2012,2023,CO2,Y,N
+Vaskiny Dachi,Lentic,Chamber,68.91708333333334,70.26989999999999,6,1,2019,2019,CH4,N,N
+Vassijaure,Terrestrial,Chamber,68.434,18.268,2,1,1999,1999,CO2,N,N
+"Vasyuganie field station, Tomsk",Terrestrial,Chamber,56.975699999999996,82.6135,30,3,2012,2014,CH4,N,N
+Vatinsky Egan,Lotic,Concentration,61.221447,75.59672,1,1,2015.0,2015.0,CO2 and CH4,N,N
+Vatinsky Egan,Lotic,Concentration (no flux),61.221447,75.59672,1,1,2015.0,2015.0,CO2 and CH4,N,N
+Vattholma,Lotic,Chamber,60.08145185185185,17.827668518518518,27,1,2020.0,2020.0,CO2 and CH4,N,N
+Vehkalampi,Lentic,Concentration,62.097084,27.446462,4,1,1998.0,1998.0,CO2 and CH4,N,N
+Velykh-Pelykh-Yakha,Lotic,Concentration,63.161241,75.151442,1,1,2015.0,2015.0,CO2 and CH4,N,N
+Vihteljaervi,Lentic,Concentration,61.750973,22.521867,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Vuoskojaiveh,Terrestrial,Chamber,68.325,19.169,2,1,1999,1999,CO2,N,N
+WCR Stream,Lotic,Concentration (no flux),67.732,-161.421,1,1,2010.0,2010.0,CO2 and CH4,N,N
+Wally Creek,Lotic,Chamber,49.05,-80.6667,3,1,1991.0,1991.0,CH4,N,N
+Watson River,Lotic,Concentration (no flux),67.0908375,-50.2849025,40,2,2017.0,2018.0,CO2 and CH4,N,N
+West Dock,Terrestrial,Chamber,70.283333,-148.883333,4,2,1993,1994,CO2,N,N
+Western Siberia,Lentic,Concentration (no flux),63.32923076923077,75.83269230769231,26,1,2010,2010,CO2 and CH4,N,N
+Western Siberia,Terrestrial,Chamber,55.83777777777778,78.35692222222222,9,1,2013,2013,CH4,N,N
+Western Siberia Lowland,Lentic,"Chamber, Concentration",65.0857554945055,76.95872100122101,182,1,2016.0,2016.0,CO2 and CH4,N,N
+Western Siberia Lowland,Lentic,Concentration (no flux),62.89369341563786,74.7842181069959,27,1,2016.0,2016.0,CO2 and CH4,N,N
+Western Siberian Lowland,Lentic,Chamber,63.769999999999996,75.64,2,1,2018,2018,CO2 and CH4,N,N
+Western Siberian Lowland,Lentic,Concentration (no flux),63.61694255050505,75.61577714646465,44,1,2016,2016,CO2 and CH4,N,N
+Western Siberian Lowland,Lotic,Chamber,62,76,4,1,2020-2022,2020-2022,CO2 and CH4,N,N
+Whapmagoostui-Kuujjuarapik,Lentic,Concentration (no flux),55.05,-77.115,20,3,2004,2009,CO2 and CH4,N,N
+Wodd Pile Stream,Lotic,Concentration (no flux),67.901,-156.483,1,1,2011.0,2011.0,CO2 and CH4,N,N
+Wolf_creek_Buckbrush,Terrestrial,EC,60.521631,-135.19715,96,8,2015,2022,CO2,N,N
+Wolf_creek_SparseShrub,Terrestrial,EC,60.545119,-135.191,96,8,2015,2022,CO2,N,N
+Wolf_creek_forest,Terrestrial,EC,60.596886,-134.952833,71,6,2017,2022,CO2,Y,N
+Wolf_creek_upper_forest,Terrestrial,EC,60.58377,-135.08836,35,3,2020,2022,CO2,N,N
+Wood Pile Water Track,Lotic,Concentration (no flux),67.901,-156.48,1,1,2011.0,2011.0,CO2 and CH4,N,N
+YKD,Terrestrial,Chamber,61.263886115384615,-163.2413325897436,78,2,2022,2023,CO2 and CH4,N,N
+YKD (burned),Terrestrial,EC,61.2723,-163.2228,40,4,2019,2022,CO2 and CH4,N,Y
+YKD (unburned),Terrestrial,EC,61.254765,-163.25897,42,4,2019,2022,CO2 and CH4,Y,Y
+Yaganto,Lentic,Chamber,65.112417,78.112194,1,1,1995.0,1995.0,NA,N,N
+Yakutsk,Lentic,Chamber,62.22578947368421,130.03894736842105,19,7,2004,2009,CH4,N,N
+Yakutsk,Terrestrial,Chamber,62.158333,130.525,4,1,2007,2007,CH4,N,N
+Yakutsk Spasskaya Pad Pine,Terrestrial,EC,62.241291,129.651336,48,4,2004,2008,CO2,N,N
+Yakutsk Spasskaya Pad larch,Terrestrial,EC,62.25480868181818,129.53664245454544,132,13,2000,2014,CO2,N,N
+"Yakutsk, Russia",Terrestrial,Chamber,62.31,129.5,14,1,2005,2005,CO2 and CH4,N,N
+Yamal_Peninsula,Terrestrial,Chamber,68.13,71.7,11,2,1995,1996,CH4,N,N
+Yamsovey,Lotic,Concentration,65.703718,77.997044,1,1,2015.0,2015.0,CO2 and CH4,N,N
+Yasavei,Lentic,Chamber,67.35,78.91,5,1,2010,2010,CH4,N,N
+Ylae-Siikajaervi,Lentic,Concentration,63.1152158,30.3486281,4,1,1999.0,1999.0,CO2 and CH4,N,N
+Ylaenne,Lentic,Concentration,62.1468798,26.4910236,4,1,1998.0,1998.0,CO2 and CH4,N,N
+Yukon,Terrestrial,Chamber,66.37,-136.716667,4,1,2015,2015,CH4,N,N
+Yukon Delta,Lentic,Chamber,61.263,-163.256,4,1,2023.0,2023.0,CO2 and CH4,N,N
+Yukon Flats NWR,Lentic,Concentration (no flux),62.33,-146,9,1,2021,2021,CO2 and CH4,N,N
+Yukon River,Lotic,Chamber,65.45518306849316,-147.61976465753423,73,4,2011.0,2017.0,CO2 and CH4,N,N
+Yukon River,Lotic,Concentration,64.7565,-147.61599999999999,6,1,2001.0,2001.0,CO2 and CH4,N,N
+Yukon River,Lotic,Concentration (no flux),64.38914555685132,-148.90298472011662,686,19,2000.0,2019.0,CO2 and CH4,N,N
+Yukon River Basin,Lentic,Concentration (no flux),66.26276923076924,-146.53853846153845,13,1,2017,2017,CO2 and CH4,N,N
+Yukon-Kuskokwim Delta,Lentic,Concentration,61.18989142857143,-162.79075571428572,7,1,2016.0,2016.0,CO2 and CH4,N,N
+Yukon-Kuskokwim Delta,Lentic,Concentration (no flux),61.23249766666667,-162.93391833333334,30,2,2015.0,2016.0,CO2 and CH4,N,N
+Yukon-Kuskokwim Delta,Lotic,Chamber,61.195366666666665,-162.79399999999998,3,1,2016.0,2016.0,CO2 and CH4,N,N
+Yukon-Kuskokwim Delta,Lotic,Concentration (no flux),61.24049615384615,-162.81895923076922,13,3,2015.0,2017.0,CO2 and CH4,N,N
+Yukon-Kuskokwim Delta,Terrestrial,Chamber,61.25,-165.62,8,3,2014,2016,CO2,N,N
+ZOTTO Bog,Terrestrial,EC,60.8175,89.388889,11,4,2013,2016,CO2,N,N
+ZOTTO Forest,Terrestrial,EC,60.806944,89.3575,15,5,2013,2017,CO2,N,N
+Zackenberg,Terrestrial,Chamber,74.48782352941177,-20.584176470588236,17,5,2009,2014,CO2,N,N
+Zackenberg,Terrestrial,Snow diffusion,74.5,-21,2,1,2012,2012,CO2,N,N
+Zackenberg Fen,Terrestrial,Chamber,74.479,-20.555,51,12,2006,2018,CO2 and CH4,Y,N
+Zackenberg Fen,Terrestrial,EC,74.4814622,-20.55495855,80,14,2008,2022,CO2,Y,N
+Zackenberg Heath,Terrestrial,EC,74.4732987840909,-20.550862534090907,88,18,1997,2022,CO2,N,N
+Zotino,Terrestrial,EC,60.8008,89.3507,23,3,2002,2004,CO2,N,N
+Zotino; Central Siberia,Terrestrial,EC,60.7540245,89.38499999999999,6,2,1999,2000,CO2,N,N
+reisa,Lotic,Concentration (no flux),69.515337,21.31309425,12,1,2021.0,2021.0,CO2 and CH4,N,N
