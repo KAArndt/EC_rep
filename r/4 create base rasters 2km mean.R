@@ -1,3 +1,4 @@
+rm(list=setdiff(ls(), c("euci",'df','r')))
 
 library(data.table)
 library(readr)

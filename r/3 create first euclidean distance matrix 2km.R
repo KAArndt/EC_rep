@@ -41,5 +41,8 @@ Sys.time() - orig} #stop the clock
 #save the euclidean distance
 colnames(euci) = tower.data$site
 
+towers = which(tower.data$Type == 'EC_Tower')
+
+
 #save the file, rds saves alot of space
 saveRDS(object = euci,file = './euclidean_distance_matrix/euci_2km.rds')

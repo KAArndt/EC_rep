@@ -1,4 +1,6 @@
-rm(list=setdiff(ls(), "euci"))
+#use c3-highmem-176
+
+rm(list=setdiff(ls(), c("euci",'df','r')))
 
 library(readr)
 library(terra)
@@ -22,28 +24,28 @@ tower.data = fread(file = './data/pca.towers.upgraded.csv')
 tower.data$order = seq(1,length(tower.data$MeanTemp)) #important for merging back the tower order
 
 #ranking of sites
-ranks = read.csv(file = './output/reductions/meanreduction.csv')
-ranks$rank = rank(x = ranks$means)
-names(ranks)[1] = 'site'
-top.limit = max(ranks$means*-1)+0.005
-top = subset(ranks,ranks$rank<100)
-
-ggplot(data = ranks)+theme_bw()+ggtitle('Mean Improvements')+
-  geom_bar(aes(reorder(site, -means*-1),means*-1,fill=country),stat = 'identity')+
-  scale_y_continuous(expand = c(0,0),limits = c(0,top.limit),'Mean ED Reduction')+
-  scale_x_discrete('Site')+
-  scale_fill_brewer(palette = "Spectral")+
-  theme(axis.text.x = element_text(angle = 80,hjust = 1,size = 7),
-        legend.position = c(0.5,0.9),
-        legend.direction = 'horizontal')
-
-tower.data = merge(tower.data,ranks,by = 'site',all.x=T)
-tower.data$active = ifelse(is.na(tower.data$active),'inactive',tower.data$active)
-tower.data = tower.data[order(tower.data$order),]
+# ranks = read.csv(file = './output/reductions/meanreduction.csv')
+# ranks$rank = rank(x = ranks$means)
+# names(ranks)[1] = 'site'
+# top.limit = max(ranks$means*-1)+0.005
+# top = subset(ranks,ranks$rank<100)
+# 
+# ggplot(data = ranks)+theme_bw()+ggtitle('Mean Improvements')+
+#   geom_bar(aes(reorder(site, -means*-1),means*-1,fill=country),stat = 'identity')+
+#   scale_y_continuous(expand = c(0,0),limits = c(0,top.limit),'Mean ED Reduction')+
+#   scale_x_discrete('Site')+
+#   scale_fill_brewer(palette = "Spectral")+
+#   theme(axis.text.x = element_text(angle = 80,hjust = 1,size = 7),
+#         legend.position = c(0.5,0.9),
+#         legend.direction = 'horizontal')
+# 
+# tower.data = merge(tower.data,ranks,by = 'site',all.x=T)
+# tower.data$active = ifelse(is.na(tower.data$active),'inactive',tower.data$active)
+# tower.data = tower.data[order(tower.data$order),]
 
 #find columns which are active sites
 net = which(tower.data$active == 'active')
-ext = which(tower.data$active == 'inactive' & tower.data$rank <= 107)
+ext = which(tower.data$active == 'inactive' | is.na(tower.data$Type)) #& tower.data$rank <= 107)
 
 #create some subsets of the euclidean distance tables for easier calculations
 euci.net = euci[,c(net)]
@@ -89,8 +91,7 @@ cl = makeCluster(10) #assign number of cores
 
 
 #save off this file for later use ###########################################################
-#saveRDS(object = eucis,file = './euclidean_distance_matrix/remaining_ext_eucis_2km.rds')
-eucis = read_rds(file = './euclidean_distance_matrix/remaining_ext_eucis_2km.rds')
+#eucis = read_rds(file = './euclidean_distance_matrix/remaining_ext_eucis_2km.rds')
 
 #create rasters
 dist.rasts = list()
@@ -140,15 +141,29 @@ for (i in 1:length(difs)) {
 bars = data.frame(tower.data$site[ext])
 bars$means = meansv
 bars$country = tower.data$Country[ext]
+bars$Type = tower.data$Type[ext]
 
 tower.data$type = paste(tower.data$active,tower.data$methane,tower.data$Season_Activity,sep = '_')
 bars$type = tower.data$type[ext]
 names(bars)[1] = 'sitename'
 
+bars$country = ifelse(bars$country == 'USA','United States',
+               ifelse(bars$country == 'Nunavut/Canada','Canada',
+               ifelse(bars$country == 'Greenland (Denmark)','Greenland',
+               ifelse(bars$country == 'Greenland/Denmark','Greenland',
+               ifelse(bars$country == 'Denmark','Greenland',
+               ifelse(bars$country == 'Canada ','Canada',
+               ifelse(bars$country == 'Russia ','Russia',
+               ifelse(bars$country == 'Kingdom of Norway','Norway',
+                      bars$country))))))))
+
+
 #bars = fread('./output/meanreduction_remaining_mean.csv')
 upper.limit = -1*min(bars$means)+0.005
 
-ggplot(data = bars)+theme_bw()+ggtitle('Mean Improvements')+
+top = subset(bars,bars$means < median(bars$means))
+
+ggplot(data = top)+theme_bw()+ggtitle('Mean Improvements')+
   geom_bar(aes(reorder(sitename, -means*-1),means*-1,fill=country),stat = 'identity')+
   scale_y_continuous(expand = c(0,0),limits = c(0,upper.limit),'Mean ED Reduction')+
   scale_x_discrete('Site')+
@@ -158,6 +173,9 @@ ggplot(data = bars)+theme_bw()+ggtitle('Mean Improvements')+
         legend.direction = 'horizontal')
 
 write.csv(x = bars,file = './output/reductions/meanreduction_remaining.csv',row.names = F)
+
+
+#saveRDS(object = eucis,file = './euclidean_distance_matrix/remaining_ext_eucis_2km.rds')
 
 ########################################################################################################
 # bars = fread('./output/meanreduction_remaining_mean.csv')

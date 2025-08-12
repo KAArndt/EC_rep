@@ -1,3 +1,4 @@
+rm(list=setdiff(ls(), c("euci",'df','r')))
 
 library(data.table)
 library(readr)
@@ -10,6 +11,7 @@ tower.data = fread(file = './data/pca.towers.upgraded.csv')
 #write.csv(x = tower.data,file = './data/improved_pca.towersv2.csv')
 #load back in euclidean distance matrix
 euci = read_rds('./euclidean_distance_matrix/euci_2km.rds')
+
 
 #load in the other spatial data
 r = rast('./spatial_data/pca_2km.tif')
