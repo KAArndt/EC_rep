@@ -2,13 +2,9 @@
 library(data.table)
 library(raster)
 library(svMisc)
-# library(MASS)
 library(ggplot2)
-# library(ggspatial)
-# library(plotrix)
 library(terra)
 library(seegSDM)
-# library(plyr)
 library(dplyr)
 
 #gh_install_packages("SEEG-Oxford/seegSDM")
@@ -19,7 +15,7 @@ tower.data = fread(file = './data/pca.towers.base.csv')
 active = subset(tower.data,tower.data$active == 'active' & tower.data$Start_CO2 < 2022)
 
 #set just the coordinates for the extract
-xy.tower = active[,c(56,57)]
+xy.tower = active[,c(58,59)]
 
 #clusters #########################################################################
 #load in the stack created in the other files
@@ -66,6 +62,10 @@ dfs1 = subset(dfs,dfs$count == 1)
 er1 = merge(dfs1,alldf,by = 'cluster',all = T)
 er1 = er1[complete.cases(er1$count),]
 
+summary(er1$base.dist)
+median(er1$base.dist,na.rm=T)
+sd(er1$base.dist,na.rm=T)
+1.53+0.53*2
 summary(er1$base.dist)[5]
 hist(er1$base.dist)
 
@@ -77,4 +77,4 @@ summary(er4$base.dist)[5]
 hist(er4$base.dist)
 
 #mean
-#the final cut offs are 2.05 and 1.53 for ER1 and ER4 2 mean
+#the final cut offs are 1.96 and 1.56 for ER1 and ER4 2 mean
