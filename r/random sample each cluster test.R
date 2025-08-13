@@ -21,7 +21,7 @@ xy.tower = active[,c(58,59)]
 #load in the stack created in the other files
 clust = rast('./output/clusts.tif')
 
-clust = clust$km50
+clust = clust$km40
 plot(clust)
 names(clust) = 'cluster'
 
@@ -168,6 +168,11 @@ hist(base3)
 summary(base3)
 plot(base3,range=c(0,3))
 points(samp3$x,samp3$y,col='red',pch=16)
+
+plot(clust,range=c(30,40))
+points(samp3$x,samp3$y,col='red',pch=16)
+
+
 
 samp4 = spat.df[sample(nrow(spat.df), size = 1000,replace = F), ]
 samp4 = samp4[!duplicated(samp4$cluster),]
