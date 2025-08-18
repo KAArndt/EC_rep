@@ -1,4 +1,4 @@
-rm(list=setdiff(ls(), "euci"))
+rm(list=setdiff(ls(), c("euci",'df','r')))
 
 library(readr)
 library(terra)

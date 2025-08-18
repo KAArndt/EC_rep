@@ -39,7 +39,7 @@ annual.ag.i         = aggregate(x = annual.i,fact = 4,fun = mean,na.rm = T)
 annual.methane.ag.i = aggregate(x = annual.methane.i,fact = 4,fun = mean,na.rm = T)
 
 #plot the figure
-pal = c('#FEEDB9','#E88D7A','#72509A','#8AABD6','#F2F7FB')
+pal = c('#FEEDB9','#E88D7A',F2F7FB,'#72509A','#8AABD6','#')
 
 #create a scatter to show data spread
 # base.df = as.data.frame(base)
@@ -85,6 +85,16 @@ annual.methane.towers.i  = subset(tower.data.i,tower.data.i$active == 'active' &
                                     tower.data.i$Season_Activity == 'All year' &
                                     tower.data.i$methane == 'methane')
 
+RColorBrewer::brewer.pal
+
+pal = RColorBrewer::brewer.pal(n = 11,name = 'PuOr')
+
+
+install.packages("ggblend")
+remotes::install_github("mjskay/ggblend")
+
+
+pal = palette(pal,inverse=T)
 #base
 base.plot = ggplot()+theme_map()+
   geom_sf(data = countries,fill='gray',col='gray40')+
@@ -98,16 +108,16 @@ base.plot = ggplot()+theme_map()+
                        oob = scales::squish)+  
   new_scale("fill") +
   geom_point(data = base.towers,aes(x,y,fill=methane,pch=Season_Activity,col=methane),
-             col='black',show.legend = F,cex = 0.8)+
+             col='black',show.legend = F,cex = 3)+
   scale_shape_manual(values = c(21,24),'Annual Cover',labels = c('Annual','Not Annual'))+
-  scale_fill_manual(values = c('orange1','turquoise'))+
+  scale_fill_manual(values = c('red','lightblue'))+
   scale_x_continuous(limits = c(-5093909,4542996))+
   scale_y_continuous(limits = c(-3687122,4374170))+
   theme(text = element_text(size = 5),
         axis.title = element_blank(),
         legend.position = 'none')+
   annotate(geom = 'text',x = -3403909,y = 3474170,label = expression('Growing Season'~CO[2]),size=2)
-#base.plot
+base.plot
 
 #methane
 methane.plot = ggplot()+theme_map()+

@@ -54,7 +54,7 @@ net = which(tower.data$active == 'active' & tower.data$annualmethane == 'All yea
 ext = which(tower.data$active == 'active' & tower.data$annualmethane != 'All year_methane')
 
 #save off
-tower.data = tower.data[,-c('rank','country','means','order','type')]
+tower.data = tower.data[,-c('rank','country','means','order')]
 write_csv(x = tower.data,'./data/next_5_sites/annual_methane_1.csv')
 
 #create some subsets of the euclidean distance tables for easier calculations

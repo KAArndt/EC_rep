@@ -51,7 +51,7 @@ net = which(tower.data$active == 'active' & tower.data$Season_Activity == 'All y
 ext = which(tower.data$active == 'active' & tower.data$Season_Activity != 'All year')
 
 #save off
-tower.data = tower.data[,-c('rank','country','means','order','type')]
+tower.data = tower.data[,-c('rank','country','means','order')]
 write_csv(x = tower.data,'./data/next_5_sites/annual_1.csv')
 
 #create some subsets of the euclidean distance tables for easier calculations
@@ -99,7 +99,7 @@ library(doSNOW)
 
 #setup parallel back end to use many processors
 cores = detectCores()        #detect the number of cores
-cl = makeCluster(12) #assign number of cores
+cl = makeCluster(10) #assign number of cores
 {orig = Sys.time() #start the clock for timing the process
   registerDoSNOW(cl) #register the cores
   eucis = foreach (j = 1:ncol(euci.ext),.verbose = T,.combine = cbind,.packages = c('kit')) %dopar% {

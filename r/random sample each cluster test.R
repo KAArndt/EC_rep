@@ -1,10 +1,7 @@
 
 library(data.table)
-#library(raster)
-#library(svMisc)
 library(ggplot2)
 library(terra)
-#library(seegSDM)
 library(dplyr)
 library(foreach)
 library(doParallel)
@@ -272,14 +269,18 @@ er1.5 = rast(x = basedf,type = 'xyz',crs = crs(r))
 base = rast('./output/improved_network/improved_base_2km.tif')
 
 #combine all into 1
-ers = c(er1.1,er1.2,er1.3,er1.4,er1.5)
+er1 = c(er1.1,er1.2,er1.3,er1.4,er1.5)
 
 
-hist(ers-base)
-summary(ers)
-plot(ers-base)
+hist(er1-base)
+summary(er1)
+plot(er1-base)
 
-writeRaster(x = ers,'./output/er1_rasters.tif')
+(1.94+1.94+2+1.95+1.92)/5
+
+#1.95
+
+writeRaster(x = er1,'./output/er1_rasters.tif')
 
 # 4 per cluster #####################################################################################
 newdf1 = filter_df_by_vector(df = spat.df,column = 'cluster',values_to_filter = 1:40,n = 4)
@@ -462,7 +463,23 @@ base.dist = numeric(length = nrow(euci))
 #make the base image
 basedf = data.frame(spat.df$x,spat.df$y,base.dist)
 er4.5 = rast(x = basedf,type = 'xyz',crs = crs(r))
+##############################################################################################
 
+base = rast('./output/improved_network/improved_base_2km.tif')
+
+#combine all into 1
+er4 = c(er4.1,er4.2,er4.3,er4.4,er4.5)
+
+
+hist(er4-base)
+summary(er4)
+plot(er4,range=c(0,3))
+
+(1.32+1.35+1.33+1.32+1.31)/5
+
+#1.33 for ER4
+
+writeRaster(x = er4,'./output/er4_rasters.tif')
 
 
 
