@@ -25,7 +25,6 @@ towers.and.ext    = rbind(towers,ext,fill=T)
 names(towers.and.ext)[4] = 'site'
 towers.and.ext = towers.and.ext[!duplicated(towers.and.ext$site),]
 
-towers.and.ext
 #set just the coordinates for the extract
 xy.tower = towers.and.ext[,c(10,9)]
 
