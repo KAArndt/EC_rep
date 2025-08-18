@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 Type,2022 list,Our List,Site_Name,abcflux_me,ADDED,edited,Site_ID,Latitude,Longitude,Country,Contact,Contact_Email,Data_Availability,Reference,Reference_Short,Additional_Information,Anemometer,Gas_Analyser,Power,Ecosystem,GHG,Complementary_Measurements,Start_CO2,End_CO2,Start_CH4,End_CH4,Start_N2O,End_N2O,Season_Activity,Terrestrial,Aquatic,ignore
 EC_Tower,NA,NA,Montmorency Forest sapling,,Yes,no,,47.284458,-71.151867,Canada,Daniel Nadeu,NA,NA,NA,NA,NA,NA,NA,NA,forest,CO2,NA,2015,2024,NA,NA,NA,NA,Summer,TRUE,FALSE,no
 EC_Tower,NA,NA,Montmorency Forest juvenile,,Yes,no,,47.28945,-71.16792,Canada,Daniel Nadeu,NA,NA,NA,NA,NA,NA,NA,NA,forest,CO2,NA,2015,2024,NA,NA,NA,NA,Summer,TRUE,FALSE,no
@@ -281,7 +280,7 @@ EC_Tower,NA,NA,Stortjarn,Stortjarn,Yes,yes,,64.17498,19.56381,Sweden,NA,NA,NA,NA
 EC_Tower,NA,NA,North Star Yedoma,North Star Yedoma,Yes,yes,,64.894,-147.637,USA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"CO2,CH4",NA,2021,2023,NA,NA,NA,NA,All year,TRUE,FALSE,yes
 EC_Tower,NA,NA,Stordalen_Harrsjoen,Stordalen_Harrsjoen,Yes,yes,,68.35782,19.03872,Sweden,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,CO2,NA,2009,2009,NA,NA,NA,NA,Summer,FALSE,TRUE,no
 EC_Tower,NA,NA,Barrow,Barrow,Yes,yes,,71.13,-156.34,USA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,2011,2011,NA,NA,NA,NA,Summer,FALSE,TRUE,no
-=======
+=======,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Type,2022 list,Our List,Site_Name,abcflux_me,ADDED,edited,Site_ID,Latitude,Longitude,Country,Contact,Contact_Email,Data_Availability,Reference,Reference_Short,Additional_Information,Anemometer,Gas_Analyser,Power,Ecosystem,GHG,Complementary_Measurements,Start_CO2,End_CO2,Start_CH4,End_CH4,Start_N2O,End_N2O,Season_Activity,Terrestrial,Aquatic,ignore
 EC_Tower,NA,NA,Montmorency Forest sapling,,Yes,no,,47.284458,-71.151867,Canada,Daniel Nadeu,NA,NA,NA,NA,NA,NA,NA,NA,forest,CO2,NA,2015,2024,NA,NA,NA,NA,Summer,TRUE,FALSE,no
 EC_Tower,NA,NA,Montmorency Forest juvenile,,Yes,no,,47.28945,-71.16792,Canada,Daniel Nadeu,NA,NA,NA,NA,NA,NA,NA,NA,forest,CO2,NA,2015,2024,NA,NA,NA,NA,Summer,TRUE,FALSE,no
@@ -564,4 +563,3 @@ EC_Tower,NA,NA,Stortjarn,Stortjarn,Yes,yes,,64.17498,19.56381,Sweden,NA,NA,NA,NA
 EC_Tower,NA,NA,North Star Yedoma,North Star Yedoma,Yes,yes,,64.894,-147.637,USA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"CO2,CH4",NA,2021,2023,NA,NA,NA,NA,All year,TRUE,FALSE,yes
 EC_Tower,NA,NA,Stordalen_Harrsjoen,Stordalen_Harrsjoen,Yes,yes,,68.35782,19.03872,Sweden,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,CO2,NA,2009,2009,NA,NA,NA,NA,Summer,FALSE,TRUE,no
 EC_Tower,NA,NA,Barrow,Barrow,Yes,yes,,71.13,-156.34,USA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,2011,2011,NA,NA,NA,NA,Summer,FALSE,TRUE,no
->>>>>>> 1beb2189f4676dca0bf5c21a94b149e8c0e84c52

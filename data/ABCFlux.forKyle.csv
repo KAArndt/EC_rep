@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 abcflux_names,our_names,dataset,flux_method,latitude,longitude,num.months,num.years,start_year,end_year,Flux,co2.yearround,ch4.yearround
 Bibai bog,,Terrestrial,EC,43.32300556,141.8106972,74,7,2015,2021,CO2 and CH4,Y,Y
 Kherlenbayan Ulaan,,Terrestrial,EC,47.213972,108.737333,72,6,2003,2008,CO2,Y,N
@@ -281,7 +280,7 @@ Adventdalen,Adventdalen,Terrestrial,EC,78.186,15.923,48,4,2012,2015,CO2,Y,N
 ,,,,,,,,,,,,
 ,,,,,,,,,,,,
 ,,,,,,,,,,,,
-=======
+=======,,,,,,,,,,,,
 abcflux_names,our_names,dataset,flux_method,latitude,longitude,num.months,num.years,start_year,end_year,Flux,co2.yearround,ch4.yearround
 Bibai bog,,Terrestrial,EC,43.32300556,141.8106972,74,7,2015,2021,CO2 and CH4,Y,Y
 Kherlenbayan Ulaan,,Terrestrial,EC,47.213972,108.737333,72,6,2003,2008,CO2,Y,N
@@ -564,4 +563,4 @@ Adventdalen,Adventdalen,Terrestrial,EC,78.186,15.923,48,4,2012,2015,CO2,Y,N
 ,,,,,,,,,,,,
 ,,,,,,,,,,,,
 ,,,,,,,,,,,,
->>>>>>> 1beb2189f4676dca0bf5c21a94b149e8c0e84c52
+>>>>>>> 1beb2189f4676dca0bf5c21a94b149e8c0e84c52,,,,,,,,,,,,
