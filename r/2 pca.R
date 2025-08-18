@@ -90,10 +90,7 @@ pca.upgraded$Season_Activity = ifelse(pca.upgraded$site == "Lutose" |
                                     'All year',pca.upgraded$Season_Activity)
 
 pca.upgraded$methane = ifelse(pca.upgraded$site == "Lutose",'methane',pca.upgraded$methane)
-
-
 pca.upgraded$active = ifelse(pca.upgraded$site == 'Council (NGEE Arctic)','inactive',pca.upgraded$active)
-pca.upgraded$active = ifelse(pca.upgraded$site == 'Lutose Rich Fen','inactive',pca.upgraded$active)
 pca.upgraded$active = ifelse(pca.upgraded$site == 'Lutose Rich Fen','inactive',pca.upgraded$active)
 
 
