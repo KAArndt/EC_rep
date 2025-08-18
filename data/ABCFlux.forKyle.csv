@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 abcflux_names,our_names,dataset,flux_method,latitude,longitude,num.months,num.years,start_year,end_year,Flux,co2.yearround,ch4.yearround
 Bibai bog,,Terrestrial,EC,43.32300556,141.8106972,74,7,2015,2021,CO2 and CH4,Y,Y
 Kherlenbayan Ulaan,,Terrestrial,EC,47.213972,108.737333,72,6,2003,2008,CO2,Y,N
@@ -280,3 +281,287 @@ Adventdalen,Adventdalen,Terrestrial,EC,78.186,15.923,48,4,2012,2015,CO2,Y,N
 ,,,,,,,,,,,,
 ,,,,,,,,,,,,
 ,,,,,,,,,,,,
+=======
+abcflux_names,our_names,dataset,flux_method,latitude,longitude,num.months,num.years,start_year,end_year,Flux,co2.yearround,ch4.yearround
+Bibai bog,,Terrestrial,EC,43.32300556,141.8106972,74,7,2015,2021,CO2 and CH4,Y,Y
+Kherlenbayan Ulaan,,Terrestrial,EC,47.213972,108.737333,72,6,2003,2008,CO2,Y,N
+Hustai grassland,,Terrestrial,EC,47.594131,105.856439,72,6,2015,2020,CO2,Y,N
+Nalaikh grassland,,Terrestrial,EC,47.693592,107.489342,72,6,2015,2020,CO2,Y,N
+"Ontario - Groundhog River, Boreal Mixedwood Forest",Groundhog River,Terrestrial,EC,48.2173,-82.1555,125,11,2003,2013,CO2,Y,N
+Udleg practice forest,Udleg Forest Research Station,Terrestrial,EC,48.25638888,106.8511111,36,3,2010,2012,CO2,N,N
+Southern Khentei Taiga,Southern Khentei Taiga,Terrestrial,EC,48.351861,108.654333,48,4,2003,2006,CO2,Y,N
+"Quebec - Eastern Boreal, Mature Black Spruce",Eastern Old Black Spruce (EOBS),Terrestrial,EC,49.6925,-74.3421,88,8,2003,2010,CO2,Y,N
+Quebec - 1975 Harvested Black Spruce,Quebec - 1975 Harvested Black Spruce (HBS75),Terrestrial,EC,49.7598,-74.5711,36,3,2008,2010,CO2,Y,N
+Bouleau peatland,Bouleau Peatland,Terrestrial,EC,50.52040017,-63.20308966,29,3,2018,2020,CO2 and CH4,Y,N
+Romaine-2 reservoir,La Romaine Hydroelectrix Complex - Hydropower reservoir (raft),Lentic,EC,50.6889992,-63.2494011,67,7,2018,2024,CO2 and CH4,Y,Y
+Bernard Lake,La Romaine Hydroelectrix Complex - Lake,Lentic,EC,50.8614547,-63.3898409,19,3,2022,2024,CO2 and CH4,Y,Y
+Bernard spruce-moss valley,La Romaine Hydroelectrix Complex - Boreal forest,Terrestrial,EC,50.9020996,-63.4051018,63,7,2018,2024,CO2 and CH4,Y,Y
+Eastmain Reservoir,Eastmain Reservoir,Lentic,EC,52.124722,-75.929722,45,4,2008,2012,CO2,Y,N
+"Lac Le Caron peatland, an ombrotrophic bog",Lac Le Caron,Terrestrial,EC,52.29027778,-75.25416667,45,5,2008,2012,CO2,N,N
+Attawapiskat River Bog,Attawapiskat River Bog,Terrestrial,EC,52.695,-83.9452,56,5,2011,2015,CO2,Y,N
+Attawapiskat River Fen,Attawapiskat River Fen,Terrestrial,EC,52.7008,-83.955,57,5,2011,2015,CO2,Y,N
+HJP02 Jack Pine,HJP02 Jack Pine,Terrestrial,EC,53.15,-104.1,24,2,2004,2005,CO2,Y,N
+HJP75 Jack Pine,HJP75 Jack Pine,Terrestrial,EC,53.15,-104.1,21,2,2004,2005,CO2,Y,N
+HJP94 Jack Pine,HJP94 Jack Pine,Terrestrial,EC,53.15,-104.116667,24,2,2004,2005,CO2,Y,N
+"Saskatchewan - Western Boreal, Mature Aspen",Southern Old Aspen (BERMS),Terrestrial,EC,53.6289,-106.1978,176,15,1996,2010,CO2,Y,N
+"Saskatchewan - Western Boreal, Jack Pine harvested in 1975","Saskatchewan - Western Boreal, Jack Pine forest harvested in 1975 (BOREAS Young Jack Pine)",Terrestrial,EC,53.8758,-104.6453,37,4,2003,2006,CO2,Y,N
+"Saskatchewan - Western Boreal, Mature Jack Pine","Saskatchewan - Western Boreal, Mature Jack Pine",Terrestrial,EC,53.91628955,-104.6919249,132,11,2000,2010,CO2,Y,N
+"Saskatchewan - Western Boreal, Jack Pine harvested in 2002","Saskatchewan - Western Boreal, Jack Pine forest harvested in 2002",Terrestrial,EC,53.945,-104.649,48,4,2004,2007,CO2,Y,N
+"Saskatchewan - Western Boreal, Mature Black Spruce","Saskatchewan - Western Boreal, Mature Black Spruce",Terrestrial,EC,53.9872,-105.1178,140,12,1999,2010,CO2,Y,N
+"Saskatchewan - Western Boreal, forest burned in 1998","Saskatchewan - Western Boreal, forest burned in 1998",Terrestrial,EC,54.0916,-106.0053,59,6,2001,2006,CO2,N,N
+"Saskatchewan - Western Boreal, forest burned in 1989","Saskatchewan - Western Boreal, forest burned in 1989",Terrestrial,EC,54.2539,-105.8775,48,5,2001,2005,CO2,N,N
+Alberta - Western Peatland - Rich Fen  (Carex),Alberta - Western Peatland - Rich Fen  (Carex),Terrestrial,EC,54.47,-113.32,32,3,2004,2006,CO2,N,N
+"Saskatchewan - Western Boreal, forest burned in 1977","Saskatchewan - Western Boreal, forest burned in 1977",Terrestrial,EC,54.485,-105.8176,41,4,2003,2006,CO2,N,N
+Hakasia 10 yr,,Terrestrial,EC,54.70455,90.07785,8,1,2004,2004,CO2,N,N
+Hakasia Steppe,Hakasia Steppe,Terrestrial,EC,54.7252,90.0022,30,3,2002,2004,CO2,N,N
+Hakasia 5yr,,Terrestrial,EC,54.77301,89.95664,9,2,2002,2003,CO2,N,N
+"Alberta - Western Peatland - LaBiche River,Black Spruce,Larch Fen",La Biche River,Terrestrial,EC,54.95384,-112.46698,73,7,2003,2009,CO2,Y,N
+Alberta - Western Peatland - Poor Fen (Sphagnum moss),Alberta - Western Peatland - Poor Fen (Sphagnum moss),Terrestrial,EC,55.5375,-112.3343,32,3,2004,2006,CO2,N,N
+UCI-1981 burn site,UCI-1981 burn site,Terrestrial,EC,55.8631,-98.485,50,5,2001,2005,CO2,Y,N
+UCI-1850 burn site,UCI-1850 burn site,Terrestrial,EC,55.8792,-98.4839,40,4,2002,2005,CO2,Y,N
+Manitoba - Northern Old Black Spruce (former BOREAS Northern Study Area),"Manitoba, Northern Old Black Spruce (BOREAS)",Terrestrial,EC,55.8796,-98.4808,149,13,1994,2008,CO2,Y,N
+UCI-1930 burn site,UCI-1930 burn site,Terrestrial,EC,55.9058,-98.5247,50,5,2001,2005,CO2,Y,N
+UCI-1964 burn site,UCI-1964 burn site,Terrestrial,EC,55.9117,-98.3822,50,5,2001,2005,CO2,Y,N
+UCI-1964 burn site wet,UCI-1964 burn site wet,Terrestrial,EC,55.9144,-98.3806,33,3,2003,2005,CO2,N,N
+UCI-1989 burn site,UCI-1989 burn site,Terrestrial,EC,55.9167,-98.9644,48,5,2001,2005,CO2,Y,N
+Hyltemossa,Hyltemossa,Terrestrial,EC,56.09763,13.41897,71,6,2015,2020,CO2,Y,N
+Faejemyr,Faejemyr,Terrestrial,EC,56.2655,13.5535,53,5,2005,2009,CO2,Y,N
+Fyodorovskoye2,Fyodorovskoye dry spruce,Terrestrial,EC,56.447603,32.901878,68,6,2015,2020,CO2 and CH4,Y,Y
+Fyodorovskoye,Fyodorovskoye,Terrestrial,EC,56.4615278,32.9220833,272,23,1998,2020,CO2,Y,N
+Umiujaq,Umiujaq,Terrestrial,EC,56.556557,-76.48234,35,4,2017,2020,CO2,Y,N
+UCI-1998 burn site,UCI-1998 burn site,Terrestrial,EC,56.6358,-99.9483,41,4,2002,2005,CO2,Y,N
+"Plotnikovo field station, Tomsk, Rusia",Plotnikovo,Terrestrial,EC,56.813743,82.852093,6,1,2022,2022,CO2,N,N
+Skogaryd,,Lentic,EC,58.371111,12.161278,7,1,2013,2013,CH4,N,N
+Pitsalu,,Terrestrial,EC,58.562,24.37,13,2,2022,2023,CO2 and CH4,N,N
+Churchill Fen 3,Churchill Fen,Terrestrial,EC,58.6658,-93.8304,28,3,2022,2024,CO2 and CH4,Y,Y
+Churchill Fen Site 1,Churchill Fen Site 1,Terrestrial,EC,58.6658,-93.83,24,2,2007,2008,CO2,N,N
+Churchill Fen Site 2,Churchill Fen Site 2,Terrestrial,EC,58.6658,-93.83,18,4,2008,2011,CH4,N,N
+Lutose,Lutose,Terrestrial,EC,59.45,-117.25,29,3,2021,2023,CO2,Y,Y
+Steen River,Steen River,Terrestrial,EC,59.6,-117.3,37,4,2020,2023,CO2,Y,N
+Elgeeii forest station,Elgeeii,Terrestrial,EC,60.01551563,133.8240123,108,9,2010,2018,CO2,N,N
+Norunda,Norunda,Terrestrial,EC,60.08649721,17.47950279,180,15,1999,2023,CO2,Y,N
+Finse west,Finse,Terrestrial,EC,60.11,7.53,36,3,2019,2021,CO2,Y,N
+Skyttorp 1,"Skyttorp, young",Terrestrial,EC,60.125,17.91805556,48,4,2005,2008,CO2,Y,N
+Skyttorp 2,Skyttorp,Terrestrial,EC,60.12966667,17.84005556,12,2,2004,2005,CO2,N,N
+Taemnaren,Taemnaren,Lentic,EC,60.16,17.32,18,3,2010,2012,CO2 and CH4,N,N
+Wolf_creek_Buckbrush,Wolf Creek Buckbrush,Terrestrial,EC,60.521631,-135.19715,96,8,2015,2022,CO2,N,N
+Lily Lake Fen,Lily Lake Fen,Terrestrial,EC,60.5382,-150.5061,32,3,2021,2023,CO2 and CH4,N,N
+Wolf_creek_SparseShrub,Wolf Creek Sparse Shrub,Terrestrial,EC,60.545119,-135.191,96,8,2015,2022,CO2,N,N
+Wolf_creek_upper_forest,Wolf Creek Upper Forest,Terrestrial,EC,60.58377,-135.08836,35,3,2020,2022,CO2,N,N
+Wolf_creek_forest,Wolf Creek Forest,Terrestrial,EC,60.596886,-134.952833,71,6,2017,2022,CO2,Y,N
+Lettosuo,Lettosuo,Terrestrial,EC,60.641833,23.9597131,183,16,2009,2024,CO2,Y,N
+Tervalamminsuo,Tervalamminsuo,Terrestrial,EC,60.645567,23.972,252,11,2012,2022,CO2,Y,N
+Kalevansuo,Kalevansuo,Terrestrial,EC,60.64683332,24.356167,56,6,2004,2009,CO2,Y,N
+Kymijoki,Kymijoki,Lotic,EC,60.65186795,26.81845763,2,1,2009,2009,CO2,N,N
+Zotino; Central Siberia,Zotino forest West (old),Terrestrial,EC,60.7540245,89.385,6,2,1999,2000,CO2,N,N
+Zotino,ZOTTO forest (old),Terrestrial,EC,60.8008,89.3507,23,3,2002,2004,CO2,N,N
+ZOTTO Forest,ZOTTO-Forest EC,Terrestrial,EC,60.806944,89.3575,15,5,2013,2017,CO2,N,N
+ZOTTO Bog,ZOTTO-Bog EC,Terrestrial,EC,60.8175,89.388889,11,4,2013,2016,CO2,N,N
+Mukhrino,,Terrestrial,EC,60.89133,68.67627,4,1,2015,2015,CO2,N,N
+"Mukhrino field station, Khanty-Mansiysk, Russia",Zotino forest West (old),Terrestrial,EC,60.89373587,68.68269773,15,3,2015,2022,CO2,N,N
+Knottasen,Knottasen,Terrestrial,EC,60.99825,16.2172778,139,12,2006,2017,CO2,Y,N
+Vaenajavesi,Vaenajavesi,Lentic,EC,61.133935,24.259119,13,2,2016,2017,CO2,Y,N
+Ranskalankorpi,,Terrestrial,EC,61.182914,25.262622,92,5,2019,2023,CO2,Y,N
+Valkea-Kotinen,Valkea-Kotinen,Lentic,EC,61.24195,25.063564,52,7,2003,2009,CO2,N,N
+YKD (unburned),"Yukon-Kuskokwim Delta, Izaviknek-Kingaglia uplands, Unburned",Terrestrial,EC,61.254765,-163.25897,42,4,2019,2022,CO2 and CH4,Y,Y
+YKD (burned),"Yukon-Kuskokwim Delta, Izaviknek-Kingaglia uplands, Burned 2015",Terrestrial,EC,61.2723,-163.2228,40,4,2019,2022,CO2 and CH4,N,Y
+Scotty Creek Landscape,Scotty Creek Landscape,Terrestrial,EC,61.3082,-121.299,108,9,2013,2022,CO2 and CH4,Y,Y
+Scotty Creek Bog,Scotty Creek Bog,Terrestrial,EC,61.3089,-121.2985,105,9,2014,2022,CO2 and CH4,Y,Y
+Siikaneva,Siikaneva,Terrestrial,EC,61.832678,24.192794,225,19,2005,2023,CO2 and CH4,Y,Y
+Siikaneva2,Siikaneva-2 Bog,Terrestrial,EC,61.8372,24.1967,60,5,2012,2016,CO2 and CH4,Y,Y
+Kuivajaervi,Kuivajaervi,Lentic,EC,61.84735278,24.27993472,116,13,2010,2022,CO2 and CH4,Y,N
+Hyytiala,Hyytiaelae,Terrestrial,EC,61.8474,24.2948,330,28,1996,2023,CO2 and CH4,Y,N
+Ljusdal_HY,,Terrestrial,EC,61.937,15.483,23,4,2019,2022,CO2,N,N
+Ljusdal_SLM,,Terrestrial,EC,61.938,15.427,25,3,2020,2022,CO2,Y,N
+Yakutsk Spasskaya Pad Pine,Yakutsk-Pine,Terrestrial,EC,62.241291,129.651336,48,4,2004,2008,CO2,N,N
+Yakutsk Spasskaya Pad larch,Yakutsk-Larch,Terrestrial,EC,62.25480868,129.5366425,132,13,2000,2014,CO2,N,N
+Neleger Cutover,,Terrestrial,EC,62.314844,129.500075,72,6,2001,2006,CO2,N,N
+Neleger larch forest,,Terrestrial,EC,62.315615,129.499964,84,7,2000,2006,CO2,N,N
+Nelegel,,Terrestrial,EC,62.31583333,129.4997222,30,7,2000,2006,CO2,N,N
+Neleger Burnt Forest,,Terrestrial,EC,62.325937,129.487342,24,2,1999,2000,CO2,N,N
+Salmisuo,Salmisuo,Terrestrial,EC,62.7833,30.9333,24,2,2006,2007,CO2,Y,N
+Smith Creek,Smith Creek,Terrestrial,EC,63.1533,-123.255,63,6,2017,2022,CO2 and CH4,N,Y
+Iqaluit Tundra,Iqaluit (PP),Terrestrial,EC,63.75084,-68.428596,11,2,2022,2023,CO2,N,N
+Iqaluit,Iqaluit,Terrestrial,EC,63.79025,-68.56005,1,1,2008,2008,CO2,N,N
+Gunnarsholt,Gunnarsholt,Terrestrial,EC,63.8333,-20.2166,22,3,1996,1998,CO2,N,N
+NEON Healy (HEAL),NEON Healy (HEAL),Terrestrial,EC,63.8757,-149.2133,48,5,2018,2022,CO2,Y,N
+Eight Mile Lake,"Eight Mile Lake Permafrost thaw gradient, Healy",Terrestrial,EC,63.8784,-149.2536,188,17,2008,2024,CO2 and CH4,Y,Y
+NEON Delta Junction (DEJU),NEON Delta Junction (DEJU),Terrestrial,EC,63.8811,-145.7514,54,6,2017,2022,CO2,Y,N
+Delta Junction  evergreen conifer forest,"Bonanza Creek, 1920 Burn site near Delta Junction",Terrestrial,EC,63.88805556,-145.7394444,3,3,2002,2004,CO2,N,N
+Delta Junction deciduous broadleaf forest,"Bonanza Creek, 1987 Burn site near Delta Junction",Terrestrial,EC,63.90111111,-145.3730556,3,3,2002,2004,CO2,N,N
+Flakaliden,Flakaliden,Terrestrial,EC,64.11277779,19.45694441,103,9,1996,2009,CO2,Y,N
+Nuuk Fen,Nuuk Fen,Terrestrial,EC,64.130933,-51.386068,49,10,2008,2022,CO2,N,N
+Halsingfors mire,,Terrestrial,EC,64.15956,19.5515,33,3,2020,2022,CO2 and CH4,Y,Y
+Halmyran,,Terrestrial,EC,64.16,19.56924,33,3,2020,2022,CO2 and CH4,Y,Y
+Rosinedal-3,Rosinedal-3,Terrestrial,EC,64.1725,19.738,77,7,2014,2020,CO2,Y,N
+Stortjarn,,Terrestrial,EC,64.17498,19.56381,33,3,2020,2022,CO2 and CH4,Y,Y
+Degero,Degero Stormyr,Terrestrial,EC,64.18203,19.55654,276,23,2001,2023,CO2 and CH4,Y,Y
+Tura,Tura,Terrestrial,EC,64.20746061,100.4590568,33,7,2004,2023,CO2,N,N
+Svartberget,Svartberget,Terrestrial,EC,64.2561,19.7745,108,9,2014,2023,CO2,Y,N
+Bonanza Creek Old Thermokarst Bog,Bonanza Creek Old Thermokarst Bog,Terrestrial,EC,64.6936,-148.33,45,4,2018,2021,CO2,Y,N
+Bonanza Creek Thermokarst Bog,"Thermokarst Collapse Scar Bog, Interior Alaska",Terrestrial,EC,64.69555,-148.3208,120,10,2011,2021,CO2 and CH4,Y,N
+Bonanza Creek Black Spruce,Bonanza Creek Black Spruce,Terrestrial,EC,64.69635,-148.323525,115,10,2010,2021,CO2 and CH4,Y,N
+Bonanza Creek Rich Fen,Bonanza Creek Fen,Terrestrial,EC,64.7013,-148.3121,116,10,2011,2021,CO2 and CH4,Y,N
+Tombstone_slavin,Slavin Watershed TWO,Terrestrial,EC,64.70989,-138.4102,35,3,2020,2022,CO2,N,N
+"Council, Alaska","Council, Alaska",Terrestrial,EC,64.8439,-163.7105,26,8,2014,2023,CO2,N,N
+Daring Lake,Daring Lake (short-term),Lentic,EC,64.86,-112.59,4,1,2006,2006,CO2,N,N
+NGEE Arctic Council,Council (NGEE Arctic),Terrestrial,EC,64.86138889,-163.7007222,48,7,2017,2023,CO2 and CH4,N,N
+Council Alaska Tundra,Council (Permafrost Pathways),Terrestrial,EC,64.8618,-163.7002,1,1,2024,2024,CO2 and CH4,N,N
+"University of Alaska, Fairbanks","University of Alaska, Fairbanks",Terrestrial,EC,64.86627,-147.85553,252,21,2003,2023,CO2 and CH4,Y,N
+Daring Lake,Daring Lake,Terrestrial,EC,64.8684697,-111.5844,99,12,2004,2015,CO2,N,N
+North Star Yedoma,,Terrestrial,EC,64.894,-147.637,24,3,2021,2023,CO2 and CH4,Y,Y
+Poker Flat Research Range: Succession from fire scar to deciduous forest,Poker Flat Research (fire scar succession),Terrestrial,EC,65.11983333,-147.5123528,172,15,2008,2022,CO2,Y,N
+Poker Flat Research Range Black Spruce Forest,Poker Flat Research Range Black Spruce Forest,Terrestrial,EC,65.12367,-147.48756,144,12,2011,2022,CO2,Y,N
+NEON Caribou Creek - Poker Flats Watershed (BONA),NEON Caribou Creek - Poker Flats Watershed (BONA),Terrestrial,EC,65.154,-147.5026,56,6,2017,2022,CO2,Y,N
+Cascaden Ridge Fire Scar,Cascade Ridge,Terrestrial,EC,65.396775,-149.1214939,48,4,2011,2014,CO2,Y,N
+Seida,Seida,Terrestrial,EC,67.05467987,62.94046783,12,1,2008,2008,CO2 and CH4,N,N
+Sodankyla,Sodankyla,Terrestrial,EC,67.3618,26.6382,168,14,2001,2014,CO2,Y,N
+Kitinen,,Lotic,EC,67.36645,26.62301,4,1,2018,2018,CO2 and CH4,N,N
+Igarka,Igarka,Terrestrial,EC,67.48114615,86.43719512,26,7,2016,2023,CO2,N,N
+Merasjaervi,Merasjaervi,Lentic,EC,67.5515,21.9625,5,1,2005,2005,CO2,N,N
+Varrio,Vaerrioe,Terrestrial,EC,67.7549,29.63671233,144,12,2012,2023,CO2,Y,N
+Sammaltunturi fell,Sammaltunturi,Terrestrial,EC,67.9733,24.11565,12,1,2012,2012,CO2,Y,N
+Kenttarova,Kenttarova,Terrestrial,EC,67.98729,24.24300714,84,7,2012,2023,CO2,Y,N
+Lompolojankka,Lompolojankka,Terrestrial,EC,67.99724817,24.209113,72,6,2006,2012,CO2 and CH4,Y,Y
+Pallasjaervi,Pallasjaervi,Lentic,EC,68.0047,24.2042,4,1,2013,2013,CO2,N,N
+Havikpak Creek,Havikpak Creek,Terrestrial,EC,68.3203,-133.5188,114,10,2013,2022,CO2 and CH4,N,Y
+Abisko Stordalen birch forest,,Terrestrial,EC,68.347939,19.049769,30,3,2021,2023,CO2,Y,N
+Stordalen Fen,,Lentic,EC,68.354,19.0505,45,8,2012,2019,CO2 and CH4,Y,Y
+Stordalen Fen,Stordalen Grassland Mire,Terrestrial,EC,68.354,19.0505,88,8,2012,2019,CO2 and CH4,Y,Y
+Stordalen Palsa Bog,Stordalen Palsa Bog (ICOS),Terrestrial,EC,68.3559428,19.0452089,104,9,2014,2023,CO2 and CH4,Y,Y
+Stordalen_Harrsjoen,,Lentic,EC,68.35782,19.03872,4,1,2009,2009,CO2,N,N
+Stordalen,"Abisko, main tower",Terrestrial,EC,68.37,19.05,3,1,1996,1996,CH4,Y,Y
+Ivotuk,Ivotuk,Terrestrial,EC,68.4865,-155.7503,119,11,2003,2018,CO2 and CH4,Y,Y
+Cherskii ecotone,"Chersky, Pleistocene Park",Terrestrial,EC,68.51351,161.53115,36,3,2012,2015,CO2,Y,N
+Imnavait Creek Watershed Wet Sedge Tundra,"Imnavait, Alaska wet sedge tundra",Terrestrial,EC,68.6058,-149.311,160,14,2007,2021,CO2 and CH4,Y,N
+Imnavait Creek Watershed Tussock Tundra,"Imnavait, Alaska tussock tundra",Terrestrial,EC,68.6063,-149.3041,174,15,2007,2021,CO2,Y,N
+Imnavait Creek Watershed Heath Tundra,"Imnavait, Alaska heath tundra",Terrestrial,EC,68.6068,-149.2958,172,15,2007,2021,CO2,Y,N
+Cherskii reference,"Chersky, control",Terrestrial,EC,68.61689,161.35089,102,9,2013,2021,CO2 and CH4,Y,Y
+Toolik Lake,Toolik Lake (lake),Lentic,EC,68.630499,-149.606112,18,6,2010,2015,CO2 and CH4,N,N
+Cherskii disturbed forest,"Chersky, bulldozer site",Terrestrial,EC,68.69808,161.538781,31,3,2013,2015,CO2,N,N
+Trail Valley Creek,Trail Valley Creek (tall),Lentic,EC,68.7408056,-133.5274167,8,1,2023,2023,CO2 and CH4,Y,Y
+Trail Valley Creek,Trail Valley Creek (upland),Terrestrial,EC,68.7462,-133.5017,117,10,2013,2022,CO2 and CH4,Y,Y
+Anaktuvuk River Moderate Burn,Anaktuvuk River (moderate burn),Terrestrial,EC,68.95,-150.21,47,16,2008,2023,CO2,N,N
+Anaktuvuk River Severe Burn,Anaktuvuk River (severe burn),Terrestrial,EC,68.99,-150.28,47,16,2008,2023,CO2,N,N
+Kaamanen,Kaamanen wetland,Terrestrial,EC,69.14057,27.26985,143,12,1997,2008,CO2,Y,N
+Happy Valley,Happy Valley,Terrestrial,EC,69.1423,-148.8412,7,2,1994,1995,CO2 and CH4,N,N
+Andoya,Andoya,Terrestrial,EC,69.14278,16.02222,77,7,2008,2014,CO2,Y,N
+Happy Valley Wet Sedge Tundra,Happy Valley Wet Sedge Tundra,Terrestrial,EC,69.1672,-148.8569,5,1,1995,1995,CO2,N,N
+Cambridge Bay - Mesic,"Cambridge Bay, Victoria Island, mesic",Terrestrial,EC,69.22212778,-104.8985861,5,1,2022,2022,CO2,N,N
+Disko,Disko,Terrestrial,EC,69.25349,-53.51413,107,10,2012,2023,CO2,Y,N
+Fish Island,Fish Island,Terrestrial,EC,69.37227778,-134.8810889,3,1,2017,2017,CO2 and CH4,N,N
+Illisarvik,Illisarvik,Terrestrial,EC,69.47986111,-134.5885278,1,1,2016,2016,NA,N,N
+Sag River,Sag Riverside,Terrestrial,EC,69.5056,-148.225,3,1,1996,1996,CO2 and CH4,N,N
+Iskoras,Iskoras,Lentic,EC,69.57,25.5,35,4,2019,2022,CO2 and CH4,Y,Y
+Iskoras,Iskoras,Lentic,EC,69.57,25.5,35,4,2019,2022,CO2 and CH4,Y,Y
+Iskoras,Iskoras,Terrestrial,EC,69.57,25.5,105,4,2019,2022,CO2 and CH4,Y,Y
+Iskoras,Iskoras,Terrestrial,EC,69.57,25.5,105,4,2019,2022,CO2 and CH4,Y,Y
+Anaktuvuk River Unburned,Anaktuvuk River (unburned),Terrestrial,EC,69.93,-150.27,47,16,2008,2023,CO2,N,N
+Flux Observations of Carbon from an Airborne Laboratory (FOCAL) Campaign Site 2,Focal Campaign Site 2,Terrestrial,EC,70.0229,-148.6598,9,2,2023,2024,CO2 and CH4,N,N
+Flux Observations of Carbon from an Airborne Laboratory (FOCAL) Campaign Site 1,Focal Campaign Site 1,Terrestrial,EC,70.085,-148.5671,9,3,2013,2024,CO2 and CH4,N,N
+Atqasuk,Atqasuk,Terrestrial,EC,70.4696,-157.4089,177,16,2003,2022,CO2 and CH4,Y,Y
+ARM-NSA-Oliktok,ARM-AMF3-Oliktok,Terrestrial,EC,70.495,-149.886,80,8,2014,2021,CO2 and CH4,Y,N
+"Kytalyk, Russia",Chokurdakh/Kytalyk,Terrestrial,EC,70.82913889,147.4942778,80,16,2003,2021,CO2 and CH4,N,N
+Barrow,,Lentic,EC,71.13,-156.34,3,1,2011,2011,NA,N,N
+Barrow-BES,Barrow-BES,Terrestrial,EC,71.280881,-156.596467,106,12,2005,2022,CO2 and CH4,Y,Y
+Barrow-BEO,Barrow-BEO,Terrestrial,EC,71.2810016,-156.6258806,92,10,2013,2022,CO2 and CH4,Y,Y
+NEON Barrow Environmental Observatory (BARR),NEON Barrow Environmental Observatory (BARR),Terrestrial,EC,71.2824,-156.6194,37,4,2019,2022,CO2,N,N
+NGEE Arctic Barrow,NGEE Arctic Barrow,Terrestrial,EC,71.283333,-156.6092333,100,11,2012,2023,CO2 and CH4,N,N
+Central Marsh,Central Marsh,Terrestrial,EC,71.32019,-156.62227,80,7,1999,2005,CO2 and CH4,Y,N
+Barrow-CMDL,Barrow,Terrestrial,EC,71.32256898,-156.6091815,108,10,2013,2022,CO2 and CH4,Y,Y
+ARM-NSA-Barrow,ARM-NSA-Barrow,Terrestrial,EC,71.323,-156.609,110,10,2011,2020,CO2 and CH4,Y,Y
+Tiksi,Tiksi,Terrestrial,EC,71.5944,128.888,54,5,2010,2014,CO2,Y,N
+Samoylov Island,"Samoylov, floodplain",Lentic,EC,72.36,126.46,1,1,2019,2019,NA,Y,N
+Samoylov Island,"Samoylov, terrace",Terrestrial,EC,72.37381104,126.4957961,203,16,2002,2017,CO2,Y,N
+Mittimatalik (Pond Inlet) Tundra,Pond Inlet (PP),Terrestrial,EC,72.6695,-77.9981,4,1,2024,2024,CO2 and CH4,N,N
+Pond Inlet,Pond Inlet,Terrestrial,EC,72.69275,-77.95761667,1,1,2008,2008,CO2,N,N
+Zackenberg Heath,"Zackenberg, Heath",Terrestrial,EC,74.47329878,-20.55086253,88,18,1997,2022,CO2,N,N
+Zackenberg Fen,"Zackenberg, Fen",Terrestrial,EC,74.4814622,-20.55495855,80,14,2008,2022,CO2,Y,N
+Rylekaerene,Rylekaerene Zackenberg,Terrestrial,EC,74.481511,-20.555689,11,2,2008,2009,CO2 and CH4,N,N
+Resolute Bay Polar Desert,Resolute Bay,Terrestrial,EC,74.7279,-94.8985,2,1,2024,2024,CO2 and CH4,N,N
+Cape Bounty,Cape Bounty,Terrestrial,EC,74.915,-109.574,12,7,2008,2018,CO2,N,N
+Adventdalen,Adventdalen,Terrestrial,EC,78.186,15.923,48,4,2012,2015,CO2,Y,N
+"Bayelva, Spitsbergen","Bayelva, Spitsbergen",Terrestrial,EC,78.92161671,11.83105714,28,3,2008,2015,CO2,Y,N
+"Lake Hazen, Ellesmere Island","Lake Hazen, Ellesmere Island",Terrestrial,EC,82.427318,-71.38233,15,4,2009,2012,CO2,N,N
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+>>>>>>> 1beb2189f4676dca0bf5c21a94b149e8c0e84c52
