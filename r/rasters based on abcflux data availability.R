@@ -7,14 +7,23 @@ library(kit)
 
 #load in extracted site data from extraction codes
 tower.data = fread(file = './data/pca.towers.upgraded.csv')
+tower.data$order = seq(1,nrow(tower.data))
+
+#load ABC Flux
 abc = fread('./data/ABCFlux.forKyle.csv')
+abc = subset(abc,abc$dataset == 'Terrestrial')
 
+#merge based on abcflux
+names(tower.data)[25] = 'abc.site'
+names(abc)[1]         = 'abc.site'
 
+abcf = merge(x = abc,y = tower.data,all.y = T,by = 'abc.site')
+abcf = abcf[!duplicated(abcf$site),]
+abcf = abcf[order(abcf$order),]
 
 #write.csv(x = tower.data,file = './data/improved_pca.towersv2.csv')
 #load back in euclidean distance matrix
 euci = read_rds('./euclidean_distance_matrix/euci_2km.rds')
-
 
 #load in the other spatial data
 r = rast('./spatial_data/pca_2km.tif')
@@ -24,7 +33,7 @@ num = 2
 
 ##########################################################################
 # BASE
-net = which(tower.data$active == 'active')
+net = which(as.numeric(abcf$end_year) >= 2022 & abcf$active == 'active')
 tower.data$site[net]
 euci.net = euci[,c(net)]
 
@@ -49,10 +58,10 @@ plot(base,range=c(0,4.5))
 points(towers,col='red')
 
 #save the base here
-writeRaster(x = base,filename = './output/improved_network/improved_base_2km.tif',overwrite = T)
+writeRaster(x = base,filename = './output/abc_network/abc_base_2km.tif',overwrite = T)
 #######################################################################################
 ##################     METHANE
-net.methane = which(tower.data$active == 'active' & tower.data$methane == 'methane')
+net.methane = which(as.numeric(abcf$end_year) >= 2022 & abcf$active == 'active' & abcf$Flux == 'CO2 and CH4')
 euci.net.methane = euci[,c(net.methane)]
 
 #calculate the base network, parallel processing is much slower here
@@ -76,10 +85,10 @@ plot(methane,range=c(0,4.5))
 points(towers,col='red')
 
 #save the base here
-writeRaster(x = methane,filename = './output/improved_network/improved_methane_2km.tif',overwrite = T)
+writeRaster(x = methane,filename = './output/abc_network/abc_methane_2km.tif',overwrite = T)
 ##########################################################################################
 ################ Annual
-net.annual = which(tower.data$active == 'active' & tower.data$Season_Activity == 'All year')
+net.annual = which(as.numeric(abcf$end_year) >= 2022 & abcf$active == 'active' & abcf$co2.yearround == 'Y')
 tower.data$site[net.annual]
 euci.net.annual = euci[,c(net.annual)]
 
@@ -104,10 +113,10 @@ plot(annual,range=c(0,4.5))
 points(towers,col='red')
 
 #save the annual here
-writeRaster(x = annual,filename = './output/improved_network/improved_annual_2km.tif',overwrite = T)
+writeRaster(x = annual,filename = './output/abc_network/abc_annual_2km.tif',overwrite = T)
 ################################################################################
 # Annual Methane
-net.annual.methane = which(tower.data$active == 'active' & tower.data$Season_Activity == 'All year' & tower.data$methane == 'methane')
+net.annual.methane = which(as.numeric(abcf$end_year) >= 2022 & abcf$active == 'active' & abcf$ch4.yearround == 'Y')
 euci.net.annual.methane = euci[,c(net.annual.methane)]
 
 #calculate the base network, parallel processing is much slower here
@@ -131,4 +140,4 @@ plot(annual.methane,range=c(0,4.5))
 points(towers,col='red')
 
 #save the base here
-writeRaster(x = annual.methane,filename = './output/improved_network/improved_annual_methane_2km.tif',overwrite = T)
+writeRaster(x = annual.methane,filename = './output/abc_network/abc_annual_methane_2km.tif',overwrite = T)
