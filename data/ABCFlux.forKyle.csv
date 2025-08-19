@@ -122,7 +122,7 @@ Tombstone_slavin,Slavin Watershed TWO,Terrestrial,EC,64.70989,-138.4102,35,3,202
 "Council, Alaska","Council, Alaska",Terrestrial,EC,64.8439,-163.7105,26,8,2014,2023,CO2,N,N
 Daring Lake,Daring Lake (short-term),Lentic,EC,64.86,-112.59,4,1,2006,2006,CO2,N,N
 NGEE Arctic Council,Council (NGEE Arctic),Terrestrial,EC,64.86138889,-163.7007222,48,7,2017,2023,CO2 and CH4,N,N
-Council Alaska Tundra,Council (Permafrost Pathways),Terrestrial,EC,64.8618,-163.7002,1,1,2024,2024,CO2 and CH4,N,N
+Council Alaska Tundra,Council (Permafrost Pathways),Terrestrial,EC,64.8618,-163.7002,1,1,2024,2024,CO2 and CH4,Y,Y
 "University of Alaska, Fairbanks","University of Alaska, Fairbanks",Terrestrial,EC,64.86627,-147.85553,252,21,2003,2023,CO2 and CH4,Y,N
 Daring Lake,Daring Lake,Terrestrial,EC,64.8684697,-111.5844,99,12,2004,2015,CO2,N,N
 North Star Yedoma,,Terrestrial,EC,64.894,-147.637,24,3,2021,2023,CO2 and CH4,Y,Y
@@ -189,7 +189,7 @@ ARM-NSA-Barrow,ARM-NSA-Barrow,Terrestrial,EC,71.323,-156.609,110,10,2011,2020,CO
 Tiksi,Tiksi,Terrestrial,EC,71.5944,128.888,54,5,2010,2014,CO2,Y,N
 Samoylov Island,"Samoylov, floodplain",Lentic,EC,72.36,126.46,1,1,2019,2019,NA,Y,N
 Samoylov Island,"Samoylov, terrace",Terrestrial,EC,72.37381104,126.4957961,203,16,2002,2017,CO2,Y,N
-Mittimatalik (Pond Inlet) Tundra,Pond Inlet (PP),Terrestrial,EC,72.6695,-77.9981,4,1,2024,2024,CO2 and CH4,N,N
+Mittimatalik (Pond Inlet) Tundra,Pond Inlet (PP),Terrestrial,EC,72.6695,-77.9981,4,1,2024,2024,CO2 and CH4,Y,Y
 Pond Inlet,Pond Inlet,Terrestrial,EC,72.69275,-77.95761667,1,1,2008,2008,CO2,N,N
 Zackenberg Heath,"Zackenberg, Heath",Terrestrial,EC,74.47329878,-20.55086253,88,18,1997,2022,CO2,N,N
 Zackenberg Fen,"Zackenberg, Fen",Terrestrial,EC,74.4814622,-20.55495855,80,14,2008,2022,CO2,Y,N
