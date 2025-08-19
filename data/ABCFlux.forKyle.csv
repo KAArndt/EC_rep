@@ -51,8 +51,8 @@ Skogaryd,,Lentic,EC,58.371111,12.161278,7,1,2013,2013,CH4,N,N
 Pitsalu,,Terrestrial,EC,58.562,24.37,13,2,2022,2023,CO2 and CH4,N,N
 Churchill Fen 3,Churchill Fen,Terrestrial,EC,58.6658,-93.8304,28,3,2022,2024,CO2 and CH4,Y,Y
 Churchill Fen Site 1,Churchill Fen Site 1,Terrestrial,EC,58.6658,-93.83,24,2,2007,2008,CO2,N,N
-Churchill Fen Site 2,Churchill Fen Site 2,Terrestrial,EC,58.6658,-93.83,18,4,2008,2011,CH4,N,N
-Lutose,Lutose,Terrestrial,EC,59.45,-117.25,29,3,2021,2023,CO2,Y,Y
+Churchill Fen Site 2,Churchill Fen Site 2,Terrestrial,EC,58.6658,-93.83,18,4,2008,2011,CO2 and CH4,N,N
+Lutose,Lutose,Terrestrial,EC,59.45,-117.25,29,3,2021,2023,CO2 and CH4,Y,Y
 Steen River,Steen River,Terrestrial,EC,59.6,-117.3,37,4,2020,2023,CO2,Y,N
 Elgeeii forest station,Elgeeii,Terrestrial,EC,60.01551563,133.8240123,108,9,2010,2018,CO2,N,N
 Norunda,Norunda,Terrestrial,EC,60.08649721,17.47950279,180,15,1999,2023,CO2,Y,N
@@ -96,8 +96,8 @@ Neleger larch forest,,Terrestrial,EC,62.315615,129.499964,84,7,2000,2006,CO2,N,N
 Nelegel,,Terrestrial,EC,62.31583333,129.4997222,30,7,2000,2006,CO2,N,N
 Neleger Burnt Forest,,Terrestrial,EC,62.325937,129.487342,24,2,1999,2000,CO2,N,N
 Salmisuo,Salmisuo,Terrestrial,EC,62.7833,30.9333,24,2,2006,2007,CO2,Y,N
-Smith Creek,Smith Creek,Terrestrial,EC,63.1533,-123.255,63,6,2017,2022,CO2 and CH4,N,Y
-Iqaluit Tundra,Iqaluit (PP),Terrestrial,EC,63.75084,-68.428596,11,2,2022,2023,CO2,N,N
+Smith Creek,Smith Creek,Terrestrial,EC,63.1533,-123.255,63,6,2017,2022,CO2 and CH4,Y,Y
+Iqaluit Tundra,Iqaluit (PP),Terrestrial,EC,63.75084,-68.428596,11,2,2022,2023,CO2 and CH4,Y,Y
 Iqaluit,Iqaluit,Terrestrial,EC,63.79025,-68.56005,1,1,2008,2008,CO2,N,N
 Gunnarsholt,Gunnarsholt,Terrestrial,EC,63.8333,-20.2166,22,3,1996,1998,CO2,N,N
 NEON Healy (HEAL),NEON Healy (HEAL),Terrestrial,EC,63.8757,-149.2133,48,5,2018,2022,CO2,Y,N
