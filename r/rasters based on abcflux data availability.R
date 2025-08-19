@@ -53,7 +53,6 @@ base = rast(x = basedf,type = 'xyz',crs = crs(r))
 base.towers = tower.data[net,]
 towers = vect(x = base.towers,geom=c("x", "y"), crs=crs(r))
 
-hist(base)
 plot(base,range=c(0,4.5))
 points(towers,col='red')
 
@@ -80,7 +79,6 @@ methane = rast(x = methanedf,type = 'xyz',crs = crs(r))
 methane.towers = tower.data[net.methane,]
 towers = vect(x = methane.towers,geom=c("x", "y"), crs=crs(r))
 
-hist(methane)
 plot(methane,range=c(0,4.5))
 points(towers,col='red')
 
@@ -108,7 +106,6 @@ annual = rast(x = annualdf,type = 'xyz',crs = crs(r))
 annual.towers = tower.data[net.annual,]
 towers = vect(x = annual.towers,geom=c("x", "y"), crs=crs(r))
 
-hist(annual)
 plot(annual,range=c(0,4.5))
 points(towers,col='red')
 
@@ -135,7 +132,6 @@ annual.methane = rast(x = annual.methane.df,type = 'xyz',crs = crs(r))
 annual.methane.towers = tower.data[net.annual.methane,]
 towers = vect(x = annual.methane.towers,geom=c("x", "y"), crs=crs(r))
 
-hist(annual.methane)
 plot(annual.methane,range=c(0,4.5))
 points(towers,col='red')
 
