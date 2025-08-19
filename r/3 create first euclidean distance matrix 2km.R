@@ -27,7 +27,7 @@ cl = makeCluster(cores-1) #assign number of cores
 {orig = Sys.time() #start the clock for timing the process
 registerDoSNOW(cl) #register the cores
 
-#run the ED calculations in parallel (~16 minutes with 30 cores on VM)
+#run the ED calculations in parallel (~40 minutes with 30 cores on VM)
 euci = foreach (j = 1:nrow(pca.towers),.verbose = T,.combine = cbind) %dopar% {
    for (i in 1:nrow(pca.dt))  {
       euclid[i] = sqrt((pca.dt$PC1[i]-pca.towers$pc1[j])^2 +
@@ -40,9 +40,6 @@ Sys.time() - orig} #stop the clock
 
 #save the euclidean distance
 colnames(euci) = tower.data$site
-
-towers = which(tower.data$Type == 'EC_Tower')
-
 
 #save the file, rds saves alot of space
 saveRDS(object = euci,file = './euclidean_distance_matrix/euci_2km.rds')
