@@ -1,19 +1,19 @@
 
 library(terra)
 library(dplyr)
+library(ggplot2)
 
 #load in the base network and improvement map
-base     = rast('./output/base_network/base_2km.tif')
-base.i   = rast('./output/improved_network/improved_base_2km.tif')
-base.abc = rast('./output/abc_network/abc_base_2km.tif')
+base.   = rast('./output/abc_network/abc_base_2km.tif')
+base.i = rast('./output/improved_network/improved_base_2km.tif')
 
-meth   = rast('./output/base_network/methane_2km.tif')
+meth   = rast('./output/abc_network/abc_methane_2km.tif')
 meth.i = rast('./output/improved_network/improved_methane_2km.tif')
 
-annu   = rast('./output/base_network/annual_2km.tif')
+annu   = rast('./output/abc_network/abc_annual_2km.tif')
 annu.i = rast('./output/improved_network/improved_annual_2km.tif')
 
-anme   = rast('./output/base_network/annual_methane_2km.tif')
+anme   = rast('./output/abc_network/abc_annual_methane_2km.tif')
 anme.i = rast('./output/improved_network/improved_annual_methane_2km.tif')
 
 #load in clusters
@@ -27,13 +27,17 @@ names(all) = c('base','base.i','meth','meth.i','annu','annu.i','anme','anme.i','
 df = as.data.frame(x = all)
 summary(df)
 
-#the cutoff values from the previous exercises (step 4, mean)
-er1 = 1.69
-er4 = 1.5
+total = length(df$base)
 
-#the cutoff values from the previous exercises (step 4, minimum)
-# er1 = 1.54
-# er4 = 1.43
+ggplot(data = df)+
+  geom_histogram(aes(base,fill='base data'),alpha=0.5,bins = 50)+
+  geom_histogram(aes(base.i,fill='base'),alpha=0.5,bins = 50)+
+  scale_x_continuous(limits = c(0,6))
+
+
+#the cutoff values from the previous exercises (step 4, mean)
+er1 = 1.96
+er4 = 1.56
 
 #set 1 for meets cutoff and 0 for does not
 df$base.er1 = ifelse(df$base <= er1,1,0)
@@ -76,6 +80,8 @@ df$change.count.meth = ifelse(df$change.meth > 0 ,1,0)
 df$change.count.annu = ifelse(df$change.annu > 0 ,1,0)
 df$change.count.anme = ifelse(df$change.anme > 0 ,1,0)
 
+df = df[complete.cases(df$base),]
+
 #calculate improvements
 summary = df %>%
   summarise(base.er1 = sum(base.er1)/sum(all),
@@ -109,7 +115,7 @@ summary = df %>%
             total.anme    = (sum(anme) - sum(anme.i))/sum(anme),
             )
 
-write.csv(x = summary,file = './output/improvements.csv')
+write.csv(x = summary,file = './output/abcflux_stats.csv')
 summary
 
 #count number of towers
