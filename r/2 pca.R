@@ -53,6 +53,8 @@ PCAloadings = data.frame(Variables = rownames(pca$rotation), pca$rotation)
 summary(pca)
 pca$rotation
 
+write.csv(x = PCAloadings,file = './output/pcaloadings.csv')
+
 #names for raster to match
 names(r) = c("MeanTemp","Precip","PrecipSeasonality","MeanDiurnalRange",
              "Isothermality","TempSeasonality","TempAnnualRange",

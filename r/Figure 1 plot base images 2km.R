@@ -6,6 +6,7 @@ library(sf)
 library(data.table)
 library(cowplot)
 library(ggnewscale)
+library(RColorBrewer)
 
 #######################################################################################
 base             = rast('./output/base_network/base_2km.tif')
@@ -38,8 +39,7 @@ methane.ag.i        = aggregate(x = methane.i,fact = 4,fun = mean,na.rm = T)
 annual.ag.i         = aggregate(x = annual.i,fact = 4,fun = mean,na.rm = T)
 annual.methane.ag.i = aggregate(x = annual.methane.i,fact = 4,fun = mean,na.rm = T)
 
-#plot the figure
-pal = c('#FEEDB9','#E88D7A',F2F7FB,'#72509A','#8AABD6','#')
+
 
 #create a scatter to show data spread
 # base.df = as.data.frame(base)
@@ -85,16 +85,13 @@ annual.methane.towers.i  = subset(tower.data.i,tower.data.i$active == 'active' &
                                     tower.data.i$Season_Activity == 'All year' &
                                     tower.data.i$methane == 'methane')
 
-RColorBrewer::brewer.pal
-
-pal = RColorBrewer::brewer.pal(n = 11,name = 'PuOr')
 
 
-install.packages("ggblend")
-remotes::install_github("mjskay/ggblend")
+#color pallette
+pal = hcl.colors(n = 9,palette = 'Vik')
+pal = pal[-c(4,6)]
+#pal = c('#FEEDB9','#E88D7A','#72509A','#8AABD6','#F2F7FB')
 
-
-pal = palette(pal,inverse=T)
 #base
 base.plot = ggplot()+theme_map()+
   geom_sf(data = countries,fill='gray',col='gray40')+
@@ -102,22 +99,21 @@ base.plot = ggplot()+theme_map()+
   scale_fill_gradientn('Representativeness',
                        na.value = 'transparent',
                        colours = pal,
-                       limits = c(0,1.53*2),
-                       breaks = c(0,1.53,1.53*2),
+                       limits = c(0,1.56*2),
+                       breaks = c(0,1.56,1.56*2),
                        labels = c('Good','Cutoff','Poor'),
                        oob = scales::squish)+  
   new_scale("fill") +
-  geom_point(data = base.towers,aes(x,y,fill=methane,pch=Season_Activity,col=methane),
-             col='black',show.legend = F,cex = 3)+
+  geom_point(data = base.towers,aes(x,y,pch=Season_Activity,fill=methane),col='black',show.legend = F,cex = 0.8)+
   scale_shape_manual(values = c(21,24),'Annual Cover',labels = c('Annual','Not Annual'))+
-  scale_fill_manual(values = c('red','lightblue'))+
+  scale_fill_manual(values = c('red','green3'))+
   scale_x_continuous(limits = c(-5093909,4542996))+
   scale_y_continuous(limits = c(-3687122,4374170))+
   theme(text = element_text(size = 5),
         axis.title = element_blank(),
         legend.position = 'none')+
   annotate(geom = 'text',x = -3403909,y = 3474170,label = expression('Growing Season'~CO[2]),size=2)
-base.plot
+#base.plot
 
 #methane
 methane.plot = ggplot()+theme_map()+
@@ -126,14 +122,14 @@ methane.plot = ggplot()+theme_map()+
   scale_fill_gradientn('Representativeness',
                        na.value = 'transparent',
                        colours = pal,
-                       limits = c(0,1.53*2),
-                       breaks = c(0,1.53,1.53*2),
+                       limits = c(0,1.56*2),
+                       breaks = c(0,1.56,1.56*2),
                        labels = c('Good','Cutoff','Poor'),
                        oob = scales::squish)+  
   new_scale("fill") +
-  geom_point(data = base.towers,aes(x,y,fill=methane,pch=Season_Activity),col='black',show.legend = F,cex = 0.8)+
+  geom_point(data = methane.towers,aes(x,y,fill=methane,pch=Season_Activity),col='black',show.legend = F,cex = 0.8)+
   scale_shape_manual(values = c(21,24),'Annual Cover',labels = c('Annual','Not Annual'))+
-  scale_fill_manual(values = c('orange1','transparent'))+
+  scale_fill_manual(values = c('red','green3'))+
   scale_x_continuous(limits = c(-5093909,4542996))+
   scale_y_continuous(limits = c(-3687122,4374170))+
   theme(text = element_text(size = 8),
@@ -154,9 +150,9 @@ annual.plot = ggplot()+theme_map()+
                        labels = c('Good','Cutoff','Poor'),
                        oob = scales::squish)+  
   new_scale("fill") +
-  geom_point(data = base.towers,aes(x,y,fill=methane,pch=Season_Activity),col='black',show.legend = F,cex = 0.8)+
+  geom_point(data = annual.towers,aes(x,y,fill=methane,pch=Season_Activity),col='black',show.legend = F,cex = 0.8)+
   scale_shape_manual(values = c(21,2),'Annual Cover',labels = c('Annual','Not Annual'))+
-  scale_fill_manual(values = c('orange1','turquoise'))+
+  scale_fill_manual(values = c('red','green3'))+
   scale_x_continuous(limits = c(-5093909,4542996))+
   scale_y_continuous(limits = c(-3687122,4374170))+
   theme(text = element_text(size = 8),
@@ -177,9 +173,9 @@ annual.methane.plot = ggplot()+theme_map()+
                        labels = c('Good','Cutoff','Poor'),
                        oob = scales::squish)+  
   new_scale("fill") +
-  geom_point(data = base.towers,aes(x,y,fill=methane,pch=Season_Activity),col='black',show.legend = F,cex = 0.8)+
+  geom_point(data = annual.methane.towers,aes(x,y,fill=methane,pch=Season_Activity),col='black',show.legend = F,cex = 0.8)+
   scale_shape_manual(values = c(21,2),'Annual Cover',labels = c('Annual','Not Annual'))+
-  scale_fill_manual(values = c('orange1','transparent'))+
+  scale_fill_manual(values = c('red','green3'))+
   scale_x_continuous(limits = c(-5093909,4542996))+
   scale_y_continuous(limits = c(-3687122,4374170))+
   theme(text = element_text(size = 8),
@@ -204,7 +200,7 @@ base.plot.i = ggplot()+theme_map()+
   geom_point(data = base.towers.i,aes(x,y,fill=methane,pch=Season_Activity,col=methane),
              col='black',show.legend = F,cex = 0.8)+
   scale_shape_manual(values = c(21,24),'Annual Cover',labels = c('Annual','Not Annual'))+
-  scale_fill_manual(values = c('orange1','turquoise'))+
+  scale_fill_manual(values = c('red','green3'))+
   scale_x_continuous(limits = c(-5093909,4542996))+
   scale_y_continuous(limits = c(-3687122,4374170))+
   theme(text = element_text(size = 5),
@@ -225,9 +221,9 @@ methane.plot.i = ggplot()+theme_map()+
                        labels = c('Good','Cutoff','Poor'),
                        oob = scales::squish)+  
   new_scale("fill") +
-  geom_point(data = base.towers.i,aes(x,y,fill=methane,pch=Season_Activity),col='black',show.legend = F,cex = 0.8)+
+  geom_point(data = methane.towers.i,aes(x,y,fill=methane,pch=Season_Activity),col='black',show.legend = F,cex = 0.8)+
   scale_shape_manual(values = c(21,24),'Annual Cover',labels = c('Annual','Not Annual'))+
-  scale_fill_manual(values = c('orange1','transparent'))+
+  scale_fill_manual(values = c('red','green3'))+
   scale_x_continuous(limits = c(-5093909,4542996))+
   scale_y_continuous(limits = c(-3687122,4374170))+
   theme(text = element_text(size = 8),
@@ -248,9 +244,9 @@ annual.plot.i = ggplot()+theme_map()+
                        labels = c('Good','Cutoff','Poor'),
                        oob = scales::squish)+  
   new_scale("fill") +
-  geom_point(data = base.towers.i,aes(x,y,fill=methane,pch=Season_Activity),col='black',show.legend = F,cex = 0.8)+
+  geom_point(data = annual.towers.i,aes(x,y,fill=methane,pch=Season_Activity),col='black',show.legend = F,cex = 0.8)+
   scale_shape_manual(values = c(21,2),'Annual Cover',labels = c('Annual','Not Annual'))+
-  scale_fill_manual(values = c('orange1','turquoise'))+
+  scale_fill_manual(values = c('red','green3'))+
   scale_x_continuous(limits = c(-5093909,4542996))+
   scale_y_continuous(limits = c(-3687122,4374170))+
   theme(text = element_text(size = 8),
@@ -271,9 +267,9 @@ annual.methane.plot.i = ggplot()+theme_map()+
                        labels = c('Good','Cutoff','Poor'),
                        oob = scales::squish)+  
   new_scale("fill") +
-  geom_point(data = base.towers.i,aes(x,y,fill=methane,pch=Season_Activity),col='black',show.legend = F,cex = 0.8)+
+  geom_point(data = annual.methane.towers.i,aes(x,y,fill=methane,pch=Season_Activity),col='black',show.legend = F,cex = 0.8)+
   scale_shape_manual(values = c(21,2),'Annual Cover',labels = c('Annual','Not Annual'))+
-  scale_fill_manual(values = c('orange1','transparent'))+
+  scale_fill_manual(values = c('red','green3'))+
   scale_x_continuous(limits = c(-5093909,4542996))+
   scale_y_continuous(limits = c(-3687122,4374170))+
   theme(text = element_text(size = 8),

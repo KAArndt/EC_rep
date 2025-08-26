@@ -4,6 +4,7 @@ library(data.table)
 library(plyr)
 library(ggplot2)
 library(ggnewscale)
+library(cowplot)
 
 #re-run PCA for loadings ###################################################################
 #load in the stack created in the other file
@@ -60,9 +61,9 @@ pca$rotation
 
 ################################################################################################
 #PCA raster figure
-png('./figures/Figure S1 PCA raster.png',width = 5,height = 4,units = 'in',res = 1500)
-plot(r)
-dev.off()
+# png('./figures/Figure S1 PCA raster.png',width = 5,height = 4,units = 'in',res = 1500)
+# plot(r)
+# dev.off()
 
 #plots of PCA Clouds #################################################
 #load in extracted site data from extraction codes

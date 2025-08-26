@@ -13,10 +13,10 @@ tower.data = fread(file = './data/pca.towers.upgraded.csv')
 tower.data$active = ifelse(tower.data$site == 'Lutose Rich Fen','inactive',tower.data$active)
 
 #######################################################################################
-improved.base           = rast('./output/improved_network/improved_base_2kmv2_mean.tif')
-improved.methane        = rast('./output/improved_network/improved_methane_2kmv2_mean.tif')
-improved.annual         = rast('./output/improved_network/improved_annual_2kmv2_mean.tif')
-improved.annual.methane = rast('./output/improved_network/improved_annual_methane_2kmv2_mean.tif')
+improved.base           = rast('./output/improved_network/improved_base_2km.tif')
+improved.methane        = rast('./output/improved_network/improved_methane_2km.tif')
+improved.annual         = rast('./output/improved_network/improved_annual_2km.tif')
+improved.annual.methane = rast('./output/improved_network/improved_annual_methane_2km.tif')
 
 #world map for plotting
 sf_use_s2(FALSE) #need to run this before next line
@@ -32,60 +32,101 @@ improved.annual.ag         = aggregate(x = improved.annual,fact = 4,fun = mean,n
 improved.annual.methane.ag = aggregate(x = improved.annual.methane,fact = 4,fun = mean,na.rm = T)
 
 #plot the figure
-pal = c('#FEEDB9','#E88D7A','#72509A','#8AABD6','#F2F7FB')
+#pal = c('#FEEDB9','#E88D7A','#72509A','#8AABD6','#F2F7FB')
+pal = hcl.colors(n = 9,palette = 'BuGn')
+
 
 active = subset(tower.data,tower.data$active == 'active')
-
+tower.data$site
 
 new.sites.active   = subset(tower.data,
-                     tower.data$site == "Scotty Creek Landscape" |
-                     tower.data$site == "Kangiqsuallujjuaq" |
-                     tower.data$site == "Resolute Bay" |
-                     tower.data$site == "Iqaluit (PP)" |
-                     tower.data$site == "Pond Inlet (PP)" |
-                     tower.data$site == "Churchill Fen" |
-                     tower.data$site == "Council (Permafrost Pathways)" |
-                     tower.data$site == "Cambridge Bay, Victoria Island, mesic" |
-                     tower.data$site == "Cambridge Bay, Victoria Island, wetland")
+                            tower.data$site == "Cambridge Bay, Victoria Island, mesic" |
+                            tower.data$site == "Cambridge Bay, Victoria Island, wetland" |
+                            tower.data$site == "Churchill Fen" |
+                            tower.data$site == "Council (Permafrost Pathways)" |
+                            tower.data$site == "Focal Campaign Site 1" |
+                            tower.data$site == "Focal Campaign Site 2" |
+                            tower.data$site == "Iqaluit (PP)" |
+                            tower.data$site == "Kangiqsuallujjuaq" |
+                            tower.data$site == "Kilpisjaervi" |
+                   #        tower.data$site == "Lutose" |
+                            tower.data$site == "Oulanka, Puukkosuo fen" |
+                            tower.data$site == "Pond Inlet (PP)" |
+                    #        tower.data$site == "Scotty Creek Bog" |
+                            tower.data$site == "Scotty Creek Landscape" |
+                   #         tower.data$site == "Smith Creek" |
+                    #        tower.data$site == "Steen River" |
+                            tower.data$site == "Resolute Bay" |
+                            tower.data$site == "Trail Valley Creek (tall)" |
+                            tower.data$site == "Udleg Forest Research Station" |
+                            tower.data$site == "ZOTTO-Fen EC")
 
 new.sites.ch4   = subset(tower.data,
-                              tower.data$site == "Scotty Creek Landscape" |
-                              tower.data$site == "Kangiqsuallujjuaq" |
-                              tower.data$site == "Resolute Bay" |
-                              tower.data$site == "Iqaluit (PP)" |
-                              tower.data$site == "Pond Inlet (PP)" |
-                              tower.data$site == "Churchill Fen" |
-                              tower.data$site == "Council (Permafrost Pathways)" |
-                              tower.data$site == "Cambridge Bay, Victoria Island, mesic" |
-                              tower.data$site == "Cambridge Bay, Victoria Island, wetland")
-
-new.sites.annual   = subset(tower.data,tower.data$site == "Lutose" |
-                           tower.data$site == "Scotty Creek Landscape" |
-                           tower.data$site == "Steen River" |
-                           tower.data$site == "Kangiqsuallujjuaq" |
-                           tower.data$site == "Scotty Creek Bog" |
-                           tower.data$site == "Resolute Bay" |
-                           tower.data$site == "Smith Creek" |
-                           tower.data$site == "Iqaluit (PP)" |
-                           tower.data$site == "Pond Inlet (PP)" |
+                         tower.data$site == "Cambridge Bay, Victoria Island, mesic" |
+                           tower.data$site == "Cambridge Bay, Victoria Island, wetland" |
                            tower.data$site == "Churchill Fen" |
                            tower.data$site == "Council (Permafrost Pathways)" |
-                           tower.data$site == "Cambridge Bay, Victoria Island, mesic" |
-                           tower.data$site == "Cambridge Bay, Victoria Island, wetland")
+                           tower.data$site == "Focal Campaign Site 1" |
+                           tower.data$site == "Focal Campaign Site 2" |
+                           tower.data$site == "Iqaluit (PP)" |
+                           tower.data$site == "Kangiqsuallujjuaq" |
+                           #tower.data$site == "Kilpisjaervi" |
+                           tower.data$site == "Lutose" |
+                           tower.data$site == "Oulanka, Puukkosuo fen" |
+                           tower.data$site == "Pond Inlet (PP)" |
+                           #        tower.data$site == "Scotty Creek Bog" |
+                           tower.data$site == "Scotty Creek Landscape" |
+                           #         tower.data$site == "Smith Creek" |
+                           #        tower.data$site == "Steen River" |
+                           tower.data$site == "Resolute Bay" |
+                           #tower.data$site == "Trail Valley Creek (tall)" |
+                           #tower.data$site == "Udleg Forest Research Station" |
+                           tower.data$site == "ZOTTO-Fen EC")
 
-new.sites.annual.ch4   = subset(tower.data,tower.data$site == "Lutose" |
-                              tower.data$site == "Scotty Creek Landscape" |
-                              tower.data$site == "Steen River" |
-                              tower.data$site == "Kangiqsuallujjuaq" |
-                              tower.data$site == "Scotty Creek Bog" |
-                              tower.data$site == "Resolute Bay" |
-                              tower.data$site == "Smith Creek" |
-                              tower.data$site == "Iqaluit (PP)" |
-                              tower.data$site == "Pond Inlet (PP)" |
+new.sites.annual   = subset(tower.data,
+                            tower.data$site == "Cambridge Bay, Victoria Island, mesic" |
+                              tower.data$site == "Cambridge Bay, Victoria Island, wetland" |
                               tower.data$site == "Churchill Fen" |
                               tower.data$site == "Council (Permafrost Pathways)" |
-                              tower.data$site == "Cambridge Bay, Victoria Island, mesic" |
-                              tower.data$site == "Cambridge Bay, Victoria Island, wetland")
+                              #tower.data$site == "Focal Campaign Site 1" |
+                              #tower.data$site == "Focal Campaign Site 2" |
+                              tower.data$site == "Iqaluit (PP)" |
+                              tower.data$site == "Kangiqsuallujjuaq" |
+                              tower.data$site == "Kilpisjaervi" |
+                              tower.data$site == "Lutose" |
+                              #tower.data$site == "Oulanka, Puukkosuo fen" |
+                              tower.data$site == "Pond Inlet (PP)" |
+                              tower.data$site == "Scotty Creek Bog" |
+                              tower.data$site == "Scotty Creek Landscape" |
+                              tower.data$site == "Smith Creek" |
+                              tower.data$site == "Steen River" |
+                              #tower.data$site == "Resolute Bay" |
+                              #tower.data$site == "Trail Valley Creek (tall)" |
+                              tower.data$site == "Udleg Forest Research Station")
+                              #tower.data$site == "ZOTTO-Fen EC")
+
+new.sites.annual.ch4   = subset(tower.data,
+                                tower.data$site == "Cambridge Bay, Victoria Island, mesic" |
+                                  tower.data$site == "Cambridge Bay, Victoria Island, wetland" |
+                                  tower.data$site == "Churchill Fen" |
+                                  tower.data$site == "Council (Permafrost Pathways)" |
+                                  #tower.data$site == "Focal Campaign Site 1" |
+                                  #tower.data$site == "Focal Campaign Site 2" |
+                                  tower.data$site == "Iqaluit (PP)" |
+                                  tower.data$site == "Kangiqsuallujjuaq" |
+                                  #tower.data$site == "Kilpisjaervi" |
+                                  tower.data$site == "Lutose" |
+                                  #tower.data$site == "Oulanka, Puukkosuo fen" |
+                                  tower.data$site == "Pond Inlet (PP)" |
+                                  tower.data$site == "Scotty Creek Bog" |
+                                  tower.data$site == "Scotty Creek Landscape" |
+                                  tower.data$site == "Smith Creek" |
+                                  tower.data$site == "Steen River")
+                                  #tower.data$site == "Resolute Bay" |
+                                  #tower.data$site == "Trail Valley Creek (tall)" |
+                                  #tower.data$site == "Udleg Forest Research Station" |
+                                  #tower.data$site == "ZOTTO-Fen EC")
+
 #improved normal plots (i.e., not differences)
 #base
 base.plot = ggplot()+theme_map()+
@@ -94,14 +135,14 @@ base.plot = ggplot()+theme_map()+
   scale_fill_gradientn('Representativeness',
                        na.value = 'transparent',
                        colours = pal,
-                       limits = c(0,1.69*2),
-                       breaks = c(0,1.69,1.69*2),
+                       limits = c(0,1.56*2),
+                       breaks = c(0,1.56,1.56*2),
                        labels = c('0','1.5','3+'),
                        oob = scales::squish)+  
-  new_scale("fill") +
-  geom_point(data = active,aes(x,y,fill=methane,pch=Season_Activity,col=methane),col='black',show.legend = F,cex=1.5)+
-  scale_shape_manual(values = c(21,24),'Annual Cover',labels = c('Annual','Not Annual'))+
-  scale_fill_manual(values = c('red','green'))+
+#  new_scale("fill") +
+#  geom_point(data = active,aes(x,y,fill=methane,pch=Season_Activity,col=methane),col='black',show.legend = F,cex=1.5)+
+#  scale_shape_manual(values = c(21,24),'Annual Cover',labels = c('Annual','Not Annual'))+
+#  scale_fill_manual(values = c('red','green3'))+
   geom_point(data = new.sites.active,aes(x,y),col='black',fill='yellow',pch = 21,show.legend = F,cex=1.5)+
   scale_x_continuous(limits = c(-5093909,4542996))+
   scale_y_continuous(limits = c(-3687122,4374170))+
@@ -114,7 +155,7 @@ base.plot = ggplot()+theme_map()+
         legend.position = c(0.05,0.05),
         legend.title.position = 'top')+
   annotate(geom = 'text',x = -3193909,y = 3474170,label = expression('Summer'~CO[2]),size=2)
-#base.plot
+base.plot
 
 #methane
 methane.plot = ggplot()+theme_map()+
@@ -123,8 +164,8 @@ methane.plot = ggplot()+theme_map()+
   scale_fill_gradientn('Representativeness',
                        na.value = 'transparent',
                        colours = pal,
-                       limits = c(0,1.69*2),
-                       breaks = c(0,1.69,1.69*2),
+                       limits = c(0,1.56*2),
+                       breaks = c(0,1.56,1.56*2),
                        labels = c('Good','Cutoff','Poor'),
                        oob = scales::squish)+  
   new_scale("fill") +
@@ -147,14 +188,14 @@ annual.plot = ggplot()+theme_map()+
   scale_fill_gradientn('Representativeness',
                        na.value = 'transparent',
                        colours = pal,
-                       limits = c(0,1.69*2),
-                       breaks = c(0,1.69,1.69*2),
+                       limits = c(0,1.56*2),
+                       breaks = c(0,1.56,1.56*2),
                        labels = c('Good','Cutoff','Poor'),
                        oob = scales::squish)+  
   new_scale("fill") +
   geom_point(data = active,aes(x,y,fill=methane,pch=Season_Activity),col='black',show.legend = F,cex=1.5)+
   scale_shape_manual(values = c(21,2),'Annual Cover',labels = c('Annual','Not Annual'))+
-  scale_fill_manual(values = c('red','green'))+
+  scale_fill_manual(values = c('red','green3'))+
   geom_point(data = new.sites.annual,aes(x,y),col='black',fill='yellow',pch = 21,show.legend = F,cex=1.5)+
   scale_x_continuous(limits = c(-5093909,4542996))+
   scale_y_continuous(limits = c(-3687122,4374170))+
@@ -171,8 +212,8 @@ annual.methane.plot = ggplot()+theme_map()+
   scale_fill_gradientn('Representativeness',
                        na.value = 'transparent',
                        colours = pal,
-                       limits = c(0,1.69*2),
-                       breaks = c(0,1.69,1.69*2),
+                       limits = c(0,1.56*2),
+                       breaks = c(0,1.56,1.56*2),
                        labels = c('Good','Cutoff','Poor'),
                        oob = scales::squish)+  
   new_scale("fill") +
@@ -205,14 +246,14 @@ base.plot = ggplot()+theme_map()+
   scale_fill_gradientn('Representativeness',
                        na.value = 'transparent',
                        colours = pal,
-                       limits = c(0,1.69*2),
-                       breaks = c(0,1.69,1.69*2),
+                       limits = c(0,1.56*2),
+                       breaks = c(0,1.56,1.56*2),
                        labels = c('0','1.5','3+'),
                        oob = scales::squish)+  
   new_scale("fill") +
   geom_point(data = active,aes(x,y,fill=methane,pch=Season_Activity,col=methane),col='black',show.legend = F,cex=1.5)+
   scale_shape_manual(values = c(21,24),'Annual Cover',labels = c('Annual','Not Annual'))+
-  scale_fill_manual(values = c('red','green'))+
+  scale_fill_manual(values = c('red','green3'))+
   geom_point(data = new.sites.active,aes(x,y),col='black',fill='yellow',pch = 21,show.legend = F,cex=1.5)+
   scale_x_continuous(limits = c(-5093909,4542996))+
   scale_y_continuous(limits = c(-3687122,4374170))+
@@ -234,8 +275,8 @@ methane.plot = ggplot()+theme_map()+
   scale_fill_gradientn('Representativeness',
                        na.value = 'transparent',
                        colours = pal,
-                       limits = c(0,1.69*2),
-                       breaks = c(0,1.69,1.69*2),
+                       limits = c(0,1.56*2),
+                       breaks = c(0,1.56,1.56*2),
                        labels = c('Good','Cutoff','Poor'),
                        oob = scales::squish)+  
   new_scale("fill") +
@@ -258,14 +299,14 @@ annual.plot = ggplot()+theme_map()+
   scale_fill_gradientn('Representativeness',
                        na.value = 'transparent',
                        colours = pal,
-                       limits = c(0,1.69*2),
-                       breaks = c(0,1.69,1.69*2),
+                       limits = c(0,1.56*2),
+                       breaks = c(0,1.56,1.56*2),
                        labels = c('Good','Cutoff','Poor'),
                        oob = scales::squish)+  
   new_scale("fill") +
   geom_point(data = active,aes(x,y,fill=methane,pch=Season_Activity),col='black',show.legend = F,cex=1.5)+
   scale_shape_manual(values = c(21,2),'Annual Cover',labels = c('Annual','Not Annual'))+
-  scale_fill_manual(values = c('red','green'))+
+  scale_fill_manual(values = c('red','green3'))+
   geom_point(data = new.sites.annual,aes(x,y),col='black',fill='yellow',pch = 21,show.legend = F,cex=1.5)+
   scale_x_continuous(limits = c(-5093909,4542996))+
   scale_y_continuous(limits = c(-3687122,4374170))+
@@ -282,8 +323,8 @@ annual.methane.plot = ggplot()+theme_map()+
   scale_fill_gradientn('Representativeness',
                        na.value = 'transparent',
                        colours = pal,
-                       limits = c(0,1.69*2),
-                       breaks = c(0,1.69,1.69*2),
+                       limits = c(0,1.56*2),
+                       breaks = c(0,1.56,1.56*2),
                        labels = c('Good','Cutoff','Poor'),
                        oob = scales::squish)+  
   new_scale("fill") +

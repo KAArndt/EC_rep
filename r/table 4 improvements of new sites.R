@@ -176,12 +176,12 @@ top$lc
 top$eco
 
 #load in raster files
-imp  = rast('./output/improved_network/improved_annual_2kmv2.tif')
-imp1 = rast('./output/improved_network/annual/improved_annual_1_tura.tif')
-imp2 = rast('./output/improved_network/annual/improved_annual_2_1987bonanza.tif')
-imp3 = rast('./output/improved_network/annual/improved_annual_3_capebounty.tif')
-imp4 = rast('./output/improved_network/annual/improved_annual_4_spaskaya.tif')
-imp5 = rast('./output/improved_network/annual/improved_annual_5_groundhogriver.tif')
+imp  = rast('./output/improved_network/improved_annual_2km.tif')
+imp1 = rast('./output/improved_network/next_five_sites/improved_annual_2km_1.tif')
+imp2 = rast('./output/improved_network/next_five_sites/improved_annual_2km_2.tif')
+imp3 = rast('./output/improved_network/next_five_sites/improved_annual_2km_3.tif')
+imp4 = rast('./output/improved_network/next_five_sites/improved_annual_2km_4.tif')
+imp5 = rast('./output/improved_network/next_five_sites/improved_annual_2km_5.tif')
 
 # dif01 = imp - imp1
 # dif12 = imp1 - imp2
@@ -236,6 +236,7 @@ df$change.count.step3 = ifelse(df$change.step3 > 0 ,1,0)
 df$change.count.step4 = ifelse(df$change.step4 > 0 ,1,0)
 df$change.count.step5 = ifelse(df$change.step5 > 0 ,1,0)
 
+df = df[complete.cases(df$improved),]
 #calculate improvements
 summary = df %>%
   summarise(improved.er1 = sum(improved.er1)/sum(all),
@@ -271,11 +272,11 @@ write.csv(x = summary,file = './output/improvements_annual_network_next5.csv')
 
 #methane new sites ###########################################################################################
 df1 = fread('./output/reductions/meanreduction_methane.csv')
-df2 = fread('./output/reductions/meanreduction_remaining_methane_1_tura.csv')
-df3 = fread('./output/reductions/meanreduction_remaining_methane_2_1987bonanza.csv')
-df4 = fread('./output/reductions/meanreduction_remaining_methane_3_capebounty.csv')
-df5 = fread('./output/reductions/meanreduction_remaining_methane_4_spaskaya.csv')
-df6 = fread('./output/reductions/meanreduction_remaining_methane_5_neondeltajunction.csv')
+df2 = fread('./output/reductions/meanreduction_remaining_methane_1.csv')
+df3 = fread('./output/reductions/meanreduction_remaining_methane_2.csv')
+df4 = fread('./output/reductions/meanreduction_remaining_methane_3.csv')
+df5 = fread('./output/reductions/meanreduction_remaining_methane_4.csv')
+df6 = fread('./output/reductions/meanreduction_remaining_methane_5.csv')
 
 df1 = subset(df1,df1$means == min(df1$means))
 df2 = subset(df2,df2$means == min(df2$means))
@@ -285,27 +286,32 @@ df5 = subset(df5,df5$means == min(df5$means))
 df6 = subset(df6,df6$means == min(df6$means))
 
 top = rbind(df1,df2,df3,df4,df5,df6,fill=T)
-top
+top = merge(x = top,y = towers,all.x = T,by = 'sitename')
+top = top[order(top$means),]
+top$sitename
+top$lc
+top$eco
+
 
 #load in raster files
-imp  = rast('./output/improved_network/improved_methane_2kmv2.tif')
-imp1 = rast('./output/improved_network/methane/improved_methane_1_tura.tif')
-imp2 = rast('./output/improved_network/methane/improved_methane_2_1987bonanza.tif')
-imp3 = rast('./output/improved_network/methane/improved_methane_3_capebounty.tif')
-imp4 = rast('./output/improved_network/methane/improved_methane_4_spaskaya.tif')
-imp5 = rast('./output/improved_network/methane/improved_methane_5_neondeltajunction.tif')
+imp  = rast('./output/improved_network/improved_methane_2km.tif')
+imp1 = rast('./output/improved_network/next_five_sites/improved_methane_2km_1.tif')
+imp2 = rast('./output/improved_network/next_five_sites/improved_methane_2km_2.tif')
+imp3 = rast('./output/improved_network/next_five_sites/improved_methane_2km_3.tif')
+imp4 = rast('./output/improved_network/next_five_sites/improved_methane_2km_4.tif')
+imp5 = rast('./output/improved_network/next_five_sites/improved_methane_2km_5.tif')
 
-# dif01 = imp - imp1
-# dif12 = imp1 - imp2
-# dif23 = imp2 - imp3
-# dif34 = imp3 - imp4
-# dif45 = imp4 - imp5
-# 
-# plot(dif01)
-# plot(dif12)
-# plot(dif23)
-# plot(dif34)
-# plot(dif45)
+dif01 = imp - imp1
+dif12 = imp1 - imp2
+dif23 = imp2 - imp3
+dif34 = imp3 - imp4
+dif45 = imp4 - imp5
+
+plot(dif01)
+plot(dif12)
+plot(dif23)
+plot(dif34)
+plot(dif45)
 
 #merge all together
 all = c(imp,imp1,imp2,imp3,imp4,imp5,clust)
@@ -313,6 +319,7 @@ all = c(imp,imp1,imp2,imp3,imp4,imp5,clust)
 names(all) = c('improved','step1','step2','step3','step4','step5','cluster')
 df = as.data.frame(x = all)
 summary(df)
+df = df[complete.cases(df$improved),]
 
 #set 1 for meets cutoff and 0 for does not
 df$improved.er1 = ifelse(df$improved <= er1,1,0)
@@ -382,11 +389,11 @@ write.csv(x = summary,file = './output/improvements_methane_network_next5.csv')
 
 #methane new sites ###########################################################################################
 df1 = fread('./output/reductions/meanreduction_annual_methane.csv')
-df2 = fread('./output/reductions/meanreduction_remaining_annual_methane_1_tura.csv')
-df3 = fread('./output/reductions/meanreduction_remaining_annual_methane_2_1987bonanza.csv')
-df4 = fread('./output/reductions/meanreduction_remaining_annual_methane_3_zotto.csv')
-df5 = fread('./output/reductions/meanreduction_remaining_annual_methane_4_capebounty.csv')
-df6 = fread('./output/reductions/meanreduction_remaining_annual_methane_5_spasskaya.csv')
+df2 = fread('./output/reductions/meanreduction_remaining_annual_methane_1.csv')
+df3 = fread('./output/reductions/meanreduction_remaining_annual_methane_2.csv')
+df4 = fread('./output/reductions/meanreduction_remaining_annual_methane_3.csv')
+df5 = fread('./output/reductions/meanreduction_remaining_annual_methane_4.csv')
+df6 = fread('./output/reductions/meanreduction_remaining_annual_methane_5.csv')
 
 df1 = subset(df1,df1$means == min(df1$means))
 df2 = subset(df2,df2$means == min(df2$means))
@@ -396,27 +403,31 @@ df5 = subset(df5,df5$means == min(df5$means))
 df6 = subset(df6,df6$means == min(df6$means))
 
 top = rbind(df1,df2,df3,df4,df5,df6,fill=T)
-top
+top = merge(x = top,y = towers,all.x = T,by = 'sitename')
+top = top[order(top$means),]
+top$sitename
+top$lc
+top$eco
 
 #load in raster files
-imp  = rast('./output/improved_network/improved_annual_methane_2kmv2.tif')
-imp1 = rast('./output/improved_network/annual_methane/improved_annual_methane_1_tura.tif')
-imp2 = rast('./output/improved_network/annual_methane/improved_annual_methane_2_1987bonanza.tif')
-imp3 = rast('./output/improved_network/annual_methane/improved_annual_methane_3_zotto.tif')
-imp4 = rast('./output/improved_network/annual_methane/improved_annual_methane_4_capebounty.tif')
-imp5 = rast('./output/improved_network/annual_methane/improved_annual_methane_5_spasskaya.tif')
+imp  = rast('./output/improved_network/improved_annual_methane_2km.tif')
+imp1 = rast('./output/improved_network/next_five_sites/improved_annual_methane_2km_1.tif')
+imp2 = rast('./output/improved_network/next_five_sites/improved_annual_methane_2km_2.tif')
+imp3 = rast('./output/improved_network/next_five_sites/improved_annual_methane_2km_3.tif')
+imp4 = rast('./output/improved_network/next_five_sites/improved_annual_methane_2km_4.tif')
+imp5 = rast('./output/improved_network/next_five_sites/improved_annual_methane_2km_5.tif')
 
-# dif01 = imp - imp1
-# dif12 = imp1 - imp2
-# dif23 = imp2 - imp3
-# dif34 = imp3 - imp4
-# dif45 = imp4 - imp5
-# 
-# plot(dif01)
-# plot(dif12)
-# plot(dif23)
-# plot(dif34)
-# plot(dif45)
+dif01 = imp - imp1
+dif12 = imp1 - imp2
+dif23 = imp2 - imp3
+dif34 = imp3 - imp4
+dif45 = imp4 - imp5
+
+plot(dif01)
+plot(dif12)
+plot(dif23)
+plot(dif34)
+plot(dif45)
 
 #merge all together
 all = c(imp,imp1,imp2,imp3,imp4,imp5,clust)
@@ -424,6 +435,7 @@ all = c(imp,imp1,imp2,imp3,imp4,imp5,clust)
 names(all) = c('improved','step1','step2','step3','step4','step5','cluster')
 df = as.data.frame(x = all)
 summary(df)
+df = df[complete.cases(df$improved),]
 
 #set 1 for meets cutoff and 0 for does not
 df$improved.er1 = ifelse(df$improved <= er1,1,0)
