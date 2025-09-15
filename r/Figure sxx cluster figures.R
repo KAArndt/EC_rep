@@ -11,15 +11,15 @@ library(Polychrome)
 sites = fread('./data/pca.towers.base.csv')
 
 #load in the permafrost layer
-pp = rast('./spatial_data/pfrost/UiO_PEX_PERPROB_5.0_20181128_2000_2016_NH/UiO_PEX_PERPROB_5.0_20181128_2000_2016_NH.tif')
+pp = rast('./spatial_data/UiO_PEX_PERPROB_5.0_20181128_2000_2016_NH.tif')
 
 #base Extrapolation index image from TNC shapefile
-eco = vect('./spatial_data/terr-ecoregions-TNC/tnc_terr_ecoregions.shp')
+eco = vect('./spatial_data/Ecoregions2017/Ecoregions2017.shp')
 
-# #subset to rock and ice and tundra and boreal
-eco = subset(eco,eco$WWF_MHTNAM == 'Rock and Ice' |
-               eco$WWF_MHTNAM   == 'Tundra' |
-               eco$WWF_MHTNAM   == 'Boreal Forests/Taiga'
+# #subset to rock aned ice and tundra and boreal
+eco = subset(eco,eco$BIOME_NAME == 'Rock and Ice' |
+               eco$BIOME_NAME   == 'Tundra' |
+               eco$BIOME_NAME   == 'Boreal Forests/Taiga'
                # eco$ECO_NAME     == 'Sayan Alpine Meadows And Tundra' |
                # eco$ECO_NAME     == 'Sayan Montane Conifer Forests' |
                # eco$ECO_NAME     == 'South Siberian Forest Steppe' |
@@ -82,7 +82,7 @@ dev.off()
 p1 = ggplot()+theme_map()+
   geom_sf(data = countries,fill='black',col='black')+
   layer_spatial(km.ag$km40)+
-  scale_fill_gradientn(na.value = NA,'',colors = pal[1],limits = c(1,1))+
+  scale_fill_gradientn(na.value = NA,'',colors = 'red',limits = c(1,1))+
   scale_x_continuous(limits = c(-5093909,4539289))+
   scale_y_continuous(limits = c(-3523458,4375097))+
   layer_spatial(data = eco,fill='transparent',col='white')+
@@ -95,7 +95,7 @@ p1 = ggplot()+theme_map()+
 p2 = ggplot()+theme_map()+
   geom_sf(data = countries,fill='black',col='black')+
   layer_spatial(km.ag$km40)+
-  scale_fill_gradientn(na.value = NA,'',colors = pal[2],limits = c(2,2))+
+  scale_fill_gradientn(na.value = NA,'',colors = 'red',limits = c(2,2))+
   scale_x_continuous(limits = c(-5093909,4539289))+
   scale_y_continuous(limits = c(-3523458,4375097))+
   layer_spatial(data = eco,fill='transparent',col='white')+
@@ -108,7 +108,7 @@ p2 = ggplot()+theme_map()+
 p3 = ggplot()+theme_map()+
   geom_sf(data = countries,fill='black',col='black')+
   layer_spatial(km.ag$km40)+
-  scale_fill_gradientn(na.value = NA,'',colors = pal[3],limits = c(3,3))+
+  scale_fill_gradientn(na.value = NA,'',colors = 'red',limits = c(3,3))+
   scale_x_continuous(limits = c(-5093909,4539289))+
   scale_y_continuous(limits = c(-3523458,4375097))+
   layer_spatial(data = eco,fill='transparent',col='white')+
@@ -121,7 +121,7 @@ p3 = ggplot()+theme_map()+
 p4 = ggplot()+theme_map()+
   geom_sf(data = countries,fill='black',col='black')+
   layer_spatial(km.ag$km40)+
-  scale_fill_gradientn(na.value = NA,'',colors = pal[4],limits = c(4,4))+
+  scale_fill_gradientn(na.value = NA,'',colors = 'red',limits = c(4,4))+
   scale_x_continuous(limits = c(-5093909,4539289))+
   scale_y_continuous(limits = c(-3523458,4375097))+
   layer_spatial(data = eco,fill='transparent',col='white')+
@@ -134,7 +134,7 @@ p4 = ggplot()+theme_map()+
 p5 = ggplot()+theme_map()+
   geom_sf(data = countries,fill='black',col='black')+
   layer_spatial(km.ag$km40)+
-  scale_fill_gradientn(na.value = NA,'',colors = pal[5],limits = c(5,5))+
+  scale_fill_gradientn(na.value = NA,'',colors = 'red',limits = c(5,5))+
   scale_x_continuous(limits = c(-5093909,4539289))+
   scale_y_continuous(limits = c(-3523458,4375097))+
   layer_spatial(data = eco,fill='transparent',col='white')+
@@ -147,7 +147,7 @@ p5 = ggplot()+theme_map()+
 p6 = ggplot()+theme_map()+
   geom_sf(data = countries,fill='black',col='black')+
   layer_spatial(km.ag$km40)+
-  scale_fill_gradientn(na.value = NA,'',colors = pal[6],limits = c(6,6))+
+  scale_fill_gradientn(na.value = NA,'',colors = 'red',limits = c(6,6))+
   scale_x_continuous(limits = c(-5093909,4539289))+
   scale_y_continuous(limits = c(-3523458,4375097))+
   layer_spatial(data = eco,fill='transparent',col='white')+
@@ -160,7 +160,7 @@ p6 = ggplot()+theme_map()+
 p7 = ggplot()+theme_map()+
   geom_sf(data = countries,fill='black',col='black')+
   layer_spatial(km.ag$km40)+
-  scale_fill_gradientn(na.value = NA,'',colors = pal[7],limits = c(7,7))+
+  scale_fill_gradientn(na.value = NA,'',colors = 'red',limits = c(7,7))+
   scale_x_continuous(limits = c(-5093909,4539289))+
   scale_y_continuous(limits = c(-3523458,4375097))+
   layer_spatial(data = eco,fill='transparent',col='white')+
@@ -174,7 +174,7 @@ p7 = ggplot()+theme_map()+
 p8 = ggplot()+theme_map()+
   geom_sf(data = countries,fill='black',col='black')+
   layer_spatial(km.ag$km40)+
-  scale_fill_gradientn(na.value = NA,'',colors = pal[8],limits = c(8,8))+
+  scale_fill_gradientn(na.value = NA,'',colors = 'red',limits = c(8,8))+
   scale_x_continuous(limits = c(-5093909,4539289))+
   scale_y_continuous(limits = c(-3523458,4375097))+
   layer_spatial(data = eco,fill='transparent',col='white')+
@@ -188,7 +188,7 @@ p8 = ggplot()+theme_map()+
 p9 = ggplot()+theme_map()+
   geom_sf(data = countries,fill='black',col='black')+
   layer_spatial(km.ag$km40)+
-  scale_fill_gradientn(na.value = NA,'',colors = pal[9],limits = c(9,9))+
+  scale_fill_gradientn(na.value = NA,'',colors = 'red',limits = c(9,9))+
   scale_x_continuous(limits = c(-5093909,4539289))+
   scale_y_continuous(limits = c(-3523458,4375097))+
   layer_spatial(data = eco,fill='transparent',col='white')+
@@ -202,7 +202,7 @@ p9 = ggplot()+theme_map()+
 p10 = ggplot()+theme_map()+
   geom_sf(data = countries,fill='black',col='black')+
   layer_spatial(km.ag$km40)+
-  scale_fill_gradientn(na.value = NA,'',colors = pal[10],limits = c(10,10))+
+  scale_fill_gradientn(na.value = NA,'',colors = 'red',limits = c(10,10))+
   scale_x_continuous(limits = c(-5093909,4539289))+
   scale_y_continuous(limits = c(-3523458,4375097))+
   layer_spatial(data = eco,fill='transparent',col='white')+
@@ -216,7 +216,7 @@ p10 = ggplot()+theme_map()+
 p11 = ggplot()+theme_map()+
   geom_sf(data = countries,fill='black',col='black')+
   layer_spatial(km.ag$km40)+
-  scale_fill_gradientn(na.value = NA,'',colors = pal[11],limits = c(11,11))+
+  scale_fill_gradientn(na.value = NA,'',colors = 'red',limits = c(11,11))+
   scale_x_continuous(limits = c(-5093909,4539289))+
   scale_y_continuous(limits = c(-3523458,4375097))+
   layer_spatial(data = eco,fill='transparent',col='white')+
@@ -230,7 +230,7 @@ p11 = ggplot()+theme_map()+
 p12 = ggplot()+theme_map()+
   geom_sf(data = countries,fill='black',col='black')+
   layer_spatial(km.ag$km40)+
-  scale_fill_gradientn(na.value = NA,'',colors = pal[12],limits = c(12,12))+
+  scale_fill_gradientn(na.value = NA,'',colors = 'red',limits = c(12,12))+
   scale_x_continuous(limits = c(-5093909,4539289))+
   scale_y_continuous(limits = c(-3523458,4375097))+
   layer_spatial(data = eco,fill='transparent',col='white')+
@@ -244,7 +244,7 @@ p12 = ggplot()+theme_map()+
 p13 = ggplot()+theme_map()+
   geom_sf(data = countries,fill='black',col='black')+
   layer_spatial(km.ag$km40)+
-  scale_fill_gradientn(na.value = NA,'',colors = pal[13],limits = c(13,13))+
+  scale_fill_gradientn(na.value = NA,'',colors = 'red',limits = c(13,13))+
   scale_x_continuous(limits = c(-5093909,4539289))+
   scale_y_continuous(limits = c(-3523458,4375097))+
   layer_spatial(data = eco,fill='transparent',col='white')+
@@ -258,7 +258,7 @@ p13 = ggplot()+theme_map()+
 p14 = ggplot()+theme_map()+
   geom_sf(data = countries,fill='black',col='black')+
   layer_spatial(km.ag$km40)+
-  scale_fill_gradientn(na.value = NA,'',colors = pal[14],limits = c(14,14))+
+  scale_fill_gradientn(na.value = NA,'',colors = 'red',limits = c(14,14))+
   scale_x_continuous(limits = c(-5093909,4539289))+
   scale_y_continuous(limits = c(-3523458,4375097))+
   layer_spatial(data = eco,fill='transparent',col='white')+
@@ -272,7 +272,7 @@ p14 = ggplot()+theme_map()+
 p15 = ggplot()+theme_map()+
   geom_sf(data = countries,fill='black',col='black')+
   layer_spatial(km.ag$km40)+
-  scale_fill_gradientn(na.value = NA,'',colors = pal[15],limits = c(15,15))+
+  scale_fill_gradientn(na.value = NA,'',colors = 'red',limits = c(15,15))+
   scale_x_continuous(limits = c(-5093909,4539289))+
   scale_y_continuous(limits = c(-3523458,4375097))+
   layer_spatial(data = eco,fill='transparent',col='white')+
@@ -285,7 +285,7 @@ p15 = ggplot()+theme_map()+
 p16 = ggplot()+theme_map()+
   geom_sf(data = countries,fill='black',col='black')+
   layer_spatial(km.ag$km40)+
-  scale_fill_gradientn(na.value = NA,'',colors = pal[16],limits = c(16,16))+
+  scale_fill_gradientn(na.value = NA,'',colors = 'red',limits = c(16,16))+
   scale_x_continuous(limits = c(-5093909,4539289))+
   scale_y_continuous(limits = c(-3523458,4375097))+
   layer_spatial(data = eco,fill='transparent',col='white')+
@@ -298,7 +298,7 @@ p16 = ggplot()+theme_map()+
 p17 = ggplot()+theme_map()+
   geom_sf(data = countries,fill='black',col='black')+
   layer_spatial(km.ag$km40)+
-  scale_fill_gradientn(na.value = NA,'',colors = pal[17],limits = c(17,17))+
+  scale_fill_gradientn(na.value = NA,'',colors ='red',limits = c(17,17))+
   scale_x_continuous(limits = c(-5093909,4539289))+
   scale_y_continuous(limits = c(-3523458,4375097))+
   layer_spatial(data = eco,fill='transparent',col='white')+
@@ -311,7 +311,7 @@ p17 = ggplot()+theme_map()+
 p18 = ggplot()+theme_map()+
   geom_sf(data = countries,fill='black',col='black')+
   layer_spatial(km.ag$km40)+
-  scale_fill_gradientn(na.value = NA,'',colors = pal[18],limits = c(18,18))+
+  scale_fill_gradientn(na.value = NA,'',colors = 'red',limits = c(18,18))+
   scale_x_continuous(limits = c(-5093909,4539289))+
   scale_y_continuous(limits = c(-3523458,4375097))+
   layer_spatial(data = eco,fill='transparent',col='white')+
@@ -324,7 +324,7 @@ p18 = ggplot()+theme_map()+
 p19 = ggplot()+theme_map()+
   geom_sf(data = countries,fill='black',col='black')+
   layer_spatial(km.ag$km40)+
-  scale_fill_gradientn(na.value = NA,'',colors = pal[19],limits = c(19,19))+
+  scale_fill_gradientn(na.value = NA,'',colors = 'red',limits = c(19,19))+
   scale_x_continuous(limits = c(-5093909,4539289))+
   scale_y_continuous(limits = c(-3523458,4375097))+
   layer_spatial(data = eco,fill='transparent',col='white')+
@@ -337,7 +337,7 @@ p19 = ggplot()+theme_map()+
 p20 = ggplot()+theme_map()+
   geom_sf(data = countries,fill='black',col='black')+
   layer_spatial(km.ag$km40)+
-  scale_fill_gradientn(na.value = NA,'',colors = pal[20],limits = c(20,20))+
+  scale_fill_gradientn(na.value = NA,'',colors = 'red',limits = c(20,20))+
   scale_x_continuous(limits = c(-5093909,4539289))+
   scale_y_continuous(limits = c(-3523458,4375097))+
   layer_spatial(data = eco,fill='transparent',col='white')+
@@ -350,7 +350,7 @@ p20 = ggplot()+theme_map()+
 p21 = ggplot()+theme_map()+
   geom_sf(data = countries,fill='black',col='black')+
   layer_spatial(km.ag$km40)+
-  scale_fill_gradientn(na.value = NA,'',colors = pal[21],limits = c(21,21))+
+  scale_fill_gradientn(na.value = NA,'',colors = 'red',limits = c(21,21))+
   scale_x_continuous(limits = c(-5093909,4539289))+
   scale_y_continuous(limits = c(-3523458,4375097))+
   layer_spatial(data = eco,fill='transparent',col='white')+
@@ -363,7 +363,7 @@ p21 = ggplot()+theme_map()+
 p22 = ggplot()+theme_map()+
   geom_sf(data = countries,fill='black',col='black')+
   layer_spatial(km.ag$km40)+
-  scale_fill_gradientn(na.value = NA,'',colors = pal[22],limits = c(22,22))+
+  scale_fill_gradientn(na.value = NA,'',colors = 'red',limits = c(22,22))+
   scale_x_continuous(limits = c(-5093909,4539289))+
   scale_y_continuous(limits = c(-3523458,4375097))+
   layer_spatial(data = eco,fill='transparent',col='white')+
@@ -376,7 +376,7 @@ p22 = ggplot()+theme_map()+
 p23 = ggplot()+theme_map()+
   geom_sf(data = countries,fill='black',col='black')+
   layer_spatial(km.ag$km40)+
-  scale_fill_gradientn(na.value = NA,'',colors = pal[23],limits = c(23,23))+
+  scale_fill_gradientn(na.value = NA,'',colors = 'red',limits = c(23,23))+
   scale_x_continuous(limits = c(-5093909,4539289))+
   scale_y_continuous(limits = c(-3523458,4375097))+
   layer_spatial(data = eco,fill='transparent',col='white')+
@@ -389,7 +389,7 @@ p23 = ggplot()+theme_map()+
 p24 = ggplot()+theme_map()+
   geom_sf(data = countries,fill='black',col='black')+
   layer_spatial(km.ag$km40)+
-  scale_fill_gradientn(na.value = NA,'',colors = pal[24],limits = c(24,24))+
+  scale_fill_gradientn(na.value = NA,'',colors = 'red',limits = c(24,24))+
   scale_x_continuous(limits = c(-5093909,4539289))+
   scale_y_continuous(limits = c(-3523458,4375097))+
   layer_spatial(data = eco,fill='transparent',col='white')+
@@ -402,7 +402,7 @@ p24 = ggplot()+theme_map()+
 p25 = ggplot()+theme_map()+
   geom_sf(data = countries,fill='black',col='black')+
   layer_spatial(km.ag$km40)+
-  scale_fill_gradientn(na.value = NA,'',colors = pal[25],limits = c(25,25))+
+  scale_fill_gradientn(na.value = NA,'',colors = 'red',limits = c(25,25))+
   scale_x_continuous(limits = c(-5093909,4539289))+
   scale_y_continuous(limits = c(-3523458,4375097))+
   layer_spatial(data = eco,fill='transparent',col='white')+
@@ -415,7 +415,7 @@ p25 = ggplot()+theme_map()+
 p26 = ggplot()+theme_map()+
   geom_sf(data = countries,fill='black',col='black')+
   layer_spatial(km.ag$km40)+
-  scale_fill_gradientn(na.value = NA,'',colors = pal[26],limits = c(26,26))+
+  scale_fill_gradientn(na.value = NA,'',colors = 'red',limits = c(26,26))+
   scale_x_continuous(limits = c(-5093909,4539289))+
   scale_y_continuous(limits = c(-3523458,4375097))+
   layer_spatial(data = eco,fill='transparent',col='white')+
@@ -428,7 +428,7 @@ p26 = ggplot()+theme_map()+
 p27 = ggplot()+theme_map()+
   geom_sf(data = countries,fill='black',col='black')+
   layer_spatial(km.ag$km40)+
-  scale_fill_gradientn(na.value = NA,'',colors = pal[27],limits = c(27,27))+
+  scale_fill_gradientn(na.value = NA,'',colors = 'red',limits = c(27,27))+
   scale_x_continuous(limits = c(-5093909,4539289))+
   scale_y_continuous(limits = c(-3523458,4375097))+
   layer_spatial(data = eco,fill='transparent',col='white')+
@@ -441,7 +441,7 @@ p27 = ggplot()+theme_map()+
 p28 = ggplot()+theme_map()+
   geom_sf(data = countries,fill='black',col='black')+
   layer_spatial(km.ag$km40)+
-  scale_fill_gradientn(na.value = NA,'',colors = pal[28],limits = c(28,28))+
+  scale_fill_gradientn(na.value = NA,'',colors = 'red',limits = c(28,28))+
   scale_x_continuous(limits = c(-5093909,4539289))+
   scale_y_continuous(limits = c(-3523458,4375097))+
   layer_spatial(data = eco,fill='transparent',col='white')+
@@ -454,7 +454,7 @@ p28 = ggplot()+theme_map()+
 p29 = ggplot()+theme_map()+
   geom_sf(data = countries,fill='black',col='black')+
   layer_spatial(km.ag$km40)+
-  scale_fill_gradientn(na.value = NA,'',colors = pal[29],limits = c(29,29))+
+  scale_fill_gradientn(na.value = NA,'',colors = 'red',limits = c(29,29))+
   scale_x_continuous(limits = c(-5093909,4539289))+
   scale_y_continuous(limits = c(-3523458,4375097))+
   layer_spatial(data = eco,fill='transparent',col='white')+
@@ -467,7 +467,7 @@ p29 = ggplot()+theme_map()+
 p30 = ggplot()+theme_map()+
   geom_sf(data = countries,fill='black',col='black')+
   layer_spatial(km.ag$km40)+
-  scale_fill_gradientn(na.value = NA,'',colors = pal[30],limits = c(30,30))+
+  scale_fill_gradientn(na.value = NA,'',colors = 'red',limits = c(30,30))+
   scale_x_continuous(limits = c(-5093909,4539289))+
   scale_y_continuous(limits = c(-3523458,4375097))+
   layer_spatial(data = eco,fill='transparent',col='white')+
@@ -480,7 +480,7 @@ p30 = ggplot()+theme_map()+
 p31 = ggplot()+theme_map()+
   geom_sf(data = countries,fill='black',col='black')+
   layer_spatial(km.ag$km40)+
-  scale_fill_gradientn(na.value = NA,'',colors = pal[31],limits = c(31,31))+
+  scale_fill_gradientn(na.value = NA,'',colors = 'red',limits = c(31,31))+
   scale_x_continuous(limits = c(-5093909,4539289))+
   scale_y_continuous(limits = c(-3523458,4375097))+
   layer_spatial(data = eco,fill='transparent',col='white')+
@@ -493,7 +493,7 @@ p31 = ggplot()+theme_map()+
 p32 = ggplot()+theme_map()+
   geom_sf(data = countries,fill='black',col='black')+
   layer_spatial(km.ag$km40)+
-  scale_fill_gradientn(na.value = NA,'',colors = pal[32],limits = c(32,32))+
+  scale_fill_gradientn(na.value = NA,'',colors = 'red',limits = c(32,32))+
   scale_x_continuous(limits = c(-5093909,4539289))+
   scale_y_continuous(limits = c(-3523458,4375097))+
   layer_spatial(data = eco,fill='transparent',col='white')+
@@ -506,7 +506,7 @@ p32 = ggplot()+theme_map()+
 p33 = ggplot()+theme_map()+
   geom_sf(data = countries,fill='black',col='black')+
   layer_spatial(km.ag$km40)+
-  scale_fill_gradientn(na.value = NA,'',colors = pal[33],limits = c(33,33))+
+  scale_fill_gradientn(na.value = NA,'',colors = 'red',limits = c(33,33))+
   scale_x_continuous(limits = c(-5093909,4539289))+
   scale_y_continuous(limits = c(-3523458,4375097))+
   layer_spatial(data = eco,fill='transparent',col='white')+
@@ -519,7 +519,7 @@ p33 = ggplot()+theme_map()+
 p34 = ggplot()+theme_map()+
   geom_sf(data = countries,fill='black',col='black')+
   layer_spatial(km.ag$km40)+
-  scale_fill_gradientn(na.value = NA,'',colors = pal[34],limits = c(34,34))+
+  scale_fill_gradientn(na.value = NA,'',colors = 'red',limits = c(34,34))+
   scale_x_continuous(limits = c(-5093909,4539289))+
   scale_y_continuous(limits = c(-3523458,4375097))+
   layer_spatial(data = eco,fill='transparent',col='white')+
@@ -532,7 +532,7 @@ p34 = ggplot()+theme_map()+
 p35 = ggplot()+theme_map()+
   geom_sf(data = countries,fill='black',col='black')+
   layer_spatial(km.ag$km40)+
-  scale_fill_gradientn(na.value = NA,'',colors = pal[35],limits = c(35,35))+
+  scale_fill_gradientn(na.value = NA,'',colors = 'red',limits = c(35,35))+
   scale_x_continuous(limits = c(-5093909,4539289))+
   scale_y_continuous(limits = c(-3523458,4375097))+
   layer_spatial(data = eco,fill='transparent',col='white')+
@@ -545,7 +545,7 @@ p35 = ggplot()+theme_map()+
 p36 = ggplot()+theme_map()+
   geom_sf(data = countries,fill='black',col='black')+
   layer_spatial(km.ag$km40)+
-  scale_fill_gradientn(na.value = NA,'',colors = pal[36],limits = c(36,36))+
+  scale_fill_gradientn(na.value = NA,'',colors = 'red',limits = c(36,36))+
   scale_x_continuous(limits = c(-5093909,4539289))+
   scale_y_continuous(limits = c(-3523458,4375097))+
   layer_spatial(data = eco,fill='transparent',col='white')+
@@ -558,7 +558,7 @@ p36 = ggplot()+theme_map()+
 p37 = ggplot()+theme_map()+
   geom_sf(data = countries,fill='black',col='black')+
   layer_spatial(km.ag$km40)+
-  scale_fill_gradientn(na.value = NA,'',colors = pal[37],limits = c(37,37))+
+  scale_fill_gradientn(na.value = NA,'',colors = 'red',limits = c(37,37))+
   scale_x_continuous(limits = c(-5093909,4539289))+
   scale_y_continuous(limits = c(-3523458,4375097))+
   layer_spatial(data = eco,fill='transparent',col='white')+
@@ -571,7 +571,7 @@ p37 = ggplot()+theme_map()+
 p38 = ggplot()+theme_map()+
   geom_sf(data = countries,fill='black',col='black')+
   layer_spatial(km.ag$km40)+
-  scale_fill_gradientn(na.value = NA,'',colors = pal[38],limits = c(38,38))+
+  scale_fill_gradientn(na.value = NA,'',colors = 'red',limits = c(38,38))+
   scale_x_continuous(limits = c(-5093909,4539289))+
   scale_y_continuous(limits = c(-3523458,4375097))+
   layer_spatial(data = eco,fill='transparent',col='white')+
@@ -584,7 +584,7 @@ p38 = ggplot()+theme_map()+
 p39 = ggplot()+theme_map()+
   geom_sf(data = countries,fill='black',col='black')+
   layer_spatial(km.ag$km40)+
-  scale_fill_gradientn(na.value = NA,'',colors = pal[39],limits = c(39,39))+
+  scale_fill_gradientn(na.value = NA,'',colors = 'red',limits = c(39,39))+
   scale_x_continuous(limits = c(-5093909,4539289))+
   scale_y_continuous(limits = c(-3523458,4375097))+
   layer_spatial(data = eco,fill='transparent',col='white')+
@@ -597,7 +597,7 @@ p39 = ggplot()+theme_map()+
 p40 = ggplot()+theme_map()+
   geom_sf(data = countries,fill='black',col='black')+
   layer_spatial(km.ag$km40)+
-  scale_fill_gradientn(na.value = NA,'',colors = pal[40],limits = c(40,40))+
+  scale_fill_gradientn(na.value = NA,'',colors = 'red',limits = c(40,40))+
   scale_x_continuous(limits = c(-5093909,4539289))+
   scale_y_continuous(limits = c(-3523458,4375097))+
   layer_spatial(data = eco,fill='transparent',col='white')+

@@ -44,7 +44,6 @@ improved.annual.methane.ag = aggregate(x = improved.annual.methane,fact = 4,fun 
 
 #load towers and subset new sites
 active = subset(tower.data,tower.data$active == 'active')
-tower.data$site
 
 new.sites.active   = subset(tower.data,
                             tower.data$site == "Cambridge Bay, Victoria Island, mesic" |
@@ -145,8 +144,6 @@ annual.methane.dif = annual.methane.ag - improved.annual.methane.ag
 pal = hcl.colors(n = 9,palette = 'Mako')
 
 #base
-hist(base.dif)
-
 base.plot = ggplot()+theme_map()+
   geom_sf(data = countries,fill='gray',col='gray40')+
   layer_spatial(base.dif)+
@@ -158,7 +155,7 @@ base.plot = ggplot()+theme_map()+
                        labels = c('0','1','2+'),
                        oob = scales::squish)+  
    new_scale("fill") +
-   geom_point(data = new.sites.active,aes(x,y,fill=methane,pch=Season_Activity,col=methane),col='black',show.legend = F,cex=1.0)+
+   geom_point(data = new.sites.active,aes(x,y,fill=methane,pch=Season_Activity,col=methane),col='black',show.legend = F,cex=1.2)+
    scale_shape_manual(values = c(21,24),'Annual Cover',labels = c('Annual','Not Annual'))+
    scale_fill_manual(values = c('red','green3'))+
   scale_x_continuous(limits = c(-5093909,4542996))+
@@ -181,7 +178,7 @@ methane.plot = ggplot()+theme_map()+
                        labels = c('0','1','2+'),
                        oob = scales::squish)+  
   new_scale("fill") +
-  geom_point(data = new.sites.ch4,aes(x,y,fill=methane,pch=Season_Activity),col='black',show.legend = F,cex=1.0)+
+  geom_point(data = new.sites.ch4,aes(x,y,fill=methane,pch=Season_Activity),col='black',show.legend = F,cex=1.2)+
   scale_shape_manual(values = c(21,24),'Annual Cover',labels = c('Annual','Not Annual'))+
   scale_fill_manual(values = c('red','green3'))+
   scale_x_continuous(limits = c(-5093909,4542996))+
@@ -204,7 +201,7 @@ annual.plot = ggplot()+theme_map()+
                        labels = c('0','1','2+'),
                        oob = scales::squish)+ 
   new_scale("fill") +
-  geom_point(data = new.sites.annual,aes(x,y,fill=methane,pch=Season_Activity),col='black',show.legend = F,cex=1.0)+
+  geom_point(data = new.sites.annual,aes(x,y,fill=methane,pch=Season_Activity),col='black',show.legend = F,cex=1.2)+
   scale_shape_manual(values = c(21,2),'Annual Cover',labels = c('Annual','Not Annual'))+
   scale_fill_manual(values = c('red','green'))+
   scale_x_continuous(limits = c(-5093909,4542996))+
@@ -227,7 +224,7 @@ annual.methane.plot = ggplot()+theme_map()+
                        labels = c('0','1','2+'),
                        oob = scales::squish)+ 
   new_scale("fill") +
-  geom_point(data = new.sites.annual.ch4,aes(x,y,fill=methane,pch=Season_Activity),col='black',show.legend = F,cex=1.0)+
+  geom_point(data = new.sites.annual.ch4,aes(x,y,fill=methane,pch=Season_Activity),col='black',show.legend = F,cex=1.2)+
   scale_shape_manual(values = c(21,2),'Annual Cover',labels = c('Annual','Not Annual'))+
   scale_fill_manual(values = c('red','transparent'))+
   scale_x_continuous(limits = c(-5093909,4542996))+
@@ -248,11 +245,10 @@ png(filename = './figures/figure_2_difference plot.png',width = 6,height = 5,uni
 plot_grid(base.plot,methane.plot,annual.plot,annual.methane.plot,labels = c('a','b','c','d'),label_size = 8)
 dev.off()
 
-hist(annual.methane.dif)
-hist(annual.methane)
+
 
 ##############################################################################################
-
+#Presentation size
 #base
 base.plot = ggplot()+theme_map()+
   geom_sf(data = countries,fill='gray',col='gray40')+
