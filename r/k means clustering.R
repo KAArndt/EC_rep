@@ -24,7 +24,7 @@ df = df[,-c(1,2)]
 
 #run kmeans clustering in parallel, determine what is the best by running several size clusters
 set.seed(100) #set seed so the kmeans always starts in the same spot, makes the results more similar if ran again
-cents = c(5,10,20,30,40,50,60,70,80,90,100,200,300,400) #set how many clusters we want in the different iterations
+cents = c(5,10,20,30,40,50,60,70,80,90,100,200,300) #set how many clusters we want in the different iterations
 
 #setup parallel back end to use many processors
   cores = detectCores() #detect the number of cores
@@ -38,8 +38,8 @@ cents = c(5,10,20,30,40,50,60,70,80,90,100,200,300,400) #set how many clusters w
   stopCluster(cl) #stop the clusters
   Sys.time() - orig} #stop the clock
   
-#saveRDS(object = km,file = './output/clusters.rds')
-km = readRDS(file = './output/clusters.rds')
+saveRDS(object = km,file = './output/clusters.rds')
+#km = readRDS(file = './output/clusters.rds')
 
 #error calculations for deciding appropriate amount of clusters
 error  = km[[1]]$tot.withinss
@@ -57,8 +57,8 @@ png(filename = './figures/kmeans_error.png',width = 5,height = 2.5,units = 'in',
 ggplot()+theme_bw()+
   geom_line(aes(cents,error))+
   geom_point(aes(cents,error))+
-  scale_x_continuous('Clusters',limits = c(0,410),expand = c(0,0),breaks = cents,
-                     labels = c('5','','20','','40','','60','','80','','100','200','300','400'))+
+  scale_x_continuous('Clusters',limits = c(0,310),expand = c(0,0),breaks = cents,
+                     labels = c('5','','20','','40','','60','','80','','100','200','300'))+
   scale_y_continuous('Within-Cluster Sum of Squares Error')+
   theme(axis.text = element_text(size = 6),
         axis.title = element_text(size = 6),
