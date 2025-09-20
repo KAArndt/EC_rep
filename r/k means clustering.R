@@ -109,7 +109,7 @@ pal = Polychrome::alphabet.colors(n = 20)
 pal = c(pal,'gray10','gray30','gray60','gray80')
 pal_function = colorRampPalette(colors = pal)
 
-kmdf$group = as.factor(kmdf$km20)
+kmdf$group = as.factor(kmdf$km40)
 num_colors = nlevels(kmdf$group)
 diamond_color_colors = pal_function(num_colors)
 
@@ -118,7 +118,7 @@ ggplot()+theme_map()+
   geom_sf(data = countries,fill='gray',col='gray40')+
 #  layer_spatial(kmag$km20)+
 #  scale_fill_gradientn(na.value = NA,'Cluster',colors = pal)+
-  geom_raster(data = kmdf,aes(x,y,fill=factor(km20)))+
+  geom_raster(data = kmdf,aes(x,y,fill=factor(km40)))+
   scale_fill_manual('Cluster',values = diamond_color_colors)+
   scale_x_continuous(limits = c(-5093909,4539289))+
   scale_y_continuous(limits = c(-3523458,4375097))+
