@@ -38,8 +38,8 @@ cents = c(5,10,20,30,40,50,60,70,80,90,100,200,300) #set how many clusters we wa
   stopCluster(cl) #stop the clusters
   Sys.time() - orig} #stop the clock
   
-saveRDS(object = km,file = './output/clusters.rds')
-#km = readRDS(file = './output/clusters.rds')
+#saveRDS(object = km,file = './output/clusters.rds')
+km = readRDS(file = './output/clusters.rds')
 
 #error calculations for deciding appropriate amount of clusters
 error  = km[[1]]$tot.withinss
@@ -79,7 +79,7 @@ cor$km90 = km[[10]]$cluster #add to the coordinates
 cor$km100 = km[[11]]$cluster #add to the coordinates
 cor$km200 = km[[12]]$cluster #add to the coordinates
 cor$km300 = km[[13]]$cluster #add to the coordinates
-cor$km400 = km[[14]]$cluster #add to the coordinates
+#cor$km400 = km[[14]]$cluster #add to the coordinates
 
 #create rasters from the cluster files
 kms = rast(x = cor,type = 'xyz',crs = crs(r))
