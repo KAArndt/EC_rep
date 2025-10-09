@@ -297,12 +297,23 @@ plot_grid(base.plot,base.plot.i,
                      'd','h'),label_size = 7,rows = 4)
 dev.off()
 
+#plot all 4 together
+png(filename = './figures/all.4.scenarios.png',width = 6,height = 5,units = 'in',res = 2000)
+plot_grid(base.plot.i,
+          methane.plot.i,
+          annual.plot.i,
+          annual.methane.plot.i,
+          labels = c('a',
+                     'b',
+                     'c',
+                     'd'),label_size = 7,rows = 2)
+dev.off()
 
 #presentation size ###########################################################
 #base
 base.plot = ggplot()+theme_map()+
   geom_sf(data = countries,fill='gray',col='gray40')+
-  layer_spatial(base.ag)+
+  layer_spatial(base.ag.i)+
   scale_fill_gradientn('Representativeness',
                        na.value = 'transparent',
                        colours = pal,
