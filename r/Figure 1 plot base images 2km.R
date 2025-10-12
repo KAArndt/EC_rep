@@ -92,6 +92,9 @@ pal = hcl.colors(n = 9,palette = 'Vik')
 pal = pal[-c(4,6)]
 #pal = c('#FEEDB9','#E88D7A','#72509A','#8AABD6','#F2F7FB')
 
+################################################################################################################
+#   PAPER PLOT
+
 #base
 base.plot = ggplot()+theme_map()+
   geom_sf(data = countries,fill='gray',col='gray40')+
@@ -309,9 +312,9 @@ plot_grid(base.plot.i,
                      'd'),label_size = 7,rows = 2)
 dev.off()
 
-#presentation size ###########################################################
-#base
-base.plot = ggplot()+theme_map()+
+#presentation size #####################################################################################################
+#base.i
+base.plot.i = ggplot()+theme_map()+
   geom_sf(data = countries,fill='gray',col='gray40')+
   layer_spatial(base.ag.i)+
   scale_fill_gradientn('Representativeness',
@@ -322,27 +325,22 @@ base.plot = ggplot()+theme_map()+
                        labels = c('Good','Cutoff','Poor'),
                        oob = scales::squish)+  
   new_scale("fill") +
-  geom_point(data = base.towers,aes(x,y,fill=methane,pch=Season_Activity,col=methane),
-             col='black',show.legend = F,cex = 1.5)+
+  geom_point(data = base.towers.i,aes(x,y,fill=methane,pch=Season_Activity,col=methane),
+             col='black',show.legend = F,cex = 1.2)+
   scale_shape_manual(values = c(21,24),'Annual Cover',labels = c('Annual','Not Annual'))+
-  scale_fill_manual(values = c('orange1','blue'))+
+  scale_fill_manual(values = c('red','green3'))+
   scale_x_continuous(limits = c(-5093909,4542996))+
   scale_y_continuous(limits = c(-3687122,4374170))+
   theme(text = element_text(size = 5),
-        legend.text = element_text(size = 5),
         axis.title = element_blank(),
-        legend.key.height = unit(x = 0.05,units = 'in'),
-        legend.key.width = unit(x = 0.2,units = 'in'),
-        legend.direction = 'horizontal',
-        legend.position = c(0.05,0.05),
-        legend.title.position = 'top')+
-  annotate(geom = 'text',x = -3403909,y = 3474170,label = expression('Summer'~CO[2]),size=3)
+        legend.position = 'none')+
+  annotate(geom = 'text',x = -3454909,y = 3895170,label = expression('Growing Season'~CO[2]),size=3)
 #base.plot
 
 #methane
-methane.plot = ggplot()+theme_map()+
+methane.plot.i = ggplot()+theme_map()+
   geom_sf(data = countries,fill='gray',col='gray40')+
-  layer_spatial(methane.ag)+
+  layer_spatial(methane.ag.i)+
   scale_fill_gradientn('Representativeness',
                        na.value = 'transparent',
                        colours = pal,
@@ -351,21 +349,21 @@ methane.plot = ggplot()+theme_map()+
                        labels = c('Good','Cutoff','Poor'),
                        oob = scales::squish)+  
   new_scale("fill") +
-  geom_point(data = base.towers,aes(x,y,fill=methane,pch=Season_Activity),col='black',show.legend = F,cex = 1.5)+
+  geom_point(data = methane.towers.i,aes(x,y,fill=methane,pch=Season_Activity),col='black',show.legend = F,cex = 1.2)+
   scale_shape_manual(values = c(21,24),'Annual Cover',labels = c('Annual','Not Annual'))+
-  scale_fill_manual(values = c('orange1','transparent'))+
+  scale_fill_manual(values = c('red','green3'))+
   scale_x_continuous(limits = c(-5093909,4542996))+
   scale_y_continuous(limits = c(-3687122,4374170))+
   theme(text = element_text(size = 8),
         axis.title = element_blank(),
         legend.position = 'none')+
-  annotate(geom = 'text',x = -3403909,y = 3474170,label = expression('Summer'~CH[4]),size=3)
+  annotate(geom = 'text',x = -3454909,y = 3895170,label = expression('Growing Season'~CH[4]),size=3)
 #methane.plot
 
 #annual
-annual.plot = ggplot()+theme_map()+
+annual.plot.i = ggplot()+theme_map()+
   geom_sf(data = countries,fill='gray',col='gray40')+
-  layer_spatial(annual.ag)+
+  layer_spatial(annual.ag.i)+
   scale_fill_gradientn('Representativeness',
                        na.value = 'transparent',
                        colours = pal,
@@ -374,21 +372,21 @@ annual.plot = ggplot()+theme_map()+
                        labels = c('Good','Cutoff','Poor'),
                        oob = scales::squish)+  
   new_scale("fill") +
-  geom_point(data = base.towers,aes(x,y,fill=methane,pch=Season_Activity),col='black',show.legend = F,cex = 1.5)+
+  geom_point(data = annual.towers.i,aes(x,y,fill=methane,pch=Season_Activity),col='black',show.legend = F,cex = 1.2)+
   scale_shape_manual(values = c(21,2),'Annual Cover',labels = c('Annual','Not Annual'))+
-  scale_fill_manual(values = c('orange1','blue'))+
+  scale_fill_manual(values = c('red','green3'))+
   scale_x_continuous(limits = c(-5093909,4542996))+
   scale_y_continuous(limits = c(-3687122,4374170))+
   theme(text = element_text(size = 8),
         axis.title = element_blank(),
         legend.position = 'none')+
-  annotate(geom = 'text',x = -3403909,y = 3474170,label = expression('Annual'~CO[2]),size=3)
+  annotate(geom = 'text',x = -3454909,y = 3895170,label = expression('Year-Round'~CO[2]),size=3)
 #annual.plot
 
 #annual methane
-annual.methane.plot = ggplot()+theme_map()+
+annual.methane.plot.i = ggplot()+theme_map()+
   geom_sf(data = countries,fill='gray',col='gray40')+
-  layer_spatial(annual.ag)+
+  layer_spatial(annual.ag.i)+
   scale_fill_gradientn('Representativeness',
                        na.value = 'transparent',
                        colours = pal,
@@ -397,23 +395,44 @@ annual.methane.plot = ggplot()+theme_map()+
                        labels = c('Good','Cutoff','Poor'),
                        oob = scales::squish)+  
   new_scale("fill") +
-  geom_point(data = base.towers,aes(x,y,fill=methane,pch=Season_Activity),col='black',show.legend = F,cex = 1.5)+
+  geom_point(data = annual.methane.towers.i,aes(x,y,fill=methane,pch=Season_Activity),col='black',show.legend = F,cex = 1.2)+
   scale_shape_manual(values = c(21,2),'Annual Cover',labels = c('Annual','Not Annual'))+
-  scale_fill_manual(values = c('orange1','transparent'))+
+  scale_fill_manual(values = c('red','green3'))+
   scale_x_continuous(limits = c(-5093909,4542996))+
   scale_y_continuous(limits = c(-3687122,4374170))+
   theme(text = element_text(size = 8),
         axis.title = element_blank(),
-        legend.text = element_text(size = 5),
-        legend.key.height = unit(x = 0.05,units = 'in'),
-        legend.key.width = unit(x = 0.2,units = 'in'),
+        legend.key.height = unit(x = 0.04,units = 'in'),
+        legend.key.width = unit(x = 0.18,units = 'in'),
         legend.direction = 'horizontal',
-        legend.position = c(0.05,0.05),
+        legend.text = element_text(size = 8),
+        legend.title = element_text(size = 8.5),
+        legend.position = c(0.03,0.05),
         legend.title.position = 'top')+
-  annotate(geom = 'text',x = -3403909,y = 3474170,label = expression('Annual'~CH[4]),size=3)
-#annual.methane.plot
+  annotate(geom = 'text',x = -3454909,y = 3895170,label = expression('Year-Round'~CH[4]),size=3)
+#annual.methane.plot.i
+###################################################################################################
+
+#plot all 8 together
+# png(filename = './figures/figure 1 all.4.scenarios.png',width = 6,height = 9.5,units = 'in',res = 2000)
+# plot_grid(base.plot,base.plot.i,
+#           methane.plot,methane.plot.i,
+#           annual.plot,annual.plot.i,
+#           annual.methane.plot,annual.methane.plot.i,
+#           labels = c('a','e',
+#                      'b','f',
+#                      'c','g',
+#                      'd','h'),label_size = 7,rows = 4)
+# dev.off()
 
 #plot all 4 together
-png(filename = './figures/figure 1 base.all.4.scenarios_presentation.png',width = 6,height = 5,units = 'in',res = 2000)
-plot_grid(base.plot,methane.plot,annual.plot,annual.methane.plot)
+png(filename = './figures/all.4.scenarios_presentation.png',width = 6,height = 5,units = 'in',res = 2000)
+plot_grid(base.plot.i,
+          methane.plot.i,
+          annual.plot.i,
+          annual.methane.plot.i,
+          labels = c('a',
+                     'b',
+                     'c',
+                     'd'),label_size = 7,rows = 2)
 dev.off()

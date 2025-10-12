@@ -41,9 +41,9 @@ length(ss)
 length(ss.f)
 
 plot(eco)
-points(buff,col='red',cex=0.2)
+points(buff,col='green',cex=0.0001)
 points(places.f,col='blue')
-points(ss.f,col='green')
+points(ss.f,col='red')
 
 placesdf = as.data.frame(places.f,row.names = F,xy=T)
 placesdf = placesdf[,c('NAME','SOV0NAME','ADM1NAME','LATITUDE','LONGITUDE','POP_MAX')]
