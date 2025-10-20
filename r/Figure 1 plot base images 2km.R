@@ -167,7 +167,7 @@ annual.plot = ggplot()+theme_map()+
 #annual methane
 annual.methane.plot = ggplot()+theme_map()+
   geom_sf(data = countries,fill='gray',col='gray40')+
-  layer_spatial(annual.ag)+
+  layer_spatial(annual.methane.ag)+
   scale_fill_gradientn('Representativeness',
                        na.value = 'transparent',
                        colours = pal,
@@ -261,7 +261,7 @@ annual.plot.i = ggplot()+theme_map()+
 #annual methane
 annual.methane.plot.i = ggplot()+theme_map()+
   geom_sf(data = countries,fill='gray',col='gray40')+
-  layer_spatial(annual.ag.i)+
+  layer_spatial(annual.methane.ag.i)+
   scale_fill_gradientn('Representativeness',
                        na.value = 'transparent',
                        colours = pal,
@@ -301,7 +301,7 @@ plot_grid(base.plot,base.plot.i,
 dev.off()
 
 #plot all 4 together
-png(filename = './figures/all.4.scenarios.png',width = 6,height = 5,units = 'in',res = 2000)
+png(filename = './figures/all.4.scenarios_2024.png',width = 6,height = 5,units = 'in',res = 2000)
 plot_grid(base.plot.i,
           methane.plot.i,
           annual.plot.i,

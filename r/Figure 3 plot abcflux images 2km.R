@@ -136,7 +136,7 @@ annual.plot = ggplot()+theme_map()+
 #annual methane
 annual.methane.plot = ggplot()+theme_map()+
   geom_sf(data = countries,fill='gray',col='gray40')+
-  layer_spatial(annual.ag)+
+  layer_spatial(annual.methane.ag)+
   scale_fill_gradientn('Representativeness',
                        na.value = 'transparent',
                        colours = pal,
@@ -164,7 +164,7 @@ annual.methane.plot = ggplot()+theme_map()+
 ###################################################################################################
 
 #plot all 8 together
-png(filename = './figures/figure 3 all.4.scenarios.png',width = 6,height = 5,units = 'in',res = 2000)
+png(filename = './figures/figure 3 all.4.scenarios_abc.png',width = 6,height = 5,units = 'in',res = 2000)
 plot_grid(base.plot,
           methane.plot,
           annual.plot,
