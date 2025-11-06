@@ -188,6 +188,7 @@ annual.methane.plot = ggplot()+theme_map()+
 #annual.methane.plot
 ####################################################################################################
 
+
 #base.i
 base.plot.i = ggplot()+theme_map()+
   geom_sf(data = countries,fill='gray',col='gray40')+
@@ -306,6 +307,18 @@ plot_grid(base.plot.i,
           methane.plot.i,
           annual.plot.i,
           annual.methane.plot.i,
+          labels = c('a',
+                     'b',
+                     'c',
+                     'd'),label_size = 7,rows = 2)
+dev.off()
+
+#plot all 4 together
+png(filename = './figures/all.4.scenarios_2022.png',width = 6,height = 5,units = 'in',res = 2000)
+plot_grid(base.plot,
+          methane.plot,
+          annual.plot,
+          annual.methane.plot,
           labels = c('a',
                      'b',
                      'c',

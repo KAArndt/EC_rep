@@ -11,15 +11,15 @@ library(Polychrome)
 sites = fread('./data/pca.towers.base.csv')
 
 #load in the permafrost layer
-pp = rast('./spatial_data/pfrost/UiO_PEX_PERPROB_5.0_20181128_2000_2016_NH/UiO_PEX_PERPROB_5.0_20181128_2000_2016_NH.tif')
+pp = rast('./spatial_data/UiO_PEX_PERPROB_5.0_20181128_2000_2016_NH.tif')
 
 #base Extrapolation index image from TNC shapefile
-eco = vect('./spatial_data/terr-ecoregions-TNC/tnc_terr_ecoregions.shp')
+eco = vect('./spatial_data/Ecoregions2017.shp')
 
 # #subset to rock and ice and tundra and boreal
-eco = subset(eco,eco$WWF_MHTNAM == 'Rock and Ice' |
-               eco$WWF_MHTNAM   == 'Tundra' |
-               eco$WWF_MHTNAM   == 'Boreal Forests/Taiga'
+eco = subset(eco,eco$BIOME_NAME == 'Rock and Ice' |
+               eco$BIOME_NAME   == 'Tundra' |
+               eco$BIOME_NAME   == 'Boreal Forests/Taiga'
                # eco$ECO_NAME     == 'Sayan Alpine Meadows And Tundra' |
                # eco$ECO_NAME     == 'Sayan Montane Conifer Forests' |
                # eco$ECO_NAME     == 'South Siberian Forest Steppe' |
@@ -30,6 +30,7 @@ eco = subset(eco,eco$WWF_MHTNAM == 'Rock and Ice' |
                # eco$ECO_NAME     ==  'Alberta-British Columbia Foothills Forests' |
                # eco$ECO_NAME     ==  'Sayan Intermontane Steppe'
              )
+
 
 #crop to the northern regions
 eco = crop(x = eco,y = c(-180, 180, 40, 83.6236))
@@ -72,9 +73,9 @@ ggplot()+theme_map()+
   scale_x_continuous(limits = c(-5093909,4539289))+
   scale_y_continuous(limits = c(-3523458,4375097))+
   layer_spatial(data = eco,fill='transparent',col='black')+
-  theme(legend.text = element_text(size = 8),
-        legend.title = element_text(size = 8),
-        legend.key.size = unit(x = 0.05,units = 'in'))
+  theme(legend.text = element_text(size = 16),
+        legend.title = element_text(size = 16),
+        legend.key.size = unit(x = 0.1,units = 'in'))
 
 
 km.df = as.data.frame(km40,xy=T,na.rm=T)
