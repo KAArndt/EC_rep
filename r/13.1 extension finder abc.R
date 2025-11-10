@@ -243,19 +243,14 @@ ggplot(data = bars)+theme_bw()+ggtitle('Mean Improvements')+
         legend.direction = 'horizontal')
 
 write.csv(x = bars,file = './data/reductions/meanreduction_abc_gsch4.csv',row.names = F)
+
 ###############################################################################################
 #    YEAR ROUND CO2
 ###############################################################################################
-
 #find columns which are active sites
-testnet = which(abcf$active == 'active' & abcf$Season_Activity == 'All year')
-
 net = which(abcf$active == 'active' & as.numeric(abcf$end_year) >= 2022 & abcf$Season_Activity == 'All year')
 ext = which(abcf$active == 'active' & as.numeric(abcf$end_year) < 2022  & abcf$Season_Activity == 'All year')
-37+17
-tower.data$site[testnet]
-testnet
-net
+
 #create some subsets of the euclidean distance tables for easier calculations
 euci.net = euci[,c(net)]
 euci.ext = euci[,c(ext)]
