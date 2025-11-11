@@ -25,6 +25,11 @@ anme.abc = rast('./output/abc_network/abc_annual_methane_2km.tif')
 clust = rast('./output/clusts.tif')
 clust = clust$km40
 
+#load in ecoregions
+eco = vect('./spatial_data/Ecoregions2017/Ecoregions2017.shp')
+eco = subset(eco,eco$BIOME_NAME == 'Tundra' | eco$BIOME_NAME == 'Boreal Forests/Taiga')
+eco = crop(x = eco,y = c(-180,180,40,90))
+
 #load in countries map to be able to cut out russia
 sf_use_s2(FALSE) #need to run this before next line
 countries = rnaturalearth::ne_countries(returnclass = "sf") %>%
