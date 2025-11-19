@@ -1,0 +1,238 @@
+site,abcflux_name,ADDED,Site_ID,Latitude,Longitude,Country,Contact,Contact_Email,Ecosystem,GHG,Start_CO2,End_CO2,Start_CH4,End_CH4,Start_N2O,End_N2O,Season_Activity,Terrestrial,Aquatic,active,methane
+ARM-AMF3-Oliktok,ARM-NSA-Oliktok,No,US-A03,70.4953,-149.8823,USA,Ryan Sullivan,rcsullivan@anl.gov,barren,"CO2,CH4",2014,2021,2014,2021,NA,NA,All year,TRUE,FALSE,inactive,methane
+ARM-NSA-Barrow,ARM-NSA-Barrow,No,US-A10,71.3242,-156.6149,USA,Ryan Sullivan,rcsullivan@anl.gov,barren,"CO2,CH4",2012,2024,2012,NA,NA,NA,All year,TRUE,FALSE,active,methane
+"Abisko, main tower",Abisko Stordalen birch forest,No,SE-Abi,68.3624,18.7948,Sweden,Torben Christensen,torben.christensen@ecos.au.dk,tundra,CO2,2005,2024,NA,NA,NA,NA,Summer,TRUE,FALSE,active,nonmethane
+Adventdalen,Adventdalen,No,SJ-Adv,78.1854,15.9242,Norway,Torben Christensen,torben.christensen@ecos.au.dk,"tundra, wetland",CO2,2011,2024,NA,NA,NA,NA,All year,TRUE,FALSE,active,nonmethane
+Aemmaessuo,,No,,60.2365,24.5344,Finland,Tuomas Laurila,tuomas.laurila@fmi.fi,urban,"CO2,CH4,N2O",2003,2024,2003,NA,NA,NA,Summer,TRUE,FALSE,active,methane
+Agali Forest Station,,No,,58.2875,27.2835,Estonia,Kaido Soosaar,kaido.soosaar@ut.ee,forest,"CO2,CH4",2017,2024,2017,NA,NA,NA,Summer,TRUE,FALSE,active,methane
+Alberta - Western Peatland - Poor Fen (Sphagnum moss),Alberta - Western Peatland - Poor Fen (Sphagnum moss),No,CA-WP2,55.5375,-112.3343,Canada,Lawrence Flanagan,larry.flanagan@uleth.ca,wetland,CO2,2004,2006,NA,NA,NA,NA,Summer,TRUE,FALSE,inactive,nonmethane
+Alberta - Western Peatland - Rich Fen  (Carex),Alberta - Western Peatland - Rich Fen  (Carex),No,CA-WP3,54.47,-113.32,Canada,Lawrence Flanagan,larry.flanagan@uleth.ca,wetland,CO2,2004,2006,NA,NA,NA,NA,Summer,TRUE,FALSE,inactive,nonmethane
+Alkkia Scots pine forest,,No,FI-Alk,62.1834,22.7842,Finland,Tuomas Laurila,tuomas.laurila@fmi.fi,forest,CO2,2002,2008,NA,NA,NA,NA,Summer,TRUE,FALSE,inactive,nonmethane
+Anaktuvuk River (moderate burn),Aktuvuk River Moderate Burn,No,US-An2,68.95,-150.21,USA,"Adrian Rocha, Donie Bret-Harte, Eugenie Euskirchen","arocha1@nd.edu, msbretharte@alaska.edu, ffese@uaf.edu",tundra,CO2,2008,2024,NA,NA,NA,NA,Summer,TRUE,FALSE,active,nonmethane
+Anaktuvuk River (severe burn),Aktuvuk River Severe Burn,No,US-An1,68.99,-150.28,USA,"Adrian Rocha, Donie Bret-Harte, Eugenie Euskirchen","arocha1@nd.edu, msbretharte@alaska.edu, ffese@uaf.edu",tundra,CO2,2008,2024,NA,NA,NA,NA,Summer,TRUE,FALSE,active,nonmethane
+Anaktuvuk River (unburned),Aktuvuk River Unburned,No,US-An3,68.93,-150.27,USA,"Adrian Rocha, Donie Bret-Harte, Eugenie Euskirchen","arocha1@nd.edu, msbretharte@alaska.edu, ffese@uaf.edu",tundra,CO2,2008,2024,NA,NA,NA,NA,Summer,TRUE,FALSE,active,nonmethane
+Andoya,Andoya,No,NO-And,69.1428,16.0222,Norway,"Daniel Rasse, Magnus Lund","Daniel.Rasse@bioforsk.no, ml@bios.au.dk",wetland,"CO2,CH4",2008,2014,NA,NA,NA,NA,Summer,TRUE,FALSE,inactive,methane
+"Athabasca, poor fen",,No,,55.5375,-112.335,Canada,Lawrence Flanagan,larry.flanagan@uleth.ca,wetland,CO2,2004,2006,NA,NA,NA,NA,Summer,TRUE,FALSE,inactive,nonmethane
+"Athabasca, rich fen",,No,,54.47,-113.32,Canada,Lawrence Flanagan,larry.flanagan@uleth.ca,wetland,CO2,2004,2006,NA,NA,NA,NA,Summer,TRUE,FALSE,inactive,nonmethane
+Atqasuk,Atqasuk,No,US-Atq,70.4696,-157.4089,USA,"Walter Oechel, Donatella Zona","woechel@mail.sdsu.edu, dzona@mail.sdsu.edu","tundra, wetland","CO2,CH4",2004,2024,2013,NA,NA,NA,All year,TRUE,FALSE,active,methane
+Attawapiskat River Bog,Attawapiskat River Bog,No,CA-ARB,52.695,-83.9452,Canada,"Elyn Humphreys, Aaron Todd","elyn.humphreys@carleton.ca, aaron.todd@ontario.ca",wetland,"CO2,CH4",2010,2024,NA,NA,NA,NA,Summer,TRUE,FALSE,active,methane
+Attawapiskat River Fen,Attawapiskat River Fen,No,CA-ARF,52.7008,-83.955,Canada,"Elyn Humphreys, Aaron Todd","elyn.humphreys@carleton.ca, aaron.todd@ontario.ca",wetland,"CO2,CH4",2010,2024,NA,NA,NA,NA,Summer,TRUE,FALSE,active,methane
+Barrow,Barrow-CMDL,No,US-Brw,71.3225,-156.6259,USA,"Walter Oechel, Donatella Zona","woechel@mail.sdsu.edu, dzona@mail.sdsu.edu",tundra,"CO2,CH4",1998,2024,NA,NA,NA,NA,All year,TRUE,FALSE,active,methane
+Barrow-BEO,Barrow-BEO,No,US-Beo,71.281,-156.6259,USA,"Walter Oechel, Donatella Zona","woechel@mail.sdsu.edu, dzona@mail.sdsu.edu",tundra,"CO2,CH4",2000,2024,2000,NA,NA,NA,All year,TRUE,FALSE,active,methane
+Barrow-BES,Barrow-BES,No,US-Bes,71.2809,-156.5965,USA,"Walter Oechel, Donatella Zona","woechel@mail.sdsu.edu, dzona@mail.sdsu.edu",tundra,"CO2,CH4",2005,2024,2013,NA,NA,NA,All year,TRUE,FALSE,active,methane
+"Bayelva, Spitsbergen","Bayelva, Spitsbergen",No,NO-Blv,78.9216,11.8311,Norway,Julia Boike,julia.boike@awi.de,"tundra, barren",CO2,2008,2024,NA,NA,NA,NA,All year,TRUE,FALSE,active,nonmethane
+Bethel,,No,,61.0902,-162.0153,USA,NA,NA,tundra,"CO2,CH4",1988,1988,1988,1988,NA,NA,Summer,TRUE,FALSE,inactive,methane
+Bonanza Creek Black Spruce,Bonza Creek Black Spruce,No,US-BZS,64.6964,-148.3235,USA,"Eugenie Euskirchen, Colin Edgar","seeuskirchen@alaska.edu, cedgar3@alaska.edu",forest,"CO2,CH4",2010,2024,2015,2016,NA,NA,Summer,TRUE,FALSE,active,methane
+Bonanza Creek Fen,Bonza Creek Rich Fen,No,US-BZF,64.7037,-148.3133,USA,"Eugenie Euskirchen, Colin Edgar","seeuskirchen@alaska.edu, cedgar3@alaska.edu",wetland,"CO2,CH4",2011,2024,2014,NA,NA,NA,All year,TRUE,FALSE,active,methane
+Bonanza Creek Old Thermokarst Bog,Bonza Creek Old Thermokarst Bog,No,US-BZo,64.6936,-148.33,USA,Eugenie Euskirchen,seeuskirchen@alaska.edu,wetland,"CO2,CH4",2018,2024,2018,NA,NA,NA,Summer,TRUE,FALSE,active,methane
+"Bonanza Creek, 1920 Burn site near Delta Junction",Delta Junction  evergreen conifer forest,No,US-Bn1,63.8881,-145.7394,USA,Jim Randerson,jranders@uci.edu,forest,CO2,2003,2004,NA,NA,NA,NA,Summer,TRUE,FALSE,inactive,nonmethane
+"Bonanza Creek, 1987 Burn site near Delta Junction",Delta Junction deciduous broadleaf forest,No,US-Bn2,63.9178,-145.3731,USA,Jim Randerson,jranders@uci.edu,forest,CO2,2002,2024,NA,NA,NA,NA,Summer,TRUE,FALSE,active,nonmethane
+"Bonanza Creek, 1999 Burn site near Delta Junction",,No,US-Bn3,63.9217,-145.7456,USA,Jim Randerson,jranders@uci.edu,forest,CO2,2003,2024,NA,NA,NA,NA,Summer,TRUE,FALSE,active,nonmethane
+Bouleau Peatland,Bouleau peatland,No,CA-BOUL,50.5244,-63.2064,Canada,Pierre Taillardat,taillardat.pierre@nus.edu.sg,wetland,"CO2,CH4",2018,2020,2018,2020,NA,NA,All year,TRUE,FALSE,inactive,methane
+"Cambridge Bay, Victoria Island, mesic",Cambridge Bay - Mesic,No,,69.2221,-104.8986,Canada,Alexandre Roy,Alexandre.Roy@uqtr.ca,tundra,"CO2,CH4",2022,2024,2022,NA,NA,NA,All year,TRUE,FALSE,active,methane
+"Cambridge Bay, Victoria Island, wetland",,No,,69.2346,-104.9033,Canada,Alexandre Roy,Alexandre.Roy@uqtr.ca,"wetland, tundra","CO2,CH4",2022,2024,2022,NA,NA,NA,All year,TRUE,FALSE,active,methane
+Cape Bounty,Cape Bounty,No,,74.917,-109.563,Canada,Elyn Humphreys,elyn.humphreys@carleton.ca,tundra,CO2,2008,2024,NA,NA,NA,NA,Summer,TRUE,FALSE,active,nonmethane
+Cascade Ridge,Cascaden Ridge Fire Scar,No,US-Fcr,65.3968,-148.9348,USA,Masahito Ueyama,miyabi-flux@muh.biglobe.ne.jp,forest,CO2,2011,2014,NA,NA,NA,NA,All year,TRUE,FALSE,inactive,nonmethane
+Central Marsh,Central Marsh,No,US-CMS,71.3202,-156.6223,USA,"Masahito Ueyama, Walter Oechel, Donatella Zona","miyabi-flux@muh.biglobe.ne.jp, dzona@mail.sdsu.edu, woechel@mail.sdsu.edu",wetland,"CO2,CH4",1999,2005,1999,2005,NA,NA,All year,TRUE,FALSE,inactive,methane
+"Chersky, Pleistocene Park",Cherskii ecotone,No,,68.5135,161.5312,Russia,"Eugenie Euskirchen, Colin Edgar","seeuskirchen@alaska.edu, cedgar3@alaska.edu",forest,CO2,2008,2024,NA,NA,NA,NA,All year,TRUE,FALSE,active,nonmethane
+"Chersky, control",Cherskii reference,No,RU-Ch2,68.6169,161.3509,Russia,Mathias Goeckede,mgoeck@bgc-jena.mpg.de,wetland,"CO2,CH4",2013,2024,2014,NA,NA,NA,All year,TRUE,FALSE,active,methane
+"Chersky, drained",,No,RU-Che,68.613,161.3414,Russia,Mathias Goeckede,mgoeck@bgc-jena.mpg.de,wetland,"CO2,CH4",2013,2024,2014,NA,NA,NA,All year,TRUE,FALSE,active,methane
+Chokurdakh/Kytalyk,"Kytalyk, Russia",No,RU-Cok,70.8291,147.4943,Russia,"Joshua Dean, Han Dolman","han.dolman@vu.nl, j.f.dean@vu.nl","tundra, shrubland","CO2,CH4",2003,2024,2008,2018,NA,NA,Summer,TRUE,FALSE,active,methane
+Chukotka,,No,RU-Cuk,65.5948,171.0525,Russia,"Walter Oechel, Dimitri Zamolodchikov","woechel@mail.sdsu.edu, dzamolod@cepl.rssi.ru",shrubland,CO2,2001,2005,NA,NA,NA,NA,Summer,TRUE,FALSE,inactive,nonmethane
+Churchill Fen,Churchill Fen 3,No,,58.6658,-93.83,Canada,Kyle Arndt,karndt@woodwellclimate.org,wetland,"CO2,CH4",2022,2024,2022,NA,NA,NA,All year,TRUE,FALSE,active,methane
+Council (NGEE Arctic),"Council, Alaska",No,US-NGC,64.8614,-163.7007,USA,Sigrid Dengel,sdengel@lbl.gov,tundra,"CO2,CH4",2012,2024,2012,2019,NA,NA,Summer,TRUE,FALSE,inactive,methane
+Council (Permafrost Pathways),Council Alaska Tundra,Yes,US-CAK,64.86138889,-163.7007222,USA,Kyle Arndt,karndt@woodwellclimate.org,tundra,"CO2,CH4",2024,2024,2024,2024,NA,NA,All year,TRUE,FALSE,active,methane
+"Council, Alaska","Council, Alaska",No,,64.844,-163.711,USA,Sang-Jong Park,sangjong@kopri.re.kr,tundra,CO2,2012,2024,NA,NA,NA,NA,Summer,TRUE,FALSE,active,nonmethane
+Daring Lake,Daring Lake,No,CA-Da1,64.8689,-111.5748,Canada,Elyn Humphreys,elyn.humphreys@carleton.ca,shrubland,CO2,2004,2024,NA,NA,NA,NA,Summer,TRUE,FALSE,active,nonmethane
+Daring Lake (Fen),,No,CA-DL2,64.8648,-111.5677,Canada,Peter Lafleur,plafleur@trentu.ca,wetland,"CO2,CH4",2006,2024,NA,NA,NA,NA,Summer,TRUE,FALSE,active,methane
+Daring Lake (dwarf shrub),,No,CA-DL3,64.8722,-111.5486,Canada,Elyn Humphreys,elyn.humphreys@carleton.ca,tundra,CO2,2008,2024,NA,NA,NA,NA,Summer,TRUE,FALSE,active,nonmethane
+Daring Lake (low shrub),,No,CA-DL4,64.8631,-111.65,Canada,Elyn Humphreys,elyn.humphreys@carleton.ca,tundra,CO2,2010,2024,NA,NA,NA,NA,Summer,TRUE,FALSE,active,nonmethane
+Daring Lake (mixed tundra),,No,CA-DL1,64.8648,-111.5677,Canada,"Elyn Humphreys, Peter Lafleur","elyn.humphreys@carleton.ca, plafleur@trentu.ca",tundra,"CO2,CH4",2006,2024,2009,NA,NA,NA,Summer,TRUE,FALSE,active,methane
+Dark conifer site (ZE),,No,RU-ZE,61.0167,89.8167,Russia,Anatoly Prokushkin,"alexey.v.panov@gmail.com, prokushkin@ksc.krasn.ru",forest,"CO2,CH4",2015,2024,2015,NA,NA,NA,All year,TRUE,FALSE,active,methane
+Dasan Station site,,No,,78.9219,11.8658,Norway,"Taejin Choi, Bang Yong Lee","ctjin@kopri.re.kr, bylee@kopri.re.kr",NA,CO2,2013,2019,NA,NA,NA,NA,All year,TRUE,FALSE,inactive,nonmethane
+Degero Stormyr,Degero,No,SE-Deg,64.182,19.5565,Sweden,Mats Nilsson,Mats.B.Nilsson@slu.se,wetland,"CO2,CH4",2001,2024,2014,2018,NA,NA,All year,TRUE,FALSE,active,methane
+Eastern Old Black Spruce (EOBS),"Quebec - Eastern Boreal, Mature Black Spruce",No,CA-Qfo,49.6925,-74.342,Canada,Hank A. Margolis,Hank.Margolis@sbf.ulaval.ca,forest,CO2,2003,2010,NA,NA,NA,NA,Summer,TRUE,FALSE,inactive,nonmethane
+"Eight Mile Lake Permafrost thaw gradient, Healy",Eight Mile Lake,No,US-EML,63.8783,-149.2533,USA,Edward A. G. Schuur,Ted.Schuur@nau.edu,tundra,"CO2,CH4",2008,2024,2015,2019,NA,NA,All year,TRUE,FALSE,active,methane
+Elgeeii,Elgeeii forest station,No,RU-Elg,60.016,133.824,Russia,Ayumi Kotani,kotani@agr.nagoya-u.ac.jp,forest,CO2,2010,2012,NA,NA,NA,NA,Summer,TRUE,FALSE,inactive,nonmethane
+Faejemyr,Faejemyr,No,SE-Faj,56.2655,13.5535,Sweden,Marcin Jackowicz-Korczynski,mjk@ecos.au.dk,wetland,"CO2,CH4",2005,2024,2008,NA,NA,NA,Summer,TRUE,FALSE,active,methane
+Finse,Finse west,No,NO-Fns,60.5939,7.5272,Norway,John F. Burkhart,john.burkhart@geo.uio.no,"wetland, shrubland",CO2,2017,2024,NA,NA,NA,NA,Summer,TRUE,FALSE,active,nonmethane
+Finse Mobile,,No,,60.5939,7.5272,Norway,John F. Burkhart,john.burkhart@geo.uio.no,grassland,CO2,2017,2024,NA,NA,NA,NA,Summer,TRUE,FALSE,active,nonmethane
+Fish Island,Fish Island,No,,69.3723,-134.8811,Canada,Andreas Christen,andreas.christen@meteo.uni-freiburg.de,"tundra, wetland","CO2,CH4",2017,2017,2017,2017,NA,NA,Summer,TRUE,FALSE,inactive,methane
+Flakaliden,Flakaliden,No,SE-Fla,64.1167,19.45,Sweden,"Achim Grelle, Anders Lindroth","achim.grelle@lnu.se, Anders.Lindroth@nateko.lu.se",forest,CO2,1996,2024,NA,NA,NA,NA,All year,TRUE,FALSE,active,nonmethane
+Focal Campaign Site 1,Flux Observations of Carbon from an Airborne Laboratory (FOCAL) Campaign Site 1,Yes,US-FO1,70.085,-148.5671,USA,Praveena Krishnan,praveena.krishnan@noaa.gov ,unknown,"CO2,CH4",2022,2024,2022,2024,NA,NA,Summer,TRUE,FALSE,active,methane
+Focal Campaign Site 2,Flux Observations of Carbon from an Airborne Laboratory (FOCAL) Campaign Site 2,Yes,US-FO2,70.0229,-148.6598,USA,Praveena Krishnan,praveena.krishnan@noaa.gov ,unknown,"CO2,CH4",2022,2024,2022,2024,NA,NA,Summer,TRUE,FALSE,active,methane
+Fyodorovskoye,Fyodorovskoye,No,Ru-Fyo,56.4615,32.9221,Russia,Andrej Varlagin,varlagin@sevin.ru,forest,"CO2,CH4",1998,2024,2015,NA,NA,NA,All year,TRUE,FALSE,active,methane
+Fyodorovskoye dry spruce,Fyodorovskoye2,No,RU-Fy2,56.4476,32.9019,Russia,Andrej Varlagin,varlagin@sevin.ru,forest,"CO2,CH4",2015,2024,NA,NA,NA,NA,All year,TRUE,FALSE,active,methane
+Groundhog River,"Ontario - Groundhog River, Boreal Mixedwood Forest",No,CA-Gro,48.2173,-82.1555,Canada,Harry McCaughey,mccaughe@queensu.ca,forest,CO2,2003,2024,NA,NA,NA,NA,Summer,TRUE,FALSE,active,nonmethane
+Gunnarsholt,Gunrsholt,No,IS-Gun,63.8333,-20.2167,Iceland,Jon Gudmundsson,jong@lbhi.is,forest,CO2,1996,1998,NA,NA,NA,NA,Summer,TRUE,FALSE,inactive,nonmethane
+HJP02 Jack Pine,HJP02 Jack Pine,No,CA-HJP02,53.945,-104.649,Canada,Manasah S. Mkhabela,Brian_Amiro@umanitoba.ca,forest,CO2,2004,2004,NA,NA,NA,NA,Summer,TRUE,FALSE,inactive,nonmethane
+HJP75 Jack Pine,HJP75 Jack Pine,No,CA-HJP75,53.876,-104.645,Canada,Manasah S. Mkhabela,Brian_Amiro@umanitoba.ca,forest,CO2,2004,2004,NA,NA,NA,NA,Summer,TRUE,FALSE,inactive,nonmethane
+HJP94 Jack Pine,HJP94 Jack Pine,No,CA-HJP94,53.908,-104.649,Canada,Manasah S. Mkhabela,Brian_Amiro@umanitoba.ca,forest,CO2,2004,2004,NA,NA,NA,NA,Summer,TRUE,FALSE,inactive,nonmethane
+Hakasia 10 yr,Hakasia 10 yr,Yes,,54.70455,90.07785,Russia,NA,NA,NA,CO2,2004,2004,NA,NA,NA,NA,Summer,TRUE,FALSE,inactive,nonmethane
+Hakasia 5yr,Hakasia 5yr,Yes,,54.77301,89.95664,Russia,NA,NA,NA,CO2,2002,2003,NA,NA,NA,NA,Summer,TRUE,FALSE,inactive,nonmethane
+Hakasia Steppe,Hakasia Steppe,No,RU-Ha1,54.7252,90.0022,Russia,"Luca Belelli, Dario Papale","l.belellimarchesini@vu.nl, darpap@unitus.it",forest,CO2,2002,2004,NA,NA,NA,NA,Summer,TRUE,FALSE,inactive,nonmethane
+Halmyran,Halmyran,Yes,,64.16,19.56924,Sweden,NA,NA,NA,"CO2,CH4",2020,2024,NA,NA,NA,NA,All year,TRUE,FALSE,active,methane
+Halsingfors mire,Halsingfors mire,Yes,,64.15956,19.5515,Sweden,NA,NA,NA,"CO2,CH4",2020,2024,NA,NA,NA,NA,All year,TRUE,FALSE,active,methane
+Halssiaapa,,No,,67.3686,26.6541,Finland,"Tuomas Laurila, Mika Aurela","tuomas.laurila@fmi.fi, mika.aurela@fmi.fi",wetland,"CO2,CH4",2012,2024,2012,2012,NA,NA,Summer,TRUE,FALSE,active,methane
+Happy Valley,Happy Valley,No,US-Hva,69.1423,-148.8412,USA,Walter Oechel,woechel@mail.sdsu.edu,tundra,CO2,1993,1995,NA,NA,NA,NA,Summer,TRUE,FALSE,inactive,nonmethane
+Happy Valley Wet Sedge Tundra,Happy Valley Wet Sedge Tundra,No,US-HVs,69.1667,-148.85,USA,Masahito Ueyama,miyabi-flux@muh.biglobe.ne.jp,tundra,"CO2,CH4",1995,1995,1999,2005,NA,NA,All year,TRUE,FALSE,inactive,methane
+Havikpak Creek,Havikpak Creek,No,CA-HPC,68.3206,-133.5178,Canada,"Oliver Sonnentag, Manuel Helbig","oliver.sonnentag@umontreal.ca, manuel.helbig@mail.mcgill.ca",forest,"CO2,CH4",2013,2024,NA,NA,NA,NA,Summer,TRUE,FALSE,active,methane
+Hurdal,,No,NO-Hur,60.3724,11.0781,Norway,Holger Lange,holger.lange@nibio.no,forest,CO2,2017,2024,NA,NA,NA,NA,Summer,TRUE,FALSE,active,nonmethane
+Hustai grassland,Hustai grassland,Yes,,47.594131,105.856439,Mongolia,NA,NA,NA,CO2,2015,2020,NA,NA,NA,NA,All year,TRUE,FALSE,inactive,nonmethane
+Hyltemossa,Hyltemossa,No,SE-Htm,56.0976,13.419,Sweden,Michal Heliasz,Michal.Heliasz@cec.lu.se,forest,CO2,2015,2024,NA,NA,NA,NA,Summer,TRUE,FALSE,active,nonmethane
+Hyytiaelae,Hyytiala,No,FI-Hyy,61.8474,24.2948,Finland,"Ivan Mammarella, Timo Vesala","ivan.mammarella@helsinki.fi, timo.vesala@helsinki.fi",forest,"CO2,CH4",1996,2024,2016,2021,NA,NA,All year,TRUE,FALSE,active,methane
+Hyytiaelae Clear Cut,,No,FI-Hy2,61.8439,24.3043,Finland,Narasinha Shurpali,narasinha.shurpali@uef.fi,barren,CO2,2011,2016,2011,2016,NA,NA,Summer,TRUE,FALSE,inactive,nonmethane
+Igarka,Igarka,No,RU-Iga,67.5,86.5,Russia,Anatoly Prokushkin,prokushkin@ksc.krasn.ru,"forest, tundra","CO2,CH4",2016,2024,2016,NA,NA,NA,Summer,TRUE,FALSE,active,methane
+Illisarvik,Illisarvik,No,,69.4799,-134.5885,Canada,Andreas Christen,andreas.christen@meteo.uni-freiburg.de,"tundra, wetland, shrubland, grassland, barren","CO2,CH4",2016,2016,2016,2016,NA,NA,Summer,TRUE,FALSE,inactive,methane
+"Imnavait, Alaska heath tundra",Imvait Creek Watershed Heath Tundra,No,US-Ich,68.607,-149.296,USA,Eugenie Euskirchen,seeuskirchen@alaska.edu,tundra,CO2,2007,2024,NA,NA,NA,NA,All year,TRUE,FALSE,active,nonmethane
+"Imnavait, Alaska tussock tundra",Imvait Creek Watershed Tussock Tundra,No,US-ICT,68.606,-149.304,USA,Eugenie Euskirchen,seeuskirchen@alaska.edu,tundra,CO2,2007,2024,NA,NA,NA,NA,All year,TRUE,FALSE,active,nonmethane
+"Imnavait, Alaska wet sedge tundra",Imvait Creek Watershed Wet Sedge Tundra,No,US-Ics,68.606,-149.311,USA,Eugenie Euskirchen,seeuskirchen@alaska.edu,tundra,"CO2,CH4",2007,2024,2012,2020,NA,NA,All year,TRUE,FALSE,active,methane
+Iqaluit (PP),Iqaluit Tundra,Yes,,63.75074721,-68.42846835,Canada,Elyn Humphreys,ElynHumphreys@cunet.carleton.ca,tundra,"CO2,CH4",2023,2024,2023,2024,NA,NA,All year,TRUE,FALSE,active,methane
+Iskoras,Iskoras,No,,69.57,25.5,Norway,Norbert Pirk,norbert.pirk@geo.uio.no,"wetland, lake","CO2,CH4",2019,2024,2019,NA,NA,NA,All year,TRUE,TRUE,active,methane
+Ivotuk,Ivotuk,No,US-Ivo,68.4865,-155.7502,USA,"Walter Oechel, Donatella Zona","woechel@mail.sdsu.edu, dzona@mail.sdsu.edu",tundra,"CO2,CH4",2004,2024,2013,NA,NA,NA,All year,TRUE,FALSE,active,methane
+James Bay Lowlands,,No,,53.6744,-78.1706,Canada,Daniel Nadeau,Daniel.nadeau@gci.ulaval.ca,wetland,"CO2,CH4",2012,2012,2012,2012,NA,NA,Summer,TRUE,FALSE,inactive,methane
+Jokioinen agricultural field,,No,FI-Jok,60.8986,23.5135,Finland,Tuomas Laurila,tuomas.laurila@fmi.fi,cropland,CO2,2000,2003,NA,NA,NA,NA,Summer,TRUE,FALSE,inactive,nonmethane
+Kaamanen wetland,Kaamanen,No,FI-Kaa,69.1406,27.2698,Finland,"Mika Aurela, Tuomas Laurila","mika.aurela@fmi.fi, tuomas.laurila@fmi.fi",wetland,"CO2,CH4",1997,2013,2011,2013,NA,NA,All year,TRUE,FALSE,inactive,methane
+Kalevansuo,Kalevansuo,No,FI-Kns,60.6468,24.3562,Finland,Tuomas Laurila,tuomas.laurila@fmi.fi,"forest, wetland","CO2,N2O",2004,2009,NA,NA,NA,NA,Summer,TRUE,FALSE,inactive,nonmethane
+Kangiqsuallujjuaq,,Yes,,58.71096767,-65.88109874,Canada,Alexandre Roy,NA,shrubland,"CO2,CH4",2024,2024,2024,2024,NA,NA,All year,TRUE,FALSE,active,methane
+Kaskara Crop,,No,RU-KsC,57.2515,65.9693,Russia,Elisa Fleischer,elisa.fleischer@uni-muenster.de,grassland,"CO2,CH4",2013,2013,2013,2013,NA,NA,Summer,TRUE,FALSE,inactive,methane
+Kenttarova,Kenttarova,No,FI-Ken,67.9873,24.243,Finland,"Tuomas Laurila, Mika Aurela","tuomas.laurila@fmi.fi, mika.aurela@fmi.fi",forest,CO2,2004,2024,NA,NA,NA,NA,All year,TRUE,FALSE,active,nonmethane
+Kherlenbayan Ulaan,Kherlenbayan Ulaan,Yes,,47.213972,108.737333,Mongolia,NA,NA,NA,CO2,2003,2008,NA,NA,NA,NA,All year,TRUE,FALSE,inactive,nonmethane
+Kilpisjaervi,,No,,69.0629,20.7975,Finland,"Anna-Maria Virkkala, Annalea Lohila, Ivan Mammarella","avirkkala@woodwellclimate.org, annalea.lohila@fmi.fi, ivan.mammarella@helsinki.fi",tundra,CO2,2023,2024,NA,NA,NA,NA,All year,TRUE,FALSE,active,nonmethane
+Kinoje Lake,,No,CA-KLP,51.5902,-81.7686,Canada,"Elyn Humphreys, Aaron Todd","elyn.humphreys@carleton.ca, aaron.todd@ontario.ca",wetland,CO2,2009,2024,NA,NA,NA,NA,All year,TRUE,FALSE,active,nonmethane
+Knottasen,Knottasen,No,SE-Kno,60.9983,16.2173,Sweden,Anders Lindroth,Anders.Lindroth@nateko.lu.se,forest,CO2,2004,2024,NA,NA,NA,NA,Summer,TRUE,FALSE,active,nonmethane
+Kobbefjord,,No,GL-kbf,64.1382,-51.3784,Greenland,Thomas Friborg,tfj@ign.ku.dk,"tundra, wetland, shrubland",CO2,2008,2016,NA,NA,NA,NA,Summer,TRUE,FALSE,inactive,nonmethane
+Kumpula,,No,FI-Kmp,60.2029,24.961,Finland,Leena Jaervi,leena.jarvi@helsinki.fi,urban,"CO2,N2O",2006,2024,NA,NA,NA,NA,Summer,TRUE,FALSE,active,nonmethane
+La Biche River,"Alberta - Western Peatland - LaBiche River,Black Spruce,Larch Fen",No,CA-WP1,54.9538,-112.467,Canada,Lawrence Flanagan,larry.flanagan@uleth.ca,wetland,CO2,2003,2024,NA,NA,NA,NA,Summer,TRUE,FALSE,active,nonmethane
+La Romaine Hydroelectrix Complex - Boreal forest,Bernard spruce-moss valley,No,,50.9021,-63.4051,Canada,Daniel Nadeau,Daniel.nadeau@gci.ulaval.ca,forest,"CO2,CH4",2018,2024,2021,NA,NA,NA,All year,TRUE,FALSE,active,methane
+Lac Le Caron,"Lac Le Caron peatland, an ombrotrophic bog",No,CA-LLC,52.2903,-75.8375,Canada,Ian Strachan,ian.strachan@queensu.ca,wetland,CO2,2008,2012,NA,NA,NA,NA,All year,TRUE,FALSE,inactive,nonmethane
+Lettosuo,Lettosuo,No,FI-Let,60.6418,23.9597,Finland,Tuomas Laurila,tuomas.laurila@fmi.fi,forest,CO2,2009,2024,NA,NA,NA,NA,Summer,TRUE,FALSE,active,nonmethane
+Lily Lake Fen,Lily Lake Fen,No,US-KPL,60.5382,-150.5061,USA,Patrick Sullivan,pfsullivan@alaska.edu,"wetland, grassland","CO2,CH4",2021,2024,2021,NA,NA,NA,Summer,TRUE,FALSE,active,methane
+Ljusdal_HY,Ljusdal_HY,Yes,,61.937,15.483,Sweden,NA,NA,NA,CO2,2019,2022,NA,NA,NA,NA,Summer,TRUE,FALSE,inactive,nonmethane
+Ljusdal_SLM,Ljusdal_SLM,Yes,,61.938,15.427,Sweden,NA,NA,NA,CO2,2020,2022,NA,NA,NA,NA,All year,TRUE,FALSE,inactive,nonmethane
+Lompolojankka,Lompolojankka,No,FI-Lom,67.9973,24.2091,Finland,"Annalea Lohila,  Tuomas Laurila","annalea.lohila@fmi.fi, tuomas.laurila@fmi.fi",wetland,"CO2,CH4",2007,2024,2007,2012,NA,NA,All year,TRUE,FALSE,active,methane
+Lutose,Lutose,No,CA-LUT,59.4405,-117.2422,Canada,Christopher Schulze,cschulze@ualberta.ca,wetland,"CO2,CH4",2019,2024,NA,NA,NA,NA,All year,TRUE,FALSE,active,methane
+Lutose Rich Fen,,Yes,,59.26100915,-117.420947,Canada,Fiona Kurylowicz,fkurylow@ualberta.ca,wetland,"CO2,CH4",2024,2024,2024,2024,NA,NA,All year,TRUE,FALSE,inactive,methane
+Maaninka,,No,,63.1635,27.2342,Finland,Timo Vesala,timo.vesala@helsinki.fi,cropland,"CO2,N2O",2011,2011,NA,NA,2011,2011,Summer,TRUE,FALSE,inactive,nonmethane
+Mader,,No,,68.8331,23.9126,Finland,Timo Kumpula,timo.kumpula@uef.fi,wetland,CO2,2021,2024,NA,NA,NA,NA,Summer,TRUE,FALSE,active,nonmethane
+"Manitoba, Northern Old Black Spruce (BOREAS)",Manitoba - Northern Old Black Spruce (former BOREAS Northern Study Area),No,CA-Man,55.8796,-98.4808,Canada,"Brian Amiro, Steve Wofsy","Brian_Amiro@umanitoba.ca, swofsy@seas.harvard.edu",forest,CO2,1994,2008,NA,NA,NA,NA,All year,TRUE,FALSE,inactive,nonmethane
+Marcell Experimental Forest,,No,,47.5333,-93.4667,USA,Narasinha Shurpali,narasinha.shurpali@uef.fi,wetland,CO2,1991,1992,NA,NA,NA,NA,Summer,TRUE,FALSE,inactive,nonmethane
+Mongolia,,No,MO-UFRS,48.2733,106.8508,Mongolia,Shin Miyazaki,miyashin@iis.u-tokyo.ac.jp,forest,CO2,2010,2010,NA,NA,NA,NA,Summer,TRUE,FALSE,inactive,nonmethane
+Montmorency Forest juvenile,,Yes,,47.28945,-71.16792,Canada,Daniel Nadeu,NA,forest,CO2,2015,2024,NA,NA,NA,NA,Summer,TRUE,FALSE,active,nonmethane
+Montmorency Forest sapling,,Yes,,47.284458,-71.151867,Canada,Daniel Nadeu,NA,forest,CO2,2015,2024,NA,NA,NA,NA,Summer,TRUE,FALSE,active,nonmethane
+Mukhrino,Mukhrino,No,,60.8913,68.6763,Russia,"Ivan Mammarella, Pavel Alekseychik","ivan.mammarella@helsinki.fi, pavel.alekseychik@helsinki.fi",wetland,CO2,2015,2024,NA,NA,NA,NA,Summer,TRUE,FALSE,active,nonmethane
+NEON Barrow Environmental Observatory (BARR),NEON Barrow Environmental Observatory (BARR),No,US-xBA,71.2824,-156.6194,USA,National Ecological Observatory Network,neon-ameriflux@battelleecology.org,wetland,CO2,2017,2024,NA,NA,NA,NA,Summer,TRUE,FALSE,active,nonmethane
+NEON Caribou Creek - Poker Flats Watershed (BONA),NEON Caribou Creek - Poker Flats Watershed (BO),No,US-xBN,65.154,-147.5026,USA,National Ecological Observatory Network,neon-ameriflux@battelleecology.org,forest,CO2,2017,2024,NA,NA,NA,NA,Summer,TRUE,FALSE,active,nonmethane
+NEON Delta Junction (DEJU),NEON Delta Junction (DEJU),No,US-xDJ,63.8811,-145.7514,USA,National Ecological Observatory Network,neon-ameriflux@battelleecology.org,forest,CO2,2017,2024,NA,NA,NA,NA,Summer,TRUE,FALSE,active,nonmethane
+NEON Healy (HEAL),NEON Healy (HEAL),No,US-xHE,63.8757,-149.2133,USA,National Ecological Observatory Network,neon-ameriflux@battelleecology.org,shrubland,CO2,2017,2024,NA,NA,NA,NA,Summer,TRUE,FALSE,active,nonmethane
+NEON Toolik (TOOL),,No,US-xTL,68.6611,-149.3705,USA,National Ecological Observatory Network,neon-ameriflux@battelleecology.org,"tundra, wetland",CO2,2017,2024,NA,NA,NA,NA,Summer,TRUE,FALSE,active,nonmethane
+NGEE Arctic Barrow,NGEE Arctic Barrow,No,US-NGB,71.28,-156.6092,USA,Sigrid Dengel,sdengel@lbl.gov,tundra,"CO2,CH4",2012,2024,2012,2019,NA,NA,Summer,TRUE,FALSE,active,methane
+Nalaikh grassland,Nalaikh grassland,Yes,,47.693592,107.489342,Mongolia,NA,NA,NA,CO2,2015,2020,NA,NA,NA,NA,All year,TRUE,FALSE,inactive,nonmethane
+Nelegel,Nelegel,Yes,,62.31583333,129.4997222,Russia,NA,NA,NA,CO2,2000,2006,NA,NA,NA,NA,Summer,TRUE,FALSE,inactive,nonmethane
+Neleger,Nelegel,No,RU-NEL,62.0833,129.75,Russia,Takashi Machimura,mach@see.eng.osaka-u.ac.jp,forest,CO2,2000,2006,NA,NA,NA,NA,Summer,TRUE,FALSE,inactive,nonmethane
+Neleger Burnt Forest,Neleger Burnt Forest,Yes,,62.325937,129.487342,Russia,NA,NA,NA,CO2,1999,2000,NA,NA,NA,NA,Summer,TRUE,FALSE,inactive,nonmethane
+Neleger Cutover,Neleger Cutover,Yes,,62.314844,129.500075,Russia,NA,NA,NA,CO2,2001,2006,NA,NA,NA,NA,Summer,TRUE,FALSE,inactive,nonmethane
+Neleger larch forest,Neleger larch forest,Yes,,62.315615,129.499964,Russia,NA,NA,NA,CO2,2000,2006,NA,NA,NA,NA,Summer,TRUE,FALSE,inactive,nonmethane
+Norunda,Norunda,No,SE-Nor,60.0864,17.4795,Sweden,"Meelis Moelder, Anders Lindroth","meelis.molder@live.se, meelis.molder@nateko.lu.se, Anders.Lindroth@nateko.lu.se",forest,CO2,2007,2024,NA,NA,NA,NA,All year,TRUE,FALSE,active,nonmethane
+Nuuk Fen,Nuuk Fen,No,GL-NuF,64.1308,-51.3861,Greenland,"Birger Hansen, Efren Lopez-Blanco","buh@ign.ku.dk, elb@ecos.au.dk",wetland,CO2,2008,2024,NA,NA,NA,NA,Summer,TRUE,FALSE,active,nonmethane
+"Oulanka, Puukkosuo fen",,No,FI-OuF,66.3702,29.3208,Finland,"Torben Christensen, Efren Lopez-Blanco, Marcin Jackowicz-Korczynski","torben.christensen@ecos.au.dk, elb@ecos.au.dk, mjk@ecos.au.dk",wetland,"CO2,CH4",2022,2024,2022,NA,NA,NA,Summer,TRUE,FALSE,active,methane
+Petite Riviere (Baie Comeau),,No,,49.1333,-68.2833,Canada,Luc Pelletier,luc.pelletier@mail.mcgill.ca,wetland,CO2,2012,2012,NA,NA,NA,NA,Summer,TRUE,FALSE,inactive,nonmethane
+Plotnikovo,"Plotnikovo field station, Tomsk, Rusia",No,,56.85,82.9667,Russia,Thomas Friborg,tfj@ign.ku.dk,wetland,"CO2,CH4",1999,1999,1999,1999,NA,NA,Summer,TRUE,FALSE,inactive,methane
+Poker Flat Research (fire scar succession),Poker Flat Research Range: Succession from fire scar to deciduous forest,No,US-Rpf,65.1198,-147.429,USA,Masahito Ueyama,miyabi-flux@muh.biglobe.ne.jp,forest,CO2,2008,2024,NA,NA,NA,NA,All year,TRUE,FALSE,active,nonmethane
+Poker Flat Research Range Black Spruce Forest,Poker Flat Research Range Black Spruce Forest,No,US-PRR,65.1237,-147.4876,USA,"Hideki Kobayashi, Hiroki Ikawa ","hkoba@jamstec.go.jp, hirokiikawa@affrc.go.jp",forest,CO2,2011,2024,NA,NA,NA,NA,All year,TRUE,FALSE,active,nonmethane
+Polar Bear Fen,,No,CA-PB2,54.9391,-83.4738,Canada,"Elyn Humphreys, Aaron Todd","elyn.humphreys@carleton.ca, aaron.todd@ontario.ca",wetland,"CO2,CH4",2017,2024,NA,NA,NA,NA,All year,TRUE,FALSE,active,methane
+Polar Bear Peat Plateau,,No,CA-PB1,54.9417,-83.4579,Canada,"Elyn Humphreys, Aaron Todd","elyn.humphreys@carleton.ca, aaron.todd@ontario.ca",wetland,"CO2,CH4",2016,2024,NA,NA,NA,NA,All year,TRUE,FALSE,active,methane
+Pond Inlet (PP),Mittimatalik (Pond Inlet) Tundra,Yes,CA-Mtk,72.669474,-77.99815,Canada,Kyle Arndt,karndt@woodwellclimate.org,tundra,"CO2,CH4",2024,2024,2024,2024,NA,NA,All year,TRUE,FALSE,active,methane
+Prince Albert (BOREAS),,No,,53.95,-105.95,Canada,Andrew Suyker,asuyker1@unl.edu,wetland,CO2,1994,1994,NA,NA,NA,NA,Summer,TRUE,FALSE,inactive,nonmethane
+Prudhoe Bay Wet Sedge,,No,,70.0855,-148.5702,USA,John Kochendorfer,miyabi-flux@muh.biglobe.ne.jp,wetland,"CO2,CH4",2013,2014,2013,2014,NA,NA,Summer,TRUE,FALSE,inactive,methane
+Quebec - 1975 Harvested Black Spruce (HBS75),Quebec - 1975 Harvested Black Spruce,No,CA-Qc2,49.7598,-74.5711,Canada,Hank A. Margolis,Hank.Margolis@sbf.ulaval.ca,forest,CO2,2007,2010,NA,NA,NA,NA,Summer,TRUE,FALSE,inactive,nonmethane
+Qvidja,,No,FI-Qvd,60.2952,22.3916,Finland,Laura Heimsch,laura.heimsch@fmi.fi,"cropland, grassland",CO2,2018,2024,NA,NA,NA,NA,All year,TRUE,FALSE,active,nonmethane
+Ranskalankorpi,Ranskalankorpi,Yes,,61.182914,25.262622,Finland,NA,NA,NA,CO2,2019,2024,NA,NA,NA,NA,All year,TRUE,FALSE,active,nonmethane
+Resolute Bay,Resolute Bay Polar Desert,Yes,CA-RSB,74.727966,-94.898591,Canada,Kyle Arndt,karndt@woodwellclimate.org,polar desert,"CO2,CH4",2024,2024,2024,2024,NA,NA,Summer,TRUE,FALSE,active,methane
+Robinsons_Natural_Bog_NL,,No,CA-RPn,48.2604,-58.6632,Canada,Jianghua Wu,jwu@grenfell.mun.ca,wetland,"CO2,CH4",2014,2024,2014,NA,NA,NA,Summer,TRUE,FALSE,active,methane
+Robinsons_Peatland_Pasture_NL,,No,CA-RPp,48.2632,-58.667,Canada,Jianghua Wu,jwu@grenfell.mun.ca,shrubland,"CO2,CH4",2014,2024,2014,NA,NA,NA,Summer,TRUE,FALSE,active,methane
+Rosinedal-3,Rosinedal-3,No,SE-Ros,64.1725,19.738,Sweden,Matthias Peichl,Matthias.Peichl@slu.se,forest,CO2,2014,2024,NA,NA,NA,NA,Summer,TRUE,FALSE,active,nonmethane
+Rosinedalsheden (control),,No,SE-Ros3,64.1652,19.7907,Sweden,Matthias Peichl,matthias.peichl@slu.se,forest,CO2,2006,2024,NA,NA,NA,NA,All year,TRUE,FALSE,active,nonmethane
+Rosinedalsheden (fertilized),,No,SE-Ros2,64.1707,19.7471,Sweden,Matthias Peichl,matthias.peichl@slu.se,forest,CO2,2006,2024,NA,NA,NA,NA,All year,TRUE,FALSE,active,nonmethane
+Rylekaerene Zackenberg,Rylekaerene,No,,74.4667,-20.5667,Greenland,Torbern Tagesson,torbern.tagesson@nateko.lu.se,"tundra, wetland","CO2,CH4",2008,2009,2008,2009,NA,NA,Summer,TRUE,FALSE,inactive,methane
+Sag Riverside,Sag River,No,US-Sag,69.5056,-148.225,USA,Masahito Ueyama,miyabi-flux@muh.biglobe.ne.jp,tundra,"CO2,CH4",1996,1996,1999,2005,NA,NA,All year,TRUE,FALSE,inactive,methane
+Salmisuo,Salmisuo,No,FI-Salm,62.7833,30.9333,Finland,Alm Gasovic,michal.gazovic@gmail.com,"wetland, forest",CO2,2006,2006,NA,NA,NA,NA,Summer,TRUE,FALSE,inactive,nonmethane
+Sammaltunturi,Sammaltunturi fell,No,,67.9733,24.1157,Finland,"Tuomas Laurila, Mika Aurela","tuomas.laurila@fmi.fi, mika.aurela@fmi.fi",tundra,CO2,2011,2024,NA,NA,NA,NA,Summer,TRUE,FALSE,active,nonmethane
+"Samoylov, floodplain",Samoylov Island,No,,72.375,126.4698,Russia,Lars Kutzbach,lars.kutzbach@uni-hamburg.de,"tundra, grassland, shrubland, barren","CO2,CH4",2013,2016,NA,NA,NA,NA,Summer,TRUE,FALSE,inactive,methane
+"Samoylov, terrace",Samoylov Island,No,RU-Sam,72.3738,126.4958,Russia,"Lars Kutzbach, Christian Wille, Torsten Sachs","lars.kutzbach@uni-hamburg.de, christian.wille@gfz-potsdam.de, torsten.sachs@gfz-potsdam.de","tundra, grassland","CO2,CH4",2002,2024,2002,NA,NA,NA,All year,TRUE,FALSE,active,methane
+"Saskatchewan - Western Boreal, Jack Pine forest harvested in 1975 (BOREAS Young Jack Pine)","Saskatchewan - Western Boreal, Jack Pine harvested in 1975",No,CA-SJ3,53.8758,-104.6453,Canada,Alan Barr,alb831@mail.usask.ca,forest,CO2,2004,2024,NA,NA,NA,NA,Summer,TRUE,FALSE,active,nonmethane
+"Saskatchewan - Western Boreal, Jack Pine forest harvested in 1994",,No,CA-SJ1,53.908,-104.656,Canada,Alan Barr,alb831@mail.usask.ca,forest,CO2,2001,2024,NA,NA,NA,NA,Summer,TRUE,FALSE,active,nonmethane
+"Saskatchewan - Western Boreal, Jack Pine forest harvested in 2002","Saskatchewan - Western Boreal, Jack Pine harvested in 2002",No,CA-SJ2,53.945,-104.649,Canada,Andrew T. Black,andrew.black@ubc.ca,forest,CO2,2003,2024,NA,NA,NA,NA,Summer,TRUE,FALSE,active,nonmethane
+"Saskatchewan - Western Boreal, Mature Black Spruce","Saskatchewan - Western Boreal, Mature Black Spruce",No,CA-Obs,53.9872,-105.1178,Canada,Andrew T. Black,andrew.black@ubc.ca,forest,CO2,1999,2024,NA,NA,NA,NA,Summer,TRUE,FALSE,active,nonmethane
+"Saskatchewan - Western Boreal, Mature Jack Pine","Saskatchewan - Western Boreal, Mature Jack Pine",No,CA-Ojp,53.9163,-104.692,Canada,Andrew T. Black,andrew.black@ubc.ca,forest,CO2,1999,2024,NA,NA,NA,NA,Summer,TRUE,FALSE,active,nonmethane
+"Saskatchewan - Western Boreal, forest burned in 1977","Saskatchewan - Western Boreal, forest burned in 1977",No,CA-SF1,54.485,-105.8176,Canada,Brian Amiro,Brian_Amiro@umanitoba.ca,forest,CO2,2004,2006,NA,NA,NA,NA,Summer,TRUE,FALSE,inactive,nonmethane
+"Saskatchewan - Western Boreal, forest burned in 1989","Saskatchewan - Western Boreal, forest burned in 1989",No,CA-SF2,54.2539,-105.8775,Canada,Brian Amiro,Brian_Amiro@umanitoba.ca,forest,CO2,2001,2005,NA,NA,NA,NA,Summer,TRUE,FALSE,inactive,nonmethane
+"Saskatchewan - Western Boreal, forest burned in 1998","Saskatchewan - Western Boreal, forest burned in 1998",No,CA-SF3,54.0916,-106.0053,Canada,Brian Amiro,Brian_Amiro@umanitoba.ca,shrubland,CO2,2001,2006,NA,NA,NA,NA,Summer,TRUE,FALSE,inactive,nonmethane
+Scotty Creek Bog,Scotty Creek Bog,No,CA-SCB,61.3089,-121.2984,Canada,William L. Quinton,wquinton@wlu.ca,wetland,"CO2,CH4",2014,2024,2014,2017,NA,NA,All year,TRUE,FALSE,active,methane
+Scotty Creek Landscape,Scotty Creek Landscape,No,CA-SCC,61.3079,-121.2992,Canada,"Oliver Sonnentag, Manuel Helbig","oliver.sonnentag@umontreal.ca, manuel.helbig@mail.mcgill.ca","forest, wetland","CO2,CH4",2013,2024,2013,2016,NA,NA,All year,TRUE,FALSE,active,methane
+Seida,Seida,No,RU-Vrk,67.0547,62.9405,Russia,Christina Biasi,christina.biasi@uef.fi,shrubland,"CO2,CH4",2007,2008,2007,2008,NA,NA,Summer,TRUE,FALSE,inactive,methane
+Siikaneva,Siikaneva,No,FI-Sii,61.8327,24.1928,Finland,"Eeva-Stiina Tuittila, Janne Rinne (2005-2015)","eeva-stiina.tuittila@uef.fi, janne.rinne@nateko.lu.se",wetland,"CO2,CH4",2004,2024,2005,NA,NA,NA,All year,TRUE,FALSE,active,methane
+Siikaneva-2 Bog,Siikaneva2,No,FI-Si2,61.8372,24.1967,Finland,Eeva-Stiina Tuittila,eeva-stiina.tuittila@uef.fi,wetland,"CO2,CH4",2011,2016,2011,2016,NA,NA,Summer,TRUE,FALSE,inactive,methane
+Skyttorp,Skyttorp 1,No,SE-Sk2,60.1297,17.8401,Sweden,Anders Lindroth,Anders.Lindroth@nateko.lu.se,forest,CO2,2004,2005,NA,NA,NA,NA,Summer,TRUE,FALSE,inactive,nonmethane
+"Skyttorp, young",Skyttorp 2,No,SE-Sk1,60.125,17.9181,Sweden,Achim Grelle,achim.grelle@lnu.se,forest,CO2,2004,2024,NA,NA,NA,NA,Summer,TRUE,FALSE,active,nonmethane
+Slavin Watershed TWO,Tombstone_slavin,No,CA-TWOSL,64.7091,-138.4102,Canada,Sean Carey,careysk@mcmaster.ca,tundra,CO2,2019,2024,NA,NA,NA,NA,Summer,TRUE,FALSE,active,nonmethane
+Smith Creek,Smith Creek,No,CA-SMC,63.1534,-123.2522,Canada,Oliver Sonnentag,oliver.sonnentag@umontreal.ca,forest,"CO2,CH4",2017,2024,2017,NA,NA,NA,All year,TRUE,FALSE,active,methane
+Sodankyla,Sodankyla,No,FI-Sod,67.3618,26.6382,Finland,Mika Aurela,mika.aurela@fmi.fi,forest,CO2,2003,2024,NA,NA,NA,NA,All year,TRUE,FALSE,active,nonmethane
+Soontaga,,No,,58.0236,26.0707,Estonia,Kaido Soosaar,kaido.soosaar@ut.ee,forest,CO2,2016,2016,NA,NA,NA,NA,All year,TRUE,FALSE,inactive,nonmethane
+Southern Khentei Taiga,Southern Khentei Taiga,Yes,MN-SKT,48.351861,108.654333,Mongolia,Jun Asanuma,asanuma@suiri.tsukuba.ac.jp,forest,CO2,2002,2004,NA,NA,NA,NA,All year,TRUE,FALSE,inactive,nonmethane
+Southern Old Aspen (BERMS),"Saskatchewan - Western Boreal, Mature Aspen",No,CA-OAS,53.629,-106.2,Canada,Alan Barr,alb831@mail.usask.ca,forest,CO2,1996,2024,NA,NA,NA,NA,Summer,TRUE,FALSE,active,nonmethane
+Southern Old Black Spruce,,No,CA-sOBS,53.987,-105.117,Canada,Onil Bergeron,Hank.Margolis@sbf.ulaval.ca,forest,CO2,2000,2004,NA,NA,NA,NA,Summer,TRUE,FALSE,inactive,nonmethane
+Spasskaya Pad (experimental forest),,No,RU-YLF,62.255,129.241,Russia,"Trofim Maximov, Ayumi Kotani ","t.c.maximov@ibpc.ysn.ru, kotani@agr.nagoya-u.ac.jp",forest,CO2,1996,2024,NA,NA,NA,NA,Summer,TRUE,FALSE,active,nonmethane
+"Spasskaya Pad, Larch",,No,RU-SkP,62.2557,129.1682,Russia,Trofim Maximov,t.c.maximov@ibpc.ysn.ru,forest,CO2,2001,2024,NA,NA,NA,NA,Summer,TRUE,FALSE,active,nonmethane
+Steen River,Steen River,No,CA-STR,59.5951,-117.2862,Canada,Christopher Schulze,cschulze@ualberta.ca,wetland,"CO2,CH4",2019,2024,NA,NA,NA,NA,All year,TRUE,FALSE,active,methane
+Stordalen Grassland Mire,Stordalen Fen,No,SE-St1,68.3541,19.0503,Sweden,Thomas Friborg,tfj@ign.ku.dk,"wetland, lake","CO2,CH4",2012,2024,2012,NA,NA,NA,Summer,TRUE,TRUE,active,methane
+Stordalen Palsa Bog (ICOS),Stordalen Palsa Bog,No,SE-Sto,68.3559,19.0452,Sweden,"Erik Lundin, Thomas Friborg","erik.lundin@polar.se, tfj@ign.ku.dk",wetland,"CO2,CH4",2014,2024,2014,NA,NA,NA,All year,TRUE,FALSE,active,methane
+Stordalen forest,Stordalen,No,SE-St2,68.3542,19.0471,Sweden,Anders Lindroth,Anders.Lindroth@nateko.lu.se,forest,CO2,2004,2012,NA,NA,NA,NA,Summer,TRUE,FALSE,inactive,nonmethane
+Stortjarn,Stortjarn,Yes,,64.17498,19.56381,Sweden,NA,NA,NA,"CO2,CH4",2020,2024,NA,NA,NA,NA,All year,TRUE,FALSE,active,methane
+Svartberget,Svartberget,No,SE-Svb,64.2561,19.7745,Sweden,Matthias Peichl,Matthias.Peichl@slu.se,forest,CO2,2014,2024,2017,2021,NA,NA,All year,TRUE,FALSE,active,nonmethane
+Svartberget tall tower 60m,,No,SE-Svb,64.2562,19.7745,Sweden,Matthias Peichl,matthias.peichl@slu.se,forest,"CO2,CH4",2017,2024,2017,2021,NA,NA,Summer,TRUE,FALSE,active,methane
+Svartberget tall tower 85m,,No,SE-Svb,64.2562,19.7745,Sweden,Matthias Peichl,matthias.peichl@slu.se,forest,CO2,2016,2024,2017,2021,NA,NA,All year,TRUE,FALSE,active,nonmethane
+Tervalamminsuo,Tervalamminsuo,No,,60.6457,23.9733,Finland,"Annalea Lohila, Tuomas Laurila","annalea.lohila@fmi.fi, tuomas.laurila@fmi.fi",wetland,CO2,2012,2024,NA,NA,NA,NA,Summer,TRUE,FALSE,active,nonmethane
+"Thermokarst Collapse Scar Bog, Interior Alaska",Bonanza Creek Thermokarst Bog,No,US-BZB,64.6956,-148.3208,USA,"Eugenie Euskirchen, Colin Edgar","seeuskirchen@alaska.edu, cedgar3@alaska.edu",wetland,"CO2,CH4",2010,2024,2013,NA,NA,NA,All year,TRUE,FALSE,active,methane
+Tiksi,Tiksi,No,RU-Tks,71.5944,128.888,Russia,Mika Aurela,mika.aurela@fmi.fi,"tundra, grassland","CO2,CH4",2011,2024,2014,NA,NA,NA,All year,TRUE,FALSE,active,methane
+Toolik Lake (Wetland),,No,US-TWE,68.6243,-149.6023,USA,"Werner Eugster, George Kling, James Laundre","werner.eugster@usys.ethz.ch, gwk@umich.edu, jlaundre@mbl.edu",wetland,"CO2,CH4",2010,2015,2010,2015,NA,NA,Summer,TRUE,FALSE,inactive,methane
+Trail Valley Creek (lakeside),,No,,68.7393,-133.5159,Canada,"Oliver Sonnentag, Manuel Helbig","oliver.sonnentag@umontreal.ca, manuel.helbig@mail.mcgill.ca","tundra, shrubland",CO2,2013,2024,2013,NA,NA,NA,Summer,TRUE,FALSE,active,nonmethane
+Trail Valley Creek (tall),Trail Valley Creek,No,,68.7435,-133.5018,Canada,"Oliver Sonnentag, Manuel Helbig","oliver.sonnentag@umontreal.ca, manuel.helbig@mail.mcgill.ca","tundra, shrubland",CO2,2022,2024,2022,NA,NA,NA,Summer,TRUE,FALSE,active,nonmethane
+Trail Valley Creek (upland),Trail Valley Creek,No,CA-TVC,68.7462,-133.5017,Canada,"Oliver Sonnentag, Manuel Helbig","oliver.sonnentag@umontreal.ca, manuel.helbig@mail.mcgill.ca","tundra, shrubland","CO2,CH4",2013,2024,2013,2017,NA,NA,All year,TRUE,FALSE,active,methane
+Tura,Tura,No,RU-Tur,64.2089,100.4636,Russia,"Vyacheslav Zyryanov, Anatoly Prokushkin,Yojiro Matsura","zyryanov-vi@ya.ru, prokushkin@ksc.krasn.ru,orijoy@ffpri.affrc.go.jp",forest,CO2,2004,2024,NA,NA,NA,NA,Summer,TRUE,FALSE,active,nonmethane
+Tver,,No,,56.4333,32.65,Russia,Alexander Knohl,aknohl@uni-goettingen.de,forest,CO2,1998,1998,NA,NA,NA,NA,Summer,TRUE,FALSE,inactive,nonmethane
+UCI-1850 burn site,UCI-1850 burn site,No,CA-NS1,55.8792,-98.4839,Canada,Mike Goulden,mgoulden@uci.edu,forest,CO2,2001,2005,NA,NA,NA,NA,Summer,TRUE,FALSE,inactive,nonmethane
+UCI-1930 burn site,UCI-1930 burn site,No,CA-NS2,55.9058,-98.5247,Canada,Mike Goulden,mgoulden@uci.edu,forest,CO2,2001,2005,NA,NA,NA,NA,Summer,TRUE,FALSE,inactive,nonmethane
+UCI-1964 burn site,UCI-1964 burn site,No,CA-NS3,55.9117,-98.3822,Canada,Mike Goulden,mgoulden@uci.edu,forest,CO2,2001,2005,NA,NA,NA,NA,Summer,TRUE,FALSE,inactive,nonmethane
+UCI-1964 burn site wet,UCI-1964 burn site wet,No,CA-NS4,55.9144,-98.3806,Canada,Mike Goulden,mgoulden@uci.edu,forest,CO2,2001,2005,NA,NA,NA,NA,Summer,TRUE,FALSE,inactive,nonmethane
+UCI-1981 burn site,UCI-1981 burn site,No,CA-NS5,55.8631,-98.485,Canada,Mike Goulden,mgoulden@uci.edu,forest,CO2,2001,2005,NA,NA,NA,NA,Summer,TRUE,FALSE,inactive,nonmethane
+UCI-1989 burn site,UCI-1989 burn site,No,CA-NS6,55.9167,-98.9644,Canada,Mike Goulden,mgoulden@uci.edu,shrubland,CO2,2001,2005,NA,NA,NA,NA,Summer,TRUE,FALSE,inactive,nonmethane
+UCI-1998 burn site,UCI-1998 burn site,No,CA-NS7,56.6358,-99.9483,Canada,Mike Goulden,mgoulden@uci.edu,shrubland,CO2,2001,2005,NA,NA,NA,NA,Summer,TRUE,FALSE,inactive,nonmethane
+UCI-2003 burn site,,No,CA-NS8,55.8981,-98.2161,Canada,Mike Goulden,mgoulden@uci.edu,forest,CO2,2001,2005,NA,NA,NA,NA,Summer,TRUE,FALSE,inactive,nonmethane
+Udleg Forest Research Station,Udleg practice forest,Yes,MN-Udg,48.2733,106.8508,Mongolia,Shin Miyazaki,miyashin@iis.u-tokyo.ac.jp,forest,CO2,2022,2024,NA,NA,NA,NA,All year,TRUE,FALSE,active,nonmethane
+Umiujaq,Umiujaq,No,,56.5586,-76.4822,Canada,Georg Lackner,georg.lackner@mailbox.org,"forest, tundra",CO2,2017,2020,NA,NA,NA,NA,Summer,TRUE,FALSE,inactive,nonmethane
+"University of Alaska, Fairbanks","University of Alaska, Fairbanks",No,US-Uaf,64.8663,-147.8555,USA,Masahito Ueyama,miyabi-flux@muh.biglobe.ne.jp,forest,"CO2,CH4",2002,2024,2011,NA,NA,NA,All year,TRUE,FALSE,active,methane
+Upad,,No,US-Upa,70.2815,-148.8848,USA,Walter Oechel,woechel@mail.sdsu.edu,"tundra, wetland",CO2,1993,1994,NA,NA,NA,NA,Summer,TRUE,FALSE,inactive,nonmethane
+Ust Pojeg,,No,RU-Upo,61.9341,50.2269,Russia,Lars Kutzbach,lars.kutzbach@uni-hamburg.de,forest,CO2,2008,2012,NA,NA,NA,NA,Summer,TRUE,FALSE,inactive,nonmethane
+Uteshevo,,No,RU-Uts,57.1549,65.343,Russia,Elisa Fleischer,elisa.fleischer@uni-muenster.de,grassland,"CO2,CH4",2012,2012,2012,2012,NA,NA,Summer,TRUE,FALSE,inactive,methane
+"Utikuma Region, Northern Study Area",,No,,56.0756,-115.4769,Canada,Richard Petrone,rich.petrone@uwaterloo.ca,forest,CO2,2007,2011,NA,NA,NA,NA,Summer,TRUE,FALSE,inactive,nonmethane
+Vaerrioe,Varrio,No,FI-Var,67.7549,29.61,Finland,Pasi Kolari,pasi.kolari@helsinki.fi,forest,CO2,2012,2024,NA,NA,NA,NA,All year,TRUE,FALSE,active,nonmethane
+Vallanes,,No,,65.32,-14.933,Iceland,Brynhildur Bjarnadottir,brynhildur@skogur.is,forest,CO2,2003,2007,NA,NA,NA,NA,All year,TRUE,FALSE,inactive,nonmethane
+Wolf Creek Buckbrush,Wolf_creek_Buckbrush,No,CA-WCBB,60.5216,-135.197,Canada,Sean Carey,careysk@mcmaster.ca,shrubland,CO2,2015,2024,NA,NA,NA,NA,Summer,TRUE,FALSE,active,nonmethane
+Wolf Creek Forest,Wolf_creek_forest,No,CA-WCF,60.5977,-134.9545,Canada,Sean Carey,careysk@mcmaster.ca,forest,CO2,2017,2024,NA,NA,NA,NA,All year,TRUE,FALSE,active,nonmethane
+Wolf Creek Sparse Shrub,Wolf_creek_SparseShrub,No,CA-WCPLT,60.5448,-135.1886,Canada,Sean Carey,careysk@mcmaster.ca,shrubland,CO2,2015,2024,NA,NA,NA,NA,Summer,TRUE,FALSE,active,nonmethane
+Wolf Creek Upper Forest,Wolf_creek_upper_forest,No,CA-WCUF,60.5821,-135.0809,Canada,Sean Carey,careysk@mcmaster.ca,forest,CO2,2020,2024,NA,NA,NA,NA,Summer,TRUE,FALSE,active,nonmethane
+Yakutsk-Larch,Yakutsk Spasskaya Pad larch,No,RU-Ylr,62.255,129.6189,Russia,NA,NA,NA,CO2,1996,2012,NA,NA,NA,NA,Summer,TRUE,FALSE,inactive,nonmethane
+Yakutsk-Pine,Yakutsk Spasskaya Pad Pine,No,RU-YPF,62.2414,129.6506,Russia,"Trofim Maximov, Ayumi Kotani ","t.c.maximov@ibpc.ysn.ru, kotani@agr.nagoya-u.ac.jp",forest,CO2,2000,2024,NA,NA,NA,NA,Summer,TRUE,FALSE,active,nonmethane
+"Yukon-Kuskokwim Delta, Izaviknek-Kingaglia uplands, Burned 2015",YKD (burned),No,US-YK1,61.2723,-163.2228,USA,"Jackie Hung, Susan Natali","jhung@woodwellclimate.org, snatali@woodwellclimate.org",wetland,"CO2,CH4",2019,2024,2019,NA,NA,NA,All year,TRUE,FALSE,active,methane
+"Yukon-Kuskokwim Delta, Izaviknek-Kingaglia uplands, Unburned",YKD (unburned),No,US-YK2,61.2548,-163.259,USA,"Jackie Hung, Susan Natali, Erin MacDonald","jhung@woodwellclimate.org, snatali@woodwellclimate.org, emacdonald@woodwellclimate.org",wetland,"CO2,CH4",2019,2024,2019,NA,NA,NA,All year,TRUE,FALSE,active,methane
+ZOTTO bog (old),,No,RU-Zbo,60.758,89.402,Russia,Tarek El-Madany,telmad@bgc-jena.mpg.de,wetland,CO2,1998,2005,NA,NA,NA,NA,Summer,TRUE,FALSE,inactive,nonmethane
+ZOTTO forest (old),,No,RU-Zot,60.8008,89.3508,Russia,Tarek El-Madany,telmad@bgc-jena.mpg.de,forest,CO2,2002,2004,NA,NA,NA,NA,Summer,TRUE,FALSE,inactive,nonmethane
+ZOTTO-Bog EC,ZOTTO Bog,No,RU-Zbo,60.8175,89.3833,Russia,"Alexey Panov, Jost Lavric","alexey.v.panov@gmail.com, jlavric@bgc-jena.mpg.de",wetland,CO2,2012,2024,NA,NA,NA,NA,All year,TRUE,FALSE,active,nonmethane
+ZOTTO-Fen EC,,Yes,RU-Zo3,60.79026,89.49115,Russia,"Dr. Alexey Panov; Vyacheslav Zyryanov, Anatoly Prokushkin,",alexey.v.panov@gmail.com; zyryanov-vi@ya.ru; prokushkin@ksc.krasn.ru;,wetland,"CO2,CH4",2023,2024,2023,2024,NA,NA,Summer,TRUE,FALSE,active,methane
+ZOTTO-Forest EC,ZOTTO Forest,No,,60.8069,89.3572,Russia,"Alexey Panov, Jost Lavric","alexey.v.panov@gmail.com, jlavric@bgc-jena.mpg.de",forest,CO2,2012,2024,NA,NA,NA,NA,All year,TRUE,FALSE,active,nonmethane
+"Zackenberg, Heath",Zackenberg Heath,No,GL-ZaH,74.4732,-20.5503,Greenland,Magnus Lund,ml@bios.au.dk,"tundra, grassland",CO2,2000,2024,NA,NA,NA,NA,All year,TRUE,FALSE,active,nonmethane
+"Zotino East, Birch Stand",,No,,61.0327,89.8195,Russia,Tarek El-Madany,telmad@bgc-jena.mpg.de,forest,CO2,2000,2024,NA,NA,NA,NA,Summer,TRUE,FALSE,active,nonmethane
+"Zotino East, Mixed Stand",,No,,61.0286,89.7863,Russia,Tarek El-Madany,telmad@bgc-jena.mpg.de,forest,CO2,2000,2024,NA,NA,NA,NA,Summer,TRUE,FALSE,active,nonmethane
+"Zotino East, Pole Stand",,No,,61.0312,89.7699,Russia,Tarek El-Madany,telmad@bgc-jena.mpg.de,forest,CO2,2000,2024,NA,NA,NA,NA,Summer,TRUE,FALSE,active,nonmethane
+Zotino forest West (old),Zotino,No,RU-Zfw,60.75,89.3833,Russia,Tarek El-Madany,telmad@bgc-jena.mpg.de,forest,CO2,1998,2012,NA,NA,NA,NA,Summer,TRUE,FALSE,inactive,nonmethane

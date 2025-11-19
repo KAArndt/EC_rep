@@ -11,6 +11,7 @@ library(seegSDM)
 library(plyr)
 library(dplyr)
 library(RColorBrewer)
+library(cowplot)
 
 #gh_install_packages("SEEG-Oxford/seegSDM")
 #devtools::install_github('SEEG-Oxford/seegSDM')
@@ -45,27 +46,45 @@ active.sites$cluster = clustdat$cluster
 
 
 #rename site statuses
-active.sites$methane         = ifelse(active$methane == 'methane','Methane','Non-Methane')
-active.sites$Season_Activity = ifelse(active$Season_Activity == 'All year','Year-Round','Growing Season')
+active.sites$methane         = ifelse(active.sites$methane == 'methane','Methane','Non-Methane')
+active.sites$Season_Activity = ifelse(active.sites$Season_Activity == 'All year','Year-Round','Growing Season')
 
 active.sites$status = paste(active.sites$Season_Activity,active.sites$methane,sep = ' ')
-active.sites$cluster = ifelse(is.na(active.sites$cluster),13,active.sites$cluster)
+active.sites$cluster = ifelse(is.na(active.sites$cluster),30,active.sites$cluster)
 
 
 pal = brewer.pal(n = 12,name = 'Paired')
 pal = pal[c(4,3,2,1)]
 
-png(filename = './figures/sites per cluster.png',width = 5,height = 3,units = 'in',res = 1500)
-ggplot(data = active.sites)+theme_bw()+
+#calculate area of clusters
+df = as.data.frame(clust)
+df$count = 1
+library(dplyr)
+
+stat = df %>%
+  group_by(cluster) %>%
+  summarise(area = sum(count*1853.251^2))
+
+towers = ggplot(data = active.sites)+theme_bw()+
   geom_hline(yintercept = 4,lty=2)+
   geom_hline(yintercept = 1,lty=2)+
   geom_bar(aes(cluster,fill = status))+
-  scale_y_continuous(expand = c(0,0),limits = c(0,14),'Number of Tower Sites',
-                     breaks = c(1,4,8,12,16))+
+  scale_y_continuous(expand = c(0,0),limits = c(0,24),'Number of Tower Sites',
+                     breaks = c(1,4,8,12,16,20,24))+
   scale_x_continuous(expand = c(0,0),limits = c(0,41),breaks = seq(1,40),'Cluster')+
   scale_fill_manual(values = pal,'Site Status')+
   theme(panel.grid.major.x = element_blank(),
-        text = element_text(size = 6),
+        text = element_text(size = 8),
         legend.key.size = unit(x = 0.1,units = 'in'),
-        legend.position = 'bottom')
+        legend.position = c(0.2,0.8))
+
+area = ggplot(data = stat)+theme_bw()+
+  geom_bar(aes(x = cluster,y = area/100),stat = 'identity')+
+  scale_y_continuous(expand = c(0,0),limits = c(0,13000000000),'Area (Ha)')+
+  scale_x_continuous(expand = c(0,0),limits = c(0,41),breaks = seq(1,40),'Cluster')+
+  theme(panel.grid.major.x = element_blank(),
+        text = element_text(size = 8))
+
+png(filename = './figures/sites per cluster.png',width = 6,height = 5,units = 'in',res = 1500)
+plot_grid(towers,area,nrow=2,labels = c('a','b'),align = 'hv',label_size = 8)
 dev.off()
