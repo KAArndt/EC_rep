@@ -38,7 +38,6 @@ plot(eco)
 
 #clusters
 km = rast('./output/clusts.tif')
-
 km40 = km$km40
 
 #world map for plotting
@@ -50,7 +49,6 @@ countries = rnaturalearth::ne_countries(returnclass = "sf") %>%
 
 #aggregate the km for plotting and ease, use modal aggregation since it's a category
 km.ag = aggregate(x = km40,fact = 4,fun = 'modal',na.rm = T)
-
 
 #cluster and Ecoregions figure
 kmdf = as.data.frame(km.ag,xy=T,na.rm=T)
@@ -71,12 +69,11 @@ ggplot()+theme_map()+
   scale_fill_manual('Cluster',values = pal)+
   scale_x_continuous(limits = c(-5093909,4539289))+
   scale_y_continuous(limits = c(-3523458,4375097))+
-  layer_spatial(data = eco,fill='transparent',col='black')+
+  #layer_spatial(data = eco,fill='transparent',col='black')+
   theme(legend.text = element_text(size = 8),
         legend.title = element_text(size = 8),
         legend.key.size = unit(x = 0.05,units = 'in'))
 dev.off()
-
 
 #separate clusters
 p1 = ggplot()+theme_map()+

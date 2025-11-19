@@ -1,15 +1,19 @@
 library(terra)
 library(ggplot2)
 library(dplyr)
+library(cowplot)
 
 #load in all the spatial data
 #rep distances
-gsco2 = rast('./output/improved_network/improved_base_2km.tif')
-gsch4 = rast('./output/improved_network/improved_methane_2km.tif')
-anco2 = rast('./output/improved_network/improved_annual_2km.tif')
-anch4 = rast('./output/improved_network/improved_annual_methane_2km.tif')
+gsco2 = rast('./output/base_network/base_2km.tif')
+gsch4 = rast('./output/base_network/methane_2km.tif')
+anco2 = rast('./output/base_network/annual_2km.tif')
+anch4 = rast('./output/base_network/annual_methane_2km.tif')
 
-
+igsco2 = rast('./output/improved_network/improved_base_2km.tif')
+igsch4 = rast('./output/improved_network/improved_methane_2km.tif')
+ianco2 = rast('./output/improved_network/improved_annual_2km.tif')
+ianch4 = rast('./output/improved_network/improved_annual_methane_2km.tif')
 
 #clusters
 clust = rast('./output/clusts.tif')
@@ -42,10 +46,7 @@ df = df[complete.cases(df$base.dist),]
 # eco = subset(eco,eco$BIOME_NAME == 'Tundra' | eco$BIOME_NAME == 'Boreal Forests/Taiga')
 # eco = project(x = eco,y = crs(ag))
 
-#play with data
-ggplot(data = df)+
-    geom_point(aes(MeanTemp,Precip,colour = base.dist))
-
+#make the cluster a character for plotting
 df$km40 = as.character(df$km40)
 
 df$km40 = ordered(x = df$km40,c(
@@ -54,10 +55,7 @@ df$km40 = ordered(x = df$km40,c(
 '21','22','23','24','25','26','27','28','29','30',
 '31','32','33','34','35','36','37','38','39','40'))
 
-
-
-
-
+#calculate summary statistics
 stats = df %>%
   group_by(km40) %>%
   summarise_all(list(mean))
@@ -71,10 +69,10 @@ df = merge(df,dists,by = 'km40',all=T)
 pal = hcl.colors(n = 9,palette = 'Vik')
 pal = pal[-c(4,6)]
 #pal = c('#FEEDB9','#E88D7A','#72509A','#8AABD6','#F2F7FB')
+plot(clust)
+plot(clust,range = c(38.5,41.5))
 
-
-
-
+#play with data
 ggplot(data = df)+theme_bw()+geom_hline(yintercept = 0)+
   geom_violin(aes(x = km40,y = MeanTemp,fill = base))+
   scale_fill_gradientn(colors = pal)
@@ -92,14 +90,20 @@ ggplot(data = df)+theme_bw()+
   scale_fill_gradientn(colors = pal)
 
 ggplot(data = df)+theme_bw()+
-  geom_violin(aes(x = km40,y = ndvi_sum,fill = base))+
+  geom_violin(aes(x = km40,y = TempAnnualRange,fill = base))+
   scale_fill_gradientn(colors = pal)
 
+ggplot(data = df)+theme_bw()+
+  geom_violin(aes(x = km40,y = ndvi_sum,fill = base))+
+  scale_fill_gradientn(colors = pal)
 
 ggplot(data = df)+theme_bw()+
   geom_violin(aes(x = km40,y = ndvi_max,fill = base))+
   scale_fill_gradientn(colors = pal)
 
+ggplot(data = df)+theme_bw()+
+  geom_violin(aes(x = km40,y = evi,fill = base))+
+  scale_fill_gradientn(colors = pal)
 
 ggplot(data = df)+theme_bw()+
   geom_violin(aes(x = km40,y = soc0_100,fill = base))+
@@ -113,6 +117,110 @@ ggplot(data = df)+theme_bw()+
   geom_violin(aes(x = km40,y = ndwi,fill = base))+
   scale_fill_gradientn(colors = pal)
 
+ggplot(data = df)+theme_bw()+
+  geom_violin(aes(x = km40,y = mir,fill = base))+
+  scale_fill_gradientn(colors = pal)
+
+ggplot(data = df)+theme_bw()+
+  geom_violin(aes(x = km40,y = clay_100_agg,fill = base))+
+  scale_fill_gradientn(colors = pal)
+
+#final plots ####################################################################
+temp = ggplot(data = df)+theme_bw()+geom_hline(yintercept = 0)+
+  geom_violin(aes(x = km40,y = MeanTemp,fill = base))+
+  scale_fill_gradientn(colors = pal)+
+  scale_y_continuous(expression('Mean Temp.'~'('*degree*C*")"))+
+  scale_x_discrete('')+
+  theme(text = element_text(size = 8),
+        axis.title.y = element_text(size = 7),
+        legend.position = 'none')
+
+temp_range = ggplot(data = df)+theme_bw()+
+  geom_violin(aes(x = km40,y = TempAnnualRange,fill = base))+
+  scale_fill_gradientn(colors = pal)+
+  scale_y_continuous(expression('Temp. Range'~'('*degree*C*")"))+
+  scale_x_discrete('')+
+  theme(text = element_text(size = 8),
+        axis.title.y = element_text(size = 7),
+        legend.position = 'none')
+
+ndvi = ggplot(data = df)+theme_bw()+
+  geom_violin(aes(x = km40,y = ndvi_sum,fill = base))+
+  scale_fill_gradientn(colors = pal)+
+  scale_y_continuous(expression('NDVI Sum (unitless)'))+
+  scale_x_discrete('')+
+  theme(text = element_text(size = 8),
+        axis.title.y = element_text(size = 7),
+        legend.position = 'none')
+
+soc = ggplot(data = df)+theme_bw()+
+  geom_violin(aes(x = km40,y = soc0_100,fill = base))+
+  scale_fill_gradientn(colors = pal)+
+  scale_y_continuous(expression('SOC ('*kg~m^-3*")"))+
+  scale_x_discrete('')+
+  theme(text = element_text(size = 8),
+        axis.title.y = element_text(size = 7),
+        legend.position = 'none')
+
+mir = ggplot(data = df)+theme_bw()+
+  geom_violin(aes(x = km40,y = mir,fill = base))+
+  scale_fill_gradientn(colors = pal)+
+  scale_y_continuous('SWIR (unitless)')+
+  scale_x_discrete('Cluster Number')+
+  theme(text = element_text(size = 8),
+        axis.title.y = element_text(size = 7),
+        legend.position = 'none')
+
+leg = get_legend(ggplot(data = df)+theme_bw()+
+                   geom_violin(aes(x = km40,y = mir,fill = base))+
+                   scale_fill_gradientn('Rep.',
+                                        colours = pal,
+                                        limits = c(0,1.56*2),
+                                        breaks = c(0,1.56,1.56*2),
+                                        labels = c('Good','Cutoff','Poor'),
+                                        oob = scales::squish)+
+                   theme(legend.text = element_text(size = 7),
+                         legend.title = element_text(size = 7),
+                         legend.key.height = unit(0.5,units = 'in'),
+                         legend.key.width = unit(0.075,units = 'in')))
+
+g = plot_grid(temp,temp_range,ndvi,soc,mir,nrow = 5,labels = c('a','b','c','d','e'),label_size = 10,align = 'hv')
+
+png(filename = './figures/figure xx cluster simmilarity metrics.png',width = 7,height = 8,units = 'in',res = 1800)
+plot_grid(g,leg,nrow = 1,rel_widths = c(0.92,0.08))
+dev.off()
+
+####################################################################################
+
+
+
+
+mod = lm(base.dist ~ mir,data = stats)
+summary(mod)
+
+mod = lm(base.dist ~ PC2,data = stats)
+summary(mod)
+
+mod = lm(base.dist ~ PC3,data = stats)
+summary(mod)
+
+mod = lm(base.dist ~ PC4,data = stats)
+summary(mod)
+
+hist(mod$residuals)
+summary(lm(base.dist ~ PRecip,data = stats))
+summary(lm(base.dist ~ MeanTemp,data = stats))
+summary(lm(base.dist ~ MeanTemp,data = stats))
+summary(lm(base.dist ~ MeanTemp,data = stats))
+summary(lm(base.dist ~ MeanTemp,data = stats))
+
+
+ggplot(data = stats,aes(stats$mir,base.dist))+
+  geom_point()+
+  geom_smooth(method = 'lm')
+
+
+model <- glm(base.dist ~ mir,family=binomial(link='logit'),data=stats)
 
 
 ggplot(data = df)+

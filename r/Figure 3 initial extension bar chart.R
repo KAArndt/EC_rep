@@ -11,10 +11,10 @@ tower.data = fread(file = './data/pca.towers.base.csv')
 tower.data$active = ifelse(is.na(tower.data$active),'extension',tower.data$active)
 
 #load in the base image for the plot
-base = rast('./output/base_network/base_2kmv2_mean.tif')
+base = rast('./output/base_network/base_2km.tif')
 base
 ########################################################################################################
-bars = fread('./output/reductions/meanreduction_mean.csv')
+bars = fread('./data/reductions/meanreduction_remaining.csv')
 upper.limit = -1*min(bars$means)+0.005
 
 bars$rank = rank(x = bars$means,ties.method = 'first')
@@ -35,22 +35,22 @@ base.ag = aggregate(x = base,fact = 4,fun = mean,na.rm = T)
 #plot the figure
 pal = c('#FEEDB9','#E88D7A','#72509A','#8AABD6','#F2F7FB')
 
-topsites = subset(bars,bars$rank <=100)
-
-png(filename = './figures/figure 3 barplot_reduction_mean.png',width = 6,height = 4,units = 'in',res = 2500)
+topsites = subset(bars,bars$rank <=50)
+topsites$sitename
+#png(filename = './figures/figure 3 barplot_reduction_mean.png',width = 6,height = 4,units = 'in',res = 2500)
 ggplot(data = topsites)+theme_bw()+
-  geom_bar(aes(reorder(rank, -means*-1),means*-1,fill=country),stat = 'identity')+
+  geom_bar(aes(reorder(sitename, -means*-1),means*-1,fill=country),stat = 'identity')+
   scale_y_continuous(expand = c(0,0),limits = c(0,upper.limit),'Mean Improvement')+
-  scale_x_discrete('Site Rank')+
+  scale_x_discrete('')+
   scale_fill_brewer(palette = "Spectral",'Country')+
-  theme(axis.text.x = element_text(size = 4.5,angle = 90,hjust = 1,vjust = 0.5),
+  theme(axis.text.x = element_text(size = 10,angle = 90,hjust = 1,vjust = 0.5),
         panel.grid.major.x = element_blank(),
         legend.key.size = unit(0.1,units = 'in'),
-        legend.text = element_text(size = 8),
-        legend.title = element_text(size = 8),
-        legend.position = c(0.55,0.55),
+        legend.text = element_text(size = 10),
+        legend.title = element_text(size = 10),
+        legend.position = c(0.5,0.75),
         legend.direction = 'horizontal')
-dev.off()
+#dev.off()
 
 #map of the top sites
 top10 = subset(sites,sites$rank <= 12)

@@ -7,7 +7,7 @@ library(dplyr)
 clust = rast('./output/clusts.tif')
 clust = clust$km40
 
-#load in landcovers
+#load in land covers
 lc = rast('./spatial_data/HybridLandCover_1km.tif')
 eco = vect(x = './spatial_data/Ecoregions2017/Ecoregions2017.shp')
 
