@@ -450,7 +450,7 @@ plot_grid(base.plot.i,
                      'd'),label_size = 7,rows = 2)
 dev.off()
 
-#play with single ones
+#play with single ones #############################################################################
 #base
 ggplot()+theme_map()+
   geom_sf(data = countries,fill='gray',col='gray40')+
@@ -504,3 +504,42 @@ ggplot()+theme_map()+
         legend.key.width = unit(0.5,'in'))+
   annotate(geom = 'text',x = -3403909,y = 3474170,label = expression('2024 Growing Season'~CO[2]),size=5)
 
+
+
+# map for dani ####################################################################################################
+oursites = subset(base.towers.i,
+                  base.towers.i$site == 'Resolute Bay' |
+                    base.towers.i$site == 'Pond Inlet (PP)' |
+                    base.towers.i$site == 'Iqaluit (PP)' |
+                    base.towers.i$site == 'Council (Permafrost Pathways)' |
+                    base.towers.i$site == 'Churchill Fen' |
+                    base.towers.i$site == 'Yukon-Kuskokwim Delta, Izaviknek-Kingaglia uplands, Burned 2015' |
+                    base.towers.i$site == 'Yukon-Kuskokwim Delta, Izaviknek-Kingaglia uplands, Unburned')
+
+
+png(filename = './figures/PPsitesmap.png',width = 8,height = 8,units = 'in',res = 2000)
+ggplot()+theme_map()+
+  geom_sf(data = countries,fill='gray',col='gray40')+
+  layer_spatial(base.ag.i)+
+  scale_fill_gradientn('Representativeness',
+                       na.value = 'transparent',
+                       colours = pal,
+                       limits = c(0,1.56*2),
+                       breaks = c(0,1.56,1.56*2),
+                       labels = c('Good','Cutoff','Poor'),
+                       oob = scales::squish)+  
+  new_scale("fill") +
+  geom_point(data = base.towers.i,aes(x,y,pch=Season_Activity,fill=methane),
+             col='black',show.legend = F,cex = 2,alpha=0.8)+
+  scale_shape_manual(values = c(21,24),'Annual Cover',labels = c('Annual','Not Annual'))+
+  scale_fill_manual(values = c('red','green3'))+
+  geom_point(data = oursites,aes(x,y),pch=21,fill='yellow1',col='black',cex = 3.5)+
+  scale_x_continuous(limits = c(-5093909,4542996))+
+  scale_y_continuous(limits = c(-3687122,4374170))+
+  theme(legend.text = element_text(size = 16),
+        axis.title = element_blank(),
+        legend.position = c(0.05,0.06),
+        legend.direction = 'horizontal',
+        legend.title.position = 'top',
+        legend.key.width = unit(0.45,'in'))
+dev.off()

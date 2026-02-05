@@ -38,12 +38,13 @@ base = rast(x = basedf,type = 'xyz',crs = crs(r))
 base.towers = tower.data[net,]
 towers = vect(x = base.towers,geom=c("x", "y"), crs=crs(r))
 
-# hist(base)
-# plot(base,range=c(0,4.5))
-# points(towers,col='red')
+ hist(base)
+ plot(base,range=c(0,4.5))
+ points(towers,col='red')
 
 #save the base here
 writeRaster(x = base,filename = './output/base_network/base_2km.tif',overwrite = T)
+writeRaster(x = base,filename = './output/base_network/base_1km.tif',overwrite = T)
 
 #######################################################################################
 ##################     METHANE
@@ -66,12 +67,14 @@ methane = rast(x = methanedf,type = 'xyz',crs = crs(r))
 methane.towers = tower.data[net.methane,]
 towers = vect(x = methane.towers,geom=c("x", "y"), crs=crs(r))
 
-# hist(methane)
-# plot(methane,range=c(0,4.5))
-# points(towers,col='red')
+ hist(methane)
+ plot(methane,range=c(0,4.5))
+ points(towers,col='red')
 
 #save the base here
 writeRaster(x = methane,filename = './output/base_network/methane_2km.tif',overwrite = T)
+writeRaster(x = methane,filename = './output/base_network/methane_1km.tif',overwrite = T)
+
 ##########################################################################################
 ################ Annual
 net.annual = which(tower.data$active == 'active' & tower.data$Start_CO2 < 2022 & tower.data$Season_Activity == 'All year')
@@ -93,12 +96,15 @@ annual = rast(x = annualdf,type = 'xyz',crs = crs(r))
 annual.towers = tower.data[net.annual,]
 towers = vect(x = annual.towers,geom=c("x", "y"), crs=crs(r))
 
-# hist(annual)
-# plot(annual,range=c(0,4.5))
-# points(towers,col='red')
+ hist(annual)
+ plot(annual,range=c(0,4.5))
+ plot(annual2,range=c(0,4.5))
+ annual.towerspoints(towers,col='red')
 
 #save the annual here
 writeRaster(x = annual,filename = './output/base_network/annual_2km.tif',overwrite = T)
+writeRaster(x = annual,filename = './output/base_network/annual_1km.tif',overwrite = T)
+
 ################################################################################
 # Annual Methane
 net.annual.methane = which(tower.data$active == 'active' & tower.data$Start_CO2 < 2022 & tower.data$Season_Activity == 'All year' & tower.data$methane == 'methane')
@@ -120,9 +126,10 @@ annual.methane = rast(x = annual.methane.df,type = 'xyz',crs = crs(r))
 annual.methane.towers = tower.data[net.annual.methane,]
 towers = vect(x = annual.methane.towers,geom=c("x", "y"), crs=crs(r))
 
-# hist(annual.methane)
-# plot(annual.methane,range=c(0,4.5))
-# points(towers,col='red')
+hist(annual.methane)
+plot(annual.methane,range=c(0,4.5))
+points(towers,col='red')
 
 #save the base here
 writeRaster(x = annual.methane,filename = './output/base_network/annual_methane_2km.tif',overwrite = T)
+writeRaster(x = annual.methane,filename = './output/base_network/annual_methane_1km.tif',overwrite = T)

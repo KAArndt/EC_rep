@@ -46,7 +46,9 @@ plot(base,range=c(0,4.5))
 points(towers,col='red')
 
 #save the base here
-writeRaster(x = base,filename = './output/improved_network/improved_base_2km.tif',overwrite = T)
+#writeRaster(x = base,filename = './output/improved_network/improved_base_2km.tif',overwrite = T)
+writeRaster(x = base,filename = './output/improved_network/improved_base_1km.tif',overwrite = T)
+
 #######################################################################################
 ##################     METHANE
 net.methane = which(tower.data$active == 'active' & tower.data$methane == 'methane')
@@ -73,7 +75,9 @@ plot(methane,range=c(0,4.5))
 points(towers,col='red')
 
 #save the base here
-writeRaster(x = methane,filename = './output/improved_network/improved_methane_2km.tif',overwrite = T)
+#writeRaster(x = methane,filename = './output/improved_network/improved_methane_2km.tif',overwrite = T)
+writeRaster(x = methane,filename = './output/improved_network/improved_methane_1km.tif',overwrite = T)
+
 ##########################################################################################
 ################ Annual
 net.annual = which(tower.data$active == 'active' & tower.data$Season_Activity == 'All year')
@@ -102,6 +106,8 @@ points(towers,col='red')
 
 #save the annual here
 writeRaster(x = annual,filename = './output/improved_network/improved_annual_2km.tif',overwrite = T)
+#writeRaster(x = annual,filename = './output/improved_network/improved_annual_1km.tif',overwrite = T)
+
 ################################################################################
 # Annual Methane
 net.annual.methane = which(tower.data$active == 'active' & tower.data$Season_Activity == 'All year' & tower.data$methane == 'methane')
@@ -128,4 +134,5 @@ plot(annual.methane,range=c(0,4.5))
 points(towers,col='red')
 
 #save the base here
-writeRaster(x = annual.methane,filename = './output/improved_network/improved_annual_methane_2km.tif',overwrite = T)
+#writeRaster(x = annual.methane,filename = './output/improved_network/improved_annual_methane_2km.tif',overwrite = T)
+writeRaster(x = annual.methane,filename = './output/improved_network/improved_annual_methane_1km.tif',overwrite = T)

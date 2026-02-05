@@ -28,7 +28,7 @@ r = rast('./spatial_data/spatial_repro_2km.tif')
 r = crop(x = r,y = clust)
 
 #merge all into one stack
-all = c(pca,r,gsco2,gsch4,anco2,anch4)
+all = c(pca,r,igsco2,igsch4,ianco2,ianch4)
 
 #aggregate to make plottig and playing with data more manageable
 ag    = aggregate(x = all,fact = 10,fun = 'mean',cores = 6,na.rm = T)
@@ -186,7 +186,7 @@ leg = get_legend(ggplot(data = df)+theme_bw()+
 
 g = plot_grid(temp,temp_range,ndvi,soc,mir,nrow = 5,labels = c('a','b','c','d','e'),label_size = 10,align = 'hv')
 
-png(filename = './figures/figure xx cluster simmilarity metrics.png',width = 7,height = 8,units = 'in',res = 1800)
+png(filename = './figures/figure xx cluster simmilarity metrics.png',width = 6,height = 7,units = 'in',res = 1800)
 plot_grid(g,leg,nrow = 1,rel_widths = c(0.92,0.08))
 dev.off()
 

@@ -25,7 +25,7 @@ tower.data = fread('./data/next_5_sites/base_4.csv')
 tower.data$order = seq(1,length(tower.data$MeanTemp)) #important for merging back the tower order
 
 #ranking of sites
-ranks = read.csv(file = './output/reductions/meanreduction_remaining_4.csv')
+ranks = read.csv(file = './data/reductions/meanreduction_remaining_4.csv')
 ranks$rank = rank(x = ranks$means)
 names(ranks)[1] = 'site'
 top.limit = max(ranks$means*-1)+0.005
@@ -78,10 +78,12 @@ base.towers = tower.data[net,]
 towers = vect(x = base.towers,geom=c("x", "y"), crs=crs(r))
 
 orig = rast('./output/improved_network/next_five_sites/improved_base_2km_4.tif')
+orig = rast('./output/improved_network/improved_base_2km.tif')
 
 plot(base,range=c(0,4.5))
 points(towers,col='red')
 
+hist(orig - base)
 new = subset(towers,towers$site == name)
 plot(orig - base,range=c(0.001,1))
 points(new,col='red')

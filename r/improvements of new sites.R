@@ -37,12 +37,12 @@ er1 = 1.96
 er4 = 1.56
 
 #regular new sites ###########################################################################################
-df1 = fread('./output/reductions/meanreduction_remaining.csv')
-df2 = fread('./output/reductions/meanreduction_remaining_1.csv')
-df3 = fread('./output/reductions/meanreduction_remaining_2.csv')
-df4 = fread('./output/reductions/meanreduction_remaining_3.csv')
-df5 = fread('./output/reductions/meanreduction_remaining_4.csv')
-df6 = fread('./output/reductions/meanreduction_remaining_5.csv')
+df1 = fread('./data/reductions/meanreduction_remaining.csv')
+df2 = fread('./data/reductions/meanreduction_remaining_1.csv')
+df3 = fread('./data/reductions/meanreduction_remaining_2.csv')
+df4 = fread('./data/reductions/meanreduction_remaining_3.csv')
+df5 = fread('./data/reductions/meanreduction_remaining_4.csv')
+df6 = fread('./data/reductions/meanreduction_remaining_5.csv')
 
 df1 = subset(df1,df1$means == min(df1$means))
 df2 = subset(df2,df2$means == min(df2$means))

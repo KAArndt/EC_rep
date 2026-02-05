@@ -97,68 +97,72 @@ ggplot(data = m.stat)+
   geom_bar(aes(x = km40,y = count_fn2.x,fill=gsco2_fn1.y),stat = 'identity',position = position_dodge())+
   scale_fill_gradientn('Rep.',
                        colours = pal,
-                       limits = c(0,1.56*2),
-                       breaks = c(0,1.56,1.56*2),
+                       limits = c(0,1.96*2),
+                       breaks = c(0,1.96,1.96*2),
                        labels = c('Good','Cutoff','Poor'),
                        oob = scales::squish)
 
 a = ggplot(data = m.stat,aes(gsco2_fn1.x,gsco2_fn1.y,label=km40))+
   theme_bw()+geom_abline(slope = 1,intercept = 0)+
-  annotate(geom = 'segment',x = 1.56,xend = 6,y = 1.56,col='red',lty=2)+
-  annotate(geom = 'segment',x = 1.56,yend = 1.56,y = 0.5,col='red',lty=2)+
+  annotate(geom = 'segment',x = 1.96,xend = 6,y = 1.96,col='red',lty=2)+
+  annotate(geom = 'segment',x = 1.96,yend = 1.96,y = 0,col='red',lty=2)+
   geom_point(size=1)+
-  scale_y_continuous('2024 Rep.',limits = c(0.5,6),expand = c(0,0))+
-  scale_x_continuous('',limits = c(0.5,6),expand = c(0,0))+
-  geom_label_repel(label.size = NA,max.overlaps = 20,size=2)+
-  annotate(geom = "polygon", x = c(0.5, 1.56 ,1.56), y = c(0.5, 1.56, 0.5), fill = "blue", alpha = 0.1)+
-  annotate(geom = "polygon", x = c(1.56, 6 ,6), y = c(1.56, 6, 1.56), fill = "brown", alpha = 0.1)+
-  annotate(geom = "rect", xmin = 1.56,xmax =  6,ymin = 0.5, ymax = 1.56, fill = "green", alpha = 0.1)+
-  theme(text = element_text(size = 7))+
-  annotate(geom = 'text',x = 3,y = 5.5,label=expression("Growing Season "*CO[2]),size = 3)
+  scale_y_continuous('2024 Rep.',limits = c(0,6),expand = c(0,0))+
+  scale_x_continuous('',limits = c(0,6),expand = c(0,0))+
+  geom_label_repel(label.size = NA,max.overlaps = 20,size=2,fill='transparent')+
+  annotate(geom = "polygon", x = c(0, 1.96 ,1.96), y = c(0, 1.96, 0), fill = "blue", alpha = 0.1)+
+  annotate(geom = "polygon", x = c(1.96, 6 ,6), y = c(1.96, 6, 1.96), fill = "brown", alpha = 0.1)+
+  annotate(geom = "rect", xmin = 1.96,xmax =  6,ymin = 0, ymax = 1.96, fill = "green", alpha = 0.1)+
+  theme(text = element_text(size = 8),
+        panel.grid.minor = element_blank())+
+  annotate(geom = 'text',x = 2,y = 5.5,label=expression("Growing Season "*CO[2]),size = 3)
 
 b = ggplot(data = m.stat,aes(gsch4_fn1.x,gsch4_fn1.y,label=km40))+
   theme_bw()+geom_abline(slope = 1,intercept = 0)+
-  annotate(geom = 'segment',x = 1.56,xend = 6,y = 1.56,col='red',lty=2)+
-  annotate(geom = 'segment',x = 1.56,yend = 1.56,y = 0.5,col='red',lty=2)+  
+  annotate(geom = 'segment',x = 1.96,xend = 6,y = 1.96,col='red',lty=2)+
+  annotate(geom = 'segment',x = 1.96,yend = 1.96,y = 0,col='red',lty=2)+  
   geom_point(size=1)+
-  scale_y_continuous('',limits = c(0.5,6),expand = c(0,0))+
-  scale_x_continuous('',limits = c(0.5,6),expand = c(0,0))+
-  geom_label_repel(label.size = NA,max.overlaps = 20,size=2)+
-  annotate(geom = "polygon", x = c(0.5, 1.56 ,1.56), y = c(0.5, 1.56, 0.5), fill = "blue", alpha = 0.1)+
-  annotate(geom = "polygon", x = c(1.56, 6 ,6), y = c(1.56, 6, 1.56), fill = "brown", alpha = 0.1)+
-  annotate(geom = "rect", xmin = 1.56,xmax =  6,ymin = 0.5, ymax = 1.56, fill = "green", alpha = 0.1)+
-  theme(text = element_text(size = 7))+
-  annotate(geom = 'text',x = 3,y = 5.5,label=expression("Growing Season "*CH[4]),size = 3)
+  scale_y_continuous('',limits = c(0,6),expand = c(0,0))+
+  scale_x_continuous('',limits = c(0,6),expand = c(0,0))+
+  geom_label_repel(label.size = NA,max.overlaps = 20,size=2,fill='transparent')+
+  annotate(geom = "polygon", x = c(0, 1.96 ,1.96), y = c(0, 1.96, 0), fill = "blue", alpha = 0.1)+
+  annotate(geom = "polygon", x = c(1.96, 6 ,6), y = c(1.96, 6, 1.96), fill = "brown", alpha = 0.1)+
+  annotate(geom = "rect", xmin = 1.96,xmax =  6,ymin = 0, ymax = 1.96, fill = "green", alpha = 0.1)+
+  theme(text = element_text(size = 8),
+        panel.grid.minor = element_blank())+
+  annotate(geom = 'text',x = 2,y = 5.5,label=expression("Growing Season "*CH[4]),size = 3)
 
 
 c = ggplot(data = m.stat,aes(anco2_fn1.x,anco2_fn1.y,label=km40))+
   theme_bw()+geom_abline(slope = 1,intercept = 0)+
-  annotate(geom = 'segment',x = 1.56,xend = 6,y = 1.56,col='red',lty=2)+
-  annotate(geom = 'segment',x = 1.56,yend = 1.56,y = 0.5,col='red',lty=2)+
+  annotate(geom = 'segment',x = 1.96,xend = 6,y = 1.96,col='red',lty=2)+
+  annotate(geom = 'segment',x = 1.96,yend = 1.96,y = 0,col='red',lty=2)+
   geom_point(size=1)+
-  scale_y_continuous('2024 Rep.',limits = c(0.5,6),expand = c(0,0))+
-  scale_x_continuous('2022 Rep.',limits = c(0.5,6),expand = c(0,0))+
-  geom_label_repel(label.size = NA,max.overlaps = 20,size=2)+
-  annotate(geom = "polygon", x = c(0.5, 1.56 ,1.56), y = c(0.5, 1.56, 0.5), fill = "blue", alpha = 0.1)+
-  annotate(geom = "polygon", x = c(1.56, 6 ,6), y = c(1.56, 6, 1.56), fill = "brown", alpha = 0.1)+
-  annotate(geom = "rect", xmin = 1.56,xmax =  6,ymin = 0.5, ymax = 1.56, fill = "green", alpha = 0.1)+
-  theme(text = element_text(size = 7))+
-  annotate(geom = 'text',x = 3,y = 5.5,label=expression("Year-round "*CO[2]),size = 3)
+  scale_y_continuous('2024 Rep.',limits = c(0,6),expand = c(0,0))+
+  scale_x_continuous('2022 Rep.',limits = c(0,6),expand = c(0,0))+
+  geom_label_repel(label.size = NA,max.overlaps = 20,size=2,fill='transparent')+
+  annotate(geom = "polygon", x = c(0, 1.96 ,1.96), y = c(0, 1.96, 0), fill = "blue", alpha = 0.1)+
+  annotate(geom = "polygon", x = c(1.96, 6 ,6), y = c(1.96, 6, 1.96), fill = "brown", alpha = 0.1)+
+  annotate(geom = "rect", xmin = 1.96,xmax =  6,ymin = 0, ymax = 1.96, fill = "green", alpha = 0.1)+
+  theme(text = element_text(size = 8),
+        panel.grid.minor = element_blank())+
+  annotate(geom = 'text',x = 2,y = 5.5,label=expression("Year-round "*CO[2]),size = 3)
 
 
 d = ggplot(data = m.stat,aes(anch4_fn1.x,anch4_fn1.y,label=km40))+
   theme_bw()+geom_abline(slope = 1,intercept = 0)+
-  annotate(geom = 'segment',x = 1.56,xend = 6,y = 1.56,col='red',lty=2)+
-  annotate(geom = 'segment',x = 1.56,yend = 1.56,y = 0.5,col='red',lty=2)+  
+  annotate(geom = 'segment',x = 1.96,xend = 6,y = 1.96,col='red',lty=2)+
+  annotate(geom = 'segment',x = 1.96,yend = 1.96,y = 0,col='red',lty=2)+  
   geom_point(size=1)+
-  scale_y_continuous('',limits = c(0.5,6),expand = c(0,0))+
-  scale_x_continuous('2022 Rep.',limits = c(0.5,6),expand = c(0,0))+
-  geom_label_repel(label.size = NA,max.overlaps = 20,size=2)+
-  annotate(geom = "polygon", x = c(0.5, 1.56 ,1.56), y = c(0.5, 1.56, 0.5), fill = "blue", alpha = 0.1)+
-  annotate(geom = "polygon", x = c(1.56, 6 ,6), y = c(1.56, 6, 1.56), fill = "brown", alpha = 0.1)+
-  annotate(geom = "rect", xmin = 1.56,xmax =  6,ymin = 0.5, ymax = 1.56, fill = "green", alpha = 0.1)+
-  theme(text = element_text(size = 7))+
-  annotate(geom = 'text',x = 3,y = 5.5,label=expression("Year-round "*CH[4]),size = 3)
+  scale_y_continuous('',limits = c(0,6),expand = c(0,0))+
+  scale_x_continuous('2022 Rep.',limits = c(0,6),expand = c(0,0))+
+  geom_label_repel(label.size = NA,max.overlaps = 20,size=2,fill='transparent')+
+  annotate(geom = "polygon", x = c(0, 1.96 ,1.96), y = c(0, 1.96, 0), fill = "blue", alpha = 0.1)+
+  annotate(geom = "polygon", x = c(1.96, 6 ,6), y = c(1.96, 6, 1.96), fill = "brown", alpha = 0.1)+
+  annotate(geom = "rect", xmin = 1.96,xmax =  6,ymin = 0, ymax = 1.96, fill = "green", alpha = 0.1)+
+  theme(text = element_text(size = 8),
+        panel.grid.minor = element_blank())+
+  annotate(geom = 'text',x = 2,y = 5.5,label=expression("Year-round "*CH[4]),size = 3)
 
 
 png(filename = './figures/scatter.cluster.reduction.png',width = 6,height = 6,units = 'in',res = 1500)
