@@ -7,7 +7,10 @@ library(ggnewscale)
 
 #load in the stack created in the other file
 r = rast('./spatial_data/spatial_repro_new.tif')
+r2 = aggregate(x = r,fact=10,fun='mean',na.rm=T,cores=50)
+r2
 
+?aggregate
 #load in extracted site data from extraction codes
 tower.data = fread(file = './data/extracted_tower_data_new.csv')
 

@@ -105,8 +105,8 @@ plot(annual,range=c(0,4.5))
 points(towers,col='red')
 
 #save the annual here
-writeRaster(x = annual,filename = './output/improved_network/improved_annual_2km.tif',overwrite = T)
-#writeRaster(x = annual,filename = './output/improved_network/improved_annual_1km.tif',overwrite = T)
+#writeRaster(x = annual,filename = './output/improved_network/improved_annual_2km.tif',overwrite = T)
+writeRaster(x = annual,filename = './output/improved_network/improved_annual_1km.tif',overwrite = T)
 
 ################################################################################
 # Annual Methane

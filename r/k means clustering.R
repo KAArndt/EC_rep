@@ -11,6 +11,8 @@ library(doSNOW)
 
 #load in the pca image
 r = rast('./spatial_data/pca_2km.tif')
+r = rast('./spatial_data/pca.tif')
+
 df = as.data.frame(x = r,na.rm = T,xy = T)
 
 #take just the coordinates from column 1 and 2 (will need for transforming back into a raster)
@@ -24,7 +26,7 @@ df = df[,-c(1,2)]
 
 #run kmeans clustering in parallel, determine what is the best by running several size clusters
 set.seed(100) #set seed so the kmeans always starts in the same spot, makes the results more similar if ran again
-cents = c(5,10,20,30,40,50,60,70,80,90,100,200,300) #set how many clusters we want in the different iterations
+cents = c(5,10,20,40,80) #set how many clusters we want in the different iterations
 
 #setup parallel back end to use many processors
   cores = detectCores() #detect the number of cores
@@ -39,7 +41,7 @@ cents = c(5,10,20,30,40,50,60,70,80,90,100,200,300) #set how many clusters we wa
   Sys.time() - orig} #stop the clock
   
 #saveRDS(object = km,file = './output/clusters.rds')
-km = readRDS(file = './output/clusters.rds')
+km = readRDS(file = './output/clusters_1km.rds',compress=F)
 
 #error calculations for deciding appropriate amount of clusters
 error  = km[[1]]$tot.withinss

@@ -64,7 +64,7 @@ library(doSNOW)
 
 #setup parallel back end to use many processors
 cores = detectCores()        #detect the number of cores
-cl = makeCluster(20) #assign number of cores
+cl = makeCluster(6) #assign number of cores, could probably do 6 at 1km, can do ~20 at 2 km
 {orig = Sys.time() #start the clock for timing the process
   registerDoSNOW(cl) #register the cores
   eucis = foreach (j = 1:ncol(euci.ext),.verbose = T,.combine = cbind,.packages = c('kit')) %dopar% {
@@ -117,6 +117,7 @@ for (i in 1:ncol(eucis)) {
 
 #load in the base
 base = rast('./output/improved_network/improved_base_2km.tif')
+base = rast('./output/improved_network/improved_base_1km.tif')
 
 difs = list()
 for (i in 1:length(dist.rasts)) {

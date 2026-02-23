@@ -10,6 +10,8 @@ tower.data = fread(file = './data/pca.towers.base.csv')
 r = rast('./spatial_data/pca_2km.tif')
 r = rast('./spatial_data/pca.tif')
 
+r = aggregate(x = r,fact=22,fun='mean',na.rm=T)
+r
 #create data frame from PCAs
 df = as.data.frame(x = r,xy = T,na.rm = T)
 
@@ -24,7 +26,7 @@ euclid = vector(length = nrow(pca.dt))
 
 #setup parallel back end to use many processors
 cores = detectCores()        #detect the number of cores
-cl = makeCluster(90) #assign number of cores (number which can be used at 1 km: 1 hr at 30 cores)(can be used at 2km)
+cl = makeCluster(90) #assign number of cores (number which can be used at 1 km: 1 hr at 30 cores, 38 minutes with 90 cores)(can be used at 2km)
 {orig = Sys.time() #start the clock for timing the process
 registerDoSNOW(cl) #register the cores
 
@@ -45,5 +47,9 @@ Sys.time() - orig} #stop the clock
 #save the euclidean distance
 colnames(euci) = tower.data$site
 
-#save the file, rds saves alot of space
-saveRDS(object = euci,file = './euclidean_distance_matrix/euci_1km.rds')
+#save the file
+saveRDS(object = euci,file = './euclidean_distance_matrix/euci_1km.rds',compress = F)
+saveRDS(object = euci,file = './euclidean_distance_matrix/euci_2km.rds',compress = F)
+saveRDS(object = euci,file = './euclidean_distance_matrix/euci_5km.rds',compress = F)
+saveRDS(object = euci,file = './euclidean_distance_matrix/euci_10km.rds',compress = F)
+saveRDS(object = euci,file = './euclidean_distance_matrix/euci_20km.rds',compress = F)

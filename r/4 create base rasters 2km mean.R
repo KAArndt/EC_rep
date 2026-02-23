@@ -1,4 +1,4 @@
-rm(list=setdiff(ls(), c("euci",'df','r')))
+rm(list=setdiff(ls(), c("euci",'df','r','tower.data')))
 
 library(data.table)
 library(readr)
@@ -9,11 +9,13 @@ library(kit)
 tower.data = fread(file = './data/pca.towers.base.csv')
 
 #load back in euclidean distance matrix
-euci = read_rds('./euclidean_distance_matrix/euci_2km.rds')
+euci = read_rds('./euclidean_distance_matrix/euci_5km.rds')
 
 #load in the other spatial data
 r = rast('./spatial_data/pca_2km.tif')
 df = as.data.frame(x = r,xy = T,na.rm = T)
+
+num = 2
 
 ##########################################################################
 # BASE
@@ -23,7 +25,6 @@ euci.net = euci[,c(net)]
 
 #calculate the base network, parallel processing is much slower here
 base.dist = numeric(length = nrow(euci.net))
-num = 2
 {orig = Sys.time() #start the clock for timing the process
 for (i in 1:nrow(euci.net)) {
   base.dist[i] = mean(euci.net[i,topn(vec = euci.net[i,],n = num,decreasing = F,hasna = F)])
@@ -43,6 +44,9 @@ towers = vect(x = base.towers,geom=c("x", "y"), crs=crs(r))
  points(towers,col='red')
 
 #save the base here
+ writeRaster(x = base,filename = './output/base_network/base_20km.tif',overwrite = T)
+writeRaster(x = base,filename = './output/base_network/base_10km.tif',overwrite = T)
+writeRaster(x = base,filename = './output/base_network/base_5km.tif',overwrite = T)
 writeRaster(x = base,filename = './output/base_network/base_2km.tif',overwrite = T)
 writeRaster(x = base,filename = './output/base_network/base_1km.tif',overwrite = T)
 
@@ -133,3 +137,4 @@ points(towers,col='red')
 #save the base here
 writeRaster(x = annual.methane,filename = './output/base_network/annual_methane_2km.tif',overwrite = T)
 writeRaster(x = annual.methane,filename = './output/base_network/annual_methane_1km.tif',overwrite = T)
+
