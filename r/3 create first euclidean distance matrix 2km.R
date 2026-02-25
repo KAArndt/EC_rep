@@ -8,10 +8,10 @@ library(doSNOW)
 #load in extracted site data from extraction codes, can be base or upgraded since active, methane etc doesn't matter here
 tower.data = fread(file = './data/pca.towers.base.csv')
 r = rast('./spatial_data/pca_2km.tif')
-r = rast('./spatial_data/pca.tif')
+#r = rast('./spatial_data/pca.tif')
 
-r = aggregate(x = r,fact=22,fun='mean',na.rm=T)
-r
+#r = aggregate(x = r,fact=22,fun='mean',na.rm=T)
+
 #create data frame from PCAs
 df = as.data.frame(x = r,xy = T,na.rm = T)
 
@@ -26,7 +26,7 @@ euclid = vector(length = nrow(pca.dt))
 
 #setup parallel back end to use many processors
 cores = detectCores()        #detect the number of cores
-cl = makeCluster(90) #assign number of cores (number which can be used at 1 km: 1 hr at 30 cores, 38 minutes with 90 cores)(can be used at 2km)
+cl = makeCluster(120) #assign number of cores (number which can be used at 1 km: 1 hr at 30 cores, 38 minutes with 90 cores)(can be used at 2km)
 {orig = Sys.time() #start the clock for timing the process
 registerDoSNOW(cl) #register the cores
 

@@ -5,9 +5,13 @@ library(ggspatial)
 library(ggplot2)
 library(sf)
 
+
+lc = rast('./spatial_data/HybridLandCover_1km.tif')
+
 #load in the permafrost layer
 pp = rast('./spatial_data/UiO_PEX_PERPROB_5.0_20181128_2000_2016_NH.tif')
 
+pp.r = resample(x = pp,y = lc)
 #base Extrapolation index image from TNC shapefile
 # eco = vect('./spatial_data/terr-ecoregions-TNC/tnc_terr_ecoregions.shp')
 # 
@@ -42,25 +46,27 @@ eco = subset(eco,eco$BIOME_NAME == 'Rock and Ice' |
                # eco$ECO_NAME     ==  'Alberta-British Columbia foothills forests' |
                # eco$ECO_NAME     ==  'Sayan Intermontane steppe')
 
+
 #crop to the northern regions
 eco = crop(x = eco,y = c(-180, 180, 40, 83.6236))
-eco = project(x = eco,y = pp)
+eco = project(x = eco,y = pp.r)
 plot(eco)
+plot(pp.r)
 
-pp = crop(x = pp,y = eco)
-pp = mask(x = pp,mask = eco)
+pp.r = crop(x = pp.r,y = eco)
+pp.r = mask(x = pp.r,mask = eco)
 
-plot(pp)
+plot(pp.r)
+pp.r
 
 #world map for plotting
 sf_use_s2(FALSE) #need to run this before next line
 countries = rnaturalearth::ne_countries(returnclass = "sf") %>%
   st_crop(y = st_bbox(c(xmin = -180, ymin = 40, xmax = 180, ymax = 90))) %>%
   smoothr::densify(max_distance = 1) %>%
-  st_transform(crs(pp))
+  st_transform(crs(pp.r))
 
-
-pp.ag = aggregate(x = pp,fact = 4,fun = mean,na.rm = T)
+pp.ag = aggregate(x = pp.r,fact = 4,fun = mean,na.rm = T)
 
 ggplot()+
   layer_spatial(data = pp.ag)+
