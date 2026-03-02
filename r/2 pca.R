@@ -9,7 +9,7 @@ library(ggnewscale)
 r = rast('./spatial_data/spatial_repro.tif')
 
 #load in extracted site data from extraction codes
-tower.data = fread(file = './data/extracted_tower_data_new.csv')
+tower.data = fread(file = './data/extracted_tower_data.csv')
 
 #cut down raster data to remove NAs
 sr = spatSample(x = r,size = 500000,method = "regular")
@@ -78,6 +78,7 @@ pca.original$active = ifelse(pca.original$site == 'Scotty Creek Landscape','inac
 pca.original$active = ifelse(pca.original$site == 'Lutose Rich Fen','inactive',pca.original$active)
 pca.original$active = ifelse(pca.original$site == 'Council (NGEE Arctic)','inactive',pca.original$active)
 
+pca.original$site
 write.csv(x = pca.original,file = './data/pca.towers.base.csv',row.names = F)
           
 pca.upgraded = pca.t

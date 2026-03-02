@@ -8,25 +8,28 @@ library(seegSDM)
 #gh_install_packages("SEEG-Oxford/seegSDM")
 
 #load in sites
-towers = fread(file = './data/ARGO_EC_Tower_edited.csv')
+towers = fread(file = './data/towers.list.2026.csv')
 ext    = fread(file = './data/ext_sites.csv')
 
+towers = towers[order(towers$site),]
+
 #sub to interested sites
-towers = subset(towers,towers$Terrestrial == TRUE)
-towers = subset(towers,towers$ignore == 'no')
-towers$active  = ifelse(towers$End_CO2 == 2024,'active','inactive')
+towers$active  = ifelse(towers$End_CO2 >= 2024,'active','inactive')
+
 towers$methane = ifelse(towers$GHG == 'CO2,CH4' | towers$GHG == 'CO2,CH4,N2O',
                        'methane','nonmethane')
+towers$End_CH4 = ifelse(towers$methane == 'methane' & is.na(towers$End_CH4),2025,towers$End_CH4)
+towers$methane = ifelse(towers$End_CH4 >= 2024,'methane','nonmethane')
 
-names(ext) = c('Site_Name','Country','Longitude','Latitude','Ext_Type','State','Population')
+names(ext) = c('site','Country','Longitude','Latitude','Ext_Type','State','Population')
 #reduce the existing sites and add class names
 #towers = towers[,c('Site_Name','Country','Longitude','Latitude','active','methane','Season_Activity')]
 towers.and.ext    = rbind(towers,ext,fill=T)
-names(towers.and.ext)[4] = 'site'
+#names(towers.and.ext)[4] = 'site'
 towers.and.ext = towers.and.ext[!duplicated(towers.and.ext$site),]
 
 #set just the coordinates for the extract
-xy.tower = towers.and.ext[,c(10,9)]
+xy.tower = towers.and.ext[,c(5,4)]
 
 #climate #########################################################################
 #load in the stack created in the other files
@@ -101,7 +104,7 @@ modisr = stack(modis) #make a raster version
 #find coordinates
 na.cor = as.data.frame(nearestLand(points = nas[,c('x','y')],raster = modisr,max_distance = 30000))
 
-#place in original dataframe
+#place in original data frame
 modisdat[nas$ID,] = extract(x = modis,y = na.cor,cells=T,xy=T)
 summary(modisdat)
 
@@ -118,8 +121,9 @@ alldata = merge(modisclim,permsoil,by = 'site')
 towerdata = merge(towers.and.ext,alldata,by = 'site')
 
 #Add variables for projected coordinates
+r = rast('./spatial_data/spatial_repro.tif')
 td = vect(geom = c("Longitude","Latitude"),x = towerdata,crs = crs(clim))
-td = project(x = td,y = crs(pp))
+td = project(x = td,y = crs(r))
 crd = data.frame(crds(td))
 
 towerdata$x = crd$x
@@ -129,4 +133,4 @@ towerdata = towerdata[complete.cases(towerdata$mir),]
 summary(towerdata)
 
 #add the class back in
-write.csv(x = towerdata,file = './data/extracted_tower_data_new.csv',row.names = F)
+write.csv(x = towerdata,file = './data/extracted_tower_data.csv',row.names = F)
