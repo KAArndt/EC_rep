@@ -53,7 +53,7 @@ PCAloadings = data.frame(Variables = rownames(pca$rotation), pca$rotation)
 summary(pca)
 pca$rotation
 
-write.csv(x = PCAloadings,file = './output/pcaloadings.csv')
+write.csv(x = PCAloadings,file = './data/pcaloadings.csv')
 
 #names for raster to match
 names(r) = c("MeanTemp","Precip","PrecipSeasonality","MeanDiurnalRange",
@@ -70,7 +70,6 @@ writeRaster(x = p,filename = './spatial_data/pca.tif',overwrite = T)
 
 p2 = aggregate(x = p,fact = 2,fun = mean,na.rm = T)
 writeRaster(x = p2,filename = './spatial_data/pca_2km.tif',overwrite = T)
-
 
 #make site lists
 pca.original = pca.t
@@ -95,7 +94,6 @@ pca.upgraded$methane = ifelse(pca.upgraded$site == "Lutose",'methane',pca.upgrad
 pca.upgraded$active = ifelse(pca.upgraded$site == 'Council (NGEE Arctic)','inactive',pca.upgraded$active)
 pca.upgraded$active = ifelse(pca.upgraded$site == 'Lutose Rich Fen','inactive',pca.upgraded$active)
 
-
 write.csv(x = pca.upgraded,file = './data/pca.towers.upgraded.csv',row.names = F)
 
 #PCA plots #############################################################
@@ -106,9 +104,6 @@ ggplot()+theme_bw()+
   new_scale_fill()+
   geom_point(data = pca.ta,aes(x = pc1,y = pc2,fill='Active Site'),pch=21,size=2)+
   #  geom_point(data = pca.ex,aes(x = pc1,y = pc2,fill='Extension Site'),pch=21,size=2)+
-  geom_point(data = pca.ice,aes(x = pc1,y = pc2,fill='Iceland'),pch=21,size=2)+
-  geom_point(data = pca.cf,aes(x = pc1,y = pc2,fill='Quebec'),pch=21,size=2)+
-  geom_label(data = pca.mon,aes(x = pc1,y = pc2,col='Mongolia',label=site),pch=21,size=2)+
   #  geom_label(data = pca.ta,aes(x = pc1,y = pc2,col='Active Site',label=site),pch=21,size=2)+
   #  geom_label(data = pca.ex,aes(x = pc1,y = pc2,col='Extension Site',label=site),pch=21,size=2)+
   scale_fill_manual('',values = c('green','red','orange','pink'))+

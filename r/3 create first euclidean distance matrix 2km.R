@@ -7,8 +7,8 @@ library(doSNOW)
 
 #load in extracted site data from extraction codes, can be base or upgraded since active, methane etc doesn't matter here
 tower.data = fread(file = './data/pca.towers.base.csv')
-r = rast('./spatial_data/pca_2km.tif')
-#r = rast('./spatial_data/pca.tif')
+#r = rast('./spatial_data/pca_2km.tif')
+r = rast('./spatial_data/pca.tif')
 
 #r = aggregate(x = r,fact=22,fun='mean',na.rm=T)
 
