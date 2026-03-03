@@ -26,7 +26,7 @@ euclid = vector(length = nrow(pca.dt))
 
 #setup parallel back end to use many processors
 cores = detectCores()        #detect the number of cores
-cl = makeCluster(39) #assign number of cores (number which can be used at 1 km: 1 hr at 30 cores, 38 minutes with 90 cores)(can be used at 2km)
+cl = makeCluster(59) #assign number of cores (number which can be used at 1 km: 1 hr at 30 cores, 38 minutes with 90 cores)(can be used at 2km)
 {orig = Sys.time() #start the clock for timing the process
 registerDoSNOW(cl) #register the cores
 

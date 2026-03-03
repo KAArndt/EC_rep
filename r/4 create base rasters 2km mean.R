@@ -9,10 +9,10 @@ library(kit)
 tower.data = fread(file = './data/pca.towers.base.csv')
 
 #load back in euclidean distance matrix
-euci = read_rds('./euclidean_distance_matrix/euci_5km.rds')
+euci = read_rds('./euclidean_distance_matrix/euci_1km.rds')
 
 #load in the other spatial data
-r = rast('./spatial_data/pca_2km.tif')
+r = rast('./spatial_data/pca.tif')
 df = as.data.frame(x = r,xy = T,na.rm = T)
 
 num = 2
@@ -44,10 +44,10 @@ towers = vect(x = base.towers,geom=c("x", "y"), crs=crs(r))
  points(towers,col='red')
 
 #save the base here
- writeRaster(x = base,filename = './output/base_network/base_20km.tif',overwrite = T)
-writeRaster(x = base,filename = './output/base_network/base_10km.tif',overwrite = T)
-writeRaster(x = base,filename = './output/base_network/base_5km.tif',overwrite = T)
-writeRaster(x = base,filename = './output/base_network/base_2km.tif',overwrite = T)
+#  writeRaster(x = base,filename = './output/base_network/base_20km.tif',overwrite = T)
+# writeRaster(x = base,filename = './output/base_network/base_10km.tif',overwrite = T)
+# writeRaster(x = base,filename = './output/base_network/base_5km.tif',overwrite = T)
+# writeRaster(x = base,filename = './output/base_network/base_2km.tif',overwrite = T)
 writeRaster(x = base,filename = './output/base_network/base_1km.tif',overwrite = T)
 
 #######################################################################################
@@ -76,7 +76,7 @@ towers = vect(x = methane.towers,geom=c("x", "y"), crs=crs(r))
  points(towers,col='red')
 
 #save the base here
-writeRaster(x = methane,filename = './output/base_network/methane_2km.tif',overwrite = T)
+#writeRaster(x = methane,filename = './output/base_network/methane_2km.tif',overwrite = T)
 writeRaster(x = methane,filename = './output/base_network/methane_1km.tif',overwrite = T)
 
 ##########################################################################################
@@ -106,7 +106,7 @@ towers = vect(x = annual.towers,geom=c("x", "y"), crs=crs(r))
  annual.towerspoints(towers,col='red')
 
 #save the annual here
-writeRaster(x = annual,filename = './output/base_network/annual_2km.tif',overwrite = T)
+#writeRaster(x = annual,filename = './output/base_network/annual_2km.tif',overwrite = T)
 writeRaster(x = annual,filename = './output/base_network/annual_1km.tif',overwrite = T)
 
 ################################################################################
@@ -135,6 +135,6 @@ plot(annual.methane,range=c(0,4.5))
 points(towers,col='red')
 
 #save the base here
-writeRaster(x = annual.methane,filename = './output/base_network/annual_methane_2km.tif',overwrite = T)
+#writeRaster(x = annual.methane,filename = './output/base_network/annual_methane_2km.tif',overwrite = T)
 writeRaster(x = annual.methane,filename = './output/base_network/annual_methane_1km.tif',overwrite = T)
 
