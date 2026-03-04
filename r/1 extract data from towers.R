@@ -28,6 +28,13 @@ towers.and.ext    = rbind(towers,ext,fill=T)
 #names(towers.and.ext)[4] = 'site'
 towers.and.ext = towers.and.ext[!duplicated(towers.and.ext$site),]
 
+#adjust Gjao haven and Shishmaref
+towers.and.ext$Latitude = ifelse(towers.and.ext$site == 'Gjoa Haven',towers.and.ext$Latitude + 0.01,towers.and.ext$Latitude)
+towers.and.ext$Longitude = ifelse(towers.and.ext$site == 'Gjoa Haven',towers.and.ext$Longitude + 0.01,towers.and.ext$Longitude)
+
+towers.and.ext$Latitude = ifelse(towers.and.ext$site == 'Shishmaref',towers.and.ext$Latitude + 0.01,towers.and.ext$Latitude)
+towers.and.ext$Longitude = ifelse(towers.and.ext$site == 'Shishmaref',towers.and.ext$Longitude + 0.01,towers.and.ext$Longitude)
+
 #set just the coordinates for the extract
 xy.tower = towers.and.ext[,c(5,4)]
 
@@ -43,7 +50,7 @@ climr = stack(clim) #make a raster version
 #find coordinates
 na.cor = as.data.frame(nearestLand(points = nas[,c('x','y')],raster = climr,max_distance = 2000))
 
-#place in original dataframe
+#place in original data frame
 climdat[nas$ID,] = extract(x = clim,y = na.cor,cells=T,xy=T)
 climdat$site = towers.and.ext$site
 summary(climdat)
@@ -83,6 +90,7 @@ na.cor = as.data.frame(nearestLand(points = nas[,c('x','y')],raster = permr,max_
 #place in original dataframe
 permdat[nas$ID,] = extract(x = perm,y = na.cor,cells=T,xy=T)
 summary(permdat)
+permdat$site = towers.and.ext$site
 
 #modis #########################################################################
 mir = rast('./spatial_data/mir_aug_10yrmean.tif')
@@ -102,11 +110,12 @@ nas = modisdat[is.na(modisdat$mir),] #extract where nas
 modisr = stack(modis) #make a raster version
 
 #find coordinates
-na.cor = as.data.frame(nearestLand(points = nas[,c('x','y')],raster = modisr,max_distance = 30000))
+na.cor = as.data.frame(nearestLand(points = nas[,c('x','y')],raster = modisr,max_distance = 50000))
 
 #place in original data frame
 modisdat[nas$ID,] = extract(x = modis,y = na.cor,cells=T,xy=T)
 summary(modisdat)
+modisdat$site = towers.and.ext$site
 
 #combine all
 modisdat[,c('cell','ID','x','y')] = list(NULL)
@@ -114,12 +123,13 @@ climdat[,c('cell','ID','x','y')] = list(NULL)
 permdat[,c('cell','ID','x','y')] = list(NULL)
 soildat[,c('cell','ID','x','y')] = list(NULL)
 
-modisclim = merge(modisdat,climdat,by = 'site')
-permsoil = merge(permdat,soildat,by = 'site')
-alldata = merge(modisclim,permsoil,by = 'site')
+modisclim = merge(modisdat,climdat,by = 'site',all=T)
+permsoil = merge(permdat,soildat,by = 'site',all=T)
+alldata = merge(modisclim,permsoil,by = 'site',all=T)
 
 towerdata = merge(towers.and.ext,alldata,by = 'site')
 
+summary(towerdata)
 #Add variables for projected coordinates
 r = rast('./spatial_data/spatial_repro.tif')
 td = vect(geom = c("Longitude","Latitude"),x = towerdata,crs = crs(clim))
@@ -131,6 +141,7 @@ towerdata$y = crd$y
 
 towerdata = towerdata[complete.cases(towerdata$mir),]
 summary(towerdata)
+
 
 #add the class back in
 write.csv(x = towerdata,file = './data/extracted_tower_data.csv',row.names = F)
