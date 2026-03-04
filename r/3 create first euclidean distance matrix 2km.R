@@ -10,7 +10,7 @@ tower.data = fread(file = './data/pca.towers.base.csv')
 #r = rast('./spatial_data/pca_2km.tif')
 r = rast('./spatial_data/pca.tif')
 
-r = aggregate(x = r,fact=10,fun='mean',na.rm=T)
+#r = aggregate(x = r,fact=10,fun='mean',na.rm=T)
 
 #create data frame from PCAs
 df = as.data.frame(x = r,xy = T,na.rm = T)
