@@ -39,9 +39,9 @@ base = rast(x = basedf,type = 'xyz',crs = crs(r))
 base.towers = tower.data[net,]
 towers = vect(x = base.towers,geom=c("x", "y"), crs=crs(r))
 
- hist(base)
- plot(base,range=c(0,4.5))
- points(towers,col='red')
+hist(base)
+plot(base,range=c(0,4.5))
+points(towers,col='red')
 
 #save the base here
 #  writeRaster(x = base,filename = './output/base_network/base_20km.tif',overwrite = T)
