@@ -50,6 +50,7 @@ points(towers,col='red')
 # writeRaster(x = base,filename = './output/base_network/base_2km.tif',overwrite = T)
 writeRaster(x = base,filename = './output/base_network/base_1km.tif',overwrite = T)
 
+
 #######################################################################################
 ##################     METHANE
 net.methane = which(tower.data$Start_CO2 < 2022 & tower.data$active == 'active' & tower.data$methane == 'methane')
