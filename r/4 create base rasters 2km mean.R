@@ -13,7 +13,9 @@ euci = read_rds('./euclidean_distance_matrix/euci_1km.rds')
 
 #load in the other spatial data
 r = rast('./spatial_data/pca.tif')
-df = as.data.frame(x = r,xy = T,na.rm = T)
+#r = aggregate(x = r,fact = 2,fun = 'mean',na.rm=T)
+r
+df    = as.data.frame(x = r,xy = T,na.rm = T)
 
 num = 2
 
@@ -44,10 +46,9 @@ plot(base,range=c(0,4.5))
 points(towers,col='red')
 
 #save the base here
-#  writeRaster(x = base,filename = './output/base_network/base_20km.tif',overwrite = T)
-# writeRaster(x = base,filename = './output/base_network/base_10km.tif',overwrite = T)
-# writeRaster(x = base,filename = './output/base_network/base_5km.tif',overwrite = T)
-# writeRaster(x = base,filename = './output/base_network/base_2km.tif',overwrite = T)
+#writeRaster(x = base,filename = './output/base_network/base_10km.tif',overwrite = T)
+#writeRaster(x = base,filename = './output/base_network/base_5km.tif',overwrite = T)
+#writeRaster(x = base,filename = './output/base_network/base_2km.tif',overwrite = T)
 writeRaster(x = base,filename = './output/base_network/base_1km.tif',overwrite = T)
 
 
