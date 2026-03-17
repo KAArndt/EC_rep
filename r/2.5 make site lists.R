@@ -36,7 +36,8 @@ tower.data$methane.2022 = ifelse(tower.data$site == 'Lutose','nonmethane',tower.
 
 #methane sites 2024 ##############################################################################
 tower.data$methane.2024 = ifelse(tower.data$GHG == 'CO2,CH4' | tower.data$GHG == 'CO2,CH4,N2O','methane','nonmethane')
-
+tower.data$methane.2024 = ifelse(tower.data$site == 'Lutose','nonmethane',tower.data$methane.2022)
+tower.data$site
 
 #test
 active22 = subset(tower.data,tower.data$active.2022 == 'active' & tower.data$methane.2022 == 'methane')$site
