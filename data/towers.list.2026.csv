@@ -228,6 +228,7 @@ Yakutsk-Pine,Yakutsk Spasskaya Pad Pine,RU-YPF,62.2414,129.6506,Russia,"Trofim M
 "Yukon-Kuskokwim Delta, Izaviknek-Kingaglia uplands, Burned 2015",YKD (burned),US-YK1,61.2723,-163.2228,USA,"Jackie Hung, Susan Natali","jhung@woodwellclimate.org, snatali@woodwellclimate.org",wetland,"CO2,CH4",2019,2024,2019,NA,NA,NA,All year,TRUE,FALSE,active
 "Yukon-Kuskokwim Delta, Izaviknek-Kingaglia uplands, Unburned",YKD (unburned),US-YK2,61.2548,-163.259,USA,"Jackie Hung, Susan Natali, Erin MacDonald","jhung@woodwellclimate.org, snatali@woodwellclimate.org, emacdonald@woodwellclimate.org",wetland,"CO2,CH4",2019,2024,2019,NA,NA,NA,All year,TRUE,FALSE,active
 "Zackenberg, Heath",Zackenberg Heath,GL-ZaH,74.4732,-20.5503,Greenland,Magnus Lund,ml@bios.au.dk,"tundra, grassland",CO2,2000,2024,NA,NA,NA,NA,All year,TRUE,FALSE,active
+"Zackenberg, Fen",,GL-ZaF,74.4814,-20.5545,Greenland,Magnus Lund,ml@bios.au.dk,fen,"CO2,CH4",2007,2025,2025,2025,NA,NA,All year,TRUE,FALSE,active
 "Zotino East, Birch Stand",,,61.0327,89.8195,Russia,Tarek El-Madany,telmad@bgc-jena.mpg.de,forest,CO2,2000,2024,NA,NA,NA,NA,Summer,TRUE,FALSE,active
 "Zotino East, Mixed Stand",,,61.0286,89.7863,Russia,Tarek El-Madany,telmad@bgc-jena.mpg.de,forest,CO2,2000,2024,NA,NA,NA,NA,Summer,TRUE,FALSE,active
 "Zotino East, Pole Stand",,,61.0312,89.7699,Russia,Tarek El-Madany,telmad@bgc-jena.mpg.de,forest,CO2,2000,2024,NA,NA,NA,NA,Summer,TRUE,FALSE,active
