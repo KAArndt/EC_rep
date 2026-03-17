@@ -11,11 +11,11 @@ library(dplyr)
 #devtools::install_github('SEEG-Oxford/seegSDM')
 
 #load in sites
-tower.data = fread(file = './data/pca.towers.base.csv')
-active = subset(tower.data,tower.data$active == 'active' & tower.data$Start_CO2 < 2022)
+tower.data = fread(file = './data/final.tower.data.csv')
+active = subset(tower.data,tower.data$active.2022 == 'active')
 
 #set just the coordinates for the extract
-xy.tower = active[,c(58,59)]
+xy.tower = active[,c(44,45)]
 
 #clusters #########################################################################
 #load in the stack created in the other files

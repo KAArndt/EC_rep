@@ -33,11 +33,12 @@ setdiff(active24,active22)
 #methane sites 2022 #####################################################################################
 tower.data$methane.2022 = ifelse(tower.data$GHG == 'CO2,CH4' | tower.data$GHG == 'CO2,CH4,N2O','methane','nonmethane')
 tower.data$methane.2022 = ifelse(tower.data$site == 'Lutose','nonmethane',tower.data$methane.2022)
+tower.data$methane.2022 = ifelse(tower.data$site == 'Zackenberg, Fen','nonmethane',tower.data$methane.2022)
 
 #methane sites 2024 ##############################################################################
 tower.data$methane.2024 = ifelse(tower.data$GHG == 'CO2,CH4' | tower.data$GHG == 'CO2,CH4,N2O','methane','nonmethane')
-tower.data$methane.2024 = ifelse(tower.data$site == 'Lutose','nonmethane',tower.data$methane.2022)
-tower.data$site
+tower.data$methane.2024 = ifelse(tower.data$site == 'Lutose','methane',tower.data$methane.2024)
+tower.data$methane.2024 = ifelse(tower.data$site == 'Zackenberg, Fen','nonmethane',tower.data$methane.2024)
 
 #test
 active22 = subset(tower.data,tower.data$active.2022 == 'active' & tower.data$methane.2022 == 'methane')$site
@@ -62,7 +63,6 @@ active22 = subset(tower.data,tower.data$active.2022 == 'active' & tower.data$Sea
 active24 = subset(tower.data,tower.data$active.2024 == 'active' & tower.data$Season_Activity.2024 == 'All year')$site
 
 setdiff(active24,active22)
-
 
 #annual methane sites 2022 ##############################################################################
 tower.data$annualmethane2022 = ifelse(tower.data$active.2022 == 'active' & tower.data$methane.2022 == 'methane' & tower.data$Season_Activity.2022 == 'All year','annualmethane','no')

@@ -1,4 +1,4 @@
-rm(list=setdiff(ls(), c("euci",'df','r')))
+rm(list=setdiff(ls(), c("euci",'df','r','tower.data')))
 
 library(data.table)
 library(readr)
@@ -53,7 +53,6 @@ plot(base,range=c(0,4.5))
 points(towers,col='red')
 points(towers.22,col='green')
 
-
 b1 = as.data.frame(base)
 b2 = as.data.frame(base.22)
 summary(b1$base.dist-b2$base.dist)
@@ -101,13 +100,17 @@ plot(methane,range=c(0,4.5))
 points(towers,col='red')
 points(towers.22,col='green')
 
+plot(methane - methane.22)
+points(towers.22,col='red')
+
+
 #save the base here
-#writeRaster(x = methane,filename = './output/improved_network/improved_methane_2km.tif',overwrite = T)
-writeRaster(x = methane,filename = './output/improved_network/improved_methane_1km.tif',overwrite = T)
+writeRaster(x = methane,filename = './output/improved_network/improved_methane_2km.tif',overwrite = T)
+#writeRaster(x = methane,filename = './output/improved_network/improved_methane_1km.tif',overwrite = T)
 
 ##########################################################################################
 ################ Annual
-net.annual = which(tower.data$active == 'active' & tower.data$Season_Activity == 'All year')
+net.annual = which(tower.data$active.2024 == 'active' & tower.data$Season_Activity.2024 == 'All year')
 tower.data$site[net.annual]
 euci.net.annual = euci[,c(net.annual)]
 
@@ -127,17 +130,30 @@ annual = rast(x = annualdf,type = 'xyz',crs = crs(r))
 annual.towers = tower.data[net.annual,]
 towers = vect(x = annual.towers,geom=c("x", "y"), crs=crs(r))
 
+#project the towers d#project the towers d#project the towers database
+annual.22 = rast('./output/base_network/annual_2km.tif')
+annual.22.towers = subset(tower.data,tower.data$active.2022 == 'active' & tower.data$Season_Activity.2022 == 'All year')
+
+#find difference
+diff_df1 = setdiff(annual.towers, annual.22.towers)
+diff_df1$site
+towers.22 = vect(x = diff_df1,geom=c('x','y'),crs=crs(r))
+
 hist(annual)
 plot(annual,range=c(0,4.5))
 points(towers,col='red')
+points(towers.22,col='green')
+
+plot(annual - annual.22)
+points(towers.22,col='red')
 
 #save the annual here
-#writeRaster(x = annual,filename = './output/improved_network/improved_annual_2km.tif',overwrite = T)
-writeRaster(x = annual,filename = './output/improved_network/improved_annual_1km.tif',overwrite = T)
+writeRaster(x = annual,filename = './output/improved_network/improved_annual_2km.tif',overwrite = T)
+#writeRaster(x = annual,filename = './output/improved_network/improved_annual_1km.tif',overwrite = T)
 
 ################################################################################
 # Annual Methane
-net.annual.methane = which(tower.data$active == 'active' & tower.data$Season_Activity == 'All year' & tower.data$methane == 'methane')
+net.annual.methane = which(tower.data$annualmethane2024 == 'annualmethane')
 euci.net.annual.methane = euci[,c(net.annual.methane)]
 
 #calculate the base network, parallel processing is much slower here
@@ -156,10 +172,24 @@ annual.methane = rast(x = annual.methane.df,type = 'xyz',crs = crs(r))
 annual.methane.towers = tower.data[net.annual.methane,]
 towers = vect(x = annual.methane.towers,geom=c("x", "y"), crs=crs(r))
 
+#project the towers d#project the towers d#project the towers database
+annualmethane.22 = rast('./output/base_network/annual_methane_2km.tif')
+annualmethane.22.towers = subset(tower.data,tower.data$annualmethane2022 == 'annualmethane')
+
+#find difference
+diff_df1 = setdiff(annual.methane.towers, annualmethane.22.towers)
+diff_df1$site
+towers.22 = vect(x = diff_df1,geom=c('x','y'),crs=crs(r))
+
+
 hist(annual.methane)
 plot(annual.methane,range=c(0,4.5))
 points(towers,col='red')
+points(towers.22,col='green')
+
+plot(annual.methane - annualmethane.22)
+points(towers.22,col='red')
 
 #save the base here
-#writeRaster(x = annual.methane,filename = './output/improved_network/improved_annual_methane_2km.tif',overwrite = T)
-writeRaster(x = annual.methane,filename = './output/improved_network/improved_annual_methane_1km.tif',overwrite = T)
+writeRaster(x = annual.methane,filename = './output/improved_network/improved_annual_methane_2km.tif',overwrite = T)
+#writeRaster(x = annual.methane,filename = './output/improved_network/improved_annual_methane_1km.tif',overwrite = T)

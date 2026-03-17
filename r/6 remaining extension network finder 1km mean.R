@@ -1,5 +1,4 @@
 
-
 #use c3-highmem-176
 
 rm(list=setdiff(ls(), c("euci",'df','r')))
@@ -20,14 +19,14 @@ library(doParallel)
 library(doSNOW)
 
 #load back in
-euci = read_rds('./euclidean_distance_matrix/euci_1km.rds')
+euci = read_rds('./euclidean_distance_matrix/euci_2km.rds')
 
 #load in the stack created in the other file
-r = rast('./spatial_data/pca.tif')
+r = rast('./spatial_data/pca_2km.tif')
 df = as.data.frame(x = r,na.rm = T,xy = T)
 
 #load in extracted site data from extraction codes
-tower.data = fread(file = './data/pca.towers.upgraded.csv')
+tower.data = fread(file = './data/final.tower.data.csv')
 tower.data$order = seq(1,length(tower.data$MeanTemp)) #important for merging back the tower order
 
 #ranking of sites
@@ -51,8 +50,8 @@ tower.data$order = seq(1,length(tower.data$MeanTemp)) #important for merging bac
 # tower.data = tower.data[order(tower.data$order),]
 
 #find columns which are active sites
-net = which(tower.data$active == 'active')
-ext = which(tower.data$active == 'inactive' | is.na(tower.data$Type)) #& tower.data$rank <= 107)
+net = which(tower.data$active.2024 == 'active')
+ext = which(tower.data$active.2024 == 'inactive' | is.na(tower.data$active.2024)) #& tower.data$rank <= 107)
 
 #1:50 ###########################################################################################
 
@@ -64,11 +63,11 @@ euci.ext = euci[,c(ext)]
 dist = numeric(length = nrow(df)) 
 temp.euci = matrix(nrow = nrow(df),ncol = ncol(euci.net)+1)
 
-rm(euci)
+#rm(euci)
 gc()
 #seeuci.net#setup parallel back end to use many processors
 cores = detectCores() #detect the number of cores
-cl = makeCluster(2)   #assign number of cores, could probably do 6 at 1km, can do ~20 at 2 km
+cl = makeCluster(12)   #assign number of cores, could probably do 6 at 1km, can do ~20 at 2 km
 {orig = Sys.time()    #start the clock for timing the process
   registerDoSNOW(cl)  #register the cores
   eucis = foreach (j = 1:ncol(euci.ext),.verbose = T,.combine = cbind,.packages = c('kit')) %dopar% {
@@ -124,13 +123,14 @@ for (i in 1:ncol(eucis)) {
 
 #load in the base
 base = rast('./output/improved_network/improved_base_2km.tif')
-base = rast('./output/improved_network/improved_base_1km.tif')
+#base = rast('./output/improved_network/improved_base_1km.tif')
 
 difs = list()
 for (i in 1:length(dist.rasts)) {
   difs[[i]] = dist.rasts[[i]] - base
   progress(i,length(dist.rasts))
 }
+
 
 #calculate mean improvements
 means = numeric(length = length(difs))
@@ -180,7 +180,7 @@ ggplot(data = top)+theme_bw()+ggtitle('Mean Improvements')+
         legend.position = c(0.5,0.9),
         legend.direction = 'horizontal')
 
-write.csv(x = bars,file = './output/reductions/meanreduction_remaining.csv',row.names = F)
+write.csv(x = bars,file = './data/reductions/meanreduction_remaining.csv',row.names = F)
 
 
 #saveRDS(object = eucis,file = './euclidean_distance_matrix/remaining_ext_eucis_2km.rds')

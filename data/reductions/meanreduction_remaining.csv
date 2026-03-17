@@ -1,538 +1,552 @@
-"sitename","means","country","type","Type"
-"ARM-AMF3-Oliktok",-0.00334173376696971,"United States","inactive_methane_All year","EC_Tower"
-"Agapa",-0.000988801382608957,"Russia","NA_NA_NA",NA
-"Akureyri",-0.000258039901850032,"Iceland","NA_NA_NA",NA
-"Alapayevsk",-0.00098260568240842,"Russia","NA_NA_NA",NA
-"Alberta - Western Peatland - Poor Fen (Sphagnum moss)",-0.00633687826733196,"Canada","inactive_nonmethane_Summer","EC_Tower"
-"Alberta - Western Peatland - Rich Fen  (Carex)",-0.00548703713950408,"Canada","inactive_nonmethane_Summer","EC_Tower"
-"Aldan",-0.00571293864442485,"Russia","NA_NA_NA",NA
-"Alert",-0.00652088360803686,"Canada","NA_NA_NA",NA
-"Alkkia Scots pine forest",-0.000574838471760611,"Finland","inactive_nonmethane_Summer","EC_Tower"
-"Allakaket",-0.00528746099945789,"United States","NA_NA_NA",NA
-"Ambarchik",-0.00898966407584158,"Russia","NA_NA_NA",NA
-"Ambler",-0.000379897752390286,"United States","NA_NA_NA",NA
-"Amderma",-0.00253037590573468,"Russia","NA_NA_NA",NA
-"Amos",-0.00104219234611078,"Canada","NA_NA_NA",NA
-"Andoya",-0.00187330600858047,"Norway","inactive_methane_Summer","EC_Tower"
-"Aniak",-0.000319626787116659,"United States","NA_NA_NA",NA
-"Apatity",-0.000562757255053976,"Russia","NA_NA_NA",NA
-"Archangel",-0.00180741125648448,"Russia","NA_NA_NA",NA
-"Arctic Bay",-0.00931293064329563,"Canada","NA_NA_NA",NA
-"Arctic DTU Research Station Sisimiut",-0.00227272217302777,"Greenland","NA_NA_NA",NA
-"Argentia",-0.00251101643411413,"Canada","NA_NA_NA",NA
-"Artemovsk",-0.0111845454943087,"Russia","NA_NA_NA",NA
-"Artemovskiy",-0.00156349274653073,"Russia","NA_NA_NA",NA
-"Asbest",-0.00423848835156598,"Russia","NA_NA_NA",NA
-"Asino",-0.00137424289046456,"Russia","NA_NA_NA",NA
-"Athabasca, poor fen",-0.00633687826733196,"Canada","inactive_nonmethane_Summer","EC_Tower"
-"Athabasca, rich fen",-0.00548703713950408,"Canada","inactive_nonmethane_Summer","EC_Tower"
-"Atka",-0.000566219774781269,"United States","NA_NA_NA",NA
-"Attawapiskat",-0.000816883294843589,"Canada","NA_NA_NA",NA
-"Avachinsky Volcano Field Station",-0.000793933292373283,"Russia","NA_NA_NA",NA
-"Ayan",-0.00293661630246753,"Russia","NA_NA_NA",NA
-"Bagdarin",-0.00692696430125506,"Russia","NA_NA_NA",NA
-"Bakal",-0.00753279600952657,"Russia","NA_NA_NA",NA
-"Baker Lake",-0.0102034309143991,"Canada","NA_NA_NA",NA
-"Batagay",-0.000317367892681656,"Russia","NA_NA_NA",NA
-"Belomorsk",-0.00137294234508435,"Russia","NA_NA_NA",NA
-"Berens River",-0.00128396550483549,"Canada","NA_NA_NA",NA
-"Berezniki",-0.00135932039428512,"Russia","NA_NA_NA",NA
-"Beringovskiy",-0.00168271766326372,"Russia","NA_NA_NA",NA
-"Bethel",-0.00105194934529287,"United States","inactive_methane_Summer","EC_Tower"
-"Bezhetsk",-0.00799473484132064,"Russia","NA_NA_NA",NA
-"Big Beaver House",-0.00981702556514823,"Canada","NA_NA_NA",NA
-"Bilibino",-0.0128373484389972,"Russia","NA_NA_NA",NA
-"Biryusinsk",-0.00173215028244929,"Russia","NA_NA_NA",NA
-"Bodaybo",-0.0122324406998023,"Russia","NA_NA_NA",NA
-"Bol'sheretsk",-0.0012765248561417,"Russia","NA_NA_NA",NA
-"Bonanza Creek, 1920 Burn site near Delta Junction",-0.00659826328134462,"United States","inactive_nonmethane_Summer","EC_Tower"
-"Borgarnes",-0.00150618090380399,"Iceland","NA_NA_NA",NA
-"Bouleau Peatland",-0.000798323457778706,"Canada","inactive_methane_All year","EC_Tower"
-"Boyarka",-0.00685009322749679,"Russia","NA_NA_NA",NA
-"Bratsk",-0.000602961581325947,"Russia","NA_NA_NA",NA
-"Brochet",-0.00540161665209375,"Canada","NA_NA_NA",NA
-"Buchans",-0.00116637440776661,"Canada","NA_NA_NA",NA
-"Bugrino",-0.000788534869434108,"Russia","NA_NA_NA",NA
-"Bukachacha",-0.00306978831902616,"Russia","NA_NA_NA",NA
-"Burwash Landing",-0.00222657511159106,"Canada","NA_NA_NA",NA
-"Buy",-0.00287853599463942,"Russia","NA_NA_NA",NA
-"CEN Boniface River Field Station ",-0.00293224823344529,"Canada","NA_NA_NA",NA
-"CEN Clearwater Lake Research Station",-0.00416711439577241,"Canada","NA_NA_NA",NA
-"CEN Salluit Research Station",-0.00392158003594261,"Canada","NA_NA_NA",NA
-"CEN Whapmagoostui-Kuujjuarapik Research Station",-0.00451387951905495,"Canada","NA_NA_NA",NA
-"Cape Dorset",-0.00967733858602509,"Canada","NA_NA_NA",NA
-"Cascade Ridge",-0.00121905364090241,"United States","inactive_nonmethane_All year","EC_Tower"
-"Cat Lake",-0.00489674485582499,"Canada","NA_NA_NA",NA
-"Central Marsh",-0.000408561108296795,"United States","inactive_methane_All year","EC_Tower"
-"Chegdomyn",-0.0161683767654994,"Russia","NA_NA_NA",NA
-"Cherepovets",-0.000145720513507867,"Russia","NA_NA_NA",NA
-"Chernyshevskiy",-0.000408433587963528,"Russia","NA_NA_NA",NA
-"Chevery",-0.000527554923239219,"Canada","NA_NA_NA",NA
-"Chicoutimi",-0.000308865991583376,"Canada","NA_NA_NA",NA
-"China Iceland Arctic  Observatory  CIAO",-0.00074536999971089,"Iceland","NA_NA_NA",NA
-"Chita",-0.000834411241267561,"Russia","NA_NA_NA",NA
-"Chukotka",-0.000944329916324254,"Russia","inactive_nonmethane_Summer","EC_Tower"
-"Chumikan",-0.0025964054290464,"Russia","NA_NA_NA",NA
-"Churchill Falls",-0.00525639144590665,"Canada","NA_NA_NA",NA
-"Chusovoy",-0.000368616313882542,"Russia","NA_NA_NA",NA
-"Circle",-0.00215475459479795,"United States","NA_NA_NA",NA
-"Cochrane",-0.00860876941415333,"Canada","NA_NA_NA",NA
-"Cold Bay",-0.00173081797690515,"United States","NA_NA_NA",NA
-"Council (NGEE Arctic)",-0.00081728736651834,"United States","inactive_methane_Summer","EC_Tower"
-"DMI Geophysical Observatory Qaanaaq",-0.00581283956502822,"Greenland","NA_NA_NA",NA
-"Dasan Station site",-0.00218963864176906,"Norway","inactive_nonmethane_All year","EC_Tower"
-"Dawson Creek",-0.00181374096888095,"Canada","NA_NA_NA",NA
-"Dease Lake",-0.00904759020395082,"Canada","NA_NA_NA",NA
-"Deer Lake",-0.000405463251732737,"Canada","NA_NA_NA",NA
-"Dikson",-0.00102053428073269,"Russia","NA_NA_NA",NA
-"Dillingham",-0.00345469583977065,"United States","NA_NA_NA",NA
-"Dolbeau",-0.00277099670376527,"Canada","NA_NA_NA",NA
-"Doline",-0.00316538708468986,"Canada","NA_NA_NA",NA
-"Dolinsk",-0.00688940632046979,"Russia","NA_NA_NA",NA
-"Dudinka",-0.000931342754999558,"Russia","NA_NA_NA",NA
-"Eagle",-0.00113651775691179,"United States","NA_NA_NA",NA
-"Eastern Old Black Spruce (EOBS)",-0.00660360977945026,"Canada","inactive_nonmethane_Summer","EC_Tower"
-"Eastmain",-0.00318127141140197,"Canada","NA_NA_NA",NA
-"Egvekinot",-0.00597910855930347,"Russia","NA_NA_NA",NA
-"Eldikan",-0.00219602767985039,"Russia","NA_NA_NA",NA
-"Elgeeii",-0.00215170444221482,"Russia","inactive_nonmethane_Summer","EC_Tower"
-"Emmonak",-0.00144109186488294,"United States","NA_NA_NA",NA
-"Ennadai",-0.0134447910145972,"Canada","NA_NA_NA",NA
-"Enurmino",-0.00222694015901614,"Russia","NA_NA_NA",NA
-"Evensk",-0.00213413335256888,"Russia","NA_NA_NA",NA
-"False Pass",-0.00108279507230452,"United States","NA_NA_NA",NA
-"Fish Island",-0.000188253145524096,"Canada","inactive_methane_Summer","EC_Tower"
-"Flashline Mars Arctic Research Station",-0.005336664898401,"Canada","NA_NA_NA",NA
-"Flin Flon",-0.000979318428947772,"Canada","NA_NA_NA",NA
-"Fort Chipewyan",-0.00123819783127292,"Canada","NA_NA_NA",NA
-"Fort Good Hope",-0.0121952543057894,"Canada","NA_NA_NA",NA
-"Fort McMurray",-0.000740274238378217,"Canada","NA_NA_NA",NA
-"Fort McPherson",-0.00186544932835371,"Canada","NA_NA_NA",NA
-"Fort Nelson",-0.00764382213783809,"Canada","NA_NA_NA",NA
-"Fort Resolution",-0.00183173371757714,"Canada","NA_NA_NA",NA
-"Fort Severn",-0.00217970450997402,"Canada","NA_NA_NA",NA
-"Fort Smith",-0.00150576225108575,"Canada","NA_NA_NA",NA
-"Fort St. John",-0.000277951174302347,"Canada","NA_NA_NA",NA
-"Fort Yukon",-0.0015985997428177,"United States","NA_NA_NA",NA
-"Forteau",-5.07337977873226e-05,"Canada","NA_NA_NA",NA
-"Galena",-0.002659646455578,"United States","NA_NA_NA",NA
-"Gambell",-0.00162596132827627,"United States","NA_NA_NA",NA
-"Gander",-0.00013625173724468,"Canada","NA_NA_NA",NA
-"Geraldton",-0.00259434133211076,"Canada","NA_NA_NA",NA
-"Gimli",-0.000648702465480228,"Canada","NA_NA_NA",NA
-"Glazov",-0.0039624058809414,"Russia","NA_NA_NA",NA
-"Goodnews Bay",-0.000645624229423882,"United States","NA_NA_NA",NA
-"Govorovo",-0.0284420194005303,"Russia","NA_NA_NA",NA
-"Grand Prairie",-0.00086886745199521,"Canada","NA_NA_NA",NA
-"Grise Fiord",-0.0089059774365128,"Canada","NA_NA_NA",NA
-"Gubakha",-0.0108956615737573,"Russia","NA_NA_NA",NA
-"Gulkana",-0.00301205576986761,"United States","NA_NA_NA",NA
-"Gunnarsholt",-0.00176211605236736,"Iceland","inactive_nonmethane_Summer","EC_Tower"
-"Gyda",-0.00419389010978798,"Russia","NA_NA_NA",NA
-"HJP02 Jack Pine",-2.93121424144832e-05,"Canada","inactive_nonmethane_Summer","EC_Tower"
-"HJP75 Jack Pine",-2.32606072635695e-06,"Canada","inactive_nonmethane_Summer","EC_Tower"
-"HJP94 Jack Pine",-2.4342825782755e-05,"Canada","inactive_nonmethane_Summer","EC_Tower"
-"Hakasia Steppe",-0.00129616910192762,"Russia","inactive_nonmethane_Summer","EC_Tower"
-"Hall Beach",-0.000724468267216334,"Canada","NA_NA_NA",NA
-"Hammerfest",-0.00353567516845764,"Norway","NA_NA_NA",NA
-"Happy Valley",-0.000349306543082065,"United States","inactive_nonmethane_Summer","EC_Tower"
-"Happy Valley - Goose Bay",-0.000814771027457357,"Canada","NA_NA_NA",NA
-"Happy Valley Wet Sedge Tundra",-0.00015109611755631,"United States","inactive_methane_All year","EC_Tower"
-"Hay River",-0.00200224349474713,"Canada","NA_NA_NA",NA
-"Hearst",-0.0131144191228408,"Canada","NA_NA_NA",NA
-"Holman",-0.00997340983196946,"Canada","NA_NA_NA",NA
-"Hooper Bay",-0.000904772795205997,"United States","NA_NA_NA",NA
-"Hopedale",-0.00103723421450992,"Canada","NA_NA_NA",NA
-"Hudson Bay",-0.00165294963620336,"Canada","NA_NA_NA",NA
-"Hughes",-0.000480304842338093,"United States","NA_NA_NA",NA
-"Hyytiaelae Clear Cut",-0.000502494848138672,"Finland","inactive_nonmethane_Summer","EC_Tower"
-"Härnösand",-0.000751955944047273,"Sweden","NA_NA_NA",NA
-"Höfn",-0.000796280853668173,"Iceland","NA_NA_NA",NA
-"Igloolik",-0.000568678236549813,"Canada","NA_NA_NA",NA
-"Igloolik Research Center ",-0.0112801310680906,"Canada","NA_NA_NA",NA
-"Igrim",-0.00118639643239693,"Russia","NA_NA_NA",NA
-"Illisarvik",-0.000558023972628747,"Canada","inactive_methane_Summer","EC_Tower"
-"Indiga",-0.00171373538023258,"Russia","NA_NA_NA",NA
-"Inta",-0.000875457669240123,"Russia","NA_NA_NA",NA
-"Inukjuak",-0.00540575162859396,"Canada","NA_NA_NA",NA
-"Irkutsk",-0.000553037101628241,"Russia","NA_NA_NA",NA
-"Island Lake",-0.00783505414045101,"Canada","NA_NA_NA",NA
-"Ittoqqortoormiit",-0.00269804549698344,"Greenland","NA_NA_NA",NA
-"Ivdel",-0.000937784566402192,"Russia","NA_NA_NA",NA
-"Ivugivik",-0.00953227224864783,"Canada","NA_NA_NA",NA
-"James Bay Lowlands",-0.0034286717125738,"Canada","inactive_methane_Summer","EC_Tower"
-"Jokioinen agricultural field",-0.00486775217361793,"Finland","inactive_nonmethane_Summer","EC_Tower"
-"Juneau",-0.00073935441371513,"United States","NA_NA_NA",NA
-"Kaamanen wetland",-0.000788298037749941,"Finland","inactive_methane_All year","EC_Tower"
-"Kainuu Fisheries Research Station",-0.000961956254440119,"Finland","NA_NA_NA",NA
-"Kalevansuo",-0.000218005907383354,"Finland","inactive_nonmethane_Summer","EC_Tower"
-"Kaltag",-0.00104729169453915,"United States","NA_NA_NA",NA
-"Kamensk Uralskiy",-0.000636800944716466,"Russia","NA_NA_NA",NA
-"Kangerlussuaq",-0.00415598332414369,"Greenland","NA_NA_NA",NA
-"Kangirsuk",-0.00568886228544929,"Canada","NA_NA_NA",NA
-"Kapuskasing",-0.00138160279386393,"Canada","NA_NA_NA",NA
-"Karamken",-0.00320622261711293,"Russia","NA_NA_NA",NA
-"Karluk",-0.00165457569943399,"United States","NA_NA_NA",NA
-"Karpinsk",-0.000789102896541201,"Russia","NA_NA_NA",NA
-"Kaskara Crop",-0.00179204034416977,"Russia","inactive_methane_Summer","EC_Tower"
-"Kavache",-0.0222139214137933,"Russia","NA_NA_NA",NA
-"Keflavík",-0.00204536823552587,"Iceland","NA_NA_NA",NA
-"Kem",-0.00052254662678727,"Russia","NA_NA_NA",NA
-"Khakhar",-0.00849925742499545,"Russia","NA_NA_NA",NA
-"Khandyga",-0.000938903589311616,"Russia","NA_NA_NA",NA
-"Khanymey",-0.00396177217700102,"Russia","NA_NA_NA",NA
-"Khatanga",-0.0027717502103561,"Russia","NA_NA_NA",NA
-"Khibiny Educational and Scientific Station ",-0.000473583626324228,"Russia","NA_NA_NA",NA
-"Khilok",-0.00148441714309227,"Russia","NA_NA_NA",NA
-"Khorgo",-0.00624939384389231,"Russia","NA_NA_NA",NA
-"Kimmirut",-0.00814248107355235,"Canada","NA_NA_NA",NA
-"Kineshma",-0.00310996592878094,"Russia","NA_NA_NA",NA
-"King Salmon",-0.0019790689367236,"United States","NA_NA_NA",NA
-"Kirensk",-0.000844864029961923,"Russia","NA_NA_NA",NA
-"Kirov",-0.000180768280540686,"Russia","NA_NA_NA",NA
-"Kirovo-Chepetsk",-0.00350963164165514,"Russia","NA_NA_NA",NA
-"Kirovsk",-0.00187266374946521,"Russia","NA_NA_NA",NA
-"Kirs",-0.0128744360377633,"Russia","NA_NA_NA",NA
-"Kivalina",-0.00256086981121327,"United States","NA_NA_NA",NA
-"Kizel",-0.00836435852791183,"Russia","NA_NA_NA",NA
-"Kluane Lake Research Station",-0.00132419632555769,"Canada","NA_NA_NA",NA
-"Klyuchi",-0.00862273735748645,"Russia","NA_NA_NA",NA
-"Kobbefjord",-0.00176988447617007,"Greenland","inactive_nonmethane_Summer","EC_Tower"
-"Kobuk",-0.000177185837606667,"United States","NA_NA_NA",NA
-"Kodiak",-0.00143407754858351,"United States","NA_NA_NA",NA
-"Kodinskiy",-0.00374251819179334,"Russia","NA_NA_NA",NA
-"Kogalym",-0.00641725566076154,"Russia","NA_NA_NA",NA
-"Kokkola",-0.000350672437304515,"Finland","NA_NA_NA",NA
-"Kolpashevo",-0.00112172109692063,"Russia","NA_NA_NA",NA
-"Kolpino",-0.00221648875696647,"Russia","NA_NA_NA",NA
-"Komsomolsk na Amure",-0.0012916171938208,"Russia","NA_NA_NA",NA
-"Korsakov",-0.000171996527233813,"Russia","NA_NA_NA",NA
-"Kostroma",-0.000103792487790206,"Russia","NA_NA_NA",NA
-"Kotelnich",-0.00215728544006314,"Russia","NA_NA_NA",NA
-"Kotlas",-0.0021290105807346,"Russia","NA_NA_NA",NA
-"Kotlit",-0.00106342052111208,"United States","NA_NA_NA",NA
-"Kovda",-0.00146093157722268,"Russia","NA_NA_NA",NA
-"Koyuk",-0.00144435598975048,"United States","NA_NA_NA",NA
-"Koyukuk",-0.000808476022458224,"United States","NA_NA_NA",NA
-"Krasnokamsk",-0.000333146646423368,"Russia","NA_NA_NA",NA
-"Krasnoturinsk",-0.0171398939647124,"Russia","NA_NA_NA",NA
-"Krasnouralsk",-0.00211019879228435,"Russia","NA_NA_NA",NA
-"Kudymkar",-0.00576199739264144,"Russia","NA_NA_NA",NA
-"Kugluktuk",-0.00449756875599488,"Canada","NA_NA_NA",NA
-"Kullorsuaq",-0.00250602946109773,"Greenland","NA_NA_NA",NA
-"Kulusuk",-0.00279844172801688,"Greenland","NA_NA_NA",NA
-"Kuujjuarapik",-0.00272320862625069,"Canada","NA_NA_NA",NA
-"Kyshtym",-0.000662349368624708,"Russia","NA_NA_NA",NA
-"La Sarre",-0.000759066773683775,"Canada","NA_NA_NA",NA
-"La Scie",-0.000302688494822071,"Canada","NA_NA_NA",NA
-"Labrador City",-0.00184621611857143,"Canada","NA_NA_NA",NA
-"Lac Le Caron",-0.00230782082485396,"Canada","inactive_nonmethane_All year","EC_Tower"
-"Lake Minchumina",-0.00181273544699061,"United States","NA_NA_NA",NA
-"Lammin-Suo Peatland Station",-0.000252447009434861,"Russia","NA_NA_NA",NA
-"Lansdowne House",-0.00295792694919685,"Canada","NA_NA_NA",NA
-"Laryak",-0.0017068004401914,"Russia","NA_NA_NA",NA
-"Lensk",-0.000768573420525733,"Russia","NA_NA_NA",NA
-"Lesosibirsk",-0.000532929779761201,"Russia","NA_NA_NA",NA
-"Litla-Skard ",-0.00130827321167791,"Iceland ","NA_NA_NA",NA
-"Logashkino",-0.00172730902780463,"Russia","NA_NA_NA",NA
-"Luga",-0.000113326118345434,"Russia","NA_NA_NA",NA
-"Lutose Rich Fen",-0.00319184044473762,"Canada","inactive_methane_All year","EC_Tower"
-"Lutselke",-0.00203835384301053,"Canada","NA_NA_NA",NA
-"Maaninka",-0.0064305791861537,"Finland","inactive_nonmethane_Summer","EC_Tower"
-"Magadan",-0.000868072183937532,"Russia","NA_NA_NA",NA
-"Makarov",-0.00106078952891706,"Russia","NA_NA_NA",NA
-"Manily",-0.00333747047263037,"Russia","NA_NA_NA",NA
-"Manitoba, Northern Old Black Spruce (BOREAS)",-0.0059003935052505,"Canada","inactive_nonmethane_All year","EC_Tower"
-"Marathon",-0.00341859327757997,"Canada","NA_NA_NA",NA
-"Marcell Experimental Forest",-0.000106806418846169,"United States","inactive_nonmethane_Summer","EC_Tower"
-"Matagami",-0.00493166587537783,"Canada","NA_NA_NA",NA
-"McGrath",-0.00100469327597916,"United States","NA_NA_NA",NA
-"Meadow Lake",-0.000635787273528845,"Canada","NA_NA_NA",NA
-"Megion",-0.0067982449895648,"Russia","NA_NA_NA",NA
-"Mekoryuk",-0.000464808539929654,"United States","NA_NA_NA",NA
-"Menkere",-0.0300732575683138,"Russia","NA_NA_NA",NA
-"Mezen",-0.00190346345393647,"Russia","NA_NA_NA",NA
-"Miass",-0.00206740600031672,"Russia","NA_NA_NA",NA
-"Mikkeli",-0.000234377151088428,"Finland","NA_NA_NA",NA
-"Mirnyy",-0.000282448630690044,"Russia","NA_NA_NA",NA
-"Mo i Rana",-0.00198452835165722,"Norway","NA_NA_NA",NA
-"Mogocha",-0.00532712572767984,"Russia","NA_NA_NA",NA
-"Molde",-0.00141471174351879,"Norway","NA_NA_NA",NA
-"Monchegorsk",-0.00233911785860865,"Russia","NA_NA_NA",NA
-"Mongolia",-0.00162118201690649,"Mongolia","inactive_nonmethane_Summer","EC_Tower"
-"Montana",-0.0112260412345178,"United States","NA_NA_NA",NA
-"Mukhomornoye",-0.00410467666306552,"Russia","NA_NA_NA",NA
-"Murmansk",-0.00154150278904828,"Russia","NA_NA_NA",NA
-"Nadym",-0.00481265501723611,"Russia","NA_NA_NA",NA
-"Nain",-0.00280669734806454,"Canada","NA_NA_NA",NA
-"Namsos",-0.00178613162053907,"Norway","NA_NA_NA",NA
-"Narsarsuaq",-0.00293951320860789,"Greenland","NA_NA_NA",NA
-"Naryan Mar",-0.00237200562323571,"Russia","NA_NA_NA",NA
-"Natara",-0.0252116107000601,"Russia","NA_NA_NA",NA
-"Natashquan",-0.000466844388559824,"Canada","NA_NA_NA",NA
-"Naujaat",-0.0123081786663568,"Canada","NA_NA_NA",NA
-"Nefteyugansk",-0.00327396472549791,"Russia","NA_NA_NA",NA
-"Neleger",-3.88874008938531e-05,"Russia","inactive_nonmethane_Summer","EC_Tower"
-"Nerchinsk",-0.000973458854829058,"Russia","NA_NA_NA",NA
-"Neryungri",-0.0125735519049296,"Russia","NA_NA_NA",NA
-"Nevyansk",-0.000637064762637426,"Russia","NA_NA_NA",NA
-"Newhalen",-0.000745362440706584,"United States","NA_NA_NA",NA
-"Nibio Svanhovd Research Station ",-0.000552460307720835,"Norway ","NA_NA_NA",NA
-"Nikel",-0.00378903578915363,"Russia","NA_NA_NA",NA
-"Nikolski",-0.00167339146669877,"United States","NA_NA_NA",NA
-"Nipigon",-0.00099084384301527,"Canada","NA_NA_NA",NA
-"Nizhenvartovsk",-0.00248591128290071,"Russia","NA_NA_NA",NA
-"Nizhneudinsk",-0.00101585031789125,"Russia","NA_NA_NA",NA
-"Nizhneyansk",-0.0154641182219503,"Russia","NA_NA_NA",NA
-"Nizhny Tagil",-0.00184705510905357,"Russia","NA_NA_NA",NA
-"Nizhnyaya Tura",-0.00297837354459732,"Russia","NA_NA_NA",NA
-"Noginsk",-0.00344690298528221,"Russia","NA_NA_NA",NA
-"Nogliki",-0.00646214631201148,"Russia","NA_NA_NA",NA
-"Nord",-0.0106547114009775,"Greenland","NA_NA_NA",NA
-"Nordvik",-0.00368779987898818,"Russia","NA_NA_NA",NA
-"Norilsk",-0.00344936809551862,"Russia","NA_NA_NA",NA
-"Norman Wells",-0.00167008389841636,"Canada","NA_NA_NA",NA
-"Norway House",-0.00361734934652541,"Canada","NA_NA_NA",NA
-"Novy Urengoy",-0.000475099549252698,"Russia","NA_NA_NA",NA
-"Novyy Uoyin",-0.00157671660169239,"Russia","NA_NA_NA",NA
-"Noyabrsk",-0.00694710280613765,"Russia","NA_NA_NA",NA
-"Numto",-0.00231042537238641,"Russia","NA_NA_NA",NA
-"Numto Park Station",-0.00550297965856642,"Russia","NA_NA_NA",NA
-"Nyac",-0.00557471490569861,"United States","NA_NA_NA",NA
-"Nyagan",-0.000640998239850085,"Russia","NA_NA_NA",NA
-"Nyukzha",-0.00963116878513777,"Russia","NA_NA_NA",NA
-"Okha",-0.00161699275254992,"Russia","NA_NA_NA",NA
-"Okhotsk",-0.00222880652461036,"Russia","NA_NA_NA",NA
-"Oktyabrskiy",-0.000472295158438275,"Russia","NA_NA_NA",NA
-"Olenek",-0.0147141859566526,"Russia","NA_NA_NA",NA
-"Olyokminsk",-0.00236103184755141,"Russia","NA_NA_NA",NA
-"Omchak",-0.00845238922144795,"Russia","NA_NA_NA",NA
-"Omolon",-0.0192334030581423,"Russia","NA_NA_NA",NA
-"Omsukchan",-0.0185220916528976,"Russia","NA_NA_NA",NA
-"Omutninsk",-0.000375955187714632,"Russia","NA_NA_NA",NA
-"Onega",-0.00571125602154474,"Russia","NA_NA_NA",NA
-"Orotuk Field Station",-0.00539989643656039,"Russia","NA_NA_NA",NA
-"Oulu",-0.000731432523497621,"Finland","NA_NA_NA",NA
-"Oxford House",-0.00223565555376396,"Canada","NA_NA_NA",NA
-"Oymyakon",-0.0138291148590682,"Russia","NA_NA_NA",NA
-"Paamiut",-0.00379276513461388,"Greenland","NA_NA_NA",NA
-"Pakhachi",-0.00203661526165087,"Russia","NA_NA_NA",NA
-"Palana",-0.0026333239985821,"Russia","NA_NA_NA",NA
-"Palatka",-0.00300072058809115,"Russia","NA_NA_NA",NA
-"Palmer",-0.00155998136430615,"United States","NA_NA_NA",NA
-"Paulatuk",-0.00708062774394369,"Canada","NA_NA_NA",NA
-"Peace River",-0.0014245276756811,"Canada","NA_NA_NA",NA
-"Pechora",-0.00218615022525854,"Russia","NA_NA_NA",NA
-"Peregrebnoye",-0.00232475641024538,"Russia","NA_NA_NA",NA
-"Perryville",-0.000562895143684521,"United States","NA_NA_NA",NA
-"Pervouralsk",-0.0013840858826095,"Russia","NA_NA_NA",NA
-"Petite Riviere (Baie Comeau)",-9.90270731655049e-05,"Canada","inactive_nonmethane_Summer","EC_Tower"
-"Petropavlovsk Kamchatskiy",-0.000442217379546625,"Russia","NA_NA_NA",NA
-"Petrovsk Zabaykalskiy",-0.00153557959817011,"Russia","NA_NA_NA",NA
-"Petrozavodsk",-0.00158048645455809,"Russia","NA_NA_NA",NA
-"Pevek",-0.00408536481051005,"Russia","NA_NA_NA",NA
-"Pilot Point",-0.000913556008720835,"United States","NA_NA_NA",NA
-"Plotnikovo",-0.00175656457166098,"Russia","inactive_methane_Summer","EC_Tower"
-"Polevskoy",-0.00212029765002379,"Russia","NA_NA_NA",NA
-"Polish Polar Station Hornsund",-0.000964065548704479,"Svalbard/Poland","NA_NA_NA",NA
-"Polyarnyy",-0.00150714714612579,"Russia","NA_NA_NA",NA
-"Poronaysk",-0.0100080263194264,"Russia","NA_NA_NA",NA
-"Port Burwell",-0.00224256570546376,"Canada","NA_NA_NA",NA
-"Port Heiden",-0.00101393210169871,"United States","NA_NA_NA",NA
-"Port Hope Simpson",-0.000399310747458861,"Canada","NA_NA_NA",NA
-"Port-Menier",-0.000493757040548324,"Canada","NA_NA_NA",NA
-"Prince Albert (BOREAS)",-0.00133405505224908,"Canada","inactive_nonmethane_Summer","EC_Tower"
-"Provideniya",-0.00265730083370859,"Russia","NA_NA_NA",NA
-"Prudhoe Bay Wet Sedge",-0.000100054541699009,"United States","inactive_methane_Summer","EC_Tower"
-"Pukatawagan",-0.00101167316673387,"Canada","NA_NA_NA",NA
-"Put Lenina",-0.0165850222165947,"Russia","NA_NA_NA",NA
-"Qaanaaq",-0.00426672796206214,"Greenland","NA_NA_NA",NA
-"Qaqortoq",-0.0037439879865159,"Greenland","NA_NA_NA",NA
-"Qasigiannguit",-0.00182681012662871,"Greenland","NA_NA_NA",NA
-"Quebec - 1975 Harvested Black Spruce (HBS75)",-0.00492357055600571,"Canada","inactive_nonmethane_Summer","EC_Tower"
-"Quinhagak",-0.00096009591481045,"United States","NA_NA_NA",NA
-"Rankin Inlet",-0.00612195653695828,"Canada","NA_NA_NA",NA
-"Red Devil",-0.00616270213211768,"United States","NA_NA_NA",NA
-"Red Lake",-0.00137864927488858,"Canada","NA_NA_NA",NA
-"Rif Field Station",-0.00210234494271608,"Iceland","NA_NA_NA",NA
-"Rigolet",-0.000840478208757564,"Canada","NA_NA_NA",NA
-"Rostov",-0.000906311042991676,"Russia","NA_NA_NA",NA
-"Rouyn-Noranda",-0.000734156942718102,"Canada","NA_NA_NA",NA
-"Rovaniemi",-0.000918079496808177,"Finland","NA_NA_NA",NA
-"Rusanovo",-0.00202439226761178,"Russia","NA_NA_NA",NA
-"Rybinsk",-0.000136548657750879,"Russia","NA_NA_NA",NA
-"Rylekaerene Zackenberg",-0.00360142356040778,"Greenland","inactive_methane_Summer","EC_Tower"
-"Sag Riverside",-0.000236772511526205,"United States","inactive_methane_All year","EC_Tower"
-"Sagastyr",-0.001797010826095,"Russia","NA_NA_NA",NA
-"Salekhard",-0.00196482659220246,"Russia","NA_NA_NA",NA
-"Salluit",-0.00373426988897111,"Canada","NA_NA_NA",NA
-"Salmisuo",-0.0015200123922857,"Finland","inactive_nonmethane_Summer","EC_Tower"
-"Samoylov, floodplain",-0.00144859664779598,"Russia","inactive_methane_Summer","EC_Tower"
-"Sand Point",-0.00172658626625153,"United States","NA_NA_NA",NA
-"Sangar",-0.0103817074484376,"Russia","NA_NA_NA",NA
-"Saranpaul",-0.00240489258782748,"Russia","NA_NA_NA",NA
-"Saskatchewan - Western Boreal, forest burned in 1977",-0.00083220585746774,"Canada","inactive_nonmethane_Summer","EC_Tower"
-"Saskatchewan - Western Boreal, forest burned in 1989",-0.0020756707518991,"Canada","inactive_nonmethane_Summer","EC_Tower"
-"Saskatchewan - Western Boreal, forest burned in 1998",-0.00276708051221334,"Canada","inactive_nonmethane_Summer","EC_Tower"
-"Saskylakh",-0.0122646518259668,"Russia","NA_NA_NA",NA
-"Sauðárkrókur",-0.000331666005130873,"Iceland","NA_NA_NA",NA
-"Savissivik",-0.00926527832224404,"Greenland","NA_NA_NA",NA
-"Savonlinna",-0.000995444875856838,"Finland","NA_NA_NA",NA
-"Schefferville",-0.00208456559910183,"Canada","NA_NA_NA",NA
-"Segezha",-0.00360778539366156,"Russia","NA_NA_NA",NA
-"Seida",-0.00251920574163758,"Russia","inactive_methane_Summer","EC_Tower"
-"Selawik",-0.000442377358726808,"United States","NA_NA_NA",NA
-"Selkirk",-0.000491753605944802,"Canada","NA_NA_NA",NA
-"Sept-Îles",-0.00154499196820696,"Canada","NA_NA_NA",NA
-"Serov",-0.000907594505549721,"Russia","NA_NA_NA",NA
-"Severo Kurilsk",-0.00114483017475749,"Russia","NA_NA_NA",NA
-"Severodvinsk",-0.00102578541247253,"Russia","NA_NA_NA",NA
-"Severomorsk",-0.00328767703347278,"Russia","NA_NA_NA",NA
-"Severouralsk",-0.000693537641552366,"Russia","NA_NA_NA",NA
-"Shalaurova",-0.00192494274035577,"Russia","NA_NA_NA",NA
-"Shamattawa",-0.00314003166289236,"Canada","NA_NA_NA",NA
-"Sharya",-0.00128265941691424,"Russia","NA_NA_NA",NA
-"Shuya",-0.002787846289038,"Russia","NA_NA_NA",NA
-"Siglan",-0.00159123125725993,"Russia","NA_NA_NA",NA
-"Siikaneva-2 Bog",-0.000853123585389697,"Finland","inactive_methane_Summer","EC_Tower"
-"Sioux Lookout",-0.00991340405474062,"Canada","NA_NA_NA",NA
-"Sisimiut",-0.00223861236197014,"Greenland","NA_NA_NA",NA
-"Skagway",-0.000812490858276611,"United States","NA_NA_NA",NA
-"Skien",-0.000865301017855804,"Norway","NA_NA_NA",NA
-"Skyttorp",-0.000210987651442232,"Sweden","inactive_nonmethane_Summer","EC_Tower"
-"Slobodskoy",-0.00129980658551571,"Russia","NA_NA_NA",NA
-"Slyudyanka",-0.00995302226324309,"Russia","NA_NA_NA",NA
-"Sokol",-0.00128752562800804,"Russia","NA_NA_NA",NA
-"Solikamsk",-0.000556492082001425,"Russia","NA_NA_NA",NA
-"Soontaga",-0.00033918099693106,"Estonia","inactive_nonmethane_All year","EC_Tower"
-"Sosnogorsk",-0.00160358374794437,"Russia","NA_NA_NA",NA
-"Southern Khentei Taiga",-0.00885241564851806,"Mongolia","inactive_nonmethane_All year","EC_Tower"
-"Southern Old Black Spruce",-0.00127502254639524,"Canada","inactive_nonmethane_Summer","EC_Tower"
-"Sovetsk",-0.000451676822808576,"Russia","NA_NA_NA",NA
-"Sovetskaya Gavan",-0.0033988357062497,"Russia","NA_NA_NA",NA
-"Srednekolymsk",-0.00686315365657791,"Russia","NA_NA_NA",NA
-"St-Augustin",-0.000218064665382505,"Canada","NA_NA_NA",NA
-"St. Anthony",-0.000439567511565238,"Canada","NA_NA_NA",NA
-"St. John's",-0.000184499654920521,"Canada","NA_NA_NA",NA
-"St. Petersburg",-0.000345527384638254,"Russia","NA_NA_NA",NA
-"Starorybnoye",-0.0040435278566507,"Russia","NA_NA_NA",NA
-"Steinkjer",-0.00238166514840075,"Norway","NA_NA_NA",NA
-"Stony Rapids",-0.00269358313597527,"Canada","NA_NA_NA",NA
-"Stordalen forest",-7.68759827944349e-05,"Sweden","inactive_nonmethane_Summer","EC_Tower"
-"Strelka",-0.00420780350843603,"Russia","NA_NA_NA",NA
-"Strezhevoy",-0.0012404668220168,"Russia","NA_NA_NA",NA
-"Sudurnes Science and Learning Center",-0.00158061505542231,"Iceland","NA_NA_NA",NA
-"Sundsvall",-0.000642050855644152,"Sweden","NA_NA_NA",NA
-"Suntar",-0.00272930457572569,"Russia","NA_NA_NA",NA
-"Surgut",-0.000484665105840958,"Russia","NA_NA_NA",NA
-"Susuman",-0.0233176063145013,"Russia","NA_NA_NA",NA
-"Svetogorsk",-0.00650701726385754,"Russia","NA_NA_NA",NA
-"Taksimo",-0.00461639479236116,"Russia","NA_NA_NA",NA
-"Talkeetna",-0.00324383999033541,"United States","NA_NA_NA",NA
-"Taloyoak",-0.00116203202628719,"Canada","NA_NA_NA",NA
-"Tanacross",-0.002807804880205,"United States","NA_NA_NA",NA
-"Tanana",-0.00116230789943256,"United States","NA_NA_NA",NA
-"Tasiilaq",-0.00103054487721155,"Greenland","NA_NA_NA",NA
-"Tasiusaq",-0.00780826651826005,"Greenland","NA_NA_NA",NA
-"Tayshet",-0.000990979423903961,"Russia","NA_NA_NA",NA
-"Tazovsky",-0.0016956148411109,"Russia","NA_NA_NA",NA
-"Terbyas",-0.0037491788216995,"Russia","NA_NA_NA",NA
-"The Arctic Research Station (former Labytnangi Ecological Research Station)",-0.0018490503278466,"Russia","NA_NA_NA",NA
-"The Pas",-0.00185715682851169,"Canada","NA_NA_NA",NA
-"Tikhvin",-0.000111887180486929,"Russia","NA_NA_NA",NA
-"Timmiarmiut",-0.00172346217424495,"Greenland","NA_NA_NA",NA
-"Tobolsk",-0.00877495297877482,"Russia","NA_NA_NA",NA
-"Togiak",-0.0024555260302925,"United States","NA_NA_NA",NA
-"Toolik Lake (Wetland)",-0.000486271404250963,"United States","inactive_methane_Summer","EC_Tower"
-"Trepassey",-0.000668510685687034,"Canada","NA_NA_NA",NA
-"Trondheim",-0.00165795096025556,"Norway","NA_NA_NA",NA
-"Trout River",-0.000290890079530599,"Canada","NA_NA_NA",NA
-"Tukchi",-0.00171936086532516,"Russia","NA_NA_NA",NA
-"Tunguskhaya",-0.0235690967710608,"Russia","NA_NA_NA",NA
-"Tununak",-0.000580617028510878,"United States","NA_NA_NA",NA
-"Turukhansk",-0.000691082690149557,"Russia","NA_NA_NA",NA
-"Tver",-0.0033434757022668,"Russia","inactive_nonmethane_Summer","EC_Tower"
-"Tynda",-0.0179683832454168,"Russia","NA_NA_NA",NA
-"Tønsberg",-0.000660152306411882,"Norway","NA_NA_NA",NA
-"UCI-1850 burn site",-0.00746061015191795,"Canada","inactive_nonmethane_Summer","EC_Tower"
-"UCI-1930 burn site",-0.00841993135859488,"Canada","inactive_nonmethane_Summer","EC_Tower"
-"UCI-1964 burn site",-0.000108249519631585,"Canada","inactive_nonmethane_Summer","EC_Tower"
-"UCI-1964 burn site wet",-0.000108249519631585,"Canada","inactive_nonmethane_Summer","EC_Tower"
-"UCI-1981 burn site",-0.00811490888891428,"Canada","inactive_nonmethane_Summer","EC_Tower"
-"UCI-1989 burn site",-0.0105338659047116,"Canada","inactive_nonmethane_Summer","EC_Tower"
-"UCI-1998 burn site",-0.0107774037606998,"Canada","inactive_nonmethane_Summer","EC_Tower"
-"UCI-2003 burn site",-0.00139691837382809,"Canada","inactive_nonmethane_Summer","EC_Tower"
-"Uapishka Research Station",-0.00752817708892869,"Canada","NA_NA_NA",NA
-"Udachnyy",-0.0197678704507236,"Russia","NA_NA_NA",NA
-"Uglegorsk",-0.000349458991580054,"Russia","NA_NA_NA",NA
-"Ugolnye Kopi",-0.00165442800195995,"Russia","NA_NA_NA",NA
-"Ukhta",-0.000422464456801718,"Russia","NA_NA_NA",NA
-"Ulkan",-0.0013647790244862,"Russia","NA_NA_NA",NA
-"Umba",-0.00108777878025706,"Russia","NA_NA_NA",NA
-"Umiujaq",-0.00365620355044268,"Canada","inactive_nonmethane_Summer","EC_Tower"
-"Unalakleet",-0.00309443649426557,"United States","NA_NA_NA",NA
-"Unalaska",-0.00155570699978848,"United States","NA_NA_NA",NA
-"Upad",-0.000554133330034507,"United States","inactive_nonmethane_Summer","EC_Tower"
-"Uranium City",-0.00293413845957764,"Canada","NA_NA_NA",NA
-"Uray",-0.00196690156254851,"Russia","NA_NA_NA",NA
-"Usinsk",-0.00190911984780798,"Russia","NA_NA_NA",NA
-"Ust Kut",-0.012912673818003,"Russia","NA_NA_NA",NA
-"Ust Kuyga",-0.02930107372082,"Russia","NA_NA_NA",NA
-"Ust Nera",-0.0155500792591072,"Russia","NA_NA_NA",NA
-"Ust Pojeg",-0.00102980408526355,"Russia","inactive_nonmethane_Summer","EC_Tower"
-"Ust-Ulimsk",-0.00145061257206652,"Russia","NA_NA_NA",NA
-"Uteshevo",-0.0024299274583558,"Russia","inactive_methane_Summer","EC_Tower"
-"Utikuma Region, Northern Study Area",-0.00945532133068719,"Canada","inactive_nonmethane_Summer","EC_Tower"
-"Utkholok",-0.00994142403908591,"Russia","NA_NA_NA",NA
-"Uummannaq",-0.00541158755971559,"Greenland","NA_NA_NA",NA
-"Vaasa",-0.00106976850552516,"Finland","NA_NA_NA",NA
-"Vadsø",-0.00172062046045176,"Norway","NA_NA_NA",NA
-"Val d'Or",-0.000354639556544674,"Canada","NA_NA_NA",NA
-"Valdez",-0.00143873813507928,"United States","NA_NA_NA",NA
-"Vallanes",-0.00165773913863637,"Iceland","inactive_nonmethane_All year","EC_Tower"
-"Vanino",-0.00471781159939741,"Russia","NA_NA_NA",NA
-"Varnek",-0.00284258496263911,"Russia","NA_NA_NA",NA
-"Velikiy Ustyug",-0.000635237946881839,"Russia","NA_NA_NA",NA
-"Velsk",-0.000593961706746233,"Russia","NA_NA_NA",NA
-"Verkhnevilyuysk",-0.000119822613008997,"Russia","NA_NA_NA",NA
-"Verkhniy Ufaley",-0.00236352979220901,"Russia","NA_NA_NA",NA
-"Verkhnyaya Salda",-0.00134376521458962,"Russia","NA_NA_NA",NA
-"Verkhoyansk",-0.00594429292110428,"Russia","NA_NA_NA",NA
-"Vichuga",-0.0026533996599996,"Russia","NA_NA_NA",NA
-"Vikhorevka",-0.00105158044816802,"Russia","NA_NA_NA",NA
-"Villum Research Station (VRS)",-0.00543727835977334,"Greenland","NA_NA_NA",NA
-"Vilyuysk",-0.000189513003232046,"Russia","NA_NA_NA",NA
-"Vitim",-0.0120334151398954,"Russia","NA_NA_NA",NA
-"Volkhov",-0.0057018364308223,"Russia","NA_NA_NA",NA
-"Vologda",-0.00033557233097171,"Russia","NA_NA_NA",NA
-"Vyborg",-0.000287178241064436,"Russia","NA_NA_NA",NA
-"Wales",-0.00310892318816659,"United States","NA_NA_NA",NA
-"Wasilla",-0.000277641610981886,"United States","NA_NA_NA",NA
-"Watson Lake",-0.00340709061490553,"Canada","NA_NA_NA",NA
-"Wawa",-0.00199479421057696,"Canada","NA_NA_NA",NA
-"Willem Barentsz Biological Station",-0.00167280663182046,"Russia","NA_NA_NA",NA
-"Wiseman",-0.00843408771287905,"United States","NA_NA_NA",NA
-"Yakutsk-Larch",-0.00200707202540137,"Russia","inactive_nonmethane_Summer","EC_Tower"
-"Yamburg",-0.00317245960628685,"Russia","NA_NA_NA",NA
-"Yaroslavl",-0.000593798016564159,"Russia","NA_NA_NA",NA
-"Yekaterinburg",-0.000220721584831955,"Russia","NA_NA_NA",NA
-"Yellowknife",-0.00575857732750633,"Canada","NA_NA_NA",NA
-"Yeniseysk",-0.0008940608478588,"Russia","NA_NA_NA",NA
-"Yerema",-0.0027071526454086,"Russia","NA_NA_NA",NA
-"Yessey",-0.0331923365456986,"Russia","NA_NA_NA",NA
-"Yoshkar Ola",-0.000168480353074104,"Russia","NA_NA_NA",NA
-"Yuzhno Sakhalinsk",-0.000144129911885231,"Russia","NA_NA_NA",NA
-"ZOTTO bog (old)",-0.00322680846615024,"Russia","inactive_nonmethane_Summer","EC_Tower"
-"ZOTTO forest (old)",-0.00492600744221249,"Russia","inactive_nonmethane_Summer","EC_Tower"
-"Zemlya Bunge",-0.00150195393106675,"Russia","NA_NA_NA",NA
-"Zheleznogorsk Ilimskiy",-0.00220359356003863,"Russia","NA_NA_NA",NA
-"Zhigansk",-0.00293089163539726,"Russia","NA_NA_NA",NA
-"Zhilinda",-0.0240280566744771,"Russia","NA_NA_NA",NA
-"Zima",-0.000775522980237021,"Russia","NA_NA_NA",NA
-"Zlatoust",-0.00643807168077212,"Russia","NA_NA_NA",NA
-"Zotino forest West (old)",-0.00242835088241032,"Russia","inactive_nonmethane_Summer","EC_Tower"
-"Zvëzdnyj",-0.00344840020907266,"Russia","NA_NA_NA",NA
-"Zyryanka",-0.00485908171341045,"Russia","NA_NA_NA",NA
-"Ålesund",-0.0014089013187433,"Norway","NA_NA_NA",NA
-"Ísafjörður",-0.00353905526242881,"Iceland","NA_NA_NA",NA
-"Östersund",-0.000444959493356653,"Sweden","NA_NA_NA",NA
+"sitename","means","country","type"
+"ARM-AMF3-Oliktok",-0.00347986954189215,"United States","inactive__All year"
+"Agapa",-0.000939725572002311,"Russia","NA__NA"
+"Akureyri",-0.000260913097559471,"Iceland","NA__NA"
+"Alapayevsk",-0.00107006952802903,"Russia","NA__NA"
+"Alberta - Western Peatland - Poor Fen (Sphagnum moss)",-0.006163622977519,"Canada","inactive__Summer"
+"Alberta - Western Peatland - Rich Fen  (Carex)",-0.00540098092914986,"Canada","inactive__Summer"
+"Aldan",-0.00572496051790696,"Russia","NA__NA"
+"Alert",-0.00666614075180995,"Canada","NA__NA"
+"Alkkia Scots pine forest",-0.000491646732389351,"Finland","inactive__Summer"
+"Allakaket",-0.00518060474068688,"United States","NA__NA"
+"Ambarchik",-0.00927472754630221,"Russia","NA__NA"
+"Ambler",-0.000352573938376097,"United States","NA__NA"
+"Amderma",-0.00247312817214651,"Russia","NA__NA"
+"Amos",-0.001129282595637,"Canada","NA__NA"
+"Andoya",-0.0020584126080039,"Norway","inactive__Summer"
+"Aniak",-0.000303482541888437,"United States","NA__NA"
+"Apatity",-0.000581019663450679,"Russia","NA__NA"
+"Archangel",-0.00177641494584794,"Russia","NA__NA"
+"Arctic Bay",-0.00962381490948221,"Canada","NA__NA"
+"Arctic DTU Research Station Sisimiut",-0.00247867000354315,"Greenland","NA__NA"
+"Argentia",-0.0026679434376544,"Canada","NA__NA"
+"Artemovsk",-0.011030327418417,"Russia","NA__NA"
+"Artemovskiy",-0.00149270205961273,"Russia","NA__NA"
+"Asbest",-0.0041967865945569,"Russia","NA__NA"
+"Asino",-0.00138336474004545,"Russia","NA__NA"
+"Athabasca, poor fen",-0.006163622977519,"Canada","inactive__Summer"
+"Athabasca, rich fen",-0.00540098092914986,"Canada","inactive__Summer"
+"Atka",-0.000566939956818961,"United States","NA__NA"
+"Attawapiskat",-0.000698857196094329,"Canada","NA__NA"
+"Avachinsky Volcano Field Station",-0.000842613766358395,"Russia","NA__NA"
+"Ayan",-0.00299585303520814,"Russia","NA__NA"
+"Bagdarin",-0.0067974246291708,"Russia","NA__NA"
+"Bakal",-0.00739877775045471,"Russia","NA__NA"
+"Baker Lake",-0.010264509084687,"Canada","NA__NA"
+"Batagay",-0.00029411967721363,"Russia","NA__NA"
+"Belomorsk",-0.00136480725315385,"Russia","NA__NA"
+"Berens River",-0.00140652852962322,"Canada","NA__NA"
+"Berezniki",-0.00138320222182293,"Russia","NA__NA"
+"Beringovskiy",-0.0017304249199801,"Russia","NA__NA"
+"Bethel",-0.000995126023705216,"United States","inactive__Summer"
+"Bezhetsk",-0.00760766047011843,"Russia","NA__NA"
+"Big Beaver House",-0.00975611073132506,"Canada","NA__NA"
+"Bilibino",-0.0127176143498407,"Russia","NA__NA"
+"Biryusinsk",-0.00179760966020557,"Russia","NA__NA"
+"Bodaybo",-0.0119179231340269,"Russia","NA__NA"
+"Bol'sheretsk",-0.00124539383871199,"Russia","NA__NA"
+"Bonanza Creek, 1920 Burn site near Delta Junction",-0.00668931967239314,"United States","inactive__Summer"
+"Borgarnes",-0.00157534394518675,"Iceland","NA__NA"
+"Bouleau Peatland",-0.000776261745312369,"Canada","inactive__All year"
+"Boyarka",-0.00656767055486004,"Russia","NA__NA"
+"Bratsk",-0.000671925093973134,"Russia","NA__NA"
+"Brochet",-0.00540091115403247,"Canada","NA__NA"
+"Buchans",-0.00118498831632105,"Canada","NA__NA"
+"Bugrino",-0.000825034126251356,"Russia","NA__NA"
+"Bukachacha",-0.003000011951944,"Russia","NA__NA"
+"Burwash Landing",-0.00233681154347522,"Canada","NA__NA"
+"Buy",-0.00268787622081416,"Russia","NA__NA"
+"CEN Boniface River Field Station ",-0.00291307735624926,"Canada","NA__NA"
+"CEN Clearwater Lake Research Station",-0.00404774548831094,"Canada","NA__NA"
+"CEN Salluit Research Station",-0.00335743778811455,"Canada","NA__NA"
+"CEN Whapmagoostui-Kuujjuarapik Research Station",-0.00448333204134053,"Canada","NA__NA"
+"Cape Dorset",-0.00911741475708576,"Canada","NA__NA"
+"Cascade Ridge",-0.0012891595150452,"United States","inactive__All year"
+"Cat Lake",-0.00486850061238405,"Canada","NA__NA"
+"Central Marsh",-0.000405635106090585,"United States","inactive__All year"
+"Chegdomyn",-0.0158134009490507,"Russia","NA__NA"
+"Chelyuskin",-0.00368626998617637,"Russia","NA__NA"
+"Cherepovets",-0.000145481153597998,"Russia","NA__NA"
+"Chernyshevskiy",-0.000402073230654116,"Russia","NA__NA"
+"Chevery",-0.000531250430802132,"Canada","NA__NA"
+"Chicoutimi",-0.000305401616562076,"Canada","NA__NA"
+"China Iceland Arctic  Observatory  CIAO",-0.000753175852769641,"Iceland","NA__NA"
+"Chita",-0.000820831455286365,"Russia","NA__NA"
+"Chukotka",-0.000938859820140865,"Russia","inactive__Summer"
+"Chumikan",-0.00269796600666255,"Russia","NA__NA"
+"Churchill Falls",-0.00540057016860357,"Canada","NA__NA"
+"Chusovoy",-0.000434457245293312,"Russia","NA__NA"
+"Circle",-0.00197685244418861,"United States","NA__NA"
+"Cochrane",-0.00867562763072392,"Canada","NA__NA"
+"Cold Bay",-0.00184023741786268,"United States","NA__NA"
+"Council (NGEE Arctic)",-0.000797656880349929,"United States","inactive__Summer"
+"DMI Geophysical Observatory Qaanaaq",-0.00549878309137937,"Greenland","NA__NA"
+"Dasan Station site",-0.00218584293516952,"Norway","inactive__All year"
+"Dawson Creek",-0.00177407315804451,"Canada","NA__NA"
+"Dease Lake",-0.00906283026392844,"Canada","NA__NA"
+"Deer Lake",-0.000409813698303404,"Canada","NA__NA"
+"Dikson",-0.00102377709511919,"Russia","NA__NA"
+"Dillingham",-0.00336116479376112,"United States","NA__NA"
+"Dolbeau",-0.00289900696310999,"Canada","NA__NA"
+"Doline",-0.00326801423651255,"Canada","NA__NA"
+"Dolinsk",-0.00685269205941636,"Russia","NA__NA"
+"Dudinka",-0.000862781621975002,"Russia","NA__NA"
+"Eagle",-0.00114200716189664,"United States","NA__NA"
+"Eastern Old Black Spruce (EOBS)",-0.00631842774393579,"Canada","inactive__Summer"
+"Eastmain",-0.00322681790987044,"Canada","NA__NA"
+"Egvekinot",-0.00543788233901889,"Russia","NA__NA"
+"Eldikan",-0.00211223060079087,"Russia","NA__NA"
+"Elgeeii",-0.00205813201365248,"Russia","inactive__Summer"
+"Emmonak",-0.0014332760013628,"United States","NA__NA"
+"Ennadai",-0.0132326677923616,"Canada","NA__NA"
+"Enurmino",-0.00223179355412351,"Russia","NA__NA"
+"Evensk",-0.00217421344976545,"Russia","NA__NA"
+"False Pass",-0.00107888621506579,"United States","NA__NA"
+"Fish Island",-0.000205490785111585,"Canada","inactive__Summer"
+"Flashline Mars Arctic Research Station",-0.00507841496743061,"Canada","NA__NA"
+"Flin Flon",-0.00101682481365879,"Canada","NA__NA"
+"Fort Chipewyan",-0.00137297091759936,"Canada","NA__NA"
+"Fort Good Hope",-0.0117826862752762,"Canada","NA__NA"
+"Fort McMurray",-0.000759695567253565,"Canada","NA__NA"
+"Fort McPherson",-0.00186390482194549,"Canada","NA__NA"
+"Fort Nelson",-0.00749262529300999,"Canada","NA__NA"
+"Fort Resolution",-0.00184351147788359,"Canada","NA__NA"
+"Fort Severn",-0.00208582086476301,"Canada","NA__NA"
+"Fort Smith",-0.00150937435707174,"Canada","NA__NA"
+"Fort St. John",-0.000288335232638331,"Canada","NA__NA"
+"Fort Yukon",-0.00154182190567811,"United States","NA__NA"
+"Forteau",-3.44251418447377e-05,"Canada","NA__NA"
+"Galena",-0.00260370934553798,"United States","NA__NA"
+"Gambell",-0.00138639023182478,"United States","NA__NA"
+"Gander",-0.000122774204377927,"Canada","NA__NA"
+"Geraldton",-0.00253307765092313,"Canada","NA__NA"
+"Gimli",-0.000644152580322589,"Canada","NA__NA"
+"Gjoa Haven",-0.00278770007514289,"Canada","NA__NA"
+"Glazov",-0.00382976710892855,"Russia","NA__NA"
+"Goodnews Bay",-0.000653833410812058,"United States","NA__NA"
+"Govorovo",-0.0284852575452635,"Russia","NA__NA"
+"Grand Prairie",-0.00088664303141064,"Canada","NA__NA"
+"Grise Fiord",-0.00886522192134773,"Canada","NA__NA"
+"Gubakha",-0.010785902425996,"Russia","NA__NA"
+"Gulkana",-0.00314476386835248,"United States","NA__NA"
+"Gunnarsholt",-0.001872517843161,"Iceland","inactive__Summer"
+"Gyda",-0.00420888099696662,"Russia","NA__NA"
+"HJP02 Jack Pine",-2.55020069642839e-05,"Canada","inactive__Summer"
+"HJP75 Jack Pine",-2.2319495388133e-06,"Canada","inactive__Summer"
+"HJP94 Jack Pine",-2.3859598011976e-05,"Canada","inactive__Summer"
+"Hakasia 10 yr",-0.00110422516112561,"Russia","inactive__Summer"
+"Hakasia 5yr",-0.00157095278331474,"Russia","inactive__Summer"
+"Hakasia Steppe",-0.00137086882493553,"Russia","inactive__Summer"
+"Hall Beach",-0.000707405880335211,"Canada","NA__NA"
+"Hammerfest",-0.00384952173546215,"Norway","NA__NA"
+"Happy Valley",-0.000346617722176883,"United States","inactive__Summer"
+"Happy Valley - Goose Bay",-0.000824793339917683,"Canada","NA__NA"
+"Happy Valley Wet Sedge Tundra",-0.000146958331653039,"United States","inactive__All year"
+"Hay River",-0.00217812533491777,"Canada","NA__NA"
+"Hearst",-0.013140618174559,"Canada","NA__NA"
+"Holman",-0.0102615471393544,"Canada","NA__NA"
+"Hooper Bay",-0.000898356040292693,"United States","NA__NA"
+"Hopedale",-0.00110629447693478,"Canada","NA__NA"
+"Hudson Bay",-0.00164663214683236,"Canada","NA__NA"
+"Hughes",-0.000454533051253981,"United States","NA__NA"
+"Hustai grassland",-9.59754825178797e-05,"Mongolia","inactive__All year"
+"Hyytiaelae Clear Cut",-0.00041501438431953,"Finland","inactive__Summer"
+"Härnösand",-0.00076018883551353,"Sweden","NA__NA"
+"Höfn",-0.000810983090308236,"Iceland","NA__NA"
+"Igloolik",-0.000588481124741366,"Canada","NA__NA"
+"Igloolik Research Center ",-0.0113136705279954,"Canada","NA__NA"
+"Igrim",-0.00110604784606665,"Russia","NA__NA"
+"Illisarvik",-0.000546486411515,"Canada","inactive__Summer"
+"Indiga",-0.00171269572142944,"Russia","NA__NA"
+"Inta",-0.000849767740037571,"Russia","NA__NA"
+"Inukjuak",-0.00458433731736497,"Canada","NA__NA"
+"Irkutsk",-0.000560099904099689,"Russia","NA__NA"
+"Island Lake",-0.00758701448971009,"Canada","NA__NA"
+"Ittoqqortoormiit",-0.00222839949274349,"Greenland","NA__NA"
+"Ivdel",-0.00110045513009503,"Russia","NA__NA"
+"Ivugivik",-0.00860507437138072,"Canada","NA__NA"
+"James Bay Lowlands",-0.0033319097981247,"Canada","inactive__Summer"
+"Jokioinen agricultural field",-0.00450816821168254,"Finland","inactive__Summer"
+"Juneau",-0.000719640662708053,"United States","NA__NA"
+"Kaamanen wetland",-0.000730883466722822,"Finland","inactive__All year"
+"Kainuu Fisheries Research Station",-0.000698903527778839,"Finland","NA__NA"
+"Kalevansuo",-0.000192462644509922,"Finland","inactive__Summer"
+"Kaltag",-0.00106537893519605,"United States","NA__NA"
+"Kamensk Uralskiy",-0.000669515567131668,"Russia","NA__NA"
+"Kangerlussuaq",-0.00367039209093491,"Greenland","NA__NA"
+"Kangirsuk",-0.00432379261598796,"Canada","NA__NA"
+"Kapuskasing",-0.00150701105530487,"Canada","NA__NA"
+"Karamken",-0.00320253818993025,"Russia","NA__NA"
+"Karluk",-0.00170827392662485,"United States","NA__NA"
+"Karpinsk",-0.000909456210258846,"Russia","NA__NA"
+"Kaskara Crop",-0.00166967333123561,"Russia","inactive__Summer"
+"Kavache",-0.0221430057787051,"Russia","NA__NA"
+"Keflavík",-0.00218808306131054,"Iceland","NA__NA"
+"Kem",-0.000545642974952714,"Russia","NA__NA"
+"Khakhar",-0.00833124421603423,"Russia","NA__NA"
+"Khandyga",-0.000914902618658976,"Russia","NA__NA"
+"Khanymey",-0.0039856257556562,"Russia","NA__NA"
+"Khatanga",-0.00268861978666697,"Russia","NA__NA"
+"Kherlenbayan Ulaan",-0.000256147837098425,"Mongolia","inactive__All year"
+"Khibiny Educational and Scientific Station ",-0.000514283898374254,"Russia","NA__NA"
+"Khilok",-0.00146906797661314,"Russia","NA__NA"
+"Khorgo",-0.00644818162913096,"Russia","NA__NA"
+"Kimmirut",-0.00691137888913413,"Canada","NA__NA"
+"Kineshma",-0.00308366955158624,"Russia","NA__NA"
+"King Salmon",-0.00189157392995972,"United States","NA__NA"
+"Kirensk",-0.000861390476464702,"Russia","NA__NA"
+"Kirov",-0.000197134895565219,"Russia","NA__NA"
+"Kirovo-Chepetsk",-0.003490315845219,"Russia","NA__NA"
+"Kirovsk",-0.00190607646756318,"Russia","NA__NA"
+"Kirs",-0.0126335049999348,"Russia","NA__NA"
+"Kivalina",-0.0025622436883224,"United States","NA__NA"
+"Kizel",-0.00827380330555819,"Russia","NA__NA"
+"Kluane Lake Research Station",-0.0013835014826822,"Canada","NA__NA"
+"Klyuchi",-0.00852208351597493,"Russia","NA__NA"
+"Kobbefjord",-0.00197148402872472,"Greenland","inactive__Summer"
+"Kobuk",-0.000169654819202886,"United States","NA__NA"
+"Kodiak",-0.00146547894800938,"United States","NA__NA"
+"Kodinskiy",-0.00342049066419952,"Russia","NA__NA"
+"Kogalym",-0.00622786358482575,"Russia","NA__NA"
+"Kokkola",-0.000374214372457875,"Finland","NA__NA"
+"Kolpashevo",-0.00109400253641268,"Russia","NA__NA"
+"Kolpino",-0.00213321125524349,"Russia","NA__NA"
+"Komsomolsk na Amure",-0.00132079831975632,"Russia","NA__NA"
+"Korsakov",-0.000177822283806576,"Russia","NA__NA"
+"Kostroma",-0.000112720431431472,"Russia","NA__NA"
+"Kotelnich",-0.00217837942754087,"Russia","NA__NA"
+"Kotlas",-0.0021322933954971,"Russia","NA__NA"
+"Kotlit",-0.00101325105505056,"United States","NA__NA"
+"Kovda",-0.00124576434723998,"Russia","NA__NA"
+"Koyuk",-0.00144736455638283,"United States","NA__NA"
+"Koyukuk",-0.000812535492254674,"United States","NA__NA"
+"Krasnokamsk",-0.000380525988736977,"Russia","NA__NA"
+"Krasnoturinsk",-0.0168880540085398,"Russia","NA__NA"
+"Krasnouralsk",-0.0021279037626861,"Russia","NA__NA"
+"Kudymkar",-0.00567833090258555,"Russia","NA__NA"
+"Kugluktuk",-0.00449545708249268,"Canada","NA__NA"
+"Kullorsuaq",-0.00174249685538858,"Greenland","NA__NA"
+"Kulusuk",-0.00310178467341956,"Greenland","NA__NA"
+"Kuujjuarapik",-0.00276398113301734,"Canada","NA__NA"
+"Kyshtym",-0.000717829261272182,"Russia","NA__NA"
+"La Sarre",-0.00085404785481092,"Canada","NA__NA"
+"La Scie",-0.000294137704146213,"Canada","NA__NA"
+"Labrador City",-0.00183464475061907,"Canada","NA__NA"
+"Lac Le Caron",-0.00214780687025078,"Canada","inactive__All year"
+"Lake Minchumina",-0.0018261107745817,"United States","NA__NA"
+"Lammin-Suo Peatland Station",-0.000160484713975698,"Russia","NA__NA"
+"Lansdowne House",-0.0028823352313924,"Canada","NA__NA"
+"Laryak",-0.00165193126991638,"Russia","NA__NA"
+"Lensk",-0.00075873570615479,"Russia","NA__NA"
+"Lesosibirsk",-0.000655499823624724,"Russia","NA__NA"
+"Litla-Skard ",-0.00133984318572584,"Iceland ","NA__NA"
+"Ljusdal_HY",-0.000745303308113437,"Sweden","inactive__Summer"
+"Ljusdal_SLM",-0.000995160316200585,"Sweden","inactive__All year"
+"Logashkino",-0.00171021997056986,"Russia","NA__NA"
+"Luga",-0.000113712934353588,"Russia","NA__NA"
+"Lutose Rich Fen",-0.003201099182851,"Canada","inactive__All year"
+"Lutselke",-0.00197225866209474,"Canada","NA__NA"
+"Maaninka",-0.00631837289969337,"Finland","inactive__Summer"
+"Magadan",-0.000907349452979222,"Russia","NA__NA"
+"Makarov",-0.00104983169935572,"Russia","NA__NA"
+"Manily",-0.00343742119768529,"Russia","NA__NA"
+"Manitoba, Northern Old Black Spruce (BOREAS)",-0.00537157091709793,"Canada","inactive__All year"
+"Marathon",-0.00328365930880649,"Canada","NA__NA"
+"Marcell Experimental Forest",-8.27324638920443e-05,"United States","inactive__Summer"
+"Matagami",-0.00514734258983503,"Canada","NA__NA"
+"McGrath",-0.000985500119169532,"United States","NA__NA"
+"Meadow Lake",-0.00063896035580682,"Canada","NA__NA"
+"Megion",-0.00659905793246222,"Russia","NA__NA"
+"Mekoryuk",-0.000439309381166752,"United States","NA__NA"
+"Menkere",-0.0300364314476228,"Russia","NA__NA"
+"Mezen",-0.00191246168023639,"Russia","NA__NA"
+"Miass",-0.0020495857670636,"Russia","NA__NA"
+"Mikkeli",-0.000258538083696568,"Finland","NA__NA"
+"Mirnyy",-0.000272565221693591,"Russia","NA__NA"
+"Mo i Rana",-0.00213584729389007,"Norway","NA__NA"
+"Mogocha",-0.00526670046490998,"Russia","NA__NA"
+"Molde",-0.00147894895045891,"Norway","NA__NA"
+"Monchegorsk",-0.00229461741912593,"Russia","NA__NA"
+"Mongolia",-0.0016020329076582,"Mongolia","inactive__Summer"
+"Montana",-0.0107353464344712,"United States","NA__NA"
+"Mukhomornoye",-0.00400483075109428,"Russia","NA__NA"
+"Murmansk",-0.00159972464600053,"Russia","NA__NA"
+"Nadym",-0.00476090957817247,"Russia","NA__NA"
+"Nain",-0.00276999412040597,"Canada","NA__NA"
+"Nalaikh grassland",-0.000432580604295288,"Mongolia","inactive__All year"
+"Namsos",-0.00182467477515296,"Norway","NA__NA"
+"Narsarsuaq",-0.00322642914646026,"Greenland","NA__NA"
+"Naryan Mar",-0.00236200558647796,"Russia","NA__NA"
+"Natara",-0.0252851314727297,"Russia","NA__NA"
+"Natashquan",-0.000463463462539707,"Canada","NA__NA"
+"Naujaat",-0.0125020982175603,"Canada","NA__NA"
+"Nefteyugansk",-0.0031549713253232,"Russia","NA__NA"
+"Nelegel",-0.000730666934486864,"Russia","inactive__Summer"
+"Neleger",-3.60937030755237e-05,"Russia","inactive__Summer"
+"Neleger Burnt Forest",-0.000865981330102523,"Russia","inactive__Summer"
+"Neleger Cutover",-0.000835360952643413,"Russia","inactive__Summer"
+"Neleger larch forest",-0.000730666934486864,"Russia","inactive__Summer"
+"Nerchinsk",-0.000948092698425977,"Russia","NA__NA"
+"Neryungri",-0.0126492397354051,"Russia","NA__NA"
+"Nevyansk",-0.000696946619977529,"Russia","NA__NA"
+"Newhalen",-0.000751960183291736,"United States","NA__NA"
+"Nibio Svanhovd Research Station ",-0.000551638506693281,"Norway ","NA__NA"
+"Nikel",-0.00400232562135537,"Russia","NA__NA"
+"Nikolski",-0.00171746320662813,"United States","NA__NA"
+"Nipigon",-0.00101588562146833,"Canada","NA__NA"
+"Nizhenvartovsk",-0.00249179494781427,"Russia","NA__NA"
+"Nizhneudinsk",-0.00103402116731712,"Russia","NA__NA"
+"Nizhneyansk",-0.0153209519609599,"Russia","NA__NA"
+"Nizhny Tagil",-0.00191902178479407,"Russia","NA__NA"
+"Nizhnyaya Tura",-0.00298119403800675,"Russia","NA__NA"
+"Noginsk",-0.00351795430893054,"Russia","NA__NA"
+"Nogliki",-0.00622397322014153,"Russia","NA__NA"
+"Nord",-0.0105397916874424,"Greenland","NA__NA"
+"Nordvik",-0.00376626747756867,"Russia","NA__NA"
+"Norilsk",-0.00319703475106266,"Russia","NA__NA"
+"Norman Wells",-0.00170467113031437,"Canada","NA__NA"
+"Norway House",-0.00372687644187261,"Canada","NA__NA"
+"Novy Urengoy",-0.000501034244487235,"Russia","NA__NA"
+"Novyy Uoyin",-0.00150489529604443,"Russia","NA__NA"
+"Noyabrsk",-0.00686929875446932,"Russia","NA__NA"
+"Numto",-0.00248588785646656,"Russia","NA__NA"
+"Numto Park Station",-0.00532736482626163,"Russia","NA__NA"
+"Nyac",-0.00532394532757597,"United States","NA__NA"
+"Nyagan",-0.00071113177724061,"Russia","NA__NA"
+"Nyukzha",-0.00957493726393236,"Russia","NA__NA"
+"Okha",-0.0016444082448638,"Russia","NA__NA"
+"Okhotsk",-0.00236011496602037,"Russia","NA__NA"
+"Oktyabrskiy",-0.000482182632721233,"Russia","NA__NA"
+"Olenek",-0.0147452495757862,"Russia","NA__NA"
+"Olyokminsk",-0.00229970046684749,"Russia","NA__NA"
+"Omchak",-0.00818174375078343,"Russia","NA__NA"
+"Omolon",-0.0188757752996099,"Russia","NA__NA"
+"Omsukchan",-0.0186916812959031,"Russia","NA__NA"
+"Omutninsk",-0.000405187619929831,"Russia","NA__NA"
+"Onega",-0.00568388493086681,"Russia","NA__NA"
+"Orotuk Field Station",-0.00518606517308554,"Russia","NA__NA"
+"Oulu",-0.00072317772159448,"Finland","NA__NA"
+"Oxford House",-0.00210927178570463,"Canada","NA__NA"
+"Oymyakon",-0.0137057610053323,"Russia","NA__NA"
+"Paamiut",-0.00419571102059364,"Greenland","NA__NA"
+"Pakhachi",-0.00202993873406534,"Russia","NA__NA"
+"Palana",-0.0025611458582563,"Russia","NA__NA"
+"Palatka",-0.00306172334078945,"Russia","NA__NA"
+"Palmer",-0.00150478937311207,"United States","NA__NA"
+"Paulatuk",-0.00691066418388256,"Canada","NA__NA"
+"Peace River",-0.00148974979838435,"Canada","NA__NA"
+"Pechora",-0.00215174702851899,"Russia","NA__NA"
+"Peregrebnoye",-0.00225139490404284,"Russia","NA__NA"
+"Perryville",-0.000545862460251039,"United States","NA__NA"
+"Pervouralsk",-0.00138786002396288,"Russia","NA__NA"
+"Petite Riviere (Baie Comeau)",-8.31412645797517e-05,"Canada","inactive__Summer"
+"Petropavlovsk Kamchatskiy",-0.000454031722673028,"Russia","NA__NA"
+"Petrovsk Zabaykalskiy",-0.00148744437078092,"Russia","NA__NA"
+"Petrozavodsk",-0.00161712253285696,"Russia","NA__NA"
+"Pevek",-0.00412220827514538,"Russia","NA__NA"
+"Pilot Point",-0.000936736573487406,"United States","NA__NA"
+"Plotnikovo",-0.00164422642857288,"Russia","inactive__Summer"
+"Polevskoy",-0.00203925478686579,"Russia","NA__NA"
+"Polish Polar Station Hornsund",-0.00102771722570828,"Svalbard/Poland","NA__NA"
+"Polyarnyy",-0.00162892511420455,"Russia","NA__NA"
+"Poronaysk",-0.009834954937337,"Russia","NA__NA"
+"Port Burwell",-0.00222454241032259,"Canada","NA__NA"
+"Port Heiden",-0.00105510689999414,"United States","NA__NA"
+"Port Hope Simpson",-0.000396837654532984,"Canada","NA__NA"
+"Port-Menier",-0.000525885292644372,"Canada","NA__NA"
+"Prince Albert (BOREAS)",-0.00127356246943006,"Canada","inactive__Summer"
+"Provideniya",-0.00260399545436514,"Russia","NA__NA"
+"Prudhoe Bay Wet Sedge",-0.000114398319685045,"United States","inactive__Summer"
+"Pukatawagan",-0.00111337956716948,"Canada","NA__NA"
+"Put Lenina",-0.0162238078562562,"Russia","NA__NA"
+"Qaanaaq",-0.00401976455453124,"Greenland","NA__NA"
+"Qaqortoq",-0.0040737476438826,"Greenland","NA__NA"
+"Qasigiannguit",-0.00184027995570738,"Greenland","NA__NA"
+"Quebec - 1975 Harvested Black Spruce (HBS75)",-0.00469830412752926,"Canada","inactive__Summer"
+"Quinhagak",-0.000946509839181173,"United States","NA__NA"
+"Rankin Inlet",-0.00626815120526609,"Canada","NA__NA"
+"Red Devil",-0.00624159539629227,"United States","NA__NA"
+"Red Lake",-0.00134082394501529,"Canada","NA__NA"
+"Rif Field Station",-0.00223698539906689,"Iceland","NA__NA"
+"Rigolet",-0.000817418186801126,"Canada","NA__NA"
+"Rostov",-0.000861734938180877,"Russia","NA__NA"
+"Rouyn-Noranda",-0.000774451066243114,"Canada","NA__NA"
+"Rovaniemi",-0.000919559210098008,"Finland","NA__NA"
+"Rusanovo",-0.00204019444421855,"Russia","NA__NA"
+"Rybinsk",-0.000139956967308901,"Russia","NA__NA"
+"Rylekaerene Zackenberg",-0.00173651744056709,"Greenland","inactive__Summer"
+"Sag Riverside",-0.000232611653730795,"United States","inactive__All year"
+"Sagastyr",-0.00182276406159837,"Russia","NA__NA"
+"Salekhard",-0.00192417598265167,"Russia","NA__NA"
+"Salluit",-0.00253369038791995,"Canada","NA__NA"
+"Salmisuo",-0.00143466316476173,"Finland","inactive__Summer"
+"Samoylov, floodplain",-0.00146065113404095,"Russia","inactive__Summer"
+"Sand Point",-0.00178574016382067,"United States","NA__NA"
+"Sangar",-0.01042349358261,"Russia","NA__NA"
+"Saranpaul",-0.00232256762290076,"Russia","NA__NA"
+"Saskatchewan - Western Boreal, forest burned in 1977",-0.000819306410304051,"Canada","inactive__Summer"
+"Saskatchewan - Western Boreal, forest burned in 1989",-0.00203215549572861,"Canada","inactive__Summer"
+"Saskatchewan - Western Boreal, forest burned in 1998",-0.00265624629529138,"Canada","inactive__Summer"
+"Saskylakh",-0.0120834098672432,"Russia","NA__NA"
+"Sauðárkrókur",-0.000368820503262234,"Iceland","NA__NA"
+"Savissivik",-0.00856834090821547,"Greenland","NA__NA"
+"Savonlinna",-0.00101739516861938,"Finland","NA__NA"
+"Schefferville",-0.00209188922206576,"Canada","NA__NA"
+"Segezha",-0.00355577704222861,"Russia","NA__NA"
+"Seida",-0.0023833680193388,"Russia","inactive__Summer"
+"Selawik",-0.00041924052782419,"United States","NA__NA"
+"Selkirk",-0.000505769504947769,"Canada","NA__NA"
+"Sept-Îles",-0.00149619650193951,"Canada","NA__NA"
+"Serov",-0.000978506027108068,"Russia","NA__NA"
+"Severo Kurilsk",-0.00117763310800077,"Russia","NA__NA"
+"Severodvinsk",-0.00104658767754204,"Russia","NA__NA"
+"Severomorsk",-0.00348654825163085,"Russia","NA__NA"
+"Severouralsk",-0.000798042500678733,"Russia","NA__NA"
+"Shalaurova",-0.00204631874009573,"Russia","NA__NA"
+"Shamattawa",-0.00318904167427251,"Canada","NA__NA"
+"Sharya",-0.00125824750307314,"Russia","NA__NA"
+"Shishmaref",-0.00170595401247817,"United States","NA__NA"
+"Shuya",-0.0026996301774312,"Russia","NA__NA"
+"Siglan",-0.0016196466159403,"Russia","NA__NA"
+"Siikaneva-2 Bog",-0.00086336568095667,"Finland","inactive__Summer"
+"Sioux Lookout",-0.00974213977854041,"Canada","NA__NA"
+"Sisimiut",-0.00228204322116491,"Greenland","NA__NA"
+"Skagway",-0.000869544853978986,"United States","NA__NA"
+"Skien",-0.000894320543153002,"Norway","NA__NA"
+"Skyttorp",-0.000207713324103815,"Sweden","inactive__Summer"
+"Slobodskoy",-0.00131939471430917,"Russia","NA__NA"
+"Slyudyanka",-0.00977012327510387,"Russia","NA__NA"
+"Sokol",-0.00125433759029657,"Russia","NA__NA"
+"Solikamsk",-0.000605448382835613,"Russia","NA__NA"
+"Soontaga",-0.000339767736699501,"Estonia","inactive__All year"
+"Sosnogorsk",-0.00163372933253012,"Russia","NA__NA"
+"Southern Khentei Taiga",-0.00870438306511636,"Mongolia","inactive__All year"
+"Southern Old Black Spruce",-0.00122472005051899,"Canada","inactive__Summer"
+"Sovetsk",-0.000475513734313317,"Russia","NA__NA"
+"Sovetskaya Gavan",-0.00350050828502771,"Russia","NA__NA"
+"Srednekolymsk",-0.0067585754676016,"Russia","NA__NA"
+"St-Augustin",-0.000201929768988863,"Canada","NA__NA"
+"St. Anthony",-0.000432302139701298,"Canada","NA__NA"
+"St. John's",-0.000185161738631031,"Canada","NA__NA"
+"St. Petersburg",-0.000341681135685514,"Russia","NA__NA"
+"Starorybnoye",-0.00412217031458604,"Russia","NA__NA"
+"Steinkjer",-0.00251714979934904,"Norway","NA__NA"
+"Stony Rapids",-0.0026565797164337,"Canada","NA__NA"
+"Stordalen forest",-8.46506341135916e-05,"Sweden","inactive__Summer"
+"Strelka",-0.00399591664997314,"Russia","NA__NA"
+"Strezhevoy",-0.00118042814833111,"Russia","NA__NA"
+"Sudurnes Science and Learning Center",-0.00169656998096686,"Iceland","NA__NA"
+"Sundsvall",-0.000683448284686082,"Sweden","NA__NA"
+"Suntar",-0.00257120026278428,"Russia","NA__NA"
+"Surgut",-0.000515002035114271,"Russia","NA__NA"
+"Susuman",-0.023002158928869,"Russia","NA__NA"
+"Svetogorsk",-0.00645346246537535,"Russia","NA__NA"
+"Taksimo",-0.00456539360830863,"Russia","NA__NA"
+"Talkeetna",-0.00327506448019938,"United States","NA__NA"
+"Taloyoak",-0.00117030140936081,"Canada","NA__NA"
+"Tanacross",-0.00281967371642286,"United States","NA__NA"
+"Tanana",-0.00121558111218301,"United States","NA__NA"
+"Tasiilaq",-0.00114049790972945,"Greenland","NA__NA"
+"Tasiusaq",-0.00683923183509465,"Greenland","NA__NA"
+"Tayshet",-0.00107958764780194,"Russia","NA__NA"
+"Tazovsky",-0.00179312220194027,"Russia","NA__NA"
+"Terbyas",-0.00366163117094458,"Russia","NA__NA"
+"The Arctic Research Station (former Labytnangi Ecological Research Station)",-0.00181190953737845,"Russia","NA__NA"
+"The Pas",-0.0018548920191935,"Canada","NA__NA"
+"Tikhvin",-0.000110990129512545,"Russia","NA__NA"
+"Timmiarmiut",-0.00195486053912149,"Greenland","NA__NA"
+"Tobolsk",-0.0086021681269048,"Russia","NA__NA"
+"Togiak",-0.00237642052450805,"United States","NA__NA"
+"Toolik Lake (Wetland)",-0.000481622800171464,"United States","inactive__Summer"
+"Trepassey",-0.000677578326970075,"Canada","NA__NA"
+"Trondheim",-0.00173234033032964,"Norway","NA__NA"
+"Trout River",-0.000288838878485166,"Canada","NA__NA"
+"Tukchi",-0.00175966228141838,"Russia","NA__NA"
+"Tunguskhaya",-0.0232807881673735,"Russia","NA__NA"
+"Tununak",-0.000600515692641875,"United States","NA__NA"
+"Turukhansk",-0.000659265489953881,"Russia","NA__NA"
+"Tver",-0.00330491707379748,"Russia","inactive__Summer"
+"Tynda",-0.0176221759803108,"Russia","NA__NA"
+"Tønsberg",-0.00067794126396203,"Norway","NA__NA"
+"UCI-1850 burn site",-0.00697629641911933,"Canada","inactive__Summer"
+"UCI-1930 burn site",-0.00795143867975551,"Canada","inactive__Summer"
+"UCI-1964 burn site",-7.79193634582882e-05,"Canada","inactive__Summer"
+"UCI-1964 burn site wet",-7.79193634582882e-05,"Canada","inactive__Summer"
+"UCI-1981 burn site",-0.00754507993134462,"Canada","inactive__Summer"
+"UCI-1989 burn site",-0.0101684650721361,"Canada","inactive__Summer"
+"UCI-1998 burn site",-0.0103786884248949,"Canada","inactive__Summer"
+"UCI-2003 burn site",-0.00116147880234032,"Canada","inactive__Summer"
+"Uapishka Research Station",-0.00736718689424385,"Canada","NA__NA"
+"Udachnyy",-0.0194722175987488,"Russia","NA__NA"
+"Uglegorsk",-0.000385201259833019,"Russia","NA__NA"
+"Ugolnye Kopi",-0.001649337126478,"Russia","NA__NA"
+"Ukhta",-0.000449960061751605,"Russia","NA__NA"
+"Ulkan",-0.00138315137281823,"Russia","NA__NA"
+"Umba",-0.00113917383738439,"Russia","NA__NA"
+"Umiujaq",-0.00360936258207412,"Canada","inactive__Summer"
+"Unalakleet",-0.0031367693398884,"United States","NA__NA"
+"Unalaska",-0.00158268868161336,"United States","NA__NA"
+"Upad",-0.00059683589984311,"United States","inactive__Summer"
+"Uranium City",-0.00307587435068585,"Canada","NA__NA"
+"Uray",-0.0018651292624741,"Russia","NA__NA"
+"Usinsk",-0.00186780312804994,"Russia","NA__NA"
+"Ust Kut",-0.0127657464299255,"Russia","NA__NA"
+"Ust Kuyga",-0.0290011919198916,"Russia","NA__NA"
+"Ust Nera",-0.0154768109027961,"Russia","NA__NA"
+"Ust Pojeg",-0.000968133287627296,"Russia","inactive__Summer"
+"Ust-Ulimsk",-0.00152160447446863,"Russia","NA__NA"
+"Uteshevo",-0.0023581864475861,"Russia","inactive__Summer"
+"Utikuma Region, Northern Study Area",-0.0093495214391584,"Canada","inactive__Summer"
+"Utkholok",-0.00971825285282397,"Russia","NA__NA"
+"Uummannaq",-0.00457272665885548,"Greenland","NA__NA"
+"Vaasa",-0.00105594178646151,"Finland","NA__NA"
+"Vadsø",-0.00189335468160785,"Norway","NA__NA"
+"Val d'Or",-0.000325154102778633,"Canada","NA__NA"
+"Valdez",-0.00148160981866962,"United States","NA__NA"
+"Vallanes",-0.00172340086916275,"Iceland","inactive__All year"
+"Vanino",-0.00471707074889672,"Russia","NA__NA"
+"Varnek",-0.00286594842040968,"Russia","NA__NA"
+"Velikiy Ustyug",-0.000651887883799123,"Russia","NA__NA"
+"Velsk",-0.00059191703374373,"Russia","NA__NA"
+"Verkhnevilyuysk",-0.000113968866383466,"Russia","NA__NA"
+"Verkhniy Ufaley",-0.00236629052682901,"Russia","NA__NA"
+"Verkhnyaya Salda",-0.00135874830729325,"Russia","NA__NA"
+"Verkhoyansk",-0.0059067055000101,"Russia","NA__NA"
+"Vichuga",-0.00255528348519948,"Russia","NA__NA"
+"Vikhorevka",-0.00103701649468978,"Russia","NA__NA"
+"Villum Research Station (VRS)",-0.00536978176810159,"Greenland","NA__NA"
+"Vilyuysk",-0.000182042121443121,"Russia","NA__NA"
+"Vitim",-0.0118090384723738,"Russia","NA__NA"
+"Volkhov",-0.00549300940590348,"Russia","NA__NA"
+"Vologda",-0.000338612625078257,"Russia","NA__NA"
+"Vyborg",-0.000280032376609612,"Russia","NA__NA"
+"Wales",-0.0031370937024898,"United States","NA__NA"
+"Wasilla",-0.000277825918014528,"United States","NA__NA"
+"Watson Lake",-0.00343293092682084,"Canada","NA__NA"
+"Wawa",-0.00193908937387976,"Canada","NA__NA"
+"Willem Barentsz Biological Station",-0.00165486461016943,"Russia","NA__NA"
+"Wiseman",-0.00817327692173111,"United States","NA__NA"
+"Yakutsk-Larch",-0.00200285930607303,"Russia","inactive__Summer"
+"Yamburg",-0.00323680611694047,"Russia","NA__NA"
+"Yaroslavl",-0.000573906337491658,"Russia","NA__NA"
+"Yekaterinburg",-0.000259185971938712,"Russia","NA__NA"
+"Yellowknife",-0.00571181343545736,"Canada","NA__NA"
+"Yeniseysk",-0.000976374124984996,"Russia","NA__NA"
+"Yerema",-0.00260541045219922,"Russia","NA__NA"
+"Yessey",-0.03300899307492,"Russia","NA__NA"
+"Yoshkar Ola",-0.00018142998280567,"Russia","NA__NA"
+"Yuzhno Sakhalinsk",-0.000144877580660234,"Russia","NA__NA"
+"ZOTTO bog (old)",-0.00304342144959275,"Russia","inactive__Summer"
+"ZOTTO forest (old)",-0.00493427107051298,"Russia","inactive__Summer"
+"Zemlya Bunge",-0.001552079145857,"Russia","NA__NA"
+"Zheleznogorsk Ilimskiy",-0.00221054204364856,"Russia","NA__NA"
+"Zhigansk",-0.00290501764665847,"Russia","NA__NA"
+"Zhilinda",-0.0238812836831614,"Russia","NA__NA"
+"Zima",-0.000806225276279697,"Russia","NA__NA"
+"Zlatoust",-0.0063118121132051,"Russia","NA__NA"
+"Zotino forest West (old)",-0.00245229272892859,"Russia","inactive__Summer"
+"Zvëzdnyj",-0.00342985530736649,"Russia","NA__NA"
+"Zyryanka",-0.00478521374215484,"Russia","NA__NA"
+"Ålesund",-0.00143795695875314,"Norway","NA__NA"
+"Ísafjörður",-0.00386946066199411,"Iceland","NA__NA"
+"Östersund",-0.000459459115623122,"Sweden","NA__NA"
