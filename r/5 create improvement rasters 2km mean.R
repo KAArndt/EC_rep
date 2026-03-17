@@ -7,13 +7,11 @@ library(kit)
 library(dplyr)
 
 #load in extracted site data from extraction codes
-tower.data = fread(file = './data/pca.towers.upgraded.csv')
-base.data  = fread(file = './data/pca.towers.base.csv')
+tower.data = fread(file = './data/final.tower.data.csv')
 
 #write.csv(x = tower.data,file = './data/improved_pca.towersv2.csv')
 #load back in euclidean distance matrix
 euci = read_rds('./euclidean_distance_matrix/euci_2km.rds')
-
 
 #load in the other spatial data
 r = rast('./spatial_data/pca_2km.tif')
@@ -23,7 +21,7 @@ num = 2
 
 ##########################################################################
 # BASE
-net = which(tower.data$active == 'active')
+net = which(tower.data$active.2024 == 'active')
 tower.data$site[net]
 euci.net = euci[,c(net)]
 
@@ -41,12 +39,12 @@ base = rast(x = basedf,type = 'xyz',crs = crs(r))
 
 #project the towers d#project the towers d#project the towers database
 base.22 = rast('./output/base_network/base_2km.tif')
-base.22.towers = subset(base.data,base.data$active == 'active' & base.data$Start_CO2 < 2022)
+base.22.towers = subset(tower.data,tower.data$active.2022 == 'active')
 
 #find difference
-diff_df1 <- setdiff(base.towers, base.22.towers)
-diff_df1
 base.towers = tower.data[net,]
+diff_df1 = setdiff(base.towers, base.22.towers)
+
 towers = vect(x = base.towers,geom=c("x", "y"), crs=crs(r))
 towers.22 = vect(x = diff_df1,geom=c('x','y'),crs=crs(r))
 
@@ -60,11 +58,9 @@ b1 = as.data.frame(base)
 b2 = as.data.frame(base.22)
 summary(b1$base.dist-b2$base.dist)
 
-hist(base-base.22)hbase.22.towershist(base-base.22)hbase.22.towersist(base-base.22)
-summary(base-base.22)
 plot(base-base.22)
-points(towers,col='red')
-points(towers.22,col='green')
+points(towers,col='green')
+points(towers.22,col='red')
 
 #save the base here
 writeRaster(x = base,filename = './output/improved_network/improved_base_2km.tif',overwrite = T)
@@ -72,7 +68,7 @@ writeRaster(x = base,filename = './output/improved_network/improved_base_2km.tif
 
 #######################################################################################
 ##################     METHANE
-net.methane = which(tower.data$active == 'active' & tower.data$methane == 'methane')
+net.methane = which(tower.data$active.2024 == 'active' & tower.data$methane.2024 == 'methane')
 euci.net.methane = euci[,c(net.methane)]
 
 #calculate the base network, parallel processing is much slower here
@@ -89,14 +85,14 @@ methane = rast(x = methanedf,type = 'xyz',crs = crs(r))
 
 #project the towers d#project the towers d#project the towers database
 methane.22 = rast('./output/base_network/methane_2km.tif')
-methane.22.towers = subset(base.data,base.data$active == 'active' & base.data$Start_CO2 < 2022 & base.data$methane == 'methane')
+methane.22.towers = subset(tower.data,tower.data$active.2022 == 'active' & tower.data$methane.2022 == 'methane')
 
 #project the towers d#project the towers d#project the towers database
 methane.towers = tower.data[net.methane,]
 towers = vect(x = methane.towers,geom=c("x", "y"), crs=crs(r))
 
 #find difference
-diff_df1 <- setdiff(methane.towers, methane.22.towers)
+diff_df1 = setdiff(methane.towers, methane.22.towers)
 diff_df1$site
 towers.22 = vect(x = diff_df1,geom=c('x','y'),crs=crs(r))
 

@@ -6,13 +6,13 @@ library(terra)
 library(kit)
 
 #load in extracted site data from extraction codes
-tower.data = fread(file = './data/pca.towers.base.csv')
+tower.data = fread(file = './data/final.tower.data.csv')
 
 #load back in euclidean distance matrix
-euci = read_rds('./euclidean_distance_matrix/euci_1km.rds')
+euci = read_rds('./euclidean_distance_matrix/euci_2km.rds')
 
 #load in the other spatial data
-r = rast('./spatial_data/pca.tif')
+r = rast('./spatial_data/pca_2km.tif')
 #r = aggregate(x = r,fact = 2,fun = 'mean',na.rm=T)
 r
 df    = as.data.frame(x = r,xy = T,na.rm = T)
@@ -21,7 +21,7 @@ num = 2
 
 ##########################################################################
 # BASE
-net = which(tower.data$active == 'active' & tower.data$Start_CO2 < 2022)
+net = which(tower.data$active.2022 == 'active')
 tower.data$site[net]
 euci.net = euci[,c(net)]
 
@@ -48,13 +48,13 @@ points(towers,col='red')
 #save the base here
 #writeRaster(x = base,filename = './output/base_network/base_10km.tif',overwrite = T)
 #writeRaster(x = base,filename = './output/base_network/base_5km.tif',overwrite = T)
-#writeRaster(x = base,filename = './output/base_network/base_2km.tif',overwrite = T)
-writeRaster(x = base,filename = './output/base_network/base_1km.tif',overwrite = T)
+writeRaster(x = base,filename = './output/base_network/base_2km.tif',overwrite = T)
+#writeRaster(x = base,filename = './output/base_network/base_1km.tif',overwrite = T)
 
 
 #######################################################################################
 ##################     METHANE
-net.methane = which(tower.data$Start_CO2 < 2022 & tower.data$active == 'active' & tower.data$methane == 'methane')
+net.methane = which(tower.data$methane.2022 == 'methane' & tower.data$active.2022 == 'active')
 euci.net.methane = euci[,c(net.methane)]
 
 #calculate the base network, parallel processing is much slower here
@@ -78,12 +78,12 @@ towers = vect(x = methane.towers,geom=c("x", "y"), crs=crs(r))
  points(towers,col='red')
 
 #save the base here
-#writeRaster(x = methane,filename = './output/base_network/methane_2km.tif',overwrite = T)
-writeRaster(x = methane,filename = './output/base_network/methane_1km.tif',overwrite = T)
+writeRaster(x = methane,filename = './output/base_network/methane_2km.tif',overwrite = T)
+#writeRaster(x = methane,filename = './output/base_network/methane_1km.tif',overwrite = T)
 
 ##########################################################################################
 ################ Annual
-net.annual = which(tower.data$active == 'active' & tower.data$Start_CO2 < 2022 & tower.data$Season_Activity == 'All year')
+net.annual = which(tower.data$active.2022 == 'active' & tower.data$Season_Activity.2022 == 'All year')
 euci.net.annual = euci[,c(net.annual)]
 
 #calculate the base network, parallel processing is much slower here
@@ -104,16 +104,15 @@ towers = vect(x = annual.towers,geom=c("x", "y"), crs=crs(r))
 
  hist(annual)
  plot(annual,range=c(0,4.5))
- plot(annual2,range=c(0,4.5))
- annual.towerspoints(towers,col='red')
+ points(towers,col='red')
 
 #save the annual here
-#writeRaster(x = annual,filename = './output/base_network/annual_2km.tif',overwrite = T)
-writeRaster(x = annual,filename = './output/base_network/annual_1km.tif',overwrite = T)
+writeRaster(x = annual,filename = './output/base_network/annual_2km.tif',overwrite = T)
+#writeRaster(x = annual,filename = './output/base_network/annual_1km.tif',overwrite = T)
 
 ################################################################################
 # Annual Methane
-net.annual.methane = which(tower.data$active == 'active' & tower.data$Start_CO2 < 2022 & tower.data$Season_Activity == 'All year' & tower.data$methane == 'methane')
+net.annual.methane = which(tower.data$annualmethane2022 == 'annualmethane')
 euci.net.annual.methane = euci[,c(net.annual.methane)]
 
 #calculate the base network, parallel processing is much slower here
@@ -137,6 +136,6 @@ plot(annual.methane,range=c(0,4.5))
 points(towers,col='red')
 
 #save the base here
-#writeRaster(x = annual.methane,filename = './output/base_network/annual_methane_2km.tif',overwrite = T)
-writeRaster(x = annual.methane,filename = './output/base_network/annual_methane_1km.tif',overwrite = T)
+writeRaster(x = annual.methane,filename = './output/base_network/annual_methane_2km.tif',overwrite = T)
+#writeRaster(x = annual.methane,filename = './output/base_network/annual_methane_1km.tif',overwrite = T)
 

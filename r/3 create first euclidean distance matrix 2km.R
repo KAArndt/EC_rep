@@ -6,9 +6,9 @@ library(doParallel)
 library(doSNOW)
 
 #load in extracted site data from extraction codes, can be base or upgraded since active, methane etc doesn't matter here
-tower.data = fread(file = './data/pca.towers.base.csv')
-r = rast('./spatial_data/pca.tif')
-
+tower.data = fread(file = './data/final.tower.data.csv')
+r = rast('./spatial_data/pca_2km.tif')
+r
 #r = aggregate(x = r,fact=10,fun='mean',na.rm=T)
 
 #create data frame from PCAs
@@ -47,7 +47,7 @@ Sys.time() - orig} #stop the clock
 colnames(euci) = tower.data$site
 
 #save the file
-saveRDS(object = euci,file = './euclidean_distance_matrix/euci_1km.rds',compress = F)
+#saveRDS(object = euci,file = './euclidean_distance_matrix/euci_1km.rds',compress = F)
 saveRDS(object = euci,file = './euclidean_distance_matrix/euci_2km.rds',compress = F)
-saveRDS(object = euci,file = './euclidean_distance_matrix/euci_5km.rds',compress = F)
-saveRDS(object = euci,file = './euclidean_distance_matrix/euci_10km.rds',compress = F)
+#saveRDS(object = euci,file = './euclidean_distance_matrix/euci_5km.rds',compress = F)
+#saveRDS(object = euci,file = './euclidean_distance_matrix/euci_10km.rds',compress = F)
