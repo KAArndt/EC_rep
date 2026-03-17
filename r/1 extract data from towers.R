@@ -14,12 +14,13 @@ ext    = fread(file = './data/ext_sites.csv')
 towers = towers[order(towers$site),]
 
 #sub to interested sites
-towers$active  = ifelse(towers$End_CO2 >= 2024,'active','inactive')
-
-towers$methane = ifelse(towers$GHG == 'CO2,CH4' | towers$GHG == 'CO2,CH4,N2O',
-                       'methane','nonmethane')
-towers$End_CH4 = ifelse(towers$methane == 'methane' & is.na(towers$End_CH4),2025,towers$End_CH4)
-towers$methane = ifelse(towers$End_CH4 >= 2024,'methane','nonmethane')
+# towers$active  = ifelse(towers$End_CO2 >= 2024,'active','inactive')
+# 
+# towers$methane = ifelse(towers$GHG == 'CO2,CH4' | towers$GHG == 'CO2,CH4,N2O',
+#                        'methane','nonmethane')
+# towers$methane = ifelse(towers$End_CH4 >= 2024,'methane','nonmethane')
+# 
+# towers$End_CH4 = ifelse(towers$methane == 'methane' & is.na(towers$End_CH4),2025,towers$End_CH4)
 
 names(ext) = c('site','Country','Longitude','Latitude','Ext_Type','State','Population')
 #reduce the existing sites and add class names
