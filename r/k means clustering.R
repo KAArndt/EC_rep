@@ -11,7 +11,7 @@ library(doSNOW)
 
 #load in the pca image
 r = rast('./spatial_data/pca_2km.tif')
-r = rast('./spatial_data/pca.tif')
+#r = rast('./spatial_data/pca.tif')
 
 df = as.data.frame(x = r,na.rm = T,xy = T)
 
@@ -26,7 +26,7 @@ df = df[,-c(1,2)]
 
 #run kmeans clustering in parallel, determine what is the best by running several size clusters
 set.seed(100) #set seed so the kmeans always starts in the same spot, makes the results more similar if ran again
-cents = c(5,10,20,40,80) #set how many clusters we want in the different iterations
+cents = c(5,10,20,30,40,50,60,80,120,180) #set how many clusters we want in the different iterations
 
 #setup parallel back end to use many processors
   cores = detectCores() #detect the number of cores
@@ -40,8 +40,8 @@ cents = c(5,10,20,40,80) #set how many clusters we want in the different iterati
   stopCluster(cl) #stop the clusters
   Sys.time() - orig} #stop the clock
   
-#saveRDS(object = km,file = './output/clusters.rds')
-km = readRDS(file = './output/clusters_1km.rds',compress=F)
+#saveRDS(object = km,file = './output/clusters_2km.rds')
+#km = readRDS(file = './output/clusters_2km.rds',compress=F)
 
 #error calculations for deciding appropriate amount of clusters
 error  = km[[1]]$tot.withinss
@@ -59,8 +59,8 @@ png(filename = './figures/kmeans_error.png',width = 5,height = 2.5,units = 'in',
 ggplot()+theme_bw()+
   geom_line(aes(cents,error))+
   geom_point(aes(cents,error))+
-  scale_x_continuous('Clusters',limits = c(0,310),expand = c(0,0),breaks = cents,
-                     labels = c('5','','20','','40','','60','','80','','100','200','300'))+
+  scale_x_continuous('Clusters',limits = c(0,200),expand = c(0,0),breaks = cents,
+                     labels = c('5','10','20','30','40','50','60','80','120','180'))+
   scale_y_continuous('Within-Cluster Sum of Squares Error')+
   theme(axis.text = element_text(size = 6),
         axis.title = element_text(size = 6),
@@ -75,25 +75,21 @@ cor$km30 = km[[4]]$cluster #add to the coordinates
 cor$km40 = km[[5]]$cluster #add to the coordinates
 cor$km50 = km[[6]]$cluster #add to the coordinates
 cor$km60 = km[[7]]$cluster #add to the coordinates
-cor$km70 = km[[8]]$cluster #add to the coordinates
-cor$km80 = km[[9]]$cluster #add to the coordinates
-cor$km90 = km[[10]]$cluster #add to the coordinates
-cor$km100 = km[[11]]$cluster #add to the coordinates
-cor$km200 = km[[12]]$cluster #add to the coordinates
-cor$km300 = km[[13]]$cluster #add to the coordinates
-#cor$km400 = km[[14]]$cluster #add to the coordinates
+cor$km80 = km[[8]]$cluster #add to the coordinates
+cor$km120 = km[[9]]$cluster #add to the coordinates
+cor$km180 = km[[10]]$cluster #add to the coordinates
 
 #create rasters from the cluster files
 kms = rast(x = cor,type = 'xyz',crs = crs(r))
 
 #check it out
-plot(kms)
+plot(kms$km60)
 
 #save off so it can just be reloaded again
-writeRaster(x = kms,filename = './output/clusts.tif',overwrite = T)
+writeRaster(x = kms,filename = './output/clusts_2km.tif',overwrite = T)
 
 # already run ######################################
-kms = rast(x = './output/clusts.tif') 
+kms = rast(x = './output/clusts_2km.tif') 
 
 #just for plotting of k means ##############################################################
 #aggregate for better plotting
