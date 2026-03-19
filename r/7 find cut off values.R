@@ -19,9 +19,9 @@ xy.tower = active[,c(44,45)]
 
 #clusters #########################################################################
 #load in the stack created in the other files
-clust = rast('./output/clusts.tif')
+clust = rast('./output/clusts_2km.tif')
 
-clust = clust$km50
+clust = clust$km40
 plot(clust)
 names(clust) = 'cluster'
 
@@ -39,7 +39,7 @@ clustdat[nas$ID,] = extract(x = clust,y = na.cor,cells=T,xy=T)
 clustdat$site = active$site
 active$cluster = clustdat$cluster
 
-active$status = paste(active$methane,active$Season_Activity,sep = '_')
+active$status = paste(active$methane.2024,active$Season_Activity.2024,sep = '_')
 
 ggplot(data = active)+theme_bw()+
   geom_bar(aes(cluster,fill = status))+
@@ -77,4 +77,4 @@ summary(er4$base.dist)[5]
 hist(er4$base.dist)
 
 #mean
-#the final cut offs are 1.96 and 1.56 for ER1 and ER4 2 mean
+#the final cut offs are 2.11 and 1.77 for ER1 and ER4 2 mean

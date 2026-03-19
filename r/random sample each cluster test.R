@@ -57,7 +57,7 @@ filter_df_by_vector <- function(df, column, values_to_filter, n = 4) {
 
 #clusters #########################################################################
 #load in the stack created in the other files
-clust = rast('./output/clusts.tif')
+clust = rast('./output/clusts_2km.tif')
 clust = clust$km40
 names(clust) = 'cluster'
 
@@ -280,7 +280,7 @@ plot(er1-base)
 
 #1.95
 
-writeRaster(x = er1,'./output/er1_rasters.tif')
+writeRaster(x = er1,'./output/er1_rasters.tif',overwrite=T)
 
 # 4 per cluster #####################################################################################
 newdf1 = filter_df_by_vector(df = spat.df,column = 'cluster',values_to_filter = 1:40,n = 4)
@@ -479,7 +479,7 @@ plot(er4,range=c(0,3))
 
 #1.33 for ER4
 
-writeRaster(x = er4,'./output/er4_rasters.tif')
+writeRaster(x = er4,'./output/er4_rasters.tif',overwrite=T)
 
 
 
