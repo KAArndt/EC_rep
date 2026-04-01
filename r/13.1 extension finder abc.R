@@ -19,7 +19,7 @@ r = rast('./spatial_data/pca_2km.tif')
 df = as.data.frame(x = r,na.rm = T,xy = T)
 
 #load in extracted site data from extraction codes
-tower.data = fread(file = './data/pca.towers.upgraded.csv')
+tower.data = fread(file = './data/final.tower.data.csv')
 tower.data$order = seq(1,nrow(tower.data))
 
 #load ABC Flux
@@ -27,14 +27,14 @@ abc = fread('./data/ABCFlux.forKyle.csv')
 abc = subset(abc,abc$dataset == 'Terrestrial')
 
 #merge based on abcflux
-names(tower.data)[25] = 'abc.site'
+names(tower.data)[22] = 'abc.site'
 names(abc)[1]         = 'abc.site'
 
 abcf = merge(x = abc,y = tower.data,all.y = T,by = 'abc.site')
 abcf = abcf[!duplicated(abcf$site),]
 abcf = abcf[order(abcf$order),]
 
-abcf$active = ifelse(is.na(abcf$active),'extension',abcf$active)
+abcf$active.2024 = ifelse(is.na(abcf$active.2024),'extension',abcf$active.2024)
 abcf$end_year = ifelse(is.na(abcf$end_year),0,abcf$end_year)
 
 ##########################################################################
@@ -42,8 +42,8 @@ abcf$end_year = ifelse(is.na(abcf$end_year),0,abcf$end_year)
 ##########################################################################
 
 #find columns which are active sites
-net = which(abcf$active == 'active' & as.numeric(abcf$end_year) >= 2022)
-ext = which(abcf$active == 'active' & as.numeric(abcf$end_year) < 2022)
+net = which(abcf$active.2024 == 'active' & as.numeric(abcf$end_year) >= 2022)
+ext = which(abcf$active.2024 == 'active' & as.numeric(abcf$end_year) < 2022)
 
 #create some subsets of the euclidean distance tables for easier calculations
 euci.net = euci[,c(net)]
@@ -62,7 +62,7 @@ library(doSNOW)
 
 #setup parallel back end to use many processors
 cores = detectCores()        #detect the number of cores
-cl = makeCluster(10) #assign number of cores
+cl = makeCluster(9) #assign number of cores
 {orig = Sys.time() #start the clock for timing the process
   registerDoSNOW(cl) #register the cores
   eucis = foreach (j = 1:ncol(euci.ext),.verbose = T,.combine = cbind,.packages = c('kit')) %dopar% {
@@ -139,14 +139,14 @@ ggplot(data = bars)+theme_bw()+ggtitle('Mean Improvements')+
         legend.position = c(0.5,0.9),
         legend.direction = 'horizontal')
 
-write.csv(x = bars,file = './data/reductions/meanreduction_abc_gsco2.csv',row.namexs = F)
+write.csv(x = bars,file = './data/reductions/meanreduction_abc_gsco2.csv',row.names = F)
 ###############################################################################################
 #    GROWING SEASON CH4
 ################################################################################
 
 #find columns which are active sites
-net = which(abcf$active == 'active' & as.numeric(abcf$end_year) >= 2022 & abcf$methane == 'methane')
-ext = which(abcf$active == 'active' & as.numeric(abcf$end_year) < 2022  & abcf$methane == 'methane')
+net = which(abcf$active.2024 == 'active' & as.numeric(abcf$end_year) >= 2022 & abcf$methane.2024 == 'methane' & abcf$Flux == 'CO2 and CH4')
+ext = which(abcf$active.2024 == 'active' & as.numeric(abcf$end_year) < 2022  & abcf$methane.2024 == 'methane')
 
 #create some subsets of the euclidean distance tables for easier calculations
 euci.net = euci[,c(net)]
@@ -165,7 +165,7 @@ library(doSNOW)
 
 #setup parallel back end to use many processors
 cores = detectCores()        #detect the number of cores
-cl = makeCluster(10) #assign number of cores
+cl = makeCluster(6) #assign number of cores
 {orig = Sys.time() #start the clock for timing the process
   registerDoSNOW(cl) #register the cores
   eucis = foreach (j = 1:ncol(euci.ext),.verbose = T,.combine = cbind,.packages = c('kit')) %dopar% {
@@ -248,12 +248,16 @@ write.csv(x = bars,file = './data/reductions/meanreduction_abc_gsch4.csv',row.na
 #    YEAR ROUND CO2
 ###############################################################################################
 #find columns which are active sites
-net = which(abcf$active == 'active' & as.numeric(abcf$end_year) >= 2022 & abcf$Season_Activity == 'All year')
-ext = which(abcf$active == 'active' & as.numeric(abcf$end_year) < 2022  & abcf$Season_Activity == 'All year')
+net = which(abcf$active.2024 == 'active' & as.numeric(abcf$end_year) >= 2022 & abcf$Season_Activity.2024 == 'All year' & abcf$co2.yearround == 'Y')
+ext = which(abcf$active.2024 == 'active' & as.numeric(abcf$end_year) < 2022  & abcf$Season_Activity.2024 == 'All year')
+intersect(net,ext)
 
 #create some subsets of the euclidean distance tables for easier calculations
 euci.net = euci[,c(net)]
 euci.ext = euci[,c(ext)]
+
+tower.data$site[net]
+tower.data$site[ext]
 
 #again pre-making vectors and matrices of the right length greatly speeds up comp time
 dist = numeric(length = nrow(df)) 
@@ -268,7 +272,7 @@ library(doSNOW)
 
 #setup parallel back end to use many processors
 cores = detectCores()        #detect the number of cores
-cl = makeCluster(10) #assign number of cores
+cl = makeCluster(6) #assign number of cores
 {orig = Sys.time() #start the clock for timing the process
   registerDoSNOW(cl) #register the cores
   eucis = foreach (j = 1:ncol(euci.ext),.verbose = T,.combine = cbind,.packages = c('kit')) %dopar% {
@@ -350,14 +354,15 @@ ggplot(data = bars)+theme_bw()+ggtitle('Mean Improvements')+
         legend.direction = 'horizontal')
 
 write.csv(x = bars,file = './data/reductions/meanreduction_abc_annualco2.csv',row.names = F)
+
 ###############################################################################################
 #   YEAR ROUND CH4
 ###############################################################################################
 #find columns which are active sites
-abcf$annualmethane = paste(abcf$Season_Activity,abcf$methane,sep = '_')
+net = which(abcf$active.2024 == 'active' & as.numeric(abcf$end_year) >= 2022 & abcf$annualmethane2024 == 'annualmethane' & abcf$ch4.yearround == 'Y')
+ext = which(abcf$active.2024 == 'active' & as.numeric(abcf$end_year) < 2022  & abcf$annualmethane2024 == 'annualmethane')
 
-net = which(abcf$active == 'active' & as.numeric(abcf$end_year) >= 2022 & abcf$annualmethane == 'All year_methane')
-ext = which(abcf$active == 'active' & as.numeric(abcf$end_year) < 2022  & abcf$annualmethane == 'All year_methane')
+intersect(net,ext)
 
 #create some subsets of the euclidean distance tables for easier calculations
 euci.net = euci[,c(net)]
@@ -376,7 +381,7 @@ library(doSNOW)
 
 #setup parallel back end to use many processors
 cores = detectCores()        #detect the number of cores
-cl = makeCluster(10) #assign number of cores
+cl = makeCluster(5) #assign number of cores
 {orig = Sys.time() #start the clock for timing the process
   registerDoSNOW(cl) #register the cores
   eucis = foreach (j = 1:ncol(euci.ext),.verbose = T,.combine = cbind,.packages = c('kit')) %dopar% {

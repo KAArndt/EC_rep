@@ -19,13 +19,13 @@ r = rast('./spatial_data/pca_2km.tif')
 df = as.data.frame(x = r,na.rm = T,xy = T)
 
 #load in extracted site data from extraction codes
-tower.data = fread(file = './data/pca.towers.upgraded.csv')
+tower.data = fread(file = './data/final.tower.data.csv')
 
 #find columns which are active sites
-tower.data$annualmethane = paste(tower.data$Season_Activity,tower.data$methane,sep = '_')
+tower.data$annualmethane2024 = ifelse(is.na(tower.data$annualmethane2024),'extension',tower.data$annualmethane2024)
 
-net = which(tower.data$active == 'active' & tower.data$annualmethane == 'All year_methane')
-ext = which(tower.data$active == 'active' & tower.data$annualmethane != 'All year_methane')
+net = which(tower.data$active.2024 == 'active' & tower.data$annualmethane2024 == 'annualmethane')
+ext = which(tower.data$active.2024 == 'active' & tower.data$annualmethane2024 != 'annualmethane')
 
 #create some subsets of the euclidean distance tables for easier calculations
 euci.net = euci[,c(net)]
@@ -107,19 +107,21 @@ bars = data.frame(tower.data$site[ext])
 bars$means = meansv
 bars$country = tower.data$Country[ext]
 names(bars)[1] = 'sitename'
+bars$stats = ifelse(tower.data$annualmethane2024[ext] == 'extension','new','existing')
 
 top = subset(bars,bars$means < median(bars$means))
 upper.limit = -1*min(bars$means)+0.005
 
 ggplot(data = bars)+theme_bw()+ggtitle('Mean Improvements')+
-  geom_bar(aes(reorder(sitename, -means*-1),means*-1,fill=country),stat = 'identity')+
+  geom_bar(aes(reorder(sitename, -means*-1),means*-1,fill=country,col=stats),stat = 'identity')+
   scale_y_continuous(expand = c(0,0),limits = c(0,upper.limit),'Mean ED Reduction')+
   scale_x_discrete('Site')+
- # scale_fill_brewer(palette = "Spectral")+
+#  scale_fill_brewer(palette = "Spectral")+
+  scale_color_manual(values = c('black','transparent'))+
   theme(axis.text.x = element_text(angle = 80,hjust = 1,size = 7),
         legend.position = c(0.5,0.9),
         legend.direction = 'horizontal')
 
-write.csv(x = bars,file = './output/reductions/meanreduction_annual_methane.csv',row.names = F)
+write.csv(x = bars,file = './data/reductions/meanreduction_annual_methane.csv',row.names = F)
 
 ###############################################################################################

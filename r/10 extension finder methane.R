@@ -19,12 +19,13 @@ r = rast('./spatial_data/pca_2km.tif')
 df = as.data.frame(x = r,na.rm = T,xy = T)
 
 #load in extracted site data from extraction codes
-tower.data = fread(file = './data/pca.towers.upgraded.csv')
-tower.data$active = ifelse(is.na(tower.data$active),'extension',tower.data$active)
+tower.data = fread(file = './data/final.tower.data.csv')
+tower.data$active.2024 = ifelse(is.na(tower.data$active.2024),'extension',tower.data$active.2024)
+tower.data$methane.2024 = ifelse(is.na(tower.data$methane.2024),'extension',tower.data$methane.2024)
 
 #find columns which are active sites
-net = which(tower.data$active == 'active' & tower.data$methane == 'methane')
-ext = which(tower.data$active == 'active' & tower.data$methane != 'methane')
+net = which(tower.data$active.2024 == 'active' & tower.data$methane.2024 == 'methane')
+ext = which(tower.data$methane.2024 != 'methane')
 
 #create some subsets of the euclidean distance tables for easier calculations
 euci.net = euci[,c(net)]
@@ -43,7 +44,7 @@ library(doSNOW)
 
 #setup parallel back end to use many processors
 cores = detectCores()        #detect the number of cores
-cl = makeCluster(10) #assign number of cores
+cl = makeCluster(12) #assign number of cores
 {orig = Sys.time() #start the clock for timing the process
   registerDoSNOW(cl) #register the cores
   eucis = foreach (j = 1:ncol(euci.ext),.verbose = T,.combine = cbind,.packages = c('kit')) %dopar% {
@@ -70,7 +71,8 @@ cl = makeCluster(10) #assign number of cores
 #saveRDS(object = eucis,file = './euclidean_distance_matrix/ext_eucis_2km_methane.rds')
 #eucis = read_rds(file = './euclidean_distance_matrix/ext_eucis_2km_methane.rds')
 
-#create rasters
+
+#create rasters######################################################################
 dist.rasts = list()
 tempdf = data.table()
 #convert into geotiffs
@@ -107,19 +109,21 @@ bars = data.frame(tower.data$site[ext])
 bars$means = meansv
 bars$country = tower.data$Country[ext]
 names(bars)[1] = 'sitename'
+bars$rank = rank(x = bars$means)
+bars$stats = ifelse(tower.data$methane.2024[ext] == 'extension','new','existing')
 
-top = subset(bars,bars$means < median(bars$means))
+top = subset(bars,bars$rank <= 200)
 upper.limit = -1*min(bars$means)+0.005
 
-ggplot(data = bars)+theme_bw()+ggtitle('Mean Improvements')+
-  geom_bar(aes(reorder(sitename, -means*-1),means*-1,fill=country),stat = 'identity')+
+ggplot(data = top)+theme_bw()+ggtitle('Mean Improvements')+
+  geom_bar(aes(reorder(sitename, -means*-1),means*-1,fill=country,col=stats),stat = 'identity')+
   scale_y_continuous(expand = c(0,0),limits = c(0,upper.limit),'Mean ED Reduction')+
   scale_x_discrete('Site')+
- # scale_fill_brewer(palette = "Spectral")+
+  scale_color_manual(values = c('black','transparent'))+
   theme(axis.text.x = element_text(angle = 80,hjust = 1,size = 7),
         legend.position = c(0.5,0.9),
         legend.direction = 'horizontal')
 
-write.csv(x = bars,file = './output/reductions/meanreduction_methane.csv',row.names = F)
+write.csv(x = bars,file = './data/reductions/meanreduction_methane.csv',row.names = F)
 
 ###############################################################################################

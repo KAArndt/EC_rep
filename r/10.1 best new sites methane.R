@@ -19,22 +19,24 @@ r = rast('./spatial_data/pca_2km.tif')
 df = as.data.frame(x = r,na.rm = T,xy = T)
 
 #load in extracted site data from extraction codes
-tower.data = fread(file = './data/pca.towers.upgraded.csv')
+tower.data = fread(file = './data/final.tower.data.csv')
 
 tower.data$order = seq(1,length(tower.data$MeanTemp)) #important for merging back the tower order
 
 #First addition ############################################################################################
 #ranking of sites
-ranks = read.csv(file = './output/reductions/meanreduction_methane.csv')
+ranks = read.csv(file = './data/reductions/meanreduction_methane.csv')
 ranks$rank = rank(x = ranks$means)
 names(ranks)[1] = 'site'
 top.limit = max(ranks$means*-1)+0.005
+top = subset(ranks,ranks$rank<=100)
 
-ggplot(data = ranks)+theme_bw()+ggtitle('Mean Improvements')+
-  geom_bar(aes(reorder(site, -means*-1),means*-1,fill=country),stat = 'identity')+
+ggplot(data = top)+theme_bw()+ggtitle('Mean Improvements')+
+  geom_bar(aes(reorder(site, -means*-1),means*-1,fill=country,color = stats),stat = 'identity')+
   scale_y_continuous(expand = c(0,0),limits = c(0,top.limit),'Mean ED Reduction')+
   scale_x_discrete('Site')+
   scale_fill_brewer(palette = "Spectral")+
+  scale_color_manual(values = c('black','transparent'))+
   theme(axis.text.x = element_text(angle = 80,hjust = 1,size = 7),
         legend.position = c(0.5,0.9),
         legend.direction = 'horizontal')
@@ -44,14 +46,16 @@ tower.data = tower.data[order(tower.data$order),]
 
 #add the #1 site
 name = subset(tower.data,tower.data$rank == 1)$site
-tower.data$methane  = ifelse(tower.data$site == name,'methane',tower.data$methane)
+tower.data$methane.2024 = ifelse(tower.data$site == name,'methane',tower.data$methane.2024)
+tower.data$active.2024 = ifelse(tower.data$site == name,'active',tower.data$active.2024)
+tower.data$methane.2024 = ifelse(is.na(tower.data$methane.2024),'extension',tower.data$methane.2024)
 
 #find columns which are active sites
-net = which(tower.data$active == 'active' & tower.data$methane == 'methane')
-ext = which(tower.data$active == 'active' & tower.data$methane != 'methane')
+net = which(tower.data$active.2024 == 'active' & tower.data$methane.2024 == 'methane')
+ext = which(tower.data$rank <= 100 & tower.data$methane.2024 != 'methane')
 
 #save off
-tower.data = tower.data[,-c('rank','country','means','order','type')]
+tower.data = tower.data[,-c('rank','country','means','order')]
 write_csv(x = tower.data,'./data/next_5_sites/methane_1.csv')
 
 #create some subsets of the euclidean distance tables for easier calculations
@@ -81,7 +85,7 @@ plot(base,range=c(0,4.5))
 points(towers,col='red')
 
 new = subset(towers,towers$site == name)
-plot(orig - base,range=c(0.1,1.15))
+plot(orig-base)
 points(new,col='red')
 
 #save the base here
@@ -153,19 +157,21 @@ bars$country = tower.data$Country[ext]
 tower.data$type = paste(tower.data$active,tower.data$methane,tower.data$Season_Activity,sep = '_')
 bars$type = tower.data$type[ext]
 names(bars)[1] = 'sitename'
+bars$stats = ifelse(tower.data$methane.2024[ext] == 'extension','new','existing')
 
 #bars = fread('./output/meanreduction_remaining_mean.csv')
 upper.limit = -1*min(bars$means)+0.005
 
 ggplot(data = bars)+theme_bw()+ggtitle('Mean Improvements')+
-  geom_bar(aes(reorder(sitename, -means*-1),means*-1,fill=country),stat = 'identity')+
+  geom_bar(aes(reorder(sitename, -means*-1),means*-1,fill=country,color=stats),stat = 'identity')+
   scale_y_continuous(expand = c(0,0),limits = c(0,upper.limit),'Mean ED Reduction')+
   scale_x_discrete('Site')+
   scale_fill_brewer(palette = "Spectral")+
+  scale_color_manual(values = c('black','transparent'))+
   theme(axis.text.x = element_text(angle = 80,hjust = 1,size = 7),
         legend.position = c(0.5,0.9),
         legend.direction = 'horizontal')
 
-write.csv(x = bars,file = './output/reductions/meanreduction_remaining_methane_1.csv',row.names = F)
+write.csv(x = bars,file = './data/reductions/meanreduction_remaining_methane_1.csv',row.names = F)
 
 #################################################################################################

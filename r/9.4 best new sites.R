@@ -25,7 +25,7 @@ tower.data = fread('./data/next_5_sites/base_3.csv')
 tower.data$order = seq(1,length(tower.data$MeanTemp)) #important for merging back the tower order
 
 #ranking of sites
-ranks = read.csv(file = './output/reductions/meanreduction_remaining_3.csv')
+ranks = read.csv(file = './data/reductions/meanreduction_remaining_3.csv')
 ranks$rank = rank(x = ranks$means)
 names(ranks)[1] = 'site'
 top.limit = max(ranks$means*-1)+0.005
@@ -41,16 +41,16 @@ ggplot(data = top)+theme_bw()+ggtitle('Mean Improvements')+
         legend.direction = 'horizontal')
 
 tower.data = merge(tower.data,ranks,by = 'site',all.x=T)
-tower.data$active = ifelse(is.na(tower.data$active),'inactive',tower.data$active)
+tower.data$active.2024 = ifelse(is.na(tower.data$active.2024),'inactive',tower.data$active.2024)
 tower.data = tower.data[order(tower.data$order),]
 
 #add the #1 site
 name = subset(tower.data,tower.data$rank == 1)$site
-tower.data$active  = ifelse(tower.data$site == name,'active',tower.data$active)
+tower.data$active.2024  = ifelse(tower.data$site == name,'active',tower.data$active.2024)
 
 #find columns which are active sites
-net = which(tower.data$active == 'active')
-ext = which(tower.data$active == 'inactive' & tower.data$rank < 100)
+net = which(tower.data$active.2024 == 'active')
+ext = which(tower.data$active.2024 == 'inactive' & tower.data$rank < 100)
 
 #save
 tower.data = tower.data[,-c('rank','country','means','order','type')]
@@ -102,7 +102,7 @@ library(doSNOW)
 
 #setup parallel back end to use many processors
 cores = detectCores()        #detect the number of cores
-cl = makeCluster(10) #assign number of cores
+cl = makeCluster(12) #assign number of cores
 {orig = Sys.time() #start the clock for timing the process
   registerDoSNOW(cl) #register the cores
   eucis = foreach (j = 1:ncol(euci.ext),.verbose = T,.combine = cbind,.packages = c('kit')) %dopar% {
@@ -169,6 +169,6 @@ ggplot(data = bars)+theme_bw()+ggtitle('Mean Improvements')+
         legend.position = c(0.5,0.9),
         legend.direction = 'horizontal')
 
-write.csv(x = bars,file = './output/reductions/meanreduction_remaining_4.csv',row.names = F)
+write.csv(x = bars,file = './data/reductions/meanreduction_remaining_4.csv',row.names = F)
 
 #################################################################################################

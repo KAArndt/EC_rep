@@ -19,12 +19,13 @@ r = rast('./spatial_data/pca_2km.tif')
 df = as.data.frame(x = r,na.rm = T,xy = T)
 
 #load in extracted site data from extraction codes
-tower.data = fread(file = './data/pca.towers.upgraded.csv')
-tower.data$active = ifelse(is.na(tower.data$active),'extension',tower.data$active)
+tower.data = fread(file = './data/final.tower.data.csv')
+tower.data$active.2024 = ifelse(is.na(tower.data$active),'extension',tower.data$active.2024)
+tower.data$Season_Activity.2024 = ifelse(is.na(tower.data$Season_Activity.2024),'extension',tower.data$Season_Activity.2024)
 
 #find columns which are active sites
-net = which(tower.data$active == 'active' & tower.data$Season_Activity == 'All year')
-ext = which(tower.data$active == 'active' & tower.data$Season_Activity != 'All year')
+net = which(tower.data$active.2024 == 'active' & tower.data$Season_Activity.2024 == 'All year')
+ext = which(tower.data$Season_Activity.2024 != 'All year')
 
 #create some subsets of the euclidean distance tables for easier calculations
 euci.net = euci[,c(net)]
@@ -107,6 +108,7 @@ bars = data.frame(tower.data$site[ext])
 bars$means = meansv
 bars$country = tower.data$Country[ext]
 names(bars)[1] = 'sitename'
+bars$stats = ifelse(tower.data$methane.2024[ext] == 'extension','new','existing')
 
 top = subset(bars,bars$means < median(bars$means))
 upper.limit = -1*min(bars$means)+0.005
@@ -120,6 +122,6 @@ ggplot(data = bars)+theme_bw()+ggtitle('Mean Improvements')+
         legend.position = c(0.5,0.9),
         legend.direction = 'horizontal')
 
-write.csv(x = bars,file = './output/reductions/meanreduction_annual.csv',row.names = F)
+write.csv(x = bars,file = './data/reductions/meanreduction_annual.csv',row.names = F)
 
 ###############################################################################################

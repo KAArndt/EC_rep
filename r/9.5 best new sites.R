@@ -41,16 +41,16 @@ ggplot(data = top)+theme_bw()+ggtitle('Mean Improvements')+
         legend.direction = 'horizontal')
 
 tower.data = merge(tower.data,ranks,by = 'site',all.x=T)
-tower.data$active = ifelse(is.na(tower.data$active),'inactive',tower.data$active)
+tower.data$active.2024 = ifelse(is.na(tower.data$active.2024),'inactive',tower.data$active.2024)
 tower.data = tower.data[order(tower.data$order),]
 
 #add the #1 site
 name = subset(tower.data,tower.data$rank == 1)$site
-tower.data$active  = ifelse(tower.data$site == name,'active',tower.data$active)
+tower.data$active.2024  = ifelse(tower.data$site == name,'active',tower.data$active.2024)
 
 #find columns which are active sites
-net = which(tower.data$active == 'active')
-ext = which(tower.data$active == 'inactive' & tower.data$rank < 100)
+net = which(tower.data$active.2024 == 'active')
+ext = which(tower.data$active.2024 == 'inactive' & tower.data$rank < 100)
 
 #save
 tower.data = tower.data[,-c('rank','country','means','order','type')]
@@ -78,7 +78,7 @@ base.towers = tower.data[net,]
 towers = vect(x = base.towers,geom=c("x", "y"), crs=crs(r))
 
 orig = rast('./output/improved_network/next_five_sites/improved_base_2km_4.tif')
-orig = rast('./output/improved_network/improved_base_2km.tif')
+#orig = rast('./output/improved_network/improved_base_2km.tif')
 
 plot(base,range=c(0,4.5))
 points(towers,col='red')
@@ -172,6 +172,6 @@ ggplot(data = bars)+theme_bw()+ggtitle('Mean Improvements')+
         legend.position = c(0.5,0.9),
         legend.direction = 'horizontal')
 
-write.csv(x = bars,file = './output/reductions/meanreduction_remaining_5.csv',row.names = F)
+write.csv(x = bars,file = './data/reductions/meanreduction_remaining_5.csv',row.names = F)
 
 #################################################################################################

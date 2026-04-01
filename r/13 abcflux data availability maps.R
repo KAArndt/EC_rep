@@ -86,7 +86,7 @@ points(towers,col='red')
 writeRaster(x = methane,filename = './output/abc_network/abc_methane_2km.tif',overwrite = T)
 ##########################################################################################
 ################ Annual
-net.annual = which(as.numeric(abcf$end_year) >= 2022 & abcf$active.2024 == 'active' & abcf$co2.yearround == 'Y')
+net.annual = which(as.numeric(abcf$end_year) >= 2022 & abcf$active.2024 == 'active' & abcf$co2.yearround == 'Y' & abcf$Season_Activity.2024 == 'All year')
 tower.data$site[net.annual]
 euci.net.annual = euci[,c(net.annual)]
 
@@ -111,9 +111,10 @@ points(towers,col='red')
 
 #save the annual here
 writeRaster(x = annual,filename = './output/abc_network/abc_annual_2km.tif',overwrite = T)
+
 ################################################################################
 # Annual Methane
-net.annual.methane = which(as.numeric(abcf$end_year) >= 2022 & abcf$active.2024 == 'active' & abcf$ch4.yearround == 'Y')
+net.annual.methane = which(as.numeric(abcf$end_year) >= 2022 & abcf$active.2024 == 'active' & abcf$ch4.yearround == 'Y' & abcf$annualmethane2024 == 'annualmethane')
 euci.net.annual.methane = euci[,c(net.annual.methane)]
 
 #calculate the base network, parallel processing is much slower here
