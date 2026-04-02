@@ -22,7 +22,7 @@ anme.i   = rast('./output/improved_network/improved_annual_methane_2km.tif')
 anme.abc = rast('./output/abc_network/abc_annual_methane_2km.tif')
 
 #load in clusters
-clust = rast('./output/clusts.tif')
+clust = rast('./output/clusts_2km.tif')
 clust = clust$km40
 
 #load in ecoregions
@@ -46,8 +46,8 @@ df = as.data.frame(x = all,na.rm=T)
 summary(df)
 
 #the cutoff values from the previous exercises (step 4, mean)
-er1 = 1.96
-er4 = 1.56
+er1 = 2.11
+er4 = 1.77
 
 #set 1 for meets cutoff and 0 for does not
 df$base.er1 = ifelse(df$base <= er1,1,0)
@@ -187,8 +187,8 @@ df = as.data.frame(x = tundra,na.rm=T)
 summary(df)
 
 #the cutoff values from the previous exercises (step 4, mean)
-er1 = 1.96
-er4 = 1.56
+er1 = 2.11
+er4 = 1.77
 
 #set 1 for meets cutoff and 0 for does not
 df$base.er1 = ifelse(df$base <= er1,1,0)
@@ -329,8 +329,8 @@ df = as.data.frame(x = boreal,na.rm=T)
 summary(df)
 
 #the cutoff values from the previous exercises (step 4, mean)
-er1 = 1.96
-er4 = 1.56
+er1 = 2.11
+er4 = 1.77
 
 #set 1 for meets cutoff and 0 for does not
 df$base.er1 = ifelse(df$base <= er1,1,0)

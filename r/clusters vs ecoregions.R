@@ -8,7 +8,7 @@ library(sf)
 library(dplyr)
 library(Polychrome)
 
-sites = fread('./data/pca.towers.base.csv')
+sites = fread('./data/final.tower.data.csv')
 
 #load in the permafrost layer
 pp = rast('./spatial_data/UiO_PEX_PERPROB_5.0_20181128_2000_2016_NH.tif')

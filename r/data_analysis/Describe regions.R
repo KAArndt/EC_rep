@@ -1,3 +1,4 @@
+
 library(terra)
 library(ggplot2)
 library(dplyr)
@@ -16,7 +17,7 @@ ianco2 = rast('./output/improved_network/improved_annual_2km.tif')
 ianch4 = rast('./output/improved_network/improved_annual_methane_2km.tif')
 
 #clusters
-clust = rast('./output/clusts.tif')
+clust = rast('./output/clusts_2km.tif')
 clust = clust$km40
 
 #pca results
@@ -24,13 +25,14 @@ pca = rast('./spatial_data/pca_2km.tif')
 pca = crop(x = pca,y = clust)
 
 #environmental data
-r = rast('./spatial_data/spatial_repro_2km.tif')
+r = rast('./spatial_data/spatial_repro.tif')
+r = aggregate(x = r,fact=2,na.rm=T,fun='mean')
 r = crop(x = r,y = clust)
 
 #merge all into one stack
 all = c(pca,r,igsco2,igsch4,ianco2,ianch4)
 
-#aggregate to make plottig and playing with data more manageable
+#aggregate to make plotting and playing with data more manageable
 ag    = aggregate(x = all,fact = 10,fun = 'mean',cores = 6,na.rm = T)
 ag.km = aggregate(x = clust,fact = 10,fun = 'modal',na.rm = T)
 
@@ -49,7 +51,19 @@ df = df[complete.cases(df$base.dist),]
 #make the cluster a character for plotting
 df$km40 = as.character(df$km40)
 
-df$km40 = ordered(x = df$km40,c(
+#re-order clusters from 1-40 based on mean temp
+aves = df %>%
+  group_by(km40) %>%
+  summarise(temp = mean(MeanTemp))
+
+aves = aves[order(aves$temp),]
+aves$newkm = seq(1:40)
+aves = aves[,-2]
+
+df = merge(df,aves,by = 'km40')
+df$newkm = as.character(df$newkm)
+
+df$newkm = ordered(x = df$newkm,c(
 '1', '2' ,'3' ,'4' ,'5' ,'6' ,'7' ,'8' ,'9' ,'10',
 '11','12','13','14','15','16','17','18','19','20',
 '21','22','23','24','25','26','27','28','29','30',
@@ -57,78 +71,85 @@ df$km40 = ordered(x = df$km40,c(
 
 #calculate summary statistics
 stats = df %>%
-  group_by(km40) %>%
+  group_by(newkm) %>%
   summarise_all(list(mean))
 
-dists = stats[,c(1,28,29,30,31)]
-names(dists) = c('km40','base','methane','annual','annualmethane')
+dists = stats[,c(1,29,30,31,32)]
+names(dists) = c('newkm','base','methane','annual','annualmethane')
 
-df = merge(df,dists,by = 'km40',all=T)
+df = merge(df,dists,by = 'newkm',all=T)
 
 #color pallette
 pal = hcl.colors(n = 9,palette = 'Vik')
 pal = pal[-c(4,6)]
 #pal = c('#FEEDB9','#E88D7A','#72509A','#8AABD6','#F2F7FB')
+clust = rast(x = df[,c(3,4,1)],'xyz',crs=crs(ag))
+
 plot(clust)
-plot(clust,range = c(38.5,41.5))
+plot(clust,range = c(3.5,4.5))
 
 #play with data
 ggplot(data = df)+theme_bw()+geom_hline(yintercept = 0)+
-  geom_violin(aes(x = km40,y = MeanTemp,fill = base))+
+  geom_violin(aes(x = newkm,y = MeanTemp,fill = base))+
   scale_fill_gradientn(colors = pal)
 
 ggplot(data = df)+theme_bw()+
-  geom_violin(aes(x = km40,y = Precip,fill = base))+
+  geom_violin(aes(x = newkm,y = Precip,fill = base))+
   scale_fill_gradientn(colors = pal)
 
 ggplot(data = df)+theme_bw()+
-  geom_violin(aes(x = km40,y = MeanDiurnalRange,fill = base))+
+  geom_violin(aes(x = newkm,y = MeanDiurnalRange,fill = base))+
   scale_fill_gradientn(colors = pal)
 
 ggplot(data = df)+theme_bw()+
-  geom_violin(aes(x = km40,y = Isothermality,fill = base))+
+  geom_violin(aes(x = newkm,y = Isothermality,fill = base))+
   scale_fill_gradientn(colors = pal)
 
 ggplot(data = df)+theme_bw()+
-  geom_violin(aes(x = km40,y = TempAnnualRange,fill = base))+
+  geom_violin(aes(x = newkm,y = TempAnnualRange,fill = base))+
   scale_fill_gradientn(colors = pal)
 
 ggplot(data = df)+theme_bw()+
-  geom_violin(aes(x = km40,y = ndvi_sum,fill = base))+
+  geom_violin(aes(x = newkm,y = ndvi_sum,fill = base))+
   scale_fill_gradientn(colors = pal)
 
 ggplot(data = df)+theme_bw()+
-  geom_violin(aes(x = km40,y = ndvi_max,fill = base))+
+  geom_violin(aes(x = newkm,y = ndvi_max,fill = base))+
   scale_fill_gradientn(colors = pal)
 
 ggplot(data = df)+theme_bw()+
-  geom_violin(aes(x = km40,y = evi,fill = base))+
+  geom_violin(aes(x = newkm,y = evi,fill = base))+
   scale_fill_gradientn(colors = pal)
 
 ggplot(data = df)+theme_bw()+
-  geom_violin(aes(x = km40,y = soc0_100,fill = base))+
+  geom_violin(aes(x = newkm,y = soc0_100,fill = base))+
   scale_fill_gradientn(colors = pal)
 
 ggplot(data = df)+theme_bw()+
-  geom_violin(aes(x = km40,y = OCSTHA_M_100cm_1km_ll,fill = base))+
+  geom_violin(aes(x = newkm,y = OCSTHA_M_100cm_1km_ll,fill = base))+
   scale_fill_gradientn(colors = pal)
 
 ggplot(data = df)+theme_bw()+
-  geom_violin(aes(x = km40,y = ndwi,fill = base))+
+  geom_violin(aes(x = newkm,y = ndwi,fill = base))+
   scale_fill_gradientn(colors = pal)
 
 ggplot(data = df)+theme_bw()+
-  geom_violin(aes(x = km40,y = mir,fill = base))+
+  geom_violin(aes(x = newkm,y = mir,fill = base))+
   scale_fill_gradientn(colors = pal)
 
 ggplot(data = df)+theme_bw()+
-  geom_violin(aes(x = km40,y = clay_100_agg,fill = base))+
+  geom_violin(aes(x = newkm,y = clay_100_agg,fill = base))+
   scale_fill_gradientn(colors = pal)
 
 #final plots ####################################################################
 temp = ggplot(data = df)+theme_bw()+geom_hline(yintercept = 0)+
-  geom_violin(aes(x = km40,y = MeanTemp,fill = base))+
-  scale_fill_gradientn(colors = pal)+
+  geom_violin(aes(x = newkm,y = MeanTemp,fill = base))+
+  scale_fill_gradientn('Rep.',
+                       colours = pal,
+                       limits = c(0,1.77*2),
+                       breaks = c(0,1.77,1.77*2),
+                       labels = c('Good','ER4','Poor'),
+                       oob = scales::squish)+
   scale_y_continuous(expression('Mean Temp.'~'('*degree*C*")"))+
   scale_x_discrete('')+
   theme(text = element_text(size = 8),
@@ -136,8 +157,13 @@ temp = ggplot(data = df)+theme_bw()+geom_hline(yintercept = 0)+
         legend.position = 'none')
 
 temp_range = ggplot(data = df)+theme_bw()+
-  geom_violin(aes(x = km40,y = TempAnnualRange,fill = base))+
-  scale_fill_gradientn(colors = pal)+
+  geom_violin(aes(x = newkm,y = TempAnnualRange,fill = base))+
+  scale_fill_gradientn('Rep.',
+                       colours = pal,
+                       limits = c(0,1.77*2),
+                       breaks = c(0,1.77,1.77*2),
+                       labels = c('Good','ER4','Poor'),
+                       oob = scales::squish)+
   scale_y_continuous(expression('Temp. Range'~'('*degree*C*")"))+
   scale_x_discrete('')+
   theme(text = element_text(size = 8),
@@ -145,8 +171,13 @@ temp_range = ggplot(data = df)+theme_bw()+
         legend.position = 'none')
 
 ndvi = ggplot(data = df)+theme_bw()+
-  geom_violin(aes(x = km40,y = ndvi_sum,fill = base))+
-  scale_fill_gradientn(colors = pal)+
+  geom_violin(aes(x = newkm,y = ndvi_sum,fill = base))+
+  scale_fill_gradientn('Rep.',
+                       colours = pal,
+                       limits = c(0,1.77*2),
+                       breaks = c(0,1.77,1.77*2),
+                       labels = c('Good','ER4','Poor'),
+                       oob = scales::squish)+
   scale_y_continuous(expression('NDVI Sum (unitless)'))+
   scale_x_discrete('')+
   theme(text = element_text(size = 8),
@@ -154,8 +185,13 @@ ndvi = ggplot(data = df)+theme_bw()+
         legend.position = 'none')
 
 soc = ggplot(data = df)+theme_bw()+
-  geom_violin(aes(x = km40,y = soc0_100,fill = base))+
-  scale_fill_gradientn(colors = pal)+
+  geom_violin(aes(x = newkm,y = soc0_100,fill = base))+
+  scale_fill_gradientn('Rep.',
+                       colours = pal,
+                       limits = c(0,1.77*2),
+                       breaks = c(0,1.77,1.77*2),
+                       labels = c('Good','ER4','Poor'),
+                       oob = scales::squish)+
   scale_y_continuous(expression('SOC ('*kg~m^-3*")"))+
   scale_x_discrete('')+
   theme(text = element_text(size = 8),
@@ -163,8 +199,13 @@ soc = ggplot(data = df)+theme_bw()+
         legend.position = 'none')
 
 mir = ggplot(data = df)+theme_bw()+
-  geom_violin(aes(x = km40,y = mir,fill = base))+
-  scale_fill_gradientn(colors = pal)+
+  geom_violin(aes(x = newkm,y = mir,fill = base))+
+  scale_fill_gradientn('Rep.',
+                       colours = pal,
+                       limits = c(0,1.77*2),
+                       breaks = c(0,1.77,1.77*2),
+                       labels = c('Good','ER4','Poor'),
+                       oob = scales::squish)+
   scale_y_continuous('SWIR (unitless)')+
   scale_x_discrete('Cluster Number')+
   theme(text = element_text(size = 8),
@@ -172,12 +213,12 @@ mir = ggplot(data = df)+theme_bw()+
         legend.position = 'none')
 
 leg = get_legend(ggplot(data = df)+theme_bw()+
-                   geom_violin(aes(x = km40,y = mir,fill = base))+
+                   geom_violin(aes(x = newkm,y = mir,fill = base))+
                    scale_fill_gradientn('Rep.',
                                         colours = pal,
-                                        limits = c(0,1.56*2),
-                                        breaks = c(0,1.56,1.56*2),
-                                        labels = c('Good','Cutoff','Poor'),
+                                        limits = c(0,1.77*2),
+                                        breaks = c(0,1.77,1.77*2),
+                                        labels = c('Good','ER4','Poor'),
                                         oob = scales::squish)+
                    theme(legend.text = element_text(size = 7),
                          legend.title = element_text(size = 7),
@@ -191,10 +232,6 @@ plot_grid(g,leg,nrow = 1,rel_widths = c(0.92,0.08))
 dev.off()
 
 ####################################################################################
-
-
-
-
 mod = lm(base.dist ~ mir,data = stats)
 summary(mod)
 
@@ -268,4 +305,4 @@ ggplot(data = df)+
 
 
 ggplot(data = df)+
-  geom_violin(aes(x = km40,y = MeanTemp))
+  geom_violin(aes(x = newkm,y = MeanTemp))
