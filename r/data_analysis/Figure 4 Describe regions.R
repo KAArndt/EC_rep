@@ -70,7 +70,6 @@ df = merge(df,dists,by = 'newkm',all=T)
 pal = hcl.colors(n = 9,palette = 'Vik')
 pal = pal[-c(4,6)]
 #pal = c('#FEEDB9','#E88D7A','#72509A','#8AABD6','#F2F7FB')
-clust = rast(x = df[,c(3,4,1)],'xyz',crs=crs(ag))
 
 plot(clust)
 plot(clust,range = c(3.5,4.5))
@@ -161,8 +160,10 @@ leg = get_legend(ggplot(data = df)+theme_bw()+
 
 g = plot_grid(temp,temp_range,ndvi,soc,mir,nrow = 5,labels = c('a','b','c','d','e'),label_size = 10,align = 'hv')
 
-png(filename = './figures/figure xx cluster simmilarity metrics.png',width = 6,height = 7,units = 'in',res = 1800)
-plot_grid(g,leg,nrow = 1,rel_widths = c(0.92,0.08))
+final.plot = plot_grid(g,leg,nrow = 1,rel_widths = c(0.92,0.08))
+
+png(filename = './figures/figure 4 cluster simmilarity metrics.png',width = 6,height = 7,units = 'in',res = 1800)
+final.plot
 dev.off()
 
 #summary table

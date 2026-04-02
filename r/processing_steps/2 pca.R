@@ -65,6 +65,7 @@ names(r) = c("MeanTemp","Precip","PrecipSeasonality","MeanDiurnalRange",
 p = predict(r, pca,index = 1:4)
 plot(p)
 
+
 #p = rast('./spatial_data/pca.tif')
 writeRaster(x = p,filename = './spatial_data/pca.tif',overwrite = T)
 
