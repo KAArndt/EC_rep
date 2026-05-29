@@ -207,10 +207,8 @@ p4 = ggplot()+theme_map()+
   annotate(geom = 'text',x = -700000,y = 1900000,label = expression('10 km'),size=2)
 
 
-
-
 p = plot_grid(p1,p2,p3,p4)
 
-png(filename = './figures/si xx spatial scale visual.png',width = 10,height = 4.5,units = 'in',res = 1500)
+png(filename = './figures/si xx spatial scale visual.png',width = 10,height = 4,units = 'in',res = 1500)
 plot_grid(big,p,nrow = 1,rel_widths = c(0.4,0.6))
 dev.off()

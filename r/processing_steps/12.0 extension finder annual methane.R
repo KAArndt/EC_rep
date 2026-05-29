@@ -25,7 +25,9 @@ tower.data = fread(file = './data/final.tower.data.csv')
 tower.data$annualmethane2024 = ifelse(is.na(tower.data$annualmethane2024),'extension',tower.data$annualmethane2024)
 
 net = which(tower.data$active.2024 == 'active' & tower.data$annualmethane2024 == 'annualmethane')
-ext = which(tower.data$active.2024 == 'active' & tower.data$annualmethane2024 != 'annualmethane')
+ext = which(tower.data$annualmethane2024 != 'annualmethane')
+
+tower.data$site[ext]
 
 #create some subsets of the euclidean distance tables for easier calculations
 euci.net = euci[,c(net)]
