@@ -51,6 +51,7 @@ km.ag = aggregate(x = km,fact = 4,fun = 'modal',na.rm = T)
 #cluster and Ecoregions figure
 kmdf = as.data.frame(km.ag,xy=T,na.rm=T)
 
+
 #colors
 library(RColorBrewer)
 n = 40

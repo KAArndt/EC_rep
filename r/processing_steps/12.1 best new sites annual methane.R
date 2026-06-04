@@ -58,6 +58,7 @@ ext = which(tower.data$rank <= 100 & tower.data$annualmethane2024 != 'annualmeth
 #save off
 tower.data = tower.data[,-c('rank','country','means','order','stats')]
 write_csv(x = tower.data,'./data/next_5_sites/annual_methane_1.csv')
+dat = read.csv('./data/next_5_sites/annual_methane_1.csv')
 
 #create some subsets of the euclidean distance tables for easier calculations
 euci.net = euci[,c(net)]

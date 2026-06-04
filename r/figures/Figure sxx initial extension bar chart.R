@@ -34,23 +34,32 @@ anco2$rank = rank(x = anco2$means,ties.method = 'first')
 gsch4$rank = rank(x = gsch4$means,ties.method = 'first')
 anch4$rank = rank(x = anch4$means,ties.method = 'first')
 
-topsites.gsco2 = subset(gsco2,gsco2$rank <=20)
-topsites.anco2 = subset(anco2,anco2$rank <=20)
-topsites.gsch4 = subset(gsch4,gsch4$rank <=20)
-topsites.anch4 = subset(anch4,anch4$rank <=20)
+topsites.gsco2 = subset(gsco2,gsco2$rank <=25)
+topsites.anco2 = subset(anco2,anco2$rank <=25)
+topsites.gsch4 = subset(gsch4,gsch4$rank <=25)
+topsites.anch4 = subset(anch4,anch4$rank <=25)
 
+
+
+topsites.anco2$country = ifelse(topsites.anco2$country == 'Nunavut/Canada','Canada',topsites.anco2$country)
+topsites.anco2$country = ifelse(topsites.anco2$country == 'USA','United States',topsites.anco2$country)
+
+topsites.gsch4$country = ifelse(topsites.gsch4$country == 'Nunavut/Canada','Canada',topsites.gsch4$country)
+topsites.gsch4$country = ifelse(topsites.gsch4$country == 'USA','United States',topsites.gsch4$country)
+
+topsites.anch4$country = ifelse(topsites.anch4$country == 'Nunavut/Canada','Canada',topsites.anch4$country)
+topsites.anch4$country = ifelse(topsites.anch4$country == 'USA','United States',topsites.anch4$country)
 
 library(RColorBrewer)
 #Canada Finland Greenland Norway Russia   USA
-pal = brewer.pal(n = 6,name = 'Spectral')
-
+pal = brewer.pal(n = 4,name = 'Set1')
 
 
 a = ggplot(data = topsites.gsco2)+theme_bw()+ggtitle(expression('Growing Season '*CO[2]))+
   geom_bar(aes(reorder(sitename, -means*-1),means*-1,fill=country),stat = 'identity')+
   scale_y_continuous(expand = c(0,0),limits = c(0,0.08),'Mean Improvement')+
   scale_x_discrete('')+
-  scale_fill_manual(values = pal[c(5)],'Country')+
+  scale_fill_manual(values = pal[c(1,2)],'Country')+
   theme(text = element_text(size = 8),
         axis.text.x = element_text(size = 6,angle = 90,hjust = 1,vjust = 0.5),
         panel.grid.major.x = element_blank(),
@@ -58,10 +67,11 @@ a = ggplot(data = topsites.gsco2)+theme_bw()+ggtitle(expression('Growing Season 
         legend.position = 'none')
 
 b = ggplot(data = topsites.gsch4)+theme_bw()+ggtitle(expression('Growing Season '*CH[4]))+
-  geom_bar(aes(reorder(sitename, -means*-1),means*-1,fill=country),stat = 'identity')+
+  geom_bar(aes(reorder(sitename, -means*-1),means*-1,fill=country,colour = stats),stat = 'identity')+
   scale_y_continuous(expand = c(0,0),limits = c(0,0.08),'')+
   scale_x_discrete('')+
-  scale_fill_manual(values = pal[c(1,3,4,5,6)],'Country')+
+  scale_fill_manual(values = pal,'Country')+
+  scale_color_manual(values = c('black','transparent'))+
   theme(text = element_text(size = 8),
         axis.text.x = element_text(size = 6,angle = 90,hjust = 1,vjust = 0.5),
         panel.grid.major.x = element_blank(),
@@ -69,10 +79,11 @@ b = ggplot(data = topsites.gsch4)+theme_bw()+ggtitle(expression('Growing Season 
         legend.position = 'none')
 
 c = ggplot(data = topsites.anco2)+theme_bw()+ggtitle(expression('Year-round '*CO[2]))+
-  geom_bar(aes(reorder(sitename, -means*-1),means*-1,fill=country),stat = 'identity')+
+  geom_bar(aes(reorder(sitename, -means*-1),means*-1,fill=country,colour = stats),stat = 'identity')+
   scale_y_continuous(expand = c(0,0),limits = c(0,0.08),'')+
   scale_x_discrete('')+
-  scale_fill_manual(values = pal[c(1,2,5,6)],'Country')+
+  scale_fill_manual(values = pal,'Country')+
+  scale_color_manual(values = c('black','transparent'))+
   theme(text = element_text(size = 8),
         axis.text.x = element_text(size = 6,angle = 90,hjust = 1,vjust = 0.5),
         panel.grid.major.x = element_blank(),
@@ -80,22 +91,24 @@ c = ggplot(data = topsites.anco2)+theme_bw()+ggtitle(expression('Year-round '*CO
         legend.position = 'none')
 
 d = ggplot(data = topsites.anch4)+theme_bw()+ggtitle(expression('Year-round '*CH[4]))+
-  geom_bar(aes(reorder(sitename, -means*-1),means*-1,fill=country),stat = 'identity')+
+  geom_bar(aes(reorder(sitename, -means*-1),means*-1,fill=country,colour = stats),stat = 'identity')+
   scale_y_continuous(expand = c(0,0),limits = c(0,0.08),'')+
   scale_x_discrete('')+
-  scale_fill_manual(values = pal[c(1,2,3,4,5,6)],'Country')+
+  scale_fill_manual(values = pal,'Country')+
+  scale_color_manual(values = c('black','transparent'))+
+  guides(colour='none')+
   theme(text = element_text(size = 8),
         axis.text.x = element_text(size = 6,angle = 90,hjust = 1,vjust = 0.5),
         panel.grid.major.x = element_blank(),
-        legend.key.size = unit(0.1,units = 'in'),
-        legend.text = element_text(size = 8),
-        legend.title = element_text(size = 8),
+        legend.key.size = unit(0.08,units = 'in'),
+        legend.text = element_text(size = 6),
+        legend.title = element_text(size = 6),
         title = element_text(size = 6),
-        legend.position = c(0.7,0.78),
+        legend.position = c(0.7,0.8),
         legend.direction = 'vertical')
 
 
-png(filename = './figures/figure sxx barplot_reduction_mean.png',width = 8,height = 5,units = 'in',res = 1800)
+png(filename = './figures/figure sxx barplot_reduction_mean.png',width = 9,height = 5,units = 'in',res = 1800)
 plot_grid(a,b,c,d,nrow = 1,align = 'hv',labels = c('a','b','c','d'),label_size = 8)
 dev.off()
 
@@ -103,7 +116,7 @@ dev.off()
 
 
 
-names(tower.data)[21] = 'sitename'
+
 
 
 
