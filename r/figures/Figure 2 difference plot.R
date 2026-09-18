@@ -331,6 +331,35 @@ annual.plot = ggplot()+theme_map()+
   annotate(geom = 'text',x = -3193909,y = 3474170,label = expression('Annual'~CO[2]),size=3)
 #annual.plot
 
+
+
+#########################
+#load towers and subset new sites
+active = subset(tower.data,tower.data$active.2024 == 'active')
+
+pp.sites   = subset(tower.data,
+                              #support
+                              tower.data$site == "Cambridge Bay, Victoria Island, mesic" |
+                              tower.data$site == "Cambridge Bay, Victoria Island, wetland" |
+                              tower.data$site == "Smith Creek" |
+                              tower.data$site == "Steen River" |
+                              tower.data$site == "Lutose" |
+                              tower.data$site == "Scotty Creek Bog" |
+                              tower.data$site == "Chersky, Pleistocene Park" |
+                              tower.data$site == "Chersky, control" |
+                              tower.data$site == "Chersky, drained" |
+                              tower.data$site == "Yukon-Kuskokwim Delta, Izaviknek-Kingaglia uplands, Burned 2015" |
+                              tower.data$site == "Yukon-Kuskokwim Delta, Izaviknek-Kingaglia uplands, Unburned" |
+                              #new
+                              tower.data$site == "Churchill Fen" |
+                              tower.data$site == "Council (Permafrost Pathways)" |
+                              tower.data$site == "Iqaluit (PP)" |
+                              tower.data$site == "Kangiqsuallujjuaq" |
+                              tower.data$site == "Pond Inlet (PP)" |
+                              tower.data$site == "Scotty Creek Landscape" |
+                              tower.data$site == "Imnavait, Alaska heath tundra" | #Toolik space holder
+                              tower.data$site == "Resolute Bay")
+
 #annual methane
 annual.methane.plot = ggplot()+theme_map()+
   geom_sf(data = countries,fill='gray',col='gray40')+
@@ -340,20 +369,27 @@ annual.methane.plot = ggplot()+theme_map()+
                         oob = scales::squish,
                         limits = c(0,1.0*2),
                         breaks = c(0,1.0,1.0*2),
-                        labels = c('0','1','2+'),
-                        'Improvement')+  
+                        labels = c('none','moderate','high'),
+                        'Rep. Improvement')+  
   new_scale("fill") +
-  geom_point(data = active,aes(x,y,fill=methane,pch=Season_Activity),col='black',show.legend = F,cex=1.5)+
-  scale_shape_manual(values = c(21,2),'Annual Cover',labels = c('Annual','Not Annual'))+
-  scale_fill_manual(values = c('red','transparent'))+
-  geom_point(data = new.sites.annual.ch4,aes(x,y),col='black',fill='yellow',pch = 21,show.legend = F,cex=1.5)+
-  scale_x_continuous(limits = c(-5093909,4542996))+
+  geom_point(data = active,aes(x,y,fill=methane.2024,pch=Season_Activity.2024),col='black',show.legend = F,cex=2.25)+
+  scale_shape_manual(values = c(21,24),'Annual Cover',labels = c('Annual','Not Annual'))+
+  scale_fill_manual(values = c('red','green'))+
+  geom_point(data = pp.sites,aes(x,y),col='black',fill='yellow',pch = 21,show.legend = F,cex=2.75)+
+  scale_x_continuous(limits = c(-4881209,4542996))+
   scale_y_continuous(limits = c(-3687122,4374170))+
-  theme(text = element_text(size = 8),
-        axis.title = element_blank(),
-        legend.position = 'none')+
-  annotate(geom = 'text',x = -3193909,y = 3474170,label = expression('Annual'~CH[4]),size=3)
-#annual.methane.plot
+  theme(axis.title = element_blank(),
+        legend.direction = 'horizontal',
+        legend.text = element_text(size = 12),
+        legend.key.height = unit(x = 0.1,units = 'in'),
+        legend.key.width = unit(x = 0.4,units = 'in'),
+        legend.position = c(0.1,0.05),
+        legend.title.position = 'top')
+annual.methane.plot
+
+png(filename = './figures/jess_map_1pgr.png',width = 700,height = 600,units = 'px')
+annual.methane.plot
+dev.off()
 
 #plot all 4 together
 png(filename = './figures/difference plot presentation.png',width = 6,height = 5,units = 'in',res = 2500)

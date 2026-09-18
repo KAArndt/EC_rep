@@ -506,25 +506,59 @@ oursites = subset(base.towers.i,
                     base.towers.i$site == 'Council (Permafrost Pathways)' |
                     base.towers.i$site == 'Churchill Fen' |
                     base.towers.i$site == 'Yukon-Kuskokwim Delta, Izaviknek-Kingaglia uplands, Burned 2015' |
-                    base.towers.i$site == 'Yukon-Kuskokwim Delta, Izaviknek-Kingaglia uplands, Unburned')
+                    base.towers.i$site == 'Yukon-Kuskokwim Delta, Izaviknek-Kingaglia uplands, Unburned' |
+                    base.towers.i$site == 'Lutose' |
+                    base.towers.i$site == 'Scotty Creek Landscape' |
+                    base.towers.i$site == 'Smith Creek' |
+                    base.towers.i$site == 'Steen River' |
+                    base.towers.i$site == 'Kangiqsuallujjuaq'|
+                    base.towers.i$site == 'Cambridge Bay, Victoria Island, mesic'|
+                    base.towers.i$site == 'Imnavait, Alaska heath tundra')
 
-
-png(filename = './figures/PPsitesmap.png',width = 8,height = 8,units = 'in',res = 2000)
+base.towers.i$site
+#png(filename = './figures/PPsitesmap_before.png',width = 8,height = 8,units = 'in',res = 2000)
 ggplot()+theme_map()+
   geom_sf(data = countries,fill='gray',col='gray40')+
-  layer_spatial(base.ag.i)+
+  layer_spatial(annual.methane.ag)+
   scale_fill_gradientn('Representativeness',
                        na.value = 'transparent',
                        colours = pal,
-                       limits = c(0,1.77*2),
-                       breaks = c(0,1.77,1.77*2),
-                       labels = c('Good','Cutoff','Poor'),
+                       limits = c(0,2.11*2),
+                       breaks = c(0,2.11,2.11*2),
+                       labels = c('Good','','Poor'),
                        oob = scales::squish)+  
   new_scale("fill") +
-  geom_point(data = base.towers.i,aes(x,y,pch=Season_Activity,fill=methane),
+  geom_point(data = base.towers,aes(x,y,pch=Season_Activity.2024,fill=methane.2024),
              col='black',show.legend = F,cex = 2,alpha=0.8)+
   scale_shape_manual(values = c(21,24),'Annual Cover',labels = c('Annual','Not Annual'))+
   scale_fill_manual(values = c('red','green3'))+
+  geom_point(data = oursites,aes(x,y),pch=21,fill='yellow1',col='black',cex = 3.5)+
+  scale_x_continuous(limits = c(-5093909,4542996))+
+  scale_y_continuous(limits = c(-3687122,4374170))+
+  theme(legend.text = element_text(size = 16),
+        axis.title = element_blank(),
+        legend.position = c(0.05,0.06),
+        legend.direction = 'horizontal',
+        legend.title.position = 'top',
+        legend.key.width = unit(0.45,'in'))
+#dev.off()
+
+png(filename = './figures/PPsitesmap_before.png',width = 8,height = 8,units = 'in',res = 2000)
+ggplot()+theme_map()+
+  geom_sf(data = countries,fill='gray',col='gray40')+
+  layer_spatial(annual.methane.ag.i)+
+  scale_fill_gradientn('Representativeness',
+                       na.value = 'transparent',
+                       colours = pal,
+                       limits = c(0,2.11*2),
+                       breaks = c(0,2.11,2.11*2),
+                       labels = c('Good','','Poor'),
+                       oob = scales::squish)+  
+  new_scale("fill") +
+    geom_point(data = base.towers.i,aes(x,y,pch=Season_Activity.2024,fill=methane.2024),
+               col='black',show.legend = F,cex = 2,alpha=0.8)+
+    scale_shape_manual(values = c(21,24),'Annual Cover',labels = c('Annual','Not Annual'))+
+   scale_fill_manual(values = c('red','green3'))+
   geom_point(data = oursites,aes(x,y),pch=21,fill='yellow1',col='black',cex = 3.5)+
   scale_x_continuous(limits = c(-5093909,4542996))+
   scale_y_continuous(limits = c(-3687122,4374170))+
